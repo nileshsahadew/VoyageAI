@@ -19,8 +19,8 @@ function IteneraryPlanner() {
 
         <Typography variant="body1" color="text.secondary" gutterBottom>
           Select the types of places you'd love to explore in Mauritius. Based
-          on your preferences, our AI will suggest ideal destinations tailored
-          just for you.
+          on your preferences, our VoyageAI will suggest ideal destinations
+          tailored just for you.
         </Typography>
 
         <Divider sx={{ my: 4 }} />
