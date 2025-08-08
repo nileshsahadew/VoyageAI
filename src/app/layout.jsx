@@ -2,7 +2,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavigationBar from "./components/navigationBar";
 import { StrictMode } from "react";
-import Providers from "./providers";
+import Providers from "./wrappers/providers";
+import AuthCheckWrapper from "./wrappers/authCheckWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +27,10 @@ export default function RootLayout({ children }) {
         <title> Auradrive Resorts - VoyageAI</title>
         <Providers>
           <body className={`${geistSans.variable} ${geistMono.variable}`}>
-            <NavigationBar />
-            {children}
+            <AuthCheckWrapper>
+              <NavigationBar />
+              {children}
+            </AuthCheckWrapper>
           </body>
         </Providers>
       </html>

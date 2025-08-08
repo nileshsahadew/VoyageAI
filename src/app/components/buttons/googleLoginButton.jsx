@@ -3,7 +3,6 @@ import { Box, Button, Tooltip, Avatar, CircularProgress } from "@mui/material";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 function GoogleLoginButton() {
-  // Use the useSession hook from next-auth/react
   // status can be "loading", "authenticated", or "unauthenticated"
   // data contains the session object (or null)
   const { data: session, status } = useSession();
