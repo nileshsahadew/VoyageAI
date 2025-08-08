@@ -1,5 +1,5 @@
-// You will need to install the package: npm install @langchain/google-genai
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
+import { HumanMessage, AIMessage } from "@langchain/core/messages";
 
 export const runtime = "edge";
 
@@ -7,17 +7,19 @@ export async function POST(req) {
   try {
     const { message, history } = await req.json();
 
-    // The LangChain model automatically handles roles. We just need to map our
-    // chat history format to LangChain's expected format.
-    const mappedHistory = history.map((msg) => ({
-      role: msg.type === "user" ? "user" : "model",
-      content: msg.message,
-    }));
+    // Correct the role mapping to use "human" and "ai" as required by LangChain.
+    const mappedHistory = history.map((msg) => {
+      if (msg.type === "user") {
+        return new HumanMessage({ content: msg.message });
+      } else if (msg.type === "assistant") {
+        return new AIMessage({ content: msg.message });
+      }
+    });
 
     // Instantiate the GoogleGenerativeAI model.
     // In a real-world scenario, you would use process.env.GEMINI_API_KEY
     const model = new ChatGoogleGenerativeAI({
-      apiKey: process.env.GEMINI_API_KEY, 
+      apiKey: process.env.GEMINI_API_KEY, // Replace with your API key or environment variable
       model: "gemini-2.5-flash-preview-05-20",
       temperature: 0.7,
       streaming: true,
