@@ -124,7 +124,7 @@ function ChipList() {
         {/* Row 1: 4 items */}
         <Grid container spacing={2}>
           {chipData.slice(0, 4).map((chip, index) => (
-            <Grid item xs={4} key={index}>
+            <Grid key={index}>
               <Chip
                 label={chip.label}
                 onClick={() => handleClick(chip)}
@@ -142,7 +142,7 @@ function ChipList() {
         {/* Row 2: 5 items */}
         <Grid container spacing={2}>
           {chipData.slice(4, 9).map((chip, index) => (
-            <Grid item xs={3} key={index}>
+            <Grid key={index}>
               <Chip
                 label={chip.label}
                 onClick={() => handleClick(chip)}
@@ -160,7 +160,7 @@ function ChipList() {
         {/* Row 3: 4 items */}
         <Grid container spacing={2}>
           {chipData.slice(9, 12).map((chip, index) => (
-            <Grid item xs={4} key={index}>
+            <Grid key={index}>
               <Chip
                 label={chip.label}
                 onClick={() => handleClick(chip)}
