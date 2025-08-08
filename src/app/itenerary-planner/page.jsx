@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Button,
   Box,
@@ -7,21 +9,18 @@ import {
   TextField,
   IconButton,
 } from "@mui/material";
-import ChipList from "./components/chipList";
-import { useUIStateContext } from "./components/UIStateContext";
+import ChipList from "../components/chipList";
+import { useUIStateContext } from "../components/UIStateContext";
 import { KeyboardReturn } from "@mui/icons-material";
-import ChatContainer from "./components/chatContainer";
+import ChatContainer from "../components/chatContainer";
 import { useEffect, useState } from "react";
 
-function IteneraryPlanner() {
-  const { UXMode, setUXMode } = useUIStateContext();
+function IteneraryPlannerPage() {
+  const { UXMode } = useUIStateContext();
   const [chatMessages, setChatMessages] = useState([]);
-  // useEffect(() => {
-  //   // fetch chat messages
-  //   const getChatMessages = async () => {};
-  //   getChatMessages();
-  // }, []);
 
+  // If the code reaches this point, the user is authenticated,
+  // and the main application content can be rendered.
   return UXMode.iteneraryAgentInterface !== "messaging" ? (
     <>
       <Box
@@ -60,7 +59,6 @@ function IteneraryPlanner() {
         marginTop: "1%",
         width: "auto",
         height: "83vh",
-        // border: "1px solid red",
       }}
     >
       <ChatContainer chatMessages={chatMessages} />
@@ -82,7 +80,7 @@ function IteneraryPlanner() {
             padding: "12px",
             borderRadius: "25%",
             "&:hover": {
-              backgroundColor: "primary.dark", // A darker shade on hover
+              backgroundColor: "primary.dark",
             },
           }}
         >
@@ -93,4 +91,4 @@ function IteneraryPlanner() {
   );
 }
 
-export default IteneraryPlanner;
+export default IteneraryPlannerPage;
