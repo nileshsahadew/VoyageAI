@@ -1,17 +1,14 @@
 "use client";
 import { Box, Button, Tooltip, Avatar, CircularProgress } from "@mui/material";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useUIStateContext } from "../../providers/UIStateContext";
 
 function GoogleLoginButton() {
-  // status can be "loading", "authenticated", or "unauthenticated"
-  // data contains the session object (or null)
-  const { data: session, status } = useSession();
-  const loading = status === "loading";
+  const [UXMode, setUXMode] = useUIStateContext();
+  const { data: session } = useSession();
 
   /* Conditional rendering for Google Login/User Avatar & Logout */
-  return loading ? (
-    <CircularProgress size={40} sx={{ mt: 1 }} />
-  ) : session ? (
+  return UXMode.showAuthenticatedFeatures ? (
     <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
       <Tooltip title={session.user.name || session.user.email}>
         <Avatar

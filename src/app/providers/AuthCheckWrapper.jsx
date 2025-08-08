@@ -13,9 +13,11 @@ function AuthCheckWrapper({ children }) {
   // Redirect unauthenticated users
   useEffect(() => {
     if (status === "unauthenticated") {
-      if (pathname === "itenerary-planner") router.push("/");
+      if (pathname === "/itenerary-planner") {
+        router.push("/");
+      }
     }
-  }, [status, router]);
+  }, [status, pathname]);
 
   // Show a spinner while the session is being checked.
   // This prevents the page from rendering until we know the status.
@@ -26,7 +28,7 @@ function AuthCheckWrapper({ children }) {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          minHeight: "calc(100vh - 64px)", // Adjust for your navbar height
+          minHeight: "calc(100vh - 64px)",
         }}
       >
         <CircularProgress />
