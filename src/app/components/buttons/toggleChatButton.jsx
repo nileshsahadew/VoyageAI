@@ -1,9 +1,9 @@
 import { Tooltip, IconButton } from "@mui/material";
 import { LocalOfferOutlined, Message } from "@mui/icons-material";
-import { useUIStateContext } from "../UIStateContext";
+import { useUIStateContext } from "../../providers/UIStateContext";
 
 function ToggleChatButton() {
-  const { UXMode, setUXMode } = useUIStateContext();
+  const [UXMode, setUXMode] = useUIStateContext();
 
   /* Conditional rendering for toggle buttons */
   return UXMode.iteneraryAgentInterface !== "messaging" ? (

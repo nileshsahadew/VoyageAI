@@ -1,13 +1,6 @@
 "use client";
 import { Typography, Box } from "@mui/material";
 
-/*
-chatMessages structure:
-[
-{type: "system", message: ""},
-{type: "user", message: ""}
-]
-*/
 function ChatContainer({ chatMessages }) {
   // If there are no messages, display the welcome prompt
   if (!chatMessages || chatMessages.length === 0) {
