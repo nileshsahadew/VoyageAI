@@ -1,53 +1,42 @@
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
-import { HumanMessage, AIMessage } from "@langchain/core/messages";
+import { PromptTemplate } from "@langchain/core/prompts";
+import { RunnableSequence } from "@langchain/core/runnables";
+import { createUIMessageStreamResponse, UIMessage } from "ai";
+import { toUIMessageStream } from "@ai-sdk/langchain";
 
-export const runtime = "edge";
+const model = new ChatGoogleGenerativeAI({
+  apiKey: process.env.GEMINI_API_KEY,
+  model: "gemini-2.5-flash-preview-05-20",
+  temperature: 0.7,
+  streaming: true,
+});
+
+const promptTemplate = PromptTemplate.fromTemplate(`
+You are a helpful and friendly AI assistant.
+The current conversation history is:
+{context}
+
+User's question: {question}
+
+Your response:
+`);
+
+const chain = RunnableSequence.from([promptTemplate, model]);
 
 export async function POST(req) {
-  try {
-    const { message, history } = await req.json();
+  const { messages } = await req.json();
+  const last = messages[messages.length - 1];
+  const context = messages
+    .slice(0, -1)
+    .map((m) => `${m.role}: ${m.message}`)
+    .join("\n");
 
-    // Correct the role mapping to use "human" and "ai" as required by LangChain.
-    const mappedHistory = history.map((msg) => {
-      if (msg.type === "user") {
-        return new HumanMessage({ content: msg.message });
-      } else if (msg.type === "assistant") {
-        return new AIMessage({ content: msg.message });
-      }
-    });
+  const stream = await chain.stream({
+    context: context,
+    question: last.message,
+  });
 
-    // Instantiate the GoogleGenerativeAI model.
-    // In a real-world scenario, you would use process.env.GEMINI_API_KEY
-    const model = new ChatGoogleGenerativeAI({
-      apiKey: process.env.GEMINI_API_KEY, // Replace with your API key or environment variable
-      model: "gemini-2.5-flash-preview-05-20",
-      temperature: 0.7,
-      streaming: true,
-    });
-    
-    // Use the LangChain model's stream method to get a streaming response.
-    // The model will automatically handle the chat history you provide.
-    const stream = await model.stream(mappedHistory);
-    
-    // We can then pipe the LangChain stream directly to a new Response object.
-    const textEncoder = new TextEncoder();
-    const readableStream = new ReadableStream({
-        async start(controller) {
-          for await (const chunk of stream) {
-            controller.enqueue(textEncoder.encode(chunk.content));
-          }
-          controller.close();
-        }
-    });
-
-    return new Response(readableStream, {
-      headers: { "Content-Type": "text/plain" },
-    });
-  } catch (error) {
-    console.error("LangChain API Error:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
+  return createUIMessageStreamResponse({
+    stream: toUIMessageStream(stream),
+  });
 }
