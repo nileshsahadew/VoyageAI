@@ -23,7 +23,9 @@ export default function RootLayout({ children }) {
   return (
     <StrictMode>
       <html lang="en">
-        <title> Auradrive Resorts - VoyageAI</title>
+        <head>
+          <title> Auradrive Resorts - VoyageAI</title>
+        </head>
         <body className={`${geistSans.variable} ${geistMono.variable}`}>
           <Providers>
             <NavigationBar />
