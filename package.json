@@ -9,21 +9,29 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/langchain": "^1.0.11",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.14.1",
     "@langchain/google-genai": "^0.2.16",
+    "@langchain/langgraph": "^0.4.4",
     "@mui/icons-material": "^7.3.1",
     "@mui/material": "^7.3.1",
     "@react-oauth/google": "^0.12.2",
-    "jsonwebtoken": "^9.0.2",
+    "ai": "^5.0.11",
+    "eventsource-parser": "^3.0.3",
     "langchain": "^0.3.30",
     "next": "15.4.6",
     "next-auth": "^4.24.11",
+    "playwright": "^1.54.2",
+    "playwright-extra": "^4.3.6",
+    "playwright-extra-plugin-stealth": "^0.0.1",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^5.5.0",
-    "react-oauth": "^0.0.1"
+    "react-oauth": "^0.0.1",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

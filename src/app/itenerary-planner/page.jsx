@@ -15,6 +15,7 @@ import { useUIStateContext } from "../providers/UIStateContext";
 import { KeyboardReturn } from "@mui/icons-material";
 import ChatContainer from "../components/chatContainer";
 import { useState } from "react";
+import SSEClient from "@/utils/sseClient";
 
 function IteneraryPlannerPage() {
   const [UXMode, setUXMode] = useUIStateContext();
@@ -22,64 +23,60 @@ function IteneraryPlannerPage() {
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const sendMessageToAgent = async (chatMessages, userMessage) => {
+    const response = await fetch("/api/agent", {
+      method: "POST",
+      headers: {
+        "message-Type": "application/json",
+      },
+      body: JSON.stringify({
+        messages: [...chatMessages, userMessage], // Send the full history for context
+      }),
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response;
+  };
+
   // This function handles sending the user's message to the API
   const handleSendMessage = async () => {
     // Prevent sending empty messages or while loading
     if (inputMessage.trim() === "" || isLoading) return;
 
-    // Add the user's message to the chat history
     const userMessage = { type: "user", message: inputMessage };
-    setChatMessages((prevMessages) => [...prevMessages, userMessage]);
+    let assistantMessage = { type: "assistant", message: "" };
 
-    // Clear the input field and set loading state
+    // Add the user's message to the chat history & update UI
+    setChatMessages((prevMessages) => [...prevMessages, userMessage]);
     setInputMessage("");
     setIsLoading(true);
 
     try {
-      // Send the chat history and new message to the API route
-      const response = await fetch("/api/agent", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: inputMessage,
-          history: [...chatMessages, userMessage], // Send the full history for context
-        }),
-      });
+      const streamingResponse = await sendMessageToAgent(
+        chatMessages,
+        userMessage
+      );
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      // Read the streaming response from the server
-      const reader = response.body.getReader();
-      const decoder = new TextDecoder();
-      let assistantMessage = { type: "assistant", message: "" };
-
-      // Initialize the assistant message in the chat state
       setChatMessages((prevMessages) => [...prevMessages, assistantMessage]);
 
-      while (true) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        const chunk = decoder.decode(value, { stream: true });
-        assistantMessage.message += chunk;
-
-        // Mutate the chatMessages state with the streaming chunks
-        setChatMessages((prevMessages) => {
-          const newMessages = [...prevMessages];
-          const lastMessageIndex = newMessages.length - 1;
-          newMessages[lastMessageIndex] = {
-            ...newMessages[lastMessageIndex],
-            message: assistantMessage.message,
-          };
+      // UI Logic for when a new chunk arrives from streamingResponse
+      const onNewChunkArrival = (parsed) => {
+        assistantMessage.message += parsed.delta;
+        setChatMessages((prev) => {
+          const newMessages = [...prev];
+          newMessages[newMessages.length - 1] = { ...assistantMessage };
           return newMessages;
         });
-      }
+      };
+
+      // SSEClient listens to response stream and will parse each valid arriving chunk
+      // before executing the callback
+      const sseClient = new SSEClient();
+      sseClient.on("text-delta", onNewChunkArrival);
+      sseClient.connect(streamingResponse);
     } catch (error) {
       console.error("Failed to fetch from chat API:", error);
-      // Add a friendly error message to the chat
       setChatMessages((prevMessages) => [
         ...prevMessages,
         { type: "system", message: "An error occurred. Please try again." },
