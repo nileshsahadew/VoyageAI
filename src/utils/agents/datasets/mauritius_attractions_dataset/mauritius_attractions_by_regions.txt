@@ -1,0 +1,453 @@
+Disclaimer: This json file mainly focuses on physical attractions, which are either public and
+accessible to both locals and tourists or other attractions which are iconic and/or have a
+cultural/ historical flair.
+
+Completed: 21 / 37
+
+Le Morne                                                    - Completed
+Le Morne Brabant 
+Le Morne Public Beach 
+Le Morne Brabant Hiking 
+One Eye Surfing Spot, Le Morne
+Underwater Waterfall Mauritius
+Le Morne Heritage Site
+Le Morne Kitesurfing Beach
+Paradise Snorkelling
+Haras du Morne
+Crystal Rock
+Ile aux Benitiers
+
+Le Morne (To South - Savanne)
+Chill Point of Dont Geilo
+Illot Fourneau
+Peninsule de mangrove
+Le Morne Village
+    Monument of Fishermen lost
+Vallee Coraille
+Maconde
+    Captain Matthew Finders Monument
+    Maconde Peak
+    Poetic Board
+    Fresque de Vaco
+    Peace Pole
+    View Point Anbalala
+S.S Trevassa Monument
+
+Le Morne (To North - Cascavelle)
+Plage Publique de Case Noyale
+    Jetee de Case Noyale
+Illot Malais
+ADD Mangrove Nature Reserve
+VTT Path Bridge
+Morne View Spot Beach
+Chateau La Pointe Koenig
+Ruisseau Creole Shopping Mall
+The Tides Public Beach
+La Tourelle Tamarin Mountain
+    La Tourelle Hiking Path
+Salines de Tamarin
+    Old Lime Kiln
+Tamarin Public Beach
+Super U Tamarin
+
+Chamarel (Connecting North & South To Le Morne)
+Rhumerie de Chamarel
+Chamarel View Point (Higher)
+Chamarel 7 Couloured Earth
+    Curious Chamarel
+    Chamarel Waterfall
+    Chamarel Seven Colored Earth
+Piton Du Canot https://www.exploremauritius.org/?page_id=1044
+Ebony Forest Reserve
+    Sublime Point
+    La Gaulette Viewpoint
+   
+Savanne (To East - St-Aubin-Camp Diable)
+Bel Ombre Public Beach
+World of Seashells
+Bel Ombre Abandoned Sugarcane mill
+Lionel Passion Guide Ltd Hunting Reserve
+Baie du Jacotet
+Riviere Des Galets Beach
+St Felix Beach
+    Sunset View with great waves
+Gris Gris Cave
+Bel Ombre Nature Reserve
+    Frederica Viewpoint
+    Cascade L'Exemple
+Centre Equestre De Riamble
+Riambel Hiking (Below Surinam) [Accessiblity]
+Rochester Falls
+Telfair Garden
+Robert Edward Hart Memorial Museum
+Gris Gris Beach
+    Viewpoint Gris Gris Beach
+Roche Qui Pleure
+Cascade V
+
+Savanne (To North - Black River Gorges)
+Chamouny Waterfall [Accessibility]
+Plaine Paul Natural Forest
+Valle Advenature Park
+Bassin Blanc View
+Mo'Bike Biking Trails
+Valriche Dam [Accessibility]
+Cascade Cheveux D'anges [Accessibility]
+Piton Savanne Hiking Trail [Accessibility]
+Mount Cocotte Trail
+
+St-Aubin-Camp Diable (To South-West - Savanne)
+Le Pont de la Rivere des Anguilles
+La Vanille Nature Park
+The Riviere des Anguilles Bridge
+Union Ducray Old Sugar Factory
+Domaine de Saint Aubin Restaurant
+Senneville Cliffs [Transport Required] *
+
+St-Aubin-Camp Diable (North To Curepipe & Black River Gorges)
+Sookdeo Bissoondoyal Memorial Museum
+Cascade Leon [Accessibility]
+Pont Rouge
+
+St-Aubin-Camp Diable (To North-East - Airport)
+Benares Beach
+Bassin Carangue Little Beach
+Savinia Beach
+Le Souffleur
+Pont Naturel
+
+Black River Gorges (To East - St-Aubin-Camp Diable & Airport)
+Grand Bassin Temple
+    Maa Durga Statue
+    Lord Shiva Statue
+Bois Cheri Tea Factory
+Domaine des 7 Vallee
+Trou Kanaka
+Rioux River [Accessibility]
+
+Black River Gorges (To West - Le Morne & north entry point)
+Victory Waterfalls
+Victoria Fall
+Alexandra Falls Hiking Trail
+    Alexandra's Falls
+    Cascade 500 Pieds
+Gollum Trail [Accessibility]
+Gorges Viewpoint
+Andu's Waterfall
+
+Black River Gorges (To West - Cascavelle)
+Black River Gorges Nature Park South
+Black River Peak Trail South
+    Piton de la Petite Riviere Noire
+Macchabee Hiking Start End
+Pigeon Park
+La Grotte Kiosk
+Viewpoint
+Black River Visitors Centre
+Black River Gorges Nature Park North
+
+Cascavelle (To West)
+Casela Nature Parks
+Cascavelle Shopping Mall
+Parkalange
+Dodo Roundabout
+Plage publique de Flic en Flac
+    Lime Kiln
+Embarkation Point Adrien's Dream
+Des Bretons Coastal Area
+Massive Boabab
+La Corniche
+
+Cascavelle (To North-East - Port Louis)                     - Completed
+Bambous Public Park
+Around Medine Sugar Estate
+The Soul Tree at La Mecque
+Dolphin Spotting
+La Ferme Reservoir
+    Dam View Point
+Espace Maison
+Cine Sous Les Etoiles
+Pyjon Boabab
+Albion Beach
+Mon Plaisir public beach
+Albion Cliffs
+Phare d'Albion
+Arche Naturelle
+Gros Cailloux Cave
+Pointe Aux Sables Public Beach
+La Jetee Pointe Aux Sables
+Martello Tower
+
+Black River Gorges (To North - Curepipe)
+Mare Longue Reservoir
+Sophie Nature Walk
+Mare aux Vacoas Viewpoint
+Sept Cascade
+Tamarind Falls Viewpoint
+Tamarind Falls
+Vol aux Vents
+
+Curepipe (To North - Quatres Bornes)                        - Pending
+Monvert Nature Walk
+Monvert Fernery
+SSR Botanical Garden of Curepipe
+Jardin Municpial de Curepipe Paul & Virginie
+War Memorial Curepipe
+St Therese Church
+Trou aux Cerfs Volcano
+Caverne Hirondelle
+Warriors Rest Memorial
+Promenade Pere Laval
+Carrefour Phoenix
+Mauritius Glass Gallery Ltd
+Le Valentina Shopping Mall
+
+Curepipe (To East - Midlands)                               - Pending
+Les Plaines de L'Hermitage
+Piton du Milieu Reservoir
+Piton du Milieu Mountain
+Midlands Dam
+
+Quatres Bornes (To West - Cascavelle)
+Jardin Bon Coeur
+Cite Kennedy
+Montagne du Rempart
+    Trois Mamelles
+Pierrefonds Dam
+Cascade La Ferme
+Mount St Pierre
+
+Quatres Bornes (To East - St Pierre)
+Sodnac Hill Crest
+Sodnac Wellness Parc
+Candos Hill
+MT Playground
+La Cite Trianon
+Tribeca Mall
+    Gravity Max
+Reduit Museum
+Bagatelle Mall
+Parcours de Sante Reduit
+    Reduit Viewpoint
+Eureka Falls
+Mt Ory
+    Junction Peak
+Dalmazie
+Le Pouce Mountain
+
+Quatres Bornes (To North-East Port Louis)
+Tombeau Sir Gaetan Duval
+La Cite Trianon
+Jasmin Spiritual Park
+Ebene Recreational Park
+Garden Section A
+    Beau Bassin Plaza Garden
+    Balfour Garden
+Sacre Coeur
+Garden Section B
+    Freddy Appassamy Garden
+Claude Cavalot
+Jardin Familiale Garden
+Chapman Hill Peak
+Viewpoint Sir Aneerood Jugnauth
+Soreze Waterfalls
+
+Port Louis                                                  - Completed
+Swami Vivekananda Convention Center
+Rajiv Gandhi Science Center
+Bain des Dames Beach
+Les Salines Garden
+    Toroise Park
+Kwan Tee Pagoda
+Odysseo - oceanarium
+Marie Reine de la Paix
+Victoria Urban Terminal 
+Caudan Waterfront
+    Umbrella Square
+    Blue Penny Museum
+    Mauritius Postal Museum
+    Windmill Museum
+    Intercontinental Slavery Museum
+    Apravasi Ghat World Heritage Site
+Signal Mountain
+Natural History Museum
+Les Jardins De La Compagnie
+Photographic Museum of Mauritius
+St James Cathedral
+St Louis Cathedral
+Champ de Mars
+    Tombeau Malartic
+Le Dauguet
+    Cascade Iazar Dauguet
+Nam Shun Fooy Koon Pagoda
+Citadelle (Fort Adelaide)
+China Town
+    China Town Gate
+    Street And Art Murals
+Plaine Vert Gardens
+    Sir Abdul Razack Mohamed Garden
+    Sunnirazvi Garden
+St Francois Xavier Green Space
+Priest's Peak
+Sockalingum Meenatchee Ammen Kovil
+Virgin's Peak
+Piton Jacob's Peak
+Letard Mountain
+Valle pitot mountain
+Jumbo Riche Terre
+
+Port Louis (To North - Grand Bay)                           - Completed
+Powder Mills Nature Walk
+Indigenous Plant Garden
+Historical Ruins of Balaclava
+Citron Waterfalls
+Balaclava Public Beach
+Pointe aux Piments Public Beach
+Pointe aux Biches Public Beach
+Trou aux Biches Public Beach
+Mon Choisy Public Beach
+Pointe aux Canonniers Beach
+
+Grand Bay (To South East - Petite Julie)                    - Completed
+Chateau de Labourdonnais
+Belle Vue Forest Trail (Daruty Forest)
+
+Grand Bay                                                   - Completed
+Super U Grand Bay
+La Croisette
+La Cuvette Public Beach
+
+St Pierre (To East - Quartier Militaire)                    - Completed
+Vullemin Forest
+Alphonse Ravaton Green Space
+Cote D'Or National Sports Complex
+
+St Pierre (To North East - Petite Jule)                     - Completed
+Pieter both
+Deux Mamelles
+Platform Ripailles
+Nicoliere Small Bridge [Accessibility]
+Mount William
+
+Quartier Militaire (To East - Bel Air)                      - Completed
+Bois Clair Dam
+Montagne Blanche Lake
+Montagne Blanche
+Camp De Masque Pave Waterfront
+Le chat et La Souris
+Bambous Mountain
+
+Petite Julie (To West - Port Louis)                         - Completed
+Sir Seewoosagur Ramgoolam Botanical Garden
+L'Aventure du Sucre
+Petit Morne
+
+Petite Julie (To North-East - Riviere du Rempart)           - Completed
+Rivier du Rempart Park
+Roche Noire Lava Tubes
+
+Petite Julie (To South-East - Bel Air)                      - Completed
+Pont Bon Dieu Cave
+Old Chimney Grande Retraite
+Plantation Vanille St Julien D'Hotman
+Riche Fond Spiritual Park
+Centre Flacq Market
+Coeur de Ville Flacq
+Centre Flacq Park
+Cascade Dipain
+
+Riviere du Rempart (To North - Grand Gaube)                 - Completed
+Pointe des Lascars Beach
+Pointes des Lascars Hindu Spiritual Park
+La Croix de Jesus Poudre D'or
+Poudre D'Or Waterfront
+Poudre D'Or Fishing Reserve
+Bain de Rosnay
+Ile D'Ambre
+L'Ilot Bernache
+Bassin Labou
+Super U Goodlands
+
+Riviere du Rempart (To South - Bel Air)                     - Completed
+Roche Noires Beach
+Roche Noires Waterfront
+Bassin Tower
+Gily's Barking Rock
+Mare Sacrelle Trail [Accessibility]
+Post Lafayette Public Beach
+Bras D'Eau National Park
+    Bras D'Eau Visitor's Center
+    Mare Mahogany
+    Puit Francais
+Bras D'Eau Public Beach
+Bassin Requins
+Constance Belle Mare Plage
+Belle Mare Public Beach
+Quatres Cocos Beach Hiking Trail
+Palmar Public Beach
+    Pointe Quatres Cocos
+Camila Plage Publique
+Public Boat Pier
+Beau Rivage Hunting Preserve
+Ille aux Cerfs
+    Cervi Beach
+    4 Seasons Beach
+    Ilot Valerie
+
+Grand Gaube                                                 - Completed
+Melville Beach
+Grand Gaube Embarcation Point
+Grand Gaube Public Beach
+
+Grand Gaube (To West - Grand Bay)                           - Completed
+Butte a l'herbe
+Calodyne Public Access to Beach
+St Francois Public Beach
+Anse La Raie Beach
+Giant Fictus - Cap Malheureux
+Notre-Dame Auxilatrice de Cap Malheureux
+Cap Malheureux 
+Gunners Quoin
+Flat Island
+Gabriel Island
+Bain Boeuf Public Beach
+Pointe D'Azur
+Pereybere Public Beach
+
+Bel Air (To South - Airport)                                - Completed
+GSRE Waterfall
+Camp Pecheur Waterfron4.4t
+Pointe du Diable
+Frederick Hendrick Museum
+La Vallee de Fernery
+Dutch First Landing
+    Ferney Viewpoint
+    Kestrel Valley
+
+Airport                                                     - Completed
+Lavoir
+Mahebourg Waterfront
+    Mahebourg Last Train Station
+    Mahebourg Pier
+    Swami Sivananda Statue
+Mahebourg Museum
+Bo'Valon Mall
+Disable Blanc
+Pointe D'Esny Beach
+Aircraft Landing Viewpoint
+Blue Bay Marine Park
+    Ile Darne
+La Cambuse Beach
+Sable Mort Beach
+Royal Palms Forest
+
+Airport (To North-West - Curepipe)                          - Completed
+Permaculture Mauritius The Organic Perimeter
+Chateau de Riche en Eau
+Bermuda Waterfall
+Cascade Eau Bleu
+Le Val Nature Park
+Vallee d'Osterlog
+Le Selle Mountain
+Eau Bleu Reservoir
+Domain De La Grave

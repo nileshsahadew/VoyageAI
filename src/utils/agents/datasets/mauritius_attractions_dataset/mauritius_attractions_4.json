@@ -1,0 +1,750 @@
+[
+  {
+    "id": "attraction_042",
+    "name": "Lavoir, Rue de la Chaux",
+    "attraction_type": "point_of_interest",
+    "description": "A historical monument located in the village of Mahébourg, this 'lavoir' or public wash house holds significant historical value as the place where local washerwomen and, as some sources suggest, slaves, would wash officers' uniforms. Visitors are drawn to its historical past and scenic views of the river, but many note its current state of disrepair.",
+    "tags": ["historical", "monument", "landmark", "river", "folklore"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Rue de la Chaux, Mahébourg, Mauritius",
+      "latitude": -20.4073,
+      "longitude": 57.7044,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The site is noted to be closed to the public and may not be officially accessible. Visit at your own risk."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/saZ7sZMNWntqep2j6",
+        "rating": 4.5,
+        "reviewCount": 20,
+        "summary": "Reviews consistently praise the site's historical significance and its scenic views, but critically note its poor condition due to a large amount of litter. Visitors also mention a lack of detailed or precise explanatory text, making the history difficult to understand. Recent reviews report the site is closed to the public and not worth the trip in its current state."
+      }
+    ],
+    "additional_info": {
+      "notes": "The site is considered a local landmark but has fallen into disrepair. The historical signage is vague and lacks detail.",
+      "advisories": {
+        "safety": ["Be cautious of litter and uneven ground."],
+        "travel": ["The monument is reported to be closed to the public."]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_043",
+    "name": "Mahébourg Waterfront",
+    "attraction_type": "destination",
+    "description": "The Mahébourg Waterfront is a peaceful and scenic spot with stunning sea views, a lovely walking path, and significant historical importance. It is a great place for a relaxing stroll, especially in the morning or evening, and provides easy access to nearby markets and local food stalls.",
+    "tags": [
+      "waterfront",
+      "walks",
+      "historical",
+      "scenic view",
+      "food",
+      "market"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Mahébourg Waterfront, Mahébourg, Mauritius",
+      "latitude": -20.405,
+      "longitude": 57.71,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Freely accessible to the public."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/C4xqdqaDMsS8iCVw6",
+        "rating": 4.3,
+        "reviewCount": 2031,
+        "summary": "Mahébourg Waterfront is a peaceful and scenic spot in Mauritius with stunning sea views, a lovely walking path, and historical significance. It’s great for a relaxing stroll, especially in the morning or evening. You can explore nearby markets and local food stalls too. Some parts may need better maintenance, but overall it’s a calm, charming place to visit."
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g481079-d10130872-Reviews-Mahebourg_Waterfront-Mahebourg.html",
+        "rating": 3.9,
+        "reviewCount": 189,
+        "summary": "Mahébourg features a historical naval museum and a scenic waterfront—reflects the town's colonial architecture and maritime history."
+      }
+    ],
+    "additional_info": {
+      "notes": "The area is a hub for local life and street food, making it an excellent place to experience local culture. Some parts of the waterfront may require better maintenance.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_044",
+        "relation_type": "located_within"
+      },
+      {
+        "id_ref": "attraction_045",
+        "relation_type": "located_within"
+      },
+      {
+        "id_ref": "attraction_046",
+        "relation_type": "located_within"
+      },
+      {
+        "id_ref": "attraction_047",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_044",
+    "name": "Monument Commemorating Bataille de Vieux Grand Port",
+    "attraction_type": "historical_monument",
+    "description": "A monument at the Mahébourg Waterfront commemorating the Battle of Grand Port, a key naval battle between the French and the British fleets in 1810. It is a simple stone column that stands as a tribute to the sailors who fought.",
+    "tags": ["historical", "monument", "maritime history", "war"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Mahébourg Waterfront, Mahébourg, Mauritius",
+      "latitude": -20.404,
+      "longitude": 57.71,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Part of the public waterfront."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "The monument is a key part of the Mahébourg historical trail.",
+      "advisories": null
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_045",
+    "name": "Mahébourg Last Train Station",
+    "attraction_type": "historical_landmark",
+    "description": "The site of the last train station of the former railway line that ran to Mahébourg. While the station is no longer in use, its location is a point of historical interest and a landmark on the waterfront.",
+    "tags": ["historical", "landmark", "railway", "point of interest"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Mahébourg Waterfront, Mahébourg, Mauritius",
+      "latitude": -20.407,
+      "longitude": 57.702,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Accessible as part of the public waterfront area."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Mahébourg+Last+Train+Station",
+        "rating": 3.9,
+        "reviewCount": 16,
+        "summary": "Visitors describe the site as a sad but interesting historical landmark, noting its dilapidated state as it is unmaintained and literally 'falling apart.' Reviews mention a small informational board is available, but many found the ruins hard to identify without prior knowledge. A recurring complaint is the presence of litter and trash. While some find it not worth a special trip, others appreciate seeing this piece of history and note that the best time for photos is on Sunday when the market isn't active."
+      }
+    ],
+    "additional_info": {
+      "notes": "The station site is now part of the walking path and often has street vendors nearby.",
+      "advisories": null
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_046",
+    "name": "Swami Sivananda Statue",
+    "attraction_type": "point_of_interest",
+    "description": "A statue of Swami Sivananda, an Indian spiritual teacher, located at the Mahébourg Waterfront. The statue serves as a point of contemplation and a peaceful landmark with a scenic backdrop of the sea.",
+    "tags": ["statue", "spiritual", "point of interest", "religious"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Mahébourg Waterfront, Mahébourg, Mauritius",
+      "latitude": -20.407,
+      "longitude": 57.702,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Accessible as part of the public waterfront."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "The statue is a small part of the larger waterfront walk.",
+      "advisories": null
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_047",
+    "name": "Mahébourg Pier",
+    "attraction_type": "point_of_interest",
+    "description": "A well-known pier at the Mahébourg Waterfront that extends into the lagoon, offering breathtaking panoramic views of the sea, the islands, and the nearby coastline. It is a popular spot for leisurely walks and photography.",
+    "tags": ["pier", "scenic view", "walks", "photography"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Mahébourg Waterfront, Mahébourg, Mauritius",
+      "latitude": -20.407,
+      "longitude": 57.702,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Accessible as part of the public waterfront."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "The pier is a great spot to watch the sunrise and sunset.",
+      "advisories": {
+        "safety": ["Be cautious on the pier during strong winds or high tide."],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_048",
+    "name": "Mahébourg Museum",
+    "attraction_type": "museum",
+    "description": "Also known as the Naval Museum, this historical site is the perfect place to learn about the history of Mauritius, from its early colonial days under Dutch, French, and British rule. It houses a collection of antiques, pictures, and detailed descriptions that provide insight into the country's past.",
+    "tags": [
+      "museum",
+      "history",
+      "colonial history",
+      "historical artifacts",
+      "naval history",
+      "education"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Pamplemousses Rd, Mahébourg, Mauritius",
+      "latitude": -20.4162,
+      "longitude": 57.7034,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "There is no entry fee. However, some visitors report the museum can be closed unexpectedly, so it's advisable to check opening hours in advance."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/fhmxgxKuqdqYvLYk8",
+        "rating": 4.2,
+        "reviewCount": 877,
+        "summary": "Visitors consistently praise the museum as an excellent place to learn about Mauritian history, finding the exhibits and preserved artifacts 'fantastic.' The staff are noted as being courteous and welcoming. However, a major complaint is the presence of pesky mosquitoes both inside and outside the building. Reviewers also mention a need for more maintenance on the building and its exterior exhibits. Photography is reportedly not allowed inside the premises."
+      }
+    ],
+    "additional_info": {
+      "notes": "Photography is strictly prohibited inside the museum. The exhibits provide comprehensive details on the country's history and key figures.",
+      "advisories": {
+        "safety": ["Bring mosquito repellent to protect against bites."],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_049",
+    "name": "Beau Vallon Mall",
+    "attraction_type": "shopping_center",
+    "description": "A modern, two-story shopping mall and a major commercial hub for the southeast of Mauritius. It is home to a large supermarket (Super U), a food court, a cinema (Star Cinema), and a variety of retail shops. The mall is a convenient one-stop destination for shopping, dining, and entertainment in the region.",
+    "tags": [
+      "shopping",
+      "mall",
+      "cinema",
+      "food court",
+      "supermarket",
+      "family-friendly"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Beau Vallon, Mahébourg, Mauritius",
+      "latitude": -20.423,
+      "longitude": 57.697,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Free public access and parking are available. Can be busy on weekends and holidays."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/cny4iJMQ24AXjb9A7",
+        "rating": 4.2,
+        "reviewCount": 2246,
+        "summary": "Visitors appreciate the mall's convenience and cleanliness. The combination of a large supermarket, cinema, and food court makes it a popular and practical choice for both locals and tourists. Reviews often mention it as a great place for all-in-one shopping and a good way to spend a few hours."
+      }
+    ],
+    "additional_info": {
+      "notes": "The mall serves as the primary shopping and entertainment complex for the Mahébourg region.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_050",
+    "name": "Disable Blanc",
+    "attraction_type": "viewpoint",
+    "description": "A scenic viewpoint located just before arriving in Mahébourg. It offers a great spot to stop and enjoy beautiful, panoramic views of the surrounding landscape and coastline, making it a worthwhile and easy detour for travelers.",
+    "tags": ["viewpoint", "scenic view", "roadside stop", "photography"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Near Mahébourg, Grand Port, Mauritius",
+      "latitude": -20.4247,
+      "longitude": 57.7236,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Easily accessible from the main road; suitable for a short stop."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/muazKpuoxNPeauAbA",
+        "rating": 5.0,
+        "reviewCount": 1,
+        "summary": "This is a nice viewpoint before arriving at Mahébourg. It's worth a stop to enjoy the views."
+      }
+    ],
+    "additional_info": {
+      "notes": "A quick and easy stop to admire the scenery on your way to or from Mahébourg.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_051",
+    "name": "Aircraft Landing Viewpoint",
+    "attraction_type": "viewpoint",
+    "description": "An informal but popular roadside viewpoint that offers a close-up, panoramic view of planes landing and taking off at Sir Seewoosagur Ramgoolam International Airport (MRU). It is a well-known spot for aviation enthusiasts, photographers, and families to enjoy the spectacle of aircraft.",
+    "tags": [
+      "viewpoint",
+      "plane spotting",
+      "photography",
+      "roadside stop",
+      "aviation",
+      "family-friendly"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Plaine Magnien Road, Plaine Magnien, Mauritius",
+      "latitude": -20.4205,
+      "longitude": 57.6637,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Accessible by car with informal roadside parking. There are no facilities at this location."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/H7Lm6cqhD5yPGUoFA",
+        "rating": 4.5,
+        "reviewCount": 148,
+        "summary": "Visitors consistently praise this spot for its fantastic views of the airport runway, making it a great place to watch planes. It is highly recommended for aviation enthusiasts and for a fun family outing, especially on weekends. Reviewers note that it is an informal spot with no facilities but is well worth the stop."
+      }
+    ],
+    "additional_info": {
+      "notes": "The viewpoint is particularly popular in the afternoon and evening when larger flights are scheduled. Check flight schedules for the best viewing opportunities.",
+      "advisories": {
+        "safety": [
+          "Be aware of traffic on the road and do not park in restricted areas."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_052",
+    "name": "Blue Bay Marine Park",
+    "attraction_type": "national_park",
+    "description": "A protected marine park renowned for its exceptionally clear turquoise water and rich marine biodiversity. It is one of Mauritius's best spots for snorkeling and glass-bottom boat tours, allowing visitors to see vibrant coral reefs and a wide variety of tropical fish. The park encompasses the main Blue Bay Beach and surrounding islets.",
+    "tags": [
+      "marine park",
+      "snorkeling",
+      "scenic",
+      "beach",
+      "boat tour",
+      "coral reef"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Blue Bay, Mahébourg, Mauritius",
+      "latitude": -20.444,
+      "longitude": 57.7164,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Access to the main beach is free, but guided boat tours for snorkeling have a fee and are highly recommended for the best experience."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/ez7wNqyap2Yawt7C9",
+        "rating": 4.5,
+        "reviewCount": 4122,
+        "summary": "Reviews consistently praise the park's beautiful, clear waters and abundant marine life, calling it a must-do for snorkeling. Many visitors recommend taking a glass-bottom boat tour. Some reviews express sadness about the visible coral degradation but still consider the experience worthwhile."
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g481079-d3984763-Reviews-Blue_Bay_Marine_Park-Mahebourg.html",
+        "rating": 4.1,
+        "reviewCount": 540,
+        "summary": "Incredible coral reefs and clear waters; perfect for snorkeling and calm swims."
+      }
+    ],
+    "additional_info": {
+      "notes": "The park's ecosystem is fragile; visitors are urged not to touch or stand on the coral. It is a key conservation area in Mauritius.",
+      "advisories": {
+        "safety": ["Be mindful of boat traffic, especially when snorkeling."],
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_054",
+        "relation_type": "part_of"
+      },
+      {
+        "id_ref": "attraction_055",
+        "relation_type": "part_of"
+      }
+    ]
+  },
+  {
+    "id": "attraction_054",
+    "name": "Île des Deux Cocos",
+    "attraction_type": "island",
+    "description": "A private, luxury resort island located within the Blue Bay Marine Park. The island offers exclusive all-inclusive day trips and overnight stays, providing a high-end experience with a beautiful beach, a lush garden, and the famous 'Moorish' style villa. It is a stark contrast to the public areas of the marine park.",
+    "tags": ["island", "luxury", "resort", "private beach", "exclusive"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Blue Bay Marine Park, Mauritius",
+      "latitude": -20.4486,
+      "longitude": 57.7109,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Day passes or overnight stays must be booked in advance. Access is restricted to paying guests."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "The island is known for its high-end day packages and exclusive atmosphere.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_055",
+    "name": "Île aux Aigrettes",
+    "attraction_type": "nature_reserve_islet",
+    "description": "Coral-island nature reserve off Mahébourg, home to rare endemic species including giant tortoises and restored dry coastal forest.",
+    "tags": ["nature", "reserve", "wildlife", "endemic", "islet"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Grand Port Bay, off Mahébourg, Mauritius",
+      "latitude": -20.38,
+      "longitude": 57.722,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Boat departure from Mahébourg",
+          "latitude": -20.385,
+          "longitude": 57.718,
+          "access_notes": "Access by guided boat tours only."
+        }
+      ],
+      "notes": "Reserve visits must be booked in advance."
+    },
+    "reviews": [
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g293816-d477982-Reviews-Ile_aux_Aigrettes_Nature_Reserve-Mauritius.html",
+        "rating": "4.6/5 stars",
+        "reviewCount": 655,
+        "summary": "An islet nature reserve protecting dry coastal forest and endemic species, managed by conservation groups."
+      }
+    ],
+    "additional_info": {
+      "notes": "Ideal for nature lovers; conservation-focused tours.",
+      "advisories": {
+        "safety": "Boat rides; uneven terrain on site.",
+        "travel": "Booking required; limited daily tours."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_055",
+    "name": "Pointe d'Esny",
+    "attraction_type": "beach",
+    "description": "A quiet and stunningly beautiful public beach known for its long stretch of white sand and clear, shallow turquoise water. It is a perfect alternative to the more crowded main beach at Blue Bay, offering a peaceful atmosphere and excellent swimming conditions.",
+    "tags": ["beach", "swimming", "quiet", "photography", "snorkeling"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Pointe d'Esny, Mahébourg, Mauritius",
+      "latitude": -20.4273,
+      "longitude": 57.7277,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Public access. Limited parking may be a challenge on weekends."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "Often considered one of the best beaches on the island for its natural, unspoiled beauty.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_056",
+    "name": "La Cambuse Beach",
+    "attraction_type": "beach",
+    "description": "A secluded and wild public beach often described as a hidden gem. It is a quiet spot with little development, offering a serene atmosphere with some shade from trees and a few kiosks. Visitors note that the beach has a lot of coral and rocks, and the sea can be shallow and dangerous for swimming in some areas.",
+    "tags": ["beach", "wild", "secluded", "quiet", "scenic", "swimming"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "La Cambuse, Mahébourg, Mauritius",
+      "latitude": -20.4515,
+      "longitude": 57.7025,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access can be difficult due to a lack of clear direction signs."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/coh9NLn2DBGhhXny8",
+        "rating": 4.5,
+        "reviewCount": 765,
+        "summary": "Visitors praise La Cambuse as a peaceful, wild, and pristine 'gem' of a beach. Many note its quiet atmosphere, making it a great spot for a day out with friends and family. However, reviews consistently warn that the sea can be dangerous for swimming and that there are many corals and rocks, requiring caution. The beach is also known for offering views of airplanes flying overhead."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best to visit in the morning for tranquil waters and to bring sturdy footwear for navigating the coral and rocks.",
+      "advisories": {
+        "safety": [
+          "Be extremely cautious of strong currents and waves; swimming can be dangerous. Watch out for your feet due to a lot of coral and rocks."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_057",
+    "name": "Sable Mort Beach",
+    "attraction_type": "beach",
+    "description": "A secluded and little-known beach situated near La Cambuse. Its name, meaning 'Dead Sand,' refers to its unique dark, fine sand, which contrasts with the vibrant turquoise water. It is a very quiet and peaceful spot, favored by those seeking solitude and a distinctive coastal landscape.",
+    "tags": ["beach", "secluded", "dark sand", "quiet", "photography"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Sable Mort, Mahébourg, Mauritius",
+      "latitude": -20.4569,
+      "longitude": 57.6944,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "May be difficult to find due to its secluded nature. Best reached by foot from a nearby access point."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/nZLHxGkJPnWakgSo6",
+        "rating": 4.8,
+        "reviewCount": 6,
+        "summary": "This beach is highly rated by the few visitors who discover it, with its unique dark sand and secluded atmosphere being the main highlights. The reviews suggest it is a hidden gem for those who prefer quiet, unspoiled beaches over more crowded destinations."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach's unique sand provides a great photographic opportunity. Its proximity to the airport also offers views of planes flying overhead.",
+      "advisories": {
+        "safety": [
+          "Be cautious of sea urchins, especially in rocky or coral-rich areas. It's recommended to wear water shoes."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_058",
+    "name": "Royal Palms Forest",
+    "attraction_type": "forest",
+    "description": "A beautiful and dense natural palm forest near the coast of Mahébourg, known for its serene and stress-free atmosphere. The forest is home to centenary-old palm trees and offers a unique dual landscape with views of the sea on one side and lush greenery on the other. It is a popular spot for nature lovers seeking an off-the-beaten-path adventure.",
+    "tags": [
+      "forest",
+      "nature",
+      "palm trees",
+      "hiking",
+      "off-road",
+      "scenic view",
+      "wildlife"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Plaine Magnien, Grand Port, Mauritius",
+      "latitude": -20.4531,
+      "longitude": 57.6919,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The access road is very difficult and desolate, making it best to visit with a quad bike or buggy. It is a known site for organized off-road tours."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/nNSLTJVLnr3H8Ww98",
+        "rating": 4.6,
+        "reviewCount": 19,
+        "summary": "Visitors describe the forest as a 'gem' and a 'nature escape,' praising its serene atmosphere and beautiful scenery. However, reviews consistently warn about the challenging access road. One visitor reported encountering a number of 'angry dogs' near the public beach area, and another advises bringing mosquito repellent."
+      }
+    ],
+    "additional_info": {
+      "notes": "The forest provides a unique experience with ancient trees and a secluded feel, offering a peaceful retreat away from crowded tourist spots.",
+      "advisories": {
+        "safety": [
+          "The road is very difficult and may not be passable by a regular car.",
+          "Be prepared for mosquitoes and wear repellent.",
+          "Be cautious of stray or aggressive dogs, especially near access points to the beach."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  }
+]

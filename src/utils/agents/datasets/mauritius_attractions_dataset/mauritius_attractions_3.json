@@ -1,0 +1,422 @@
+[
+  {
+    "id": "attraction_034",
+    "name": "Pointe des Lascars Beach",
+    "attraction_type": "destination",
+    "description": "A quiet local beach on Mauritius’s northern-east fringe with lava-rock outcrops, calm lagoon corners, and breezy trade winds. Low-key spot for sunrise walks and shoreline photos.",
+    "tags": ["beach", "local", "sunrise", "scenic", "lagoon"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Pointe des Lascars, Rivière du Rempart, Mauritius",
+      "latitude": -20.087,
+      "longitude": 57.708,
+      "region": "North"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Beach Lane Access",
+          "latitude": -20.085,
+          "longitude": 57.718,
+          "access_notes": "Narrow lane; limited roadside parking."
+        }
+      ],
+      "notes": "No formal facilities; bring water and shade."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Pointe+des+Lascars+Beach+Mauritius",
+        "rating": 4.4,
+        "reviewCount": 58,
+        "summary": "Peaceful, photogenic lava-rock shoreline; very basic amenities."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best at low wind for clearer water.",
+      "advisories": {
+        "safety": "Watch footing on sharp lava and slippery algae.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_035",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_035",
+    "name": "Pointe des Lascars Hindu Spiritual Park",
+    "attraction_type": "point_of_interest",
+    "description": "A small seaside spiritual park and temple area serving the local Hindu community, with sea views and a tranquil atmosphere.",
+    "tags": ["temple", "spiritual", "culture", "seafront"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Pointe des Lascars, Rivière du Rempart, Mauritius",
+      "latitude": -20.09,
+      "longitude": 57.705,
+      "region": "North"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Seafront Gate",
+          "latitude": -20.086,
+          "longitude": 57.721,
+          "access_notes": "Respect dress code; remove shoes where indicated."
+        }
+      ],
+      "notes": "Religious site—be respectful of ongoing prayers."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Hindu+Spiritual+Park+Pointe+des+Lascars",
+        "rating": 4.8,
+        "reviewCount": 702,
+        "summary": "Calm spiritual stop with sea breeze and simple shrines."
+      }
+    ],
+    "additional_info": {
+      "notes": "Festive days can be lively and crowded.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_034",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_036",
+    "name": "La Croix de Jésus (Poudre d'Or)",
+    "attraction_type": "point_of_interest",
+    "description": "A coastal Christian monument and local landmark in Poudre d’Or, often used as a community reference point and quiet reflection stop.",
+    "tags": ["monument", "religious", "landmark", "heritage"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Poudre d'Or, Rivière du Rempart, Mauritius",
+      "latitude": -20.061,
+      "longitude": 57.68,
+      "region": "North"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Waterfront Path",
+          "latitude": -20.062,
+          "longitude": 57.693,
+          "access_notes": "Short walk from roadside parking."
+        }
+      ],
+      "notes": "Simple site; no facilities."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=La+Croix+de+Jesus+Poudre+d%27Or",
+        "rating": null,
+        "reviewCount": 0,
+        "summary": "Quiet landmark and photo stop along the waterfront."
+      }
+    ],
+    "additional_info": {
+      "notes": "Combine with a stroll along the Poudre d’Or seafront.",
+      "advisories": {
+        "safety": "Beware slippery stones in wet weather.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_037",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_037",
+    "name": "Poudre d'Or Fishing Reserve",
+    "attraction_type": "destination",
+    "description": "A coastal protected area intended to conserve nearshore habitats and traditional fishing grounds. Quiet shoreline with interpretive signage in places.",
+    "tags": ["marine reserve", "conservation", "coast", "heritage"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Poudre d'Or, Rivière du Rempart, Mauritius",
+      "latitude": -20.067,
+      "longitude": 57.695,
+      "region": "North"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Seafront Access",
+          "latitude": -20.059,
+          "longitude": 57.69,
+          "access_notes": "Coastal path; respect reserve rules."
+        }
+      ],
+      "notes": "Observe any posted restrictions for conservation."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Poudre+d%27Or+Fishing+Reserve",
+        "rating": 4.5,
+        "reviewCount": 2,
+        "summary": "Quiet coast, occasional signage; good for a short, breezy walk."
+      }
+    ],
+    "additional_info": {
+      "notes": "Combine with the village waterfront.",
+      "advisories": {
+        "safety": "Cutting reef at low tide—use reef shoes.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_028",
+        "relation_type": "adjacent_to"
+      }
+    ]
+  },
+  {
+    "id": "attraction_038",
+    "name": "Bain de Rosnay",
+    "attraction_type": "point_of_interest",
+    "description": "Historic seaside bathing area associated with a former estate; a low-key heritage stop with old stonework and coastal views.",
+    "tags": ["heritage", "seaside", "photography", "history"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Rivière du Rempart coast (Roches Noires area), Mauritius",
+      "latitude": -20.035,
+      "longitude": 57.686,
+      "region": "North"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Coastal Track Pull-off",
+          "latitude": -20.103,
+          "longitude": 57.727,
+          "access_notes": "Short walk; uneven stones."
+        }
+      ],
+      "notes": "No facilities; brief stop is ideal."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bain+de+Rosnay+Mauritius",
+        "rating": 4.5,
+        "reviewCount": 62,
+        "summary": "Small historic nook; atmospheric but very simple."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best combined with nearby coastal sites.",
+      "advisories": {
+        "safety": "Slippery algae on old stonework.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_039",
+    "name": "Île d'Ambre",
+    "attraction_type": "destination",
+    "description": "A mangrove-fringed islet and marine reserve area off the northeast coast. Kayaking, shallow snorkel spots, and quiet coves make it a nature-forward day trip.",
+    "tags": [
+      "island",
+      "mangrove",
+      "kayaking",
+      "snorkeling",
+      "marine reserve",
+      "day trip"
+    ],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Off Goodlands/Grand Gaube coast, Mauritius",
+      "latitude": -20.032,
+      "longitude": 57.694,
+      "region": "North"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Grand Gaube Public Jetty (departure)",
+          "latitude": -20.007,
+          "longitude": 57.663,
+          "access_notes": "Boat/kayak departures; check operators."
+        },
+        {
+          "name": "Poudre d'Or Launch Point (alt.)",
+          "latitude": -20.069,
+          "longitude": 57.688,
+          "access_notes": "Smaller craft often launch here."
+        }
+      ],
+      "notes": "No shops on the islet—bring water, snacks, and sun protection."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Ile+d%27Ambre+Mauritius",
+        "rating": 4.1,
+        "reviewCount": 30,
+        "summary": "Calm mangrove channels and quiet beaches; great by kayak."
+      }
+    ],
+    "additional_info": {
+      "notes": "Go early for glassy water; respect mangrove habitats.",
+      "advisories": {
+        "safety": "Strong sun; carry enough water.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_040",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_040",
+    "name": "L'Îlot Bernache",
+    "attraction_type": "point_of_interest",
+    "description": "A sandy islet near Île d’Ambre with shallow turquoise waters—popular for picnic stops on boat and kayak outings.",
+    "tags": ["islet", "picnic", "swimming", "photography"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Lagoon near Île d'Ambre, Mauritius",
+      "latitude": -20.024,
+      "longitude": 57.7,
+      "region": "North"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Boat/kayak access only; no facilities."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Ilot+Bernache+Mauritius",
+        "rating": 4.6,
+        "reviewCount": 291,
+        "summary": "Powdery sandbar vibe and crystal shallows; can be busy midday."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best before 10am for fewer boats.",
+      "advisories": {
+        "safety": "Sharp coral fragments underfoot—reef shoes help.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_039",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_041",
+    "name": "Super U Goodlands",
+    "attraction_type": "point_of_interest",
+    "description": "Large supermarket and small-mall complex serving the Goodlands region—useful for cash machines, food court, and supplies.",
+    "tags": ["shopping", "supermarket", "atm", "food court", "amenities"],
+    "audience_popularity": {
+      "locals": "very_high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Royal Road, Goodlands, Rivière du Rempart, Mauritius",
+      "latitude": -20.043,
+      "longitude": 57.655,
+      "region": "North"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Car Park Entrance",
+          "latitude": -20.039,
+          "longitude": 57.644,
+          "access_notes": "Large parking area; busiest weekends late afternoon."
+        }
+      ],
+      "notes": "Typical opening hours daily; check for holiday variations."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Super+U+Goodlands",
+        "rating": 4.3,
+        "reviewCount": 323,
+        "summary": "Convenient one-stop for groceries, snacks, and cash; crowded at peak times."
+      }
+    ],
+    "additional_info": {
+      "notes": "Handy base to stock up before island/boat outings.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  }
+]

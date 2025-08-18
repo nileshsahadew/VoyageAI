@@ -1,0 +1,568 @@
+[
+  {
+    "id": "attraction_099",
+    "name": "Sir Seewoosagur Ramgoolam Botanical Garden",
+    "attraction_type": "botanical_garden",
+    "description": "One of the oldest botanical gardens in the Southern Hemisphere, also known as Pamplemousses Botanical Garden. This historical and peaceful oasis is famous for its collection of giant water lilies, an impressive variety of tropical plants and trees, and enclosures with giant tortoises and deer. It offers a calm and scenic retreat from the busy beach scene.",
+    "tags": [
+      "botanical garden",
+      "nature",
+      "history",
+      "photography",
+      "wildlife",
+      "family-friendly",
+      "relaxation"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Pamplemousses, Mauritius",
+      "latitude": -20.104650730566412,
+      "longitude": 57.580328144948865,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "The entrance fee is 300 Mauritian Rupees for non-citizens aged 5 and above. Free access is granted to Mauritian citizens on Sundays and public holidays. Paid guides are available at the entrance."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/VHcWgbb1xLSCuaeb8",
+        "rating": 4.3,
+        "reviewCount": 12672,
+        "summary": "Visitors describe the garden as a peaceful and beautiful place, perfect for a relaxing stroll and photography, particularly highlighting the famous giant water lilies. While many praise the overall experience and convenient free parking, some reviews note that certain areas show signs of a lack of maintenance, including missing signage and less-kept paths. The garden can also be crowded on weekends."
+      }
+    ],
+    "additional_info": {
+      "notes": "The garden contains several historical monuments and trees planted by world leaders. It is home to a variety of animals including deer and giant tortoises, which are kept in enclosures.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Some parts of the garden may have faded signage or be less maintained than others.",
+          "It may not be a worthwhile trip if traveling a long distance from your hotel.",
+          "Bring insect repellent."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_100",
+    "name": "L'Aventure du Sucre",
+    "attraction_type": "museum",
+    "description": "A unique and highly engaging museum located in a beautifully restored 19th-century sugar factory. L'Aventure du Sucre provides a fascinating journey through the history of sugar production in Mauritius and its profound impact on the island's culture and economy. The visit culminates in a tasting of over 30 varieties of special sugars and local rums.",
+    "tags": [
+      "museum",
+      "history",
+      "rum tasting",
+      "sugar cane",
+      "factory",
+      "historical_site",
+      "family-friendly"
+    ],
+    "audience_popularity": {
+      "locals": "medium",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Beau Plan, Pamplemousses, Mauritius",
+      "latitude": -20.097870993262035,
+      "longitude": 57.574372950534105,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "The general admission fee for adults (non-residents) is 1,200 Mauritian Rupees. Reduced prices are available for children and students, and discounted rates are offered for Mauritian citizens and residents."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/2P1M6z1Jbxkv4S6z5",
+        "rating": 4.4,
+        "reviewCount": 4254,
+        "summary": "Visitors are often 'pleasantly surprised' by the depth and quality of the museum, with many praising it as a 'brilliant' and 'engaging' experience with well-set-out displays in both English and French. The rum and sugar tasting is a highlight for most. Some reviews mention that the amount of reading can be extensive, and a few exhibits were not functional during their visit. The owner's response indicates they value feedback."
+      }
+    ],
+    "additional_info": {
+      "notes": "The experience includes a visit to the museum, a tasting of various sugars and rums, and access to the on-site restaurant and boutique. Visitors should set aside 2-3 hours for the full visit.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Be prepared for a lot of reading and walking.",
+          "Some visitors have noted that the heat inside the museum can be uncomfortable."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_101",
+    "name": "L'échelle Rock Peak",
+    "attraction_type": "mountain_peak",
+    "description": "A lesser-known mountain peak located in the central-western part of Mauritius, near Port Louis. As a relatively obscure hiking spot, it is considered a hidden gem for local hiking enthusiasts. The name 'L'échelle' (The Ladder) hints at a potentially steep or challenging section of the climb. A successful ascent would offer a rewarding panoramic view of the surrounding mountains and the capital city.",
+    "tags": [
+      "mountain peak",
+      "hiking",
+      "viewpoint",
+      "scenic view",
+      "hidden gem",
+      "off-the-beaten-path"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.162432385151295,
+      "longitude": 57.55078824905466,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free, but as a mountain peak, it requires proper hiking shoes and physical fitness. The trail is not well-known or well-maintained."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/9GiwFUEhDjsDRUJZ9",
+        "rating": 4.5,
+        "reviewCount": 2,
+        "summary": "With a very low number of reviews, there is limited information available. The high rating is likely attributed to the rewarding views from the summit, but it's not a widely-visited or well-documented hiking trail."
+      }
+    ],
+    "additional_info": {
+      "notes": "L'échelle Rock is a minor summit in the mountain range west of Port Louis. It is an ideal spot for experienced hikers seeking a new challenge away from the more popular trails like Le Pouce.",
+      "advisories": {
+        "safety": [
+          "Hiking should only be attempted by those with proper gear and physical fitness. The trail may be steep and treacherous.",
+          "Information about this trail is scarce, so hikers should exercise extreme caution."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_102",
+    "name": "Riviere du Rempart Park",
+    "attraction_type": "public_space",
+    "description": "A popular public space located in the center of the village of Rivière du Rempart. This area serves as a vibrant local hub, encompassing a park for relaxation and a daily mini-market with food stalls. It offers an authentic glimpse into the daily life of the village, providing a calm atmosphere and easy access to shops and services.",
+    "tags": [
+      "park",
+      "market",
+      "shopping",
+      "local_life",
+      "public_space",
+      "food"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Rivière du Rempart, Mauritius",
+      "latitude": -20.107519420905504,
+      "longitude": 57.6925480257149,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The park and market are freely accessible to the public."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/6wwqKKAQvqEaozFu5",
+        "rating": 3.9,
+        "reviewCount": 156,
+        "summary": "Reviews for this location are varied and sometimes contradictory, reflecting its nature as a multi-purpose village center. Visitors describe it as a 'lively village area' and a 'very beautiful' place with shops, libraries, and a daily vegetable market. However, some reviews raise safety concerns, advising caution when the area is not crowded, which contributes to the lower overall rating."
+      }
+    ],
+    "additional_info": {
+      "notes": "The park area is well-visited during the day and provides a relaxing space to sit. The market offers a variety of fresh vegetables and local food stalls.",
+      "advisories": {
+        "safety": [
+          "Visitors should exercise caution if the area is not crowded, as one review mentions."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_103",
+    "name": "Roche Noire Lava Tubes",
+    "attraction_type": "geological_site",
+    "description": "A unique geological site featuring a network of interconnected lava tubes formed by ancient volcanic activity. The caves offer a self-guided adventure through winding tunnels and chambers, showcasing impressive rock formations and providing a cool, dark escape from the tropical heat. This national reserve is a vital habitat for native wildlife, including the Mascarene swiftlets and the endangered Natal free-tailed bat.",
+    "tags": [
+      "caves",
+      "geological_site",
+      "hiking",
+      "adventure",
+      "wildlife",
+      "natural_reserve",
+      "off-the-beaten-path"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Roche Noire, Mauritius",
+      "latitude": -20.117395213172887,
+      "longitude": 57.70934360102085,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free, but visitors must be prepared for a self-guided and adventurous experience. Guides are available for hire from the local community."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/aZ9YNLUerAMEEX3U7",
+        "rating": 4.2,
+        "reviewCount": 270,
+        "summary": "Visitors describe the caves as 'massive' and an 'interesting' short excursion that is 'totally worth it.' Many recommend bringing a strong lamp or headlamp and wearing closed-toe shoes. Reviews praise the unique experience of exploring the tunnels and spotting native wildlife like swifts and bats. A few reviewers note an issue with littering, emphasizing the need for visitors to keep the area clean."
+      }
+    ],
+    "additional_info": {
+      "notes": "The exploration typically takes 1 to 2 hours. Some caves have freshwater pools and are suitable for a quick, cool dip.",
+      "advisories": {
+        "safety": [
+          "Not suitable for the elderly, very young children, or individuals who are claustrophobic.",
+          "Wear sturdy, closed-toe shoes due to the rocky and uneven terrain."
+        ],
+        "travel": [
+          "Navigation to the entrance can be difficult as the location is somewhat off-the-beaten-path. Using a GPS or hiring a local guide is recommended."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_104",
+    "name": "Pont Bon Dieu Cave",
+    "attraction_type": "cave",
+    "description": "A natural volcanic lava tube whose collapsed roof created a large pit, known as a 'doline,' leading into a series of caves. The site is named 'Bridge of God' due to a natural rock bridge formation at the entrance, with a road passing over it. It is a quiet, secluded spot that offers a unique and authentic self-guided adventure for visitors to explore the natural rock structures and lush surrounding vegetation.",
+    "tags": [
+      "cave",
+      "geological_site",
+      "natural_formation",
+      "secluded",
+      "hiking",
+      "wildlife"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Quartier Militaire, Mauritius",
+      "latitude": -20.184810472355146,
+      "longitude": 57.642978439224905,
+      "region": "Plaines Wilhems"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free, and visitors should be prepared for a self-guided exploration. There is limited parking, often requiring a short walk from a nearby temple."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/8zsYZmQHXCUoaSDDA",
+        "rating": 4.3,
+        "reviewCount": 127,
+        "summary": "Visitors describe the cave as a 'great self explore' and a 'secluded and quiet' place, highlighting the natural beauty of the rock formations. Reviews note the presence of bats and a large number of swallows. Many suggest bringing a flashlight or headlamp, insect repellent, and being prepared for a steep descent via stairs, as the site requires a reasonable level of physical mobility."
+      }
+    ],
+    "additional_info": {
+      "notes": "The visit typically takes about 1 to 1.5 hours. It is considered a worthwhile stop if you are passing by the area rather than a primary destination for a long trip.",
+      "advisories": {
+        "safety": [
+          "Wear appropriate shoes for walking on uneven terrain.",
+          "Bring a flashlight or headlamp for a better experience inside the caves.",
+          "Use mosquito repellent, especially during the wetter seasons."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_105",
+    "name": "Old Chimney Grande Retraite",
+    "attraction_type": "historical_site",
+    "description": "A solitary chimney that stands as a rustic relic of a former sugar mill, a testament to Mauritius's long and central history with the sugar industry. Located in a rural, off-the-beaten-path area, this historical monument offers a quiet, picturesque setting for photography and a glimpse into the island's industrial past.",
+    "tags": [
+      "historical_site",
+      "industrial_ruin",
+      "sugar_history",
+      "photography",
+      "off-the-beaten-path",
+      "local_spot"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "very_low"
+    },
+    "location": {
+      "address": "Grande Retraite, Mauritius",
+      "latitude": -20.165649198580695,
+      "longitude": 57.68219068155327,
+      "region": "Flacq"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free and informal. There are no on-site facilities or staff."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/QbQDefXNuwNANxUk6",
+        "rating": 5.0,
+        "reviewCount": 5,
+        "summary": "With a perfect rating from a very small number of reviews, this spot is highly regarded by the few who visit it. The rating likely reflects an appreciation for its specific historical charm and peaceful, rustic atmosphere."
+      }
+    ],
+    "additional_info": {
+      "notes": "The site is best suited for a short stop for a photo or to reflect on the island's history, rather than a full-day destination.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Be respectful of the surrounding private and agricultural land.",
+          "The location is not a developed tourist site and has no amenities."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_106",
+    "name": "PLANTATION VANILLE ST JULIEN D'HOTMAN",
+    "attraction_type": "farm",
+    "description": "A charming and sustainable bio farm specializing in the cultivation of vanilla. This family-run cooperative offers a fascinating and educational guided tour that takes visitors through the entire process of vanilla production, from plant to finished product. The experience is enhanced by a delightful tasting session featuring a variety of homemade jams, honey, and fresh sugar cane juice.",
+    "tags": [
+      "plantation",
+      "farm",
+      "vanilla",
+      "tour",
+      "sustainable",
+      "tasting",
+      "local_life",
+      "family-run"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "St. Julien D'Hotman, Mauritius",
+      "latitude": -20.22880094585582,
+      "longitude": 57.64614696621321,
+      "region": "Plaines Wilhems"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Guided tours are mandatory. The tour fee is 450 Mauritian Rupees per person, with an option for lunch for an additional cost."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/uMXKFv7M7L96t92z7",
+        "rating": 4.7,
+        "reviewCount": 719,
+        "summary": "Visitors consistently rate this plantation highly, with many calling it 'one of the best things we've done in Mauritius.' Reviewers praise the knowledgeable guides, the interesting facts about vanilla cultivation, and the generous tasting experience. The 'immaculately kept' grounds and the friendly, family-run cooperative atmosphere are also frequently mentioned."
+      }
+    ],
+    "additional_info": {
+      "notes": "The site includes a shop where visitors can purchase various vanilla products, jams, and other local products. It is a great alternative to the island's popular beaches.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_107",
+    "name": "Riche Fond Spiritual park",
+    "attraction_type": "park",
+    "description": "A serene and peaceful public park that also serves as a significant Hindu pilgrimage destination. It offers a tranquil escape with beautiful green spaces, a winding river, and a 'round bridge' that is a popular feature. The park's atmosphere is very calm, making it a perfect spot for families and friends to relax, walk, and enjoy nature.",
+    "tags": [
+      "park",
+      "spiritual_site",
+      "peaceful",
+      "family-friendly",
+      "nature",
+      "river",
+      "local_life"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Riche Fond, Mauritius",
+      "latitude": -20.209794627683664,
+      "longitude": 57.676489978718884,
+      "region": "Flacq"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free. The park has parking but no public restrooms; however, toilets are available at the temple across the road."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/v7692L9ZhN2RqQap6",
+        "rating": 4.3,
+        "reviewCount": 165,
+        "summary": "Visitors consistently praise the park's clean and peaceful environment, calling it a 'very calm' and 'cosy place.' Reviewers enjoy sitting by the river and walking the paths. The fresh fruit cups sold by hawkers are a popular highlight. The main drawback noted is that the river can be a bit dry at certain times of the year."
+      }
+    ],
+    "additional_info": {
+      "notes": "The park is a sacred Hindu site and a popular gathering spot for religious festivals.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "It is recommended to dress modestly to show respect for the spiritual nature of the site.",
+          "The river's water level can fluctuate, appearing dry during certain seasons."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_108",
+    "name": "Central Flacq Market",
+    "attraction_type": "market",
+    "description": "A vibrant and bustling open-air market located in the heart of Flacq. This traditional market is a cultural hub and a feast for the senses, with a wide array of fresh produce, exotic spices, local delicacies, and handmade goods. It offers an authentic glimpse into the daily life of Mauritians and is a must-visit for anyone looking to experience local culture and cuisine.",
+    "tags": [
+      "market",
+      "shopping",
+      "local_life",
+      "food",
+      "souvenirs",
+      "authentic",
+      "bargain"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Flacq, Mauritius",
+      "latitude": -20.18902459809665,
+      "longitude": 57.72562351879443,
+      "region": "Flacq"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The market is most lively and has the full range of vendors on Wednesdays and Sundays. It is recommended to visit on these days for the full experience."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/DKmAGFVSwttsVcPTA",
+        "rating": 4.1,
+        "reviewCount": 3124,
+        "summary": "Visitors describe the market as a 'very nice' and lively place with a good atmosphere and a great selection of fresh fruits, vegetables, and local products. Many reviewers highlight it as a must-see. A key piece of advice for tourists is to be prepared to negotiate prices, as they can sometimes be charged more than locals."
+      }
+    ],
+    "additional_info": {
+      "notes": "The market is a great place to find spices, local jams, and fresh seafood. For the best selection of fresh meat and fish, it is best to go in the morning.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Be prepared to bargain for goods, especially if you are a tourist."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_109",
+    "name": "Coeur de Ville Flacq",
+    "attraction_type": "shopping_mall",
+    "description": "A modern and popular shopping mall situated in the heart of Flacq, serving as a vibrant hub for the eastern part of Mauritius. It is a one-stop destination for shopping, dining, and entertainment, featuring a large hypermarket, a diverse food court, and a cinema. Known for its clean and lively atmosphere, the mall offers a comfortable and convenient experience for both locals and tourists.",
+    "tags": [
+      "shopping_mall",
+      "cinema",
+      "food_court",
+      "supermarket",
+      "family-friendly",
+      "entertainment"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Flacq, Mauritius",
+      "latitude": -20.184666862477012,
+      "longitude": 57.72361316621164,
+      "region": "Flacq"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access and parking are free. Shops and the cinema have their own operating hours, which can vary."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/96LYxzJ3UVRtrfUh9",
+        "rating": 4.3,
+        "reviewCount": 2040,
+        "summary": "Visitors consistently praise the mall's 'beautiful' and 'cosy' environment, as well as its 'amazing atmosphere.' Reviews highlight the variety of food options in the food court, the convenience of the cinema and the large supermarket, and the availability of easy parking."
+      }
+    ],
+    "additional_info": {
+      "notes": "The mall is home to a 'Super U' hypermarket, an `MCine` cinema, a `gym`, and a variety of clothing and specialty shops. It is a key community gathering place.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "This mall is located in Flacq, not Tamarin, despite what one review may suggest."
+        ]
+      }
+    },
+    "sub_attractions": []
+  }
+]

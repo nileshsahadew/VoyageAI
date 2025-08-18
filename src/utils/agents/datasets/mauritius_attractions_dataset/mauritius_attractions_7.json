@@ -1,0 +1,434 @@
+[
+  {
+    "id": "attraction_090",
+    "name": "Grand River South East Waterfall",
+    "attraction_type": "waterfall",
+    "description": "Serene waterfall on the southeast coast, reachable by small boat ride; surrounded by lush forest and dramatic cliffs.",
+    "tags": ["waterfall", "nature", "scenic", "boat ride"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Grand River South East, Mauritius",
+      "latitude": -20.348,
+      "longitude": 57.78,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Boat Launch Site",
+          "latitude": -20.348,
+          "longitude": 57.78,
+          "access_notes": "Short boat ride required to view waterfall."
+        }
+      ],
+      "notes": "Best accessed via boat tours."
+    },
+    "reviews": [
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g1152294-d14154187-Reviews-Grand_River_South_East_Waterfalls-Beau_Champ.html",
+        "rating": 4.1,
+        "reviewCount": 43,
+        "summary": "Picturesque setting reached by boat; peaceful and less crowded."
+      }
+    ],
+    "additional_info": {
+      "notes": "Bring mosquito repellant; shore terrain can be slippery.",
+      "advisories": {
+        "safety": "Slippery boat edges; wear proper footwear.",
+        "travel": "Small boats; schedule may vary with tides."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_091",
+    "name": "Vallée de Ferney Nature Reserve",
+    "attraction_type": "nature_reserve",
+    "description": "Forest and wildlife reserve north of Mahébourg; home to indigenous forests, endemic plants and animals, with hiking circuits and lookout points.",
+    "tags": ["nature", "hiking", "forest", "wildlife", "endemic"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Bambou Mountains, north of Mahébourg, Mauritius",
+      "latitude": -20.356,
+      "longitude": 57.712,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Reserve Entrance",
+          "latitude": -20.356,
+          "longitude": 57.712,
+          "access_notes": "Hiking trails begin here; guided visits available."
+        }
+      ],
+      "notes": "Photography permitted; fauna sanctuary with limited facilities."
+    },
+    "reviews": [
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g481079-d4006157-Reviews-La_Vallee_de_Ferney-Mahebourg.html",
+        "rating": 4.4,
+        "reviewCount": 150,
+        "summary": "A rare forest reserve near Mahébourg with indigenous wildlife, hiking circuits and conservation efforts."
+      }
+    ],
+    "additional_info": {
+      "notes": "Experienced hikers recommended; bring water and walk carefully.",
+      "advisories": {
+        "safety": "Trail uneven; watch footing.",
+        "travel": "Access by car; limited signage."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_092",
+    "name": "Pointe du Diable",
+    "attraction_type": "scenic_spot",
+    "description": "A picturesque coastal spot with views over mangroves and lagoon; a quiet place to watch local fishermen and enjoy nature.",
+    "tags": ["coastal", "scenic", "lagoon", "fishing", "quiet"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Vieux Grand Port area, Mauritius",
+      "latitude": -20.408,
+      "longitude": 57.708,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Coastal access",
+          "latitude": -20.408,
+          "longitude": 57.708,
+          "access_notes": "No infrastructure; natural setting."
+        }
+      ],
+      "notes": "Rustic, off-the-beaten-path, best visited at sunset."
+    },
+    "reviews": [
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g8791755-d14962936-Reviews-Pointe_du_diable-Vieux_Grand_Port.html",
+        "rating": 2.5,
+        "reviewCount": 2,
+        "summary": "Situated on the south of Mauritius, a scenic spot north of Mahébourg popular among locals.Historic place along the coastal highway between Bamboux Virieux and Le Sable, it is a meadow with a historic muzzle and a few cannons"
+      }
+    ],
+    "additional_info": {
+      "notes": "Great for sunsets and quiet reflection; bring water.",
+      "advisories": {
+        "safety": "Watch footing on rocky shoreline.",
+        "travel": "No formal parking or facilities."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_093",
+    "name": "Frederik Hendrik Museum",
+    "attraction_type": "museum",
+    "description": "Museum at the site of ruins from the first Dutch settlement, showcasing artifacts and exhibits from Dutch and French colonial periods.",
+    "tags": ["history", "museum", "colonial", "ruins"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Vieux Grand Port, Mauritius",
+      "latitude": -20.408,
+      "longitude": 57.71,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Museum Gate",
+          "latitude": -20.408,
+          "longitude": 57.71,
+          "access_notes": "Located near the village; guided tours available."
+        }
+      ],
+      "notes": "Free admission; minimal facilities."
+    },
+    "reviews": [
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g8791755-d1775226-Reviews-Frederik_Hendrik_Museum_Vieux_Grand_Port_Historic_Site-Vieux_Grand_Port.html",
+        "rating": 3.7,
+        "reviewCount": 22,
+        "summary": "Visitors reflect on early Dutch seamen encounters and archaeological discoveries including dodo bones."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great for history buffs; quiet and reflective experience.",
+      "advisories": {
+        "safety": "Standard museum safety guidelines apply.",
+        "travel": "Access by car; limited signage."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_094",
+    "name": "Dutch First Landing Monument",
+    "attraction_type": "historical_site",
+    "description": "Monument marking the first Dutch landing in Mauritius; situated on the coast near Ferney.",
+    "tags": ["historical", "monument", "coastal", "colonial"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Royal Rd, Ferney, Mauritius",
+      "latitude": -20.38,
+      "longitude": 57.715,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Monument site",
+          "latitude": -20.38,
+          "longitude": 57.715,
+          "access_notes": "Walk-up; no facilities."
+        }
+      ],
+      "notes": "Commemorative plaque and coastal views."
+    },
+    "reviews": [
+      {
+        "source": "Google review",
+        "url": "https://www.google.com/search?sca_esv=d0d8acd8eacd3733&biw=1920&bih=911&sxsrf=AE3TifPJsJ1XzbZB9mGkiq9F06HY3GEobA:1755354192163&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1dmhvRg9go-xEbGAUvOfNrsOn_TuGNnmx56QOxvrxJ9PbvSaKBcRYDMBPyVkgOInIgm_Cx4ShCn6vx8Tv5kZn39NixYTlmpRZ8-YqtlLUn8sbI9jg%3D%3D&q=Dutch+First+Landing+Reviews&sa=X&ved=2ahUKEwjJxtD4w4-PAxWpdaQEHdXAFogQ0bkNegQINhAD",
+        "rating": 4.0,
+        "reviewCount": 149,
+        "summary": "Dutch First Landing, also known as the Dutch Landing Monument, is a historic landmark located on the east coast of Mauritius in the village of Grand Port. The monument commemorates the arrival of the Dutch in Mauritius in 1598, marking the island's first recorded landing by European explorers."
+      }
+    ],
+    "additional_info": {
+      "notes": "Complement this stop with other Vieux Grand Port sites.",
+      "advisories": {
+        "safety": "Standard outdoor safety guidelines apply.",
+        "travel": "Accessible by car; roadside stop."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_095",
+    "name": "Ferney Viewpoint",
+    "attraction_type": "viewpoint",
+    "description": "Scenic viewpoint overlooking the Ferney valley, nature reserve and surrounding landscapes.",
+    "tags": ["viewpoint", "scenic", "nature", "hiking"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Ferney area, Mauritius",
+      "latitude": -20.356,
+      "longitude": 57.712,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Trailhead",
+          "latitude": -20.356,
+          "longitude": 57.712,
+          "access_notes": "Hike required; minimal facilities."
+        }
+      ],
+      "notes": "Combine with Ferney Nature Reserve hike."
+    },
+    "reviews": [
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g481079-d4006157-Reviews-La_Vallee_de_Ferney-Mahebourg.html",
+        "rating": 4.4,
+        "reviewCount": 150,
+        "summary": "Valley includes hiking circuits and lookout points with endemic wildlife."
+      }
+    ],
+    "additional_info": {
+      "notes": "Bring water and walking shoes; limited signage.",
+      "advisories": {
+        "safety": "Watch footing.",
+        "travel": "Trail access by car."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_096",
+    "name": "Kestrel Valley",
+    "attraction_type": "nature_reserve",
+    "description": "Forest hiking area known for Mauritius kestrel sightings and endemic flora in Kestrel Valley near Ferney.",
+    "tags": ["nature", "hiking", "wildlife", "endemic"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Bois des Amourettes area, Mauritius",
+      "latitude": -20.36,
+      "longitude": 57.72,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Reserve Entrance",
+          "latitude": -20.36,
+          "longitude": 57.72,
+          "access_notes": "Guided tours required."
+        }
+      ],
+      "notes": "Private guided hikes focused on conservation."
+    },
+    "reviews": [
+      {
+        "source": "Google review",
+        "url": "https://www.google.com/maps/place/Kestrel+Valley/@-20.3394325,57.7337376,17z/data=!4m8!3m7!1s0x217cf6aa1e3fec0d:0x573093378f58a9fb!8m2!3d-20.3394375!4d57.7363125!9m1!1b1!16s%2Fg%2F1hc0h3c7p?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+        "rating": 4.4,
+        "reviewCount": 258,
+        "summary": "Kestrel Valley (Domaine du Chasseur) offers hiking and endemic wildlife viewing, including kestrels."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best for birdwatchers; booked tours only.",
+      "advisories": {
+        "safety": "Trail terrain rugged.",
+        "travel": "Booking required; guided tours only."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_097",
+    "name": "Camp Pêcheur Waterfront",
+    "attraction_type": "coastal_area",
+    "description": "Coastal area around Camp Pêcheur near Grand River South East; scenic shoreline with local fishing activity.",
+    "tags": ["coastal", "scenic", "fishing", "views"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Grand River South East, Mauritius",
+      "latitude": -20.348,
+      "longitude": 57.78,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Shoreline Access",
+          "latitude": -20.348,
+          "longitude": 57.78,
+          "access_notes": "Walk-in; near waterfall boat launch."
+        }
+      ],
+      "notes": "Quiet fishing village atmosphere."
+    },
+    "reviews": [
+      {
+        "source": "Google review",
+        "url": "https://www.google.com/search?sca_esv=c26ea98e5e07eb9e&sxsrf=AE3TifNBQ1L5FfokoHjgGKiEX2wT6a1i_g:1755355026046&q=camp+pecheur+waterfront&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E1zNth-99prLV_BTYa8j-jUf45kYhwHjRWgHgiaWZNcwsB0VGluxSSV96dpcdYGFC9n11N2bdSVkRY9qgfQaNBv1teX4tXcntxgbhRX45FCl9Ifxgg%3D%3D&sa=X&ved=2ahUKEwix2KCGx4-PAxUtUKQEHc-8OR4QrrQLegQIHBAA&biw=1920&bih=911&dpr=1",
+        "rating": 4.6,
+        "reviewCount": 92,
+        "summary": "Nearby accommodation 'La Case du Pêcheur' offers peaceful beautiful surroundings."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great scenic overlay; combine with waterfall visit.",
+      "advisories": {
+        "safety": "Standard coastal safety guidelines apply.",
+        "travel": "Vehicle required."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_098",
+    "name": "Savinia Beach",
+    "attraction_type": "beach",
+    "description": "A small, lesser-known beach offering a peaceful escape with shallow waters and views of the southeast lagoon.",
+    "tags": ["beach", "quiet", "scenic"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Savini, L'Escalier Mauritius",
+      "latitude": -20.448,
+      "longitude": 57.726,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Coastal Access Road",
+          "latitude": -20.448,
+          "longitude": 57.726,
+          "access_notes": "Small unpaved road; limited facilities."
+        }
+      ],
+      "notes": "Quiet spot away from tourist crowds."
+    },
+    "reviews": [
+      {
+        "source": "Google Reviews",
+        "url": "https://www.google.com/maps/place/Savinia+Beach/@-20.4896027,57.6438146,17z/data=!4m8!3m7!1s0x217c89d1438a4891:0x71c7b3b83f525d79!8m2!3d-20.4896027!4d57.6463895!9m1!1b1!16s%2Fg%2F11mv4nxdh7?entry=ttu&g_ep=EgoyMDI1MDgxMy4wIKXMDSoASAFQAw%3D%3D",
+        "rating": 4.7,
+        "reviewCount": 90,
+        "summary": "Hidden gem for peace seekers, but with almost no facilities."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best for quiet walks and relaxation.",
+      "advisories": {
+        "safety": "No lifeguards; swim cautiously.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  }
+]
