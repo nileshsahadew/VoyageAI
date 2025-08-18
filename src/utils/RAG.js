@@ -1,180 +1,196 @@
-import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
-import { MemoryVectorStore } from "langchain/vectorstores/memory";
-import { Document } from "@langchain/core/documents";
-import fs from "fs/promises";
+import fs from "fs";
 import path from "path";
+import dotenv from "dotenv";
+dotenv.config();
 
-// Initialize the embedding model
-const embeddingModel = new GoogleGenerativeAIEmbeddings({
-  apiKey:
-    process.env.GEMINI_API_KEY || "AIzaSyBlob6YbAnKxRpBDJSFoOnMGdDcH2JdWg4",
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { Qdrant } from "qdrant";
+
+const KEY = "AIzaSyBlob6YbAnKxRpBDJSFoOnMGdDcH2JdWg4";
+
+if (!KEY) {
+  console.error("❌ Please set GEMINI_API_KEY in .env");
+  process.exit(1);
+}
+
+const genAI = new GoogleGenerativeAI(KEY);
+const embeddingModel = genAI.getGenerativeModel({
   model: "embedding-001",
 });
 
-async function ingestAndSaveDataset(datasetDir, savePath) {
-  try {
-    console.log("\n=== Starting Dataset Ingestion ===");
+// Initialize Qdrant client
+const client = new Qdrant("http://localhost:6333/");
 
-    const files = await fs.readdir(datasetDir);
-    const documents = [];
+const COLLECTION_NAME = "mauritius_attractions";
+const VECTOR_SIZE = 768; // Gemini embedding dimension
+
+/**
+ * Creates or recreates the Qdrant collection.
+ */
+async function createCollection() {
+  try {
+    // Check if collection exists and delete it to ensure a clean start
+    try {
+      await client.get_collection(COLLECTION_NAME);
+      console.log(
+        `🔄 Collection ${COLLECTION_NAME} already exists, deleting it...`
+      );
+      await client.delete_collection(COLLECTION_NAME);
+      // Wait a bit for deletion to complete
+      await new Promise((resolve) => setTimeout(resolve, 2000));
+    } catch (error) {
+      console.log(
+        `📝 Collection ${COLLECTION_NAME} doesn't exist, will create it`
+      );
+    }
+
+    // Create a new collection with a Cosine distance for vector search
+    console.log(`🔄 Creating collection ${COLLECTION_NAME}...`);
+    await client.create_collection(COLLECTION_NAME, {
+      vectors: {
+        embedding_vector: {
+          size: VECTOR_SIZE,
+          distance: "Cosine",
+        },
+      },
+    });
+
+    console.log(`✅ Collection ${COLLECTION_NAME} created successfully`);
+  } catch (error) {
+    console.error("❌ Error creating collection:", error);
+    throw error;
+  }
+}
+
+/**
+ * Queries the Qdrant collection with a given text prompt.
+ * @param {string} queryText The text to search for.
+ */
+async function queryCollection(queryText) {
+  console.log(`\n🔍 Searching for: "${queryText}"`);
+
+  try {
+    // Generate an embedding for the query text
+    const embedResp = await embeddingModel.embedContent(queryText);
+    const queryVector = embedResp.embedding.values;
+
+    // Search the Qdrant collection for similar vectors
+    const searchResults = await client.search_collection(COLLECTION_NAME, {
+      vector: { embedding_vector: queryVector },
+      limit: 5, // Return top 5 results
+      with_payload: true, // Include the original text and metadata in the results
+    });
+
+    console.log(searchResults);
+    console.log(`✅ Found ${searchResults.length} results.`);
+    searchResults.forEach((result, index) => {
+      console.log(`\n--- Result ${index + 1} ---`);
+      console.log(`Score: ${result.score}`);
+      console.log(`Title: ${result.payload.title}`);
+      console.log(`Content: ${result.payload.content}`);
+    });
+  } catch (error) {
+    console.error("❌ Error during query:", error);
+  }
+}
+
+/**
+ * Main function to ingest data and perform queries.
+ */
+async function main() {
+  try {
+    console.log("🔄 Attempting to connect to Qdrant...");
+
+    // Test connection to Qdrant using a valid method
+    try {
+      const collections = await client.get_collection();
+      console.log("✅ Qdrant client initialized successfully");
+    } catch (error) {
+      console.error("❌ Could not connect to Qdrant. Error details:");
+      console.error("   Error message:", error.message);
+      console.error("   Make sure Qdrant is running on localhost:6333");
+      process.exit(1);
+    }
+
+    // Create collection
+    await createCollection();
+
+    const datasetDir = path.join(
+      process.cwd(),
+      "agents",
+      "datasets",
+      "mauritius_attractions_dataset"
+    );
+    if (!fs.existsSync(datasetDir)) {
+      console.error("❌ Dataset directory not found:", datasetDir);
+      process.exit(1);
+    }
+
+    const files = fs.readdirSync(datasetDir);
+    let counter = 0;
+    const points = [];
 
     for (const file of files) {
-      // Read and process each JSON dataset file
       if (file.endsWith(".json")) {
         const filePath = path.join(datasetDir, file);
-        try {
-          const raw = await fs.readFile(filePath, "utf-8");
-          const data = JSON.parse(raw);
-          const records = Array.isArray(data) ? data : [data];
+        console.log(`\n📖 Ingesting file: ${file}`);
+        const docs = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
-          // Embed each record into a Document
-          for (const item of records) {
-            const text =
-              item.description ||
-              item.text ||
-              item.name ||
-              JSON.stringify(item);
-
-            if (!text?.trim()) {
-              console.log(`Skipping a document with no text`);
-              continue;
-            }
-
-            const metadata = {};
-            for (const key in item) {
-              const value = item[key];
-              if (
-                typeof value === "string" ||
-                typeof value === "number" ||
-                typeof value === "boolean" ||
-                (Array.isArray(value) &&
-                  value.every(
-                    (v) => typeof v === "string" || typeof v === "number"
-                  ))
-              ) {
-                metadata[key] = value;
-              }
-            }
-
-            documents.push(
-              new Document({
-                pageContent: text,
-                metadata: {
-                  ...metadata,
-                  source: "dataset",
-                  filename: file,
-                },
-              })
+        for (const doc of docs) {
+          try {
+            const embedResp = await embeddingModel.embedContent(
+              JSON.stringify(doc)
             );
+            const embedding = Array.from(embedResp.embedding.values);
+
+            points.push({
+              id: counter,
+              vector: { embedding_vector: embedding },
+              payload: {
+                type: "doc",
+                title: doc.name,
+                content: JSON.stringify(doc),
+                chunk_index: 0,
+                source_file: file,
+                document_id: doc.id,
+              },
+            });
+
+            console.log(`✅ Processed doc ${counter} (${doc.name})`);
+            counter++;
+          } catch (error) {
+            console.error(`❌ Error processing doc ${counter}:`, error.message);
+            continue;
           }
-        } catch (err) {
-          console.error(`Error processing ${file}:`, err.message);
         }
       }
+      break;
     }
 
-    if (documents.length === 0) {
-      console.log("No documents to ingest.");
-      return;
-    }
-
-    console.log(
-      `Ingesting ${documents.length} documents into MemoryVectorStore...`
-    );
-
-    const vectorStore = await MemoryVectorStore.fromDocuments(
-      documents,
-      embeddingModel
-    );
-
-    console.log(`✓ Successfully ingested ${documents.length} documents.`);
-
-    // Convert the vector store's internal memoryVectors array to a serializable format
-    const serializedData = JSON.stringify(
-      vectorStore.memoryVectors.map((mv) => ({
-        pageContent: mv.pageContent,
-        metadata: mv.metadata,
-        embedding: mv.embedding,
-      })),
-      null,
-      2
-    );
-
-    await fs.writeFile(savePath, serializedData);
-
-    console.log(`✓ Successfully saved vector store to ${savePath}.`);
-    return vectorStore;
-  } catch (error) {
-    console.error("\n❌ Execution error:", error.message);
-    if (error.message.includes("API key")) {
+    // Insert points in batches
+    console.log(points);
+    if (points.length > 0) {
+      console.log(points);
+      await client.upload_points(COLLECTION_NAME, points);
       console.log(
-        "\n💡 Solution: Ensure your GEMINI_API_KEY environment variable is set and valid."
+        `🎯 Successfully inserted ${counter} chunks into Qdrant collection: ${COLLECTION_NAME}`
       );
     }
-    return null;
-  }
-}
 
-async function loadAndQueryDataset(loadPath, queryText) {
-  try {
-    console.log("\n=== Starting Vector Store Loading and Querying ===");
+    console.log("✅ Data ingestion complete.\n");
 
-    console.log(`\n1. Loading vector store from ${loadPath}...`);
-    const serializedData = await fs.readFile(loadPath, "utf-8");
-    const parsedData = JSON.parse(serializedData);
-
-    // Reconstruct documents and embeddings from the parsed data
-    const documents = parsedData.map(
-      (item) =>
-        new Document({
-          pageContent: item.pageContent,
-          metadata: item.metadata,
-        })
+    // Perform queries
+    await queryCollection("What are the best beaches in Mauritius?");
+    await queryCollection(
+      "Tell me about the Black River Gorges National Park."
     );
-    const embeddings = parsedData.map((item) => item.embedding);
+    await queryCollection("What historical places can I visit?");
 
-    // Correctly reconstruct the vector store
-    const vectorStore = new MemoryVectorStore(embeddingModel);
-    await vectorStore.addVectors(embeddings, documents);
-
-    console.log(`✓ Successfully loaded vector store.`);
-
-    console.log(`\n2. Querying the vector database for: "${queryText}"`);
-
-    const results = await vectorStore.similaritySearch(queryText, 5);
-
-    console.log("\n=== Query Results ===");
-    if (results.length === 0) {
-      console.log(
-        "No results found. This might indicate that the store was loaded empty."
-      );
-    } else {
-      results.forEach((result, index) => {
-        console.log(`\n--- Result ${index + 1} ---`);
-        console.log("Text:", result);
-      });
-    }
+    process.exit(0);
   } catch (error) {
-    console.error("\n❌ Execution error:", error.message);
+    console.error("❌ Error:", error);
+    process.exit(1);
   }
 }
 
-// Main execution flow
-async function main() {
-  const datasetDir = path.resolve("datasets/mauritius_attractions_dataset");
-  const saveFilePath = path.resolve("vector_store.json");
-  const query = "beaches in the north";
-
-  // Check if the saved file exists
-  try {
-    await fs.access(saveFilePath);
-    // If it exists, load and query
-    await loadAndQueryDataset(saveFilePath, query);
-  } catch (error) {
-    // If it doesn't exist, ingest and save
-    await ingestAndSaveDataset(datasetDir, saveFilePath);
-    await loadAndQueryDataset(saveFilePath, query);
-  }
-}
-
-main().catch(console.error);
+main();
