@@ -10,6 +10,8 @@ function UIStateContext({ children }) {
     iteneraryAgentInterface: "chipList",
     showAuthenticatedFeatures: false,
     loadPage: false,
+    autoSpeakAssistant: true,
+    autoSendDictation: true,
   });
 
   useEffect(() => {

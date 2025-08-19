@@ -30,6 +30,28 @@ function IteneraryPlannerPage() {
   const [sttSupported, setSttSupported] = useState(false);
   const recognitionRef = useRef(null);
   const baseTextRef = useRef("");
+  const isLoadingRef = useRef(false);
+  const autoSendRef = useRef(true);
+  const silenceTimerRef = useRef(null);
+  const isListeningRef = useRef(false);
+  const inputMessageRef = useRef("");
+
+  // Keep refs in sync with latest values to avoid stale closures in recognition callbacks
+  useEffect(() => {
+    isLoadingRef.current = isLoading;
+  }, [isLoading]);
+
+  useEffect(() => {
+    autoSendRef.current = !!UXMode.autoSendDictation;
+  }, [UXMode.autoSendDictation]);
+
+  useEffect(() => {
+    isListeningRef.current = isListening;
+  }, [isListening]);
+
+  useEffect(() => {
+    inputMessageRef.current = inputMessage;
+  }, [inputMessage]);
 
   // Initialize SpeechRecognition when available
   useEffect(() => {
@@ -43,6 +65,18 @@ function IteneraryPlannerPage() {
     recognition.interimResults = true;
     recognition.lang = "en-US";
 
+    const resetSilenceTimer = () => {
+      if (silenceTimerRef.current) {
+        clearTimeout(silenceTimerRef.current);
+      }
+      // Stop listening after short silence, which triggers onend and auto-send
+      silenceTimerRef.current = setTimeout(() => {
+        try {
+          recognition.stop();
+        } catch (_) {}
+      }, 2000);
+    };
+
     recognition.onresult = (event) => {
       let interimText = "";
       for (let i = event.resultIndex; i < event.results.length; i++) {
@@ -54,14 +88,43 @@ function IteneraryPlannerPage() {
         }
       }
       setInputMessage(baseTextRef.current + interimText);
+      // Any result activity resets the silence timer
+      resetSilenceTimer();
+    };
+
+    // In some browsers, speechend fires after a pause
+    recognition.onspeechend = () => {
+      resetSilenceTimer();
     };
 
     recognition.onend = () => {
       setIsListening(false);
+      const finalText = (
+        inputMessageRef.current || baseTextRef.current || ""
+      ).trim();
+      if (finalText && !isLoadingRef.current && autoSendRef.current) {
+        handleSendMessage(finalText);
+        baseTextRef.current = "";
+      }
+      if (silenceTimerRef.current) {
+        clearTimeout(silenceTimerRef.current);
+        silenceTimerRef.current = null;
+      }
     };
 
     recognition.onerror = () => {
       setIsListening(false);
+      const finalText = (
+        inputMessageRef.current || baseTextRef.current || ""
+      ).trim();
+      if (finalText && !isLoadingRef.current && autoSendRef.current) {
+        handleSendMessage(finalText);
+        baseTextRef.current = "";
+      }
+      if (silenceTimerRef.current) {
+        clearTimeout(silenceTimerRef.current);
+        silenceTimerRef.current = null;
+      }
     };
 
     recognitionRef.current = recognition;
@@ -71,12 +134,20 @@ function IteneraryPlannerPage() {
       try {
         recognition.stop();
       } catch (_) {}
+      if (silenceTimerRef.current) {
+        clearTimeout(silenceTimerRef.current);
+        silenceTimerRef.current = null;
+      }
     };
   }, []);
 
   const startListening = () => {
     if (!recognitionRef.current || isLoading) return;
-    baseTextRef.current = inputMessage || "";
+    if (silenceTimerRef.current) {
+      clearTimeout(silenceTimerRef.current);
+      silenceTimerRef.current = null;
+    }
+    baseTextRef.current = inputMessageRef.current || "";
     try {
       recognitionRef.current.start();
       setIsListening(true);
@@ -91,6 +162,10 @@ function IteneraryPlannerPage() {
       recognitionRef.current.stop();
     } catch (_) {}
     setIsListening(false);
+    if (silenceTimerRef.current) {
+      clearTimeout(silenceTimerRef.current);
+      silenceTimerRef.current = null;
+    }
   };
 
   const sendMessageToAgent = async (chatMessages, userMessage) => {
@@ -111,7 +186,9 @@ function IteneraryPlannerPage() {
 
   // This function handles sending the user's message to the API
   const handleSendMessage = async (messageOverride) => {
-    const messageToSend = messageOverride || inputMessage;
+    const safeOverride =
+      typeof messageOverride === "string" ? messageOverride : undefined;
+    const messageToSend = safeOverride ?? inputMessage;
     // Prevent sending empty messages or while loading
     if (messageToSend.trim() === "" || isLoading) return;
 
@@ -161,6 +238,22 @@ function IteneraryPlannerPage() {
       const sseClient = new SSEClient();
       sseClient.on("text", onNewTextArrival);
       sseClient.on("json-itinerary", onItineraryJSONArrival);
+      sseClient.on("end", () => {
+        if (
+          UXMode.autoSpeakAssistant &&
+          typeof window !== "undefined" &&
+          "speechSynthesis" in window
+        ) {
+          try {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(
+              assistantMessage.message
+            );
+            utterance.rate = 1;
+            window.speechSynthesis.speak(utterance);
+          } catch (_) {}
+        }
+      });
       sseClient.connect(streamingResponse);
     } catch (error) {
       console.error("Failed to fetch from chat API:", error);
@@ -311,7 +404,7 @@ function IteneraryPlannerPage() {
                 backgroundColor: "primary.dark",
               },
             }}
-            onClick={handleSendMessage}
+            onClick={() => handleSendMessage()}
             disabled={isLoading}
           >
             {isLoading ? (

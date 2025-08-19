@@ -8,14 +8,19 @@ import {
   Toolbar,
   Tooltip,
   Typography,
+  FormControlLabel,
+  Switch,
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import GoogleLoginButton from "./buttons/googleLoginButton";
 import ToggleChatButton from "./buttons/toggleChatButton";
 import IteneraryPageButton from "./buttons/iteneraryPageButton";
 
+import { useUIStateContext } from "../providers/UIStateContext";
+
 function NavigationBar() {
   const pathname = usePathname();
+  const [UXMode, setUXMode] = useUIStateContext();
 
   return (
     <AppBar
@@ -62,8 +67,42 @@ function NavigationBar() {
           <IteneraryPageButton />
         </div>
 
-        <div style={{ display: "flex", columnGap: "10px" }}>
-          {pathname === "/itenerary-planner" && <ToggleChatButton />}
+        <div style={{ display: "flex", columnGap: "10px", alignItems: "center" }}>
+          {pathname === "/itenerary-planner" && (
+            <>
+              <ToggleChatButton />
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={!!UXMode.autoSpeakAssistant}
+                    onChange={(e) =>
+                      setUXMode((prev) => ({
+                        ...prev,
+                        autoSpeakAssistant: e.target.checked,
+                      }))
+                    }
+                    color="primary"
+                  />
+                }
+                label="Auto TTS"
+              />
+              <FormControlLabel
+                control={
+                  <Switch
+                    checked={!!UXMode.autoSendDictation}
+                    onChange={(e) =>
+                      setUXMode((prev) => ({
+                        ...prev,
+                        autoSendDictation: e.target.checked,
+                      }))
+                    }
+                    color="primary"
+                  />
+                }
+                label="Auto Send"
+              />
+            </>
+          )}
 
           <GoogleLoginButton />
         </div>

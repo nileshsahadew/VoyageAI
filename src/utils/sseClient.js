@@ -30,9 +30,20 @@ class SSEClient {
       onEvent: (event) => {
         try {
           if (event.event === "text") {
-            this.emit(event.event, event.data?.kwargs?.content);
+            let payload = event.data?.kwargs?.content;
+            if (payload === undefined) {
+              // Fallback: server may have sent a plain string or a JSON-stringified string
+              try {
+                payload = JSON.parse(event.data);
+              } catch {
+                payload = event.data;
+              }
+            }
+            this.emit(event.event, payload);
           } else if (event.event === "json-itinerary") {
             this.emit(event.event, JSON.parse(JSON.parse(event.data)));
+          } else if (event.event === "start" || event.event === "end") {
+            this.emit(event.event, event.data);
           }
         } catch (err) {
           console.error("Failed to handle SSE event:", err);

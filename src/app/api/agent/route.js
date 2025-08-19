@@ -8,7 +8,7 @@ export async function POST(req) {
     const last = messages[messages.length - 1];
     const conversationHistory = messages
       .slice(0, -1)
-      .map((m) => `${m.role}: ${m.message}`)
+      .map((m) => `${m.type || m.role}: ${m.message}`)
       .join("\n");
 
     const session = await getServerSession(authOptions);

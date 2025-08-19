@@ -133,7 +133,10 @@ const itineraryGeneratorNode = async (state) => {
       day: new Date().toLocaleString("en-US", { weekday: "long" }),
     })
   );
-  if (itinerary?.itinerary == null) return "itineraryGeneratorNode";
+  if (itinerary?.itinerary == null) {
+    // Fallback to empty itinerary to keep downstream logic consistent
+    return { itinerary: [] };
+  }
   console.log("Generated Itinerary:", itinerary);
   return { itinerary: itinerary.itinerary };
 };
