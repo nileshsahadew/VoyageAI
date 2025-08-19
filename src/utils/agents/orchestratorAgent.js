@@ -2,6 +2,7 @@ import { PromptTemplate } from "@langchain/core/prompts";
 import { geminiModel } from "@/llms";
 import { Annotation, END, StateGraph } from "@langchain/langgraph";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
+import iteneraryGeneratorAgent from "./iteneraryGeneratorAgent";
 
 const AgentState = Annotation.Root({
   userInput: Annotation,
@@ -91,17 +92,25 @@ const generalQANode = async (state, config) => {
     outputResponse += chunk;
     // Assign a custom event name for SSE
     if (config.writer) {
+      console.log("Chunk received:", chunk);
       config.writer({ event: "text", data: chunk });
     }
   }
   return { outputResponse: outputResponse };
 };
 
-const node3 = async (state) => {
+const delegateAgentsNode = async (state, config) => {
   try {
-    return END;
+    const result = await iteneraryGeneratorAgent.invoke({
+      userInput: state.userInput,
+    });
+    if (config.writer) {
+      config.writer({ event: "json", data: JSON.stringify(result.itenerary) });
+    }
+
+    return { outputResponse: outputResponse };
   } catch (err) {
-    console.error("Error in node3:", err);
+    console.error("Error in delegateAgentsNode:", err);
     throw err;
   }
 };
@@ -109,15 +118,15 @@ const node3 = async (state) => {
 const orchestratorAgent = new StateGraph(AgentState)
   .addNode("generalQANode", generalQANode)
   .addNode("evaluatorNode", evaluatorNode)
-  .addNode("node3", node3)
+  .addNode("delegateAgentsNode", delegateAgentsNode)
   .addEdge("__start__", "evaluatorNode")
   .addConditionalEdges("evaluatorNode", (state) => {
     if (
       state.conditions.generateAttractions ||
       (state.conditions.hasPlan && state.conditions.generateItinerary)
     ) {
-      console.log("Conditions met for node3");
-      return "node3"; // Routes to node3
+      console.log("Conditions met for delegateAgents");
+      return "delegateAgentsNode"; // Routes to delegateAgentsNode
     }
     console.log("Conditions not met, returning to generalQANode");
     return "generalQANode"; // Routes to generalQANode

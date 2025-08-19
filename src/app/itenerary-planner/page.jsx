@@ -129,8 +129,17 @@ function IteneraryPlannerPage() {
       setChatMessages((prevMessages) => [...prevMessages, assistantMessage]);
 
       // UI Logic for when a new chunk arrives from streamingResponse
-      const onNewChunkArrival = (chunk) => {
+      const onNewTextArrival = (chunk) => {
         assistantMessage.message += chunk;
+        setChatMessages((prev) => {
+          const newMessages = [...prev];
+          newMessages[newMessages.length - 1] = { ...assistantMessage };
+          return newMessages;
+        });
+      };
+
+      const onNewJSONArrival = (json) => {
+        assistantMessage.message += json;
         setChatMessages((prev) => {
           const newMessages = [...prev];
           newMessages[newMessages.length - 1] = { ...assistantMessage };
@@ -141,7 +150,8 @@ function IteneraryPlannerPage() {
       // SSEClient listens to response stream and will parse each valid arriving chunk
       // before executing the callback
       const sseClient = new SSEClient();
-      sseClient.on("text", onNewChunkArrival);
+      sseClient.on("text", onNewTextArrival);
+      sseClient.on("json", onNewJSONArrival);
       sseClient.connect(streamingResponse);
     } catch (error) {
       console.error("Failed to fetch from chat API:", error);
