@@ -30,7 +30,10 @@ class SSEClient {
       onEvent: (event) => {
         try {
           if (event.event === "text" || event.event === "json") {
-            this.emit(event.event, JSON.parse(event.data).kwargs.content);
+            this.emit(
+              event.event,
+              JSON.parse(event.data)?.kwargs?.content || event.data
+            );
           }
         } catch (err) {
           console.error("Failed to handle SSE event:", err);

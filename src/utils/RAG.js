@@ -1,17 +1,10 @@
-import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
 import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { Document } from "@langchain/core/documents";
 import fs from "fs/promises";
 import path from "path";
+import { embeddingModel } from "../llms.js"; // Import the embedding model
 
-// Initialize the embedding model
-const embeddingModel = new GoogleGenerativeAIEmbeddings({
-  apiKey:
-    process.env.GEMINI_API_KEY || "AIzaSyBlob6YbAnKxRpBDJSFoOnMGdDcH2JdWg4",
-  model: "embedding-001",
-});
-
-async function loadVectorStore(loadPath) {
+export async function loadVectorStore(loadPath) {
   await fs.access(loadPath);
   try {
     const serializedData = await fs.readFile(loadPath, "utf-8");
@@ -36,7 +29,7 @@ async function loadVectorStore(loadPath) {
   }
 }
 
-async function queryDataset(vectorStore, queryText) {
+export async function queryDataset(vectorStore, queryText) {
   const results = await vectorStore.similaritySearch(queryText, 5);
   console.log("\n=== Query Results ===");
   if (results.length === 0) {
@@ -51,7 +44,7 @@ async function queryDataset(vectorStore, queryText) {
   return results;
 }
 
-async function ingestJSONFile(filePath, vectorStore) {
+export async function ingestJSONFile(filePath, vectorStore) {
   let documents = [];
   try {
     const raw = await fs.readFile(filePath, "utf-8");
@@ -71,14 +64,16 @@ async function ingestJSONFile(filePath, vectorStore) {
       const metadata = {};
       for (const key in item) {
         const value = item[key];
-        if (
-          typeof value === "string" ||
-          typeof value === "number" ||
-          typeof value === "boolean" ||
-          (Array.isArray(value) &&
-            value.every((v) => typeof v === "string" || typeof v === "number"))
-        ) {
-          metadata[key] = value;
+        // Check if the value is not a null or undefined
+        if (value !== null && typeof value !== "undefined") {
+          // Check if the value is a nested object that is not an array.
+          if (typeof value === "object" && !Array.isArray(value)) {
+            // Stringify the nested object to preserve it
+            metadata[key] = JSON.stringify(value);
+          } else {
+            // For simple types and arrays, add them directly
+            metadata[key] = value;
+          }
         }
       }
 
@@ -104,7 +99,7 @@ async function ingestJSONFile(filePath, vectorStore) {
   }
 }
 
-async function saveVectorStore(vectorStore, savePath) {
+export async function saveVectorStore(vectorStore, savePath) {
   const serializedData = JSON.stringify(
     vectorStore.memoryVectors.map((mv) => ({
       pageContent: mv.pageContent,
@@ -118,7 +113,7 @@ async function saveVectorStore(vectorStore, savePath) {
   await fs.writeFile(savePath, serializedData);
 }
 
-async function initializeVectorStore(embeddings, datasetDir, savePath) {
+export async function initializeVectorStore(embeddings, datasetDir, savePath) {
   const vectorStore = new MemoryVectorStore(embeddings);
 
   const files = await fs.readdir(datasetDir);
@@ -137,24 +132,3 @@ async function initializeVectorStore(embeddings, datasetDir, savePath) {
   await saveVectorStore(vectorStore, savePath);
   console.log(`✓ Successfully saved vector store to ${savePath}.`);
 }
-
-// Main execution flow
-async function main() {
-  const datasetDir = path.resolve("datasets/mauritius_attractions_dataset");
-  const saveFilePath = path.resolve("vector_store.json");
-  const query = "beaches in the north";
-
-  // Check if the saved file exists
-  try {
-    // If it exists, load and query
-    const vectorStore = await loadVectorStore(saveFilePath);
-    await queryDataset(vectorStore, query);
-  } catch (error) {
-    // If it doesn't exist, ingest and save
-    await initializeVectorStore(embeddingModel, datasetDir, saveFilePath);
-    const vectorStore = await loadVectorStore(saveFilePath);
-    await queryDataset(vectorStore, query);
-  }
-}
-
-main().catch(console.error);
