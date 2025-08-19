@@ -22,7 +22,7 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-export default function AttractionsList({ attractions, setAttractions }) {
+export default function AttractionsList({ attractions, ...props }) {
   const [currentDateIndex, setCurrentDateIndex] = React.useState(0);
   const [expanded, setExpanded] = React.useState(false);
 
@@ -71,21 +71,6 @@ export default function AttractionsList({ attractions, setAttractions }) {
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
-  };
-
-  // Placeholder functions for the new buttons
-  const handleCancel = () => {
-    setAttractions([]);
-  };
-
-  const handleRegenerate = () => {
-    console.log("Regenerate button clicked!");
-    // Add logic for regenerating here
-  };
-
-  const handleConfirm = () => {
-    console.log("Confirm button clicked!");
-    // Add logic for confirming here
   };
 
   const test = [
@@ -336,30 +321,7 @@ export default function AttractionsList({ attractions, setAttractions }) {
             gap: 2,
           }}
         >
-          <Button
-            variant="outlined"
-            color="error"
-            onClick={handleCancel}
-            fullWidth
-          >
-            Cancel
-          </Button>
-          <Button
-            variant="outlined"
-            color="success"
-            onClick={handleRegenerate}
-            fullWidth
-          >
-            Regenerate
-          </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleConfirm}
-            fullWidth
-          >
-            Confirm
-          </Button>
+          {props.children}
         </Box>
       </Container>
     </Box>

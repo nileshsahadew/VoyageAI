@@ -24,7 +24,7 @@ function IteneraryPlannerPage() {
   const [UXMode, setUXMode] = useUIStateContext();
   const [chatMessages, setChatMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
-  const [attractions, setAttractions] = useState([]);
+  const [attractions, setAttractions] = useState([1]);
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [sttSupported, setSttSupported] = useState(false);
@@ -110,11 +110,12 @@ function IteneraryPlannerPage() {
   };
 
   // This function handles sending the user's message to the API
-  const handleSendMessage = async () => {
+  const handleSendMessage = async (messageOverride) => {
+    const messageToSend = messageOverride || inputMessage;
     // Prevent sending empty messages or while loading
-    if (inputMessage.trim() === "" || isLoading) return;
+    if (messageToSend.trim() === "" || isLoading) return;
 
-    const userMessage = { type: "user", message: inputMessage };
+    const userMessage = { type: "user", message: messageToSend };
     let assistantMessage = { type: "assistant", message: "" };
 
     // Add the user's message to the chat history & update UI
@@ -170,6 +171,24 @@ function IteneraryPlannerPage() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  // Placeholder functions for the new buttons
+  const handleCancel = () => {
+    setAttractions([]);
+  };
+
+  const handleRegenerate = () => {
+    setAttractions([]);
+    setInputMessage(
+      "Generate a new itinerary with the same preferences and days."
+    );
+    handleSendMessage();
+  };
+
+  const handleConfirm = () => {
+    console.log("Confirm button clicked!");
+    // Add logic for confirming here
   };
 
   // The rest of the component will only render if the session is ready
@@ -309,12 +328,32 @@ function IteneraryPlannerPage() {
     attractions.length > 0
   ) {
     return (
-      <AttractionsList
-        attractions={attractions}
-        setAttractions={setAttractions}
-        setInputMessage={setInputMessage}
-        handleSendMessage={handleSendMessage}
-      />
+      <AttractionsList attractions={attractions}>
+        <Button
+          variant="outlined"
+          color="error"
+          onClick={handleCancel}
+          fullWidth
+        >
+          Cancel
+        </Button>
+        <Button
+          variant="outlined"
+          color="success"
+          onClick={handleRegenerate}
+          fullWidth
+        >
+          Regenerate
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleConfirm}
+          fullWidth
+        >
+          Confirm
+        </Button>
+      </AttractionsList>
     );
   }
 }
