@@ -102,6 +102,43 @@ const theme = createTheme({
         },
       },
     },
+    MuiAccordion: {
+      styleOverrides: {
+        root: {
+          borderRadius: "12px",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+          "&:not(:last-child)": {
+            marginBottom: "16px",
+          },
+          "&.Mui-expanded": {
+            margin: "16px 0",
+          },
+          "&:before": {
+            display: "none",
+          },
+        },
+      },
+    },
+    MuiAccordionSummary: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "rgba(255, 255, 255, 0.8)",
+          borderRadius: "12px",
+          "&.Mui-expanded": {
+            borderBottomLeftRadius: 0,
+            borderBottomRightRadius: 0,
+          },
+        },
+      },
+    },
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          borderRadius: "12px",
+          boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+        },
+      },
+    },
   },
 });
 

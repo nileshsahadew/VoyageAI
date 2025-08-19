@@ -133,8 +133,9 @@ const itineraryGeneratorNode = async (state) => {
       day: new Date().toLocaleString("en-US", { weekday: "long" }),
     })
   );
+  if (itinerary?.itinerary == null) return "itineraryGeneratorNode";
   console.log("Generated Itinerary:", itinerary);
-  return { itinerary: itinerary.itinerary || [] };
+  return { itinerary: itinerary.itinerary };
 };
 
 const itineraryGeneratorAgent = new StateGraph(AgentState)
@@ -144,7 +145,6 @@ const itineraryGeneratorAgent = new StateGraph(AgentState)
   .addEdge(START, "queryFormulator")
   .addEdge("queryFormulator", "attractionsFinder")
   .addEdge("attractionsFinder", "itineraryGenerator")
-  .addEdge("attractionsFinder", END)
   .compile();
 
 export default itineraryGeneratorAgent;

@@ -70,7 +70,8 @@ const evaluatorNode = async (state) => {
     evaluatorConditions: {
       ...conditions,
       generateItinerary:
-        state.evaluatorConditions != null && conditions.numberOfDays != 0
+        state.evaluatorConditions?.generateItinerary &&
+        conditions.numberOfDays != 0
           ? state.evaluatorConditions.generateItinerary
           : conditions.generateItinerary,
     },
@@ -122,7 +123,7 @@ const generateItineraryNode = async (state, config) => {
     if (config.writer) {
       console.log("Result: ", result);
       config.writer({
-        event: "json",
+        event: "json-itinerary",
         data: JSON.stringify(result.itinerary),
       });
     }

@@ -29,11 +29,10 @@ class SSEClient {
     const parser = createParser({
       onEvent: (event) => {
         try {
-          if (event.event === "text" || event.event === "json") {
-            this.emit(
-              event.event,
-              JSON.parse(event.data)?.kwargs?.content || event.data
-            );
+          if (event.event === "text") {
+            this.emit(event.event, event.data?.kwargs?.content);
+          } else if (event.event === "json-itinerary") {
+            this.emit(event.event, JSON.parse(JSON.parse(event.data)));
           }
         } catch (err) {
           console.error("Failed to handle SSE event:", err);
