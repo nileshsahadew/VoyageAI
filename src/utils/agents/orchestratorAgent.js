@@ -1,65 +1,78 @@
 import { PromptTemplate } from "@langchain/core/prompts";
 import { geminiModel } from "@/llms";
-import { Annotation, END, StateGraph } from "@langchain/langgraph";
+import { Annotation, END, START, StateGraph } from "@langchain/langgraph";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
-import iteneraryGeneratorAgent from "./iteneraryGeneratorAgent";
+import itineraryGeneratorAgent from "./itineraryGeneratorAgent";
 
 const AgentState = Annotation.Root({
   userInput: Annotation,
   conversationHistory: Annotation,
   outputResponse: Annotation,
-  conditions: Annotation,
+  evaluatorConditions: Annotation,
+  itineraryDraft: Annotation,
 });
 
 const evaluatorNode = async (state) => {
   const conditionsSchema = {
     type: "object",
     properties: {
-      generateAttractions: {
-        type: "boolean",
+      numberOfDays: {
+        type: "number",
         description:
-          "The user explicitly asked for a plan of attractions to be generated.",
-      },
-      hasPlan: {
-        type: "boolean",
-        description: "Is there already a plan generated?",
+          "The number of days for the trip, if provided by the user in the conversation history.",
       },
       generateItinerary: {
         type: "boolean",
+        description: "Does the user want to generate an itinerary?",
+      },
+      finalizeItinerary: {
+        type: "boolean",
         description:
-          "If there already is a plan, does the user want to generate an itinerary from it?",
+          "If the user wants to finalize the itinerary from the draft.",
       },
     },
-    required: ["generateAttractions", "hasPlan", "generateItinerary"],
+    required: ["numberOfDays", "generateItinerary", "finalizeItinerary"],
   };
   const promptTemplate = PromptTemplate.fromTemplate(`
       Conversation history for context:
       {conversationHistory}
 
       Based on the conversation history, determine the following conditions:
-      1. Should attractions be generated? (generateAttractions)
-      2. Is there already a plan generated? (hasPlan)
-      3. If there is a plan, does the user want to generate an itinerary from it? (generateItinerary)
+      1. Does the user want to generate an itinerary? (generateItinerary)
+      2. What is the number of days the user has provided for the itinerary/trip? (numberOfDays)
+      3. Does the user want to finalize the itinerary from the draft? (finalizeItinerary)
     `);
 
-  const promptValue = await promptTemplate.invoke({
+  const systemPrompt = await promptTemplate.invoke({
     conversationHistory: state.conversationHistory,
+    evaluatorConditions: state.evaluatorConditions,
   });
 
   const evaluatorLLM = geminiModel.withStructuredOutput(conditionsSchema);
 
   const conditions = await evaluatorLLM.invoke([
-    new SystemMessage(promptValue),
+    new SystemMessage(systemPrompt),
     new HumanMessage(
-      "Do not reply! If my message is not clear/lacks context, do not try to generate attractions/itenerary. Message:" +
-        state.userInput
+      `Do not reply! If my message is not clear/lacks context, 
+       do not try to generate attractions/itinerary. 
+       Number of days is 0 unless specified.
+       Message: ${state.userInput}`
     ),
   ]);
   if (!conditions) {
     throw new Error("evaluatorNode: LLM returned undefined conditions");
   }
   console.log("Conditions evaluated:", conditions);
-  return { conditions: conditions };
+
+  return {
+    evaluatorConditions: {
+      ...conditions,
+      generateItinerary:
+        state.evaluatorConditions != null && conditions.numberOfDays != 0
+          ? state.evaluatorConditions.generateItinerary
+          : conditions.generateItinerary,
+    },
+  };
 };
 
 const generalQANode = async (state, config) => {
@@ -78,12 +91,12 @@ const generalQANode = async (state, config) => {
     conversationHistory: state.conversationHistory,
   });
 
-  // Note: Si sa pln pa compran system prompt la, met li dan user prompt, li marC lerla
   const stream = await geminiModel.stream([
     new SystemMessage(promptValue),
     new HumanMessage(
-      "REPLY IN 1-2 SENTENCES ONLY. If what I am saying is not clear/lacks context, ask for clarification. Message: " +
-        state.userInput
+      `REPLY IN 1-2 SENTENCES ONLY. If what I am saying
+       is not clear/lacks context, ask for clarification.
+       Message: ${state.userInput} `
     ),
   ]);
 
@@ -99,18 +112,22 @@ const generalQANode = async (state, config) => {
   return { outputResponse: outputResponse };
 };
 
-const delegateAgentsNode = async (state, config) => {
+const generateItineraryNode = async (state, config) => {
   try {
-    const result = await iteneraryGeneratorAgent.invoke({
+    const result = await itineraryGeneratorAgent.invoke({
       userInput: state.userInput,
     });
     if (config.writer) {
-      config.writer({ event: "json", data: JSON.stringify(result.itenerary) });
+      console.log("Result: ", result);
+      config.writer({
+        event: "json",
+        data: JSON.stringify(result.itinerary),
+      });
     }
 
-    return { outputResponse: result.itenerary };
+    return { outputResponse: result?.itinerary || [] };
   } catch (err) {
-    console.error("Error in delegateAgentsNode:", err);
+    console.error("Error in generateItineraryNode:", err);
     throw err;
   }
 };
@@ -118,15 +135,22 @@ const delegateAgentsNode = async (state, config) => {
 const orchestratorAgent = new StateGraph(AgentState)
   .addNode("generalQANode", generalQANode)
   .addNode("evaluatorNode", evaluatorNode)
-  .addNode("delegateAgentsNode", delegateAgentsNode)
+  .addNode("generateItineraryNode", generateItineraryNode)
   .addEdge("__start__", "evaluatorNode")
-  .addConditionalEdges("evaluatorNode", (state) => {
-    if (
-      state.conditions.generateAttractions ||
-      (state.conditions.hasPlan && state.conditions.generateItinerary)
-    ) {
-      console.log("Conditions met for delegateAgents");
-      return "delegateAgentsNode"; // Routes to delegateAgentsNode
+  .addConditionalEdges("evaluatorNode", (state, config) => {
+    if (state.evaluatorConditions.generateItinerary) {
+      if (state.evaluatorConditions.numberOfDays >= 1) {
+        console.log("Conditions met for generateItineraryNode");
+        return "generateItineraryNode"; // Routes to generateItineraryNode
+      } else {
+        if (config.writer) {
+          config.writer({
+            event: "text",
+            data: `Please provide a valid number of days for the trip.`,
+          });
+        }
+        return START; // Routes back to START for clarification
+      }
     }
     console.log("Conditions not met, returning to generalQANode");
     return "generalQANode"; // Routes to generalQANode
