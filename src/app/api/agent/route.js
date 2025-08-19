@@ -1,4 +1,6 @@
 import orchestratorAgent from "@/utils/agents/orchestratorAgent";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export async function POST(req) {
   try {
@@ -9,10 +11,14 @@ export async function POST(req) {
       .map((m) => `${m.role}: ${m.message}`)
       .join("\n");
 
+    const session = await getServerSession(authOptions);
+
     const stream = await orchestratorAgent.stream(
       {
         userInput: last.message,
         conversationHistory: conversationHistory,
+        userEmail: session?.user?.email,
+        userName: session?.user?.name,
       },
       { streamMode: "custom" }
     );

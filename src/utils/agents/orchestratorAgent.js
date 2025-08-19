@@ -10,6 +10,8 @@ const AgentState = Annotation.Root({
   outputResponse: Annotation,
   evaluatorConditions: Annotation,
   itineraryDraft: Annotation,
+  userEmail: Annotation,
+  userName: Annotation,
 });
 
 const evaluatorNode = async (state) => {
@@ -125,10 +127,69 @@ const generateItineraryNode = async (state, config) => {
       });
     }
 
-    return { outputResponse: result?.itinerary || [] };
+    return { outputResponse: result?.itinerary || [], itineraryDraft: result?.itinerary || [] };
   } catch (err) {
     console.error("Error in generateItineraryNode:", err);
     throw err;
+  }
+};
+
+function extractItineraryFromHistory(conversationHistory) {
+  if (!conversationHistory || typeof conversationHistory !== "string") return [];
+  // Heuristic: find the last JSON array in the text
+  const matches = conversationHistory.match(/\[[\s\S]*\]$/m) || conversationHistory.match(/\[[\s\S]*\]/m);
+  if (!matches) return [];
+  try {
+    const parsed = JSON.parse(matches[matches.length - 1]);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+const finalizeAndEmailNode = async (state, config) => {
+  try {
+    if (config.writer) {
+      config.writer({ event: "text", data: "Preparing your calendar and sending via email..." });
+    }
+
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL
+      || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+
+    const itineraryFromState = Array.isArray(state.itineraryDraft) ? state.itineraryDraft : [];
+    const itineraryFromHistory = extractItineraryFromHistory(state.conversationHistory);
+    const itinerary = itineraryFromState.length ? itineraryFromState : itineraryFromHistory;
+
+    const response = await fetch(`${baseUrl}/api/generate-itinerary`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userInput: state.userInput,
+        itinerary: itinerary.length ? itinerary : undefined,
+        recipientEmail: state.userEmail,
+        recipientName: state.userName,
+      }),
+    });
+
+    const result = await response.json();
+    if (!response.ok) {
+      const message = result?.error || "Failed to send email";
+      if (config.writer) {
+        config.writer({ event: "text", data: `Error: ${message}` });
+      }
+      return { outputResponse: message };
+    }
+
+    if (config.writer) {
+      config.writer({ event: "text", data: "Email sent! Check your inbox for the itinerary PDF and calendar." });
+    }
+    return { outputResponse: "Email sent" };
+  } catch (err) {
+    console.error("Error in finalizeAndEmailNode:", err);
+    if (config.writer) {
+      config.writer({ event: "text", data: "An error occurred while sending the email." });
+    }
+    return { outputResponse: "Failed to send" };
   }
 };
 
@@ -136,8 +197,12 @@ const orchestratorAgent = new StateGraph(AgentState)
   .addNode("generalQANode", generalQANode)
   .addNode("evaluatorNode", evaluatorNode)
   .addNode("generateItineraryNode", generateItineraryNode)
+  .addNode("finalizeAndEmailNode", finalizeAndEmailNode)
   .addEdge("__start__", "evaluatorNode")
   .addConditionalEdges("evaluatorNode", (state, config) => {
+    if (state.evaluatorConditions.finalizeItinerary) {
+      return "finalizeAndEmailNode";
+    }
     if (state.evaluatorConditions.generateItinerary) {
       if (state.evaluatorConditions.numberOfDays >= 1) {
         console.log("Conditions met for generateItineraryNode");
