@@ -108,7 +108,7 @@ const delegateAgentsNode = async (state, config) => {
       config.writer({ event: "json", data: JSON.stringify(result.itenerary) });
     }
 
-    return { outputResponse: outputResponse };
+    return { outputResponse: result.itenerary };
   } catch (err) {
     console.error("Error in delegateAgentsNode:", err);
     throw err;
