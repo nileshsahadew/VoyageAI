@@ -1,0 +1,792 @@
+[
+  {
+    "id": "attraction_075",
+    "name": "Butte a Lherbe Canodyne",
+    "attraction_type": "beach",
+    "description": "A beautiful, hidden beach located in a secluded area that offers a quiet and peaceful retreat. Known for its large open spaces, it is a popular spot for picnics and camping. The beach provides a great view of Gunner's Quoin and is considered a rewarding destination despite the slightly challenging drive to get there.",
+    "tags": [
+      "beach",
+      "secluded",
+      "quiet",
+      "picnic",
+      "camping",
+      "family-friendly",
+      "scenic view"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Butte a Lherbe, Calodyne, Mauritius",
+      "latitude": -19.99983334114522,
+      "longitude": 57.65328039048383,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is via a 'broken' or 'awkward' track that may be difficult for regular cars. Public toilets are available on-site."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/KXRzHmMvsojJW9wN9",
+        "rating": 4.4,
+        "reviewCount": 377,
+        "summary": "Visitors describe this beach as a quiet and beautiful 'hidden gem' that is well worth the difficult drive. It is praised as an ideal place for picnics and camping due to its large, open spaces. The water is noted to be shallow, making it perfect for wading and for kids, but not ideal for deep swimming."
+      }
+    ],
+    "additional_info": {
+      "notes": "There are no food or drink vendors on or near the beach, so visitors should bring their own supplies.",
+      "advisories": {
+        "safety": [
+          "The access road is rough and difficult to navigate; a high-clearance vehicle is recommended."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_076",
+    "name": "Calodyne Public Beach",
+    "attraction_type": "beach",
+    "description": "A tranquil and picturesque public beach known for its serene and laid-back atmosphere. Located in the northern part of Mauritius, it features calm, crystal-clear water and fine sand, making it an ideal spot for swimming, snorkeling, and family picnics. The beach is a less crowded alternative to more popular northern beaches and offers stunning views of the surrounding islets.",
+    "tags": [
+      "beach",
+      "swimming",
+      "quiet",
+      "family-friendly",
+      "snorkeling",
+      "picnic"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Calodyne, Mauritius",
+      "latitude": -20.000471556686897,
+      "longitude": 57.643862973121394,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "latitude": -20.00258384658447,
+          "longitude": 57.64454720073482,
+          "notes": "Main public access point with parking."
+        },
+        {
+          "latitude": -20.003894644141578,
+          "longitude": 57.65016059050266,
+          "notes": "Secondary access point."
+        }
+      ],
+      "notes": "The beach is freely accessible to the public and has a nearby parking area."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/S8SpFHJaFiQ3um5cA",
+        "rating": 4.4,
+        "reviewCount": 66,
+        "summary": "Reviews highlight the beach's calm and peaceful environment, calling it a great place for relaxation and family outings. Visitors appreciate the clear water and calm waves, which are excellent for swimming. Some mention that the sand in the water can be muddy or rocky in some spots, so water shoes might be useful."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach is well-equipped with amenities like public toilets and natural shade from trees. It is a great spot for water sports such as kayaking and paddleboarding.",
+      "advisories": {
+        "safety": [
+          "Water shoes are recommended for walking in the water, as some areas may be muddy or have rocks/coral."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_077",
+    "name": "St Francois Public Beach",
+    "attraction_type": "beach",
+    "description": "A small, quiet, and uncrowded public beach located in the northern part of Mauritius. It is considered a hidden gem, offering a peaceful atmosphere perfect for relaxing and enjoying the scenery. The beach is a great spot for swimming and provides a beautiful view of the nearby islets.",
+    "tags": ["beach", "quiet", "secluded", "swimming", "scenic view"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "St Francois, Calodyne, Mauritius",
+      "latitude": -19.996699543250063,
+      "longitude": 57.6386198447651,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free, and the beach is not typically busy, making it an ideal spot to avoid crowds."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/6ENQGPfEXgPsnwss9",
+        "rating": 3.7,
+        "reviewCount": 6,
+        "summary": "Visitors describe the beach as a great place to relax and 'chill out.' They appreciate its small size and tranquil nature, noting that it is not busy and offers a rewarding view of the surrounding islands. The beach's main appeal is its peaceful, secluded atmosphere."
+      }
+    ],
+    "additional_info": {
+      "notes": "Known as a great place for a quick swim and to escape from more crowded beaches in the area.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_078",
+    "name": "Anse La Raie Beach",
+    "attraction_type": "beach",
+    "description": "A tranquil and unique beach known for its lush, grassy areas and lush trees, providing a different feel from a typical sandy beach. Anse La Raie is a paradise for kitesurfing and windsurfing enthusiasts due to its consistent winds. The bay's calm and shallow water makes it a safe spot for children and a serene place for picnics and relaxation, all while offering beautiful views of the northern islands, including Flat Island.",
+    "tags": [
+      "beach",
+      "kitesurfing",
+      "picnic",
+      "family-friendly",
+      "quiet",
+      "scenic view"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Anse La Raie, Cap Malheureux, Mauritius",
+      "latitude": -19.99063744682969,
+      "longitude": 57.63244158662239,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "There is a large, free, and open car park available for visitors."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/fSTd463W7xMYRR8n7",
+        "rating": 4.4,
+        "reviewCount": 615,
+        "summary": "Reviews highlight Anse La Raie as a quiet and pleasant beach, with many praising it as an excellent spot for picnics due to its lush surroundings. It is particularly popular for kitesurfing, with visitors enjoying watching both experienced and novice surfers. Reviewers also appreciate the calm, shallow water that is ideal for kids and the wonderful views of Flat Island."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach is often windy, which creates ideal conditions for wind-related water sports. Visitors should bring their own food and drinks as there are limited services directly on the beach.",
+      "advisories": {
+        "safety": [
+          "Be mindful of kitesurfing equipment and activities in designated areas."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_079",
+    "name": "Giant Ficus, Cap Malheureux",
+    "attraction_type": "landmark",
+    "description": "A magnificent and ancient Ficus tree located in Cap Malheureux that has become a local landmark. Its unique and massive trunk allows visitors to step inside, making it a popular spot for photography. The tree is also a natural roosting site for thousands of birds, creating a spectacular 'concert' in the early evening.",
+    "tags": ["landmark", "nature", "photography", "scenic view", "wildlife"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Cap Malheureux, Mauritius",
+      "latitude": -19.986095706384766,
+      "longitude": 57.62296011038232,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free, and there is easy parking available nearby. It is a viewpoint from which visitors can enjoy the scenery."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/cBwn7pZfW4Phh9Gw5",
+        "rating": 4.9,
+        "reviewCount": 8,
+        "summary": "Visitors consistently describe the giant ficus as an 'amazing' and 'fantastic' place. Reviewers highlight the unique experience of being able to step inside the tree and the excellent photo opportunities. The 'birds concert' around 6 pm and the presence of a vendor selling grilled fish on Sundays are noted as special highlights."
+      }
+    ],
+    "additional_info": {
+      "notes": "The tree is a great example of a banyan fig species and is a favorite among photographers. It is especially captivating to visit in the late afternoon to witness the birds gathering.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_080",
+    "name": "Notre-Dame Auxiliatrice de Cap Malheureux",
+    "attraction_type": "religious_site",
+    "description": "A charming and iconic French-built chapel located in the village of Cap Malheureux. Known universally as the 'Red Roof Church' due to its striking red roof that contrasts with the clear blue sky and turquoise sea. The chapel itself features exquisite woodwork and a holy water basin crafted from a giant clamshell, while its picturesque seaside setting makes it a renowned spot for photography and quiet contemplation.",
+    "tags": [
+      "church",
+      "religious site",
+      "landmark",
+      "photography",
+      "scenic view",
+      "coastal",
+      "history"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Royal Rd, Cap Malheureux, Mauritius",
+      "latitude": -19.986565202744504,
+      "longitude": 57.62221740853363,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "There is no entry fee. The church's operating hours can be variable, and it may be closed for private ceremonies or other events."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/veb9fyrkFj9t5zf6A",
+        "rating": 4.6,
+        "reviewCount": 4317,
+        "summary": "Visitors describe the church as a 'must-see' and a 'slice of paradise,' praising its postcard-perfect scenery and the beautiful contrast between the red roof, the blue sea, and the green landscape. Many note that it is a highly photogenic spot, particularly at sunset. The presence of a nearby beach and fishermen adds to the authentic charm of the location."
+      }
+    ],
+    "additional_info": {
+      "notes": "The site is an excellent subject for photographers, with its vibrant colors and stunning coastal backdrop. Visitors can also observe local life at the nearby dock, where fishermen prepare their catch.",
+      "advisories": {
+        "safety": null,
+        "travel": "Check for official opening hours before visiting if you wish to see the inside of the chapel."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_081",
+    "name": "Cap Malheureux",
+    "attraction_type": "village",
+    "description": "A picturesque coastal village located at the northernmost point of Mauritius, famous for its iconic red-roof church and stunning views of the northern islets, including Coin de Mire. Despite its name, which translates to 'Cape Misfortune' and is rooted in its history, the village offers a serene and tranquil atmosphere, providing a perfect escape from more crowded areas.",
+    "tags": [
+      "village",
+      "coastal",
+      "scenic view",
+      "history",
+      "fishing village",
+      "photography"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Cap Malheureux, Mauritius",
+      "latitude": -19.986395592843685,
+      "longitude": 57.62215582688777,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The village is a public, open area. Most visitors access the beach and church for free."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/F1DoDomCqZDTaH3A7",
+        "rating": 4.6,
+        "reviewCount": 1500,
+        "summary": "Visitors consistently describe Cap Malheureux as a 'must-visit' destination, praising its peaceful ambiance and breathtaking views. While the iconic red-roof church is the main draw, reviewers also appreciate the charm of the village itself and the stunning coastal scenery, especially at sunset. The presence of local fishermen and a quiet atmosphere adds to its authentic appeal."
+      }
+    ],
+    "additional_info": {
+      "notes": "The village's name, 'Cape Misfortune,' is due to the historical significance of the British landing here in 1810. Its a great starting point for boat trips to the northern islands.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_079",
+        "relation_type": "part_of"
+      },
+      {
+        "id_ref": "attraction_080",
+        "relation_type": "part_of"
+      }
+    ]
+  },
+  {
+    "id": "attraction_082",
+    "name": "Gunner's Quoin",
+    "attraction_type": "islet",
+    "description": "An uninhabited islet, also known as Coin de Mire, located off the northern coast of Mauritius. It is a striking landmark with high cliffs and a unique shape, and is a protected nature reserve. The island itself is a sanctuary for a variety of seabirds and endemic species, making it an important ecological site. While access to the island is prohibited, the surrounding waters are a world-class destination for diving and snorkeling.",
+    "tags": [
+      "islet",
+      "nature_reserve",
+      "scuba_diving",
+      "snorkeling",
+      "scenic_view",
+      "wildlife"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Gunner's Quoin, Mauritius",
+      "latitude": -19.942503364777938,
+      "longitude": 57.6200179760706,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": true,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access to the island is strictly prohibited as it is a protected nature reserve. Visits are limited to organized boat trips for snorkeling and diving in the surrounding waters."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/PyQXvfmpFfu3UsmB9",
+        "rating": 4.7,
+        "reviewCount": 140,
+        "summary": "Gunner's Quoin is highly praised as an 'epic' and 'best scuba diving spot' in Mauritius. Visitors love the impressive cliff views and the vibrant marine life found in the coral reefs. Reviewers consistently mention that while it's a 'beautiful place,' public access to the island is prohibited, and the experience is focused on water-based activities like diving and snorkeling."
+      }
+    ],
+    "additional_info": {
+      "notes": "The area around the island, including 'Confetti Bay,' is a popular spot for diving schools due to its ideal depth and calm waters. Its unique shape and location make it a prominent feature visible from the northern coast of Mauritius.",
+      "advisories": {
+        "safety": [
+          "Do not attempt to land on the island as it is a protected nature reserve."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_083",
+    "name": "Flat Island",
+    "attraction_type": "island",
+    "description": "A gorgeous, uninhabited island located off the northern coast of Mauritius. Accessible only by boat or catamaran, it is a truly special place known for its stunningly blue and clear waters, pristine beaches, and vibrant marine life. It is a premier spot for snorkeling and offers a peaceful escape, though it can get busy during peak season.",
+    "tags": [
+      "island",
+      "snorkeling",
+      "scenic",
+      "beach",
+      "boat trip",
+      "marine life",
+      "hiking"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Flat Island, Mauritius",
+      "latitude": -19.880835204056453,
+      "longitude": 57.66328799949625,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Access is only available via a paid boat or catamaran tour. Visitors should bring their own supplies and protection."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/Da2CQfUSYQH6x1jJ6,location",
+        "rating": 4.7,
+        "reviewCount": 261,
+        "summary": "Visitors describe Flat Island as a 'paradise' with 'insanely blue' water and amazing snorkeling spots. Reviews note that while it can get crowded, it's possible to find quiet areas by walking further along the beach. Visitors also warn that the current can be quite strong and that sun protection is essential due to the intense sun."
+      }
+    ],
+    "additional_info": {
+      "notes": "The island's flat topography makes it easy to walk around, and the views of the surrounding ocean are breathtaking. It is a great alternative to the more rugged islands nearby.",
+      "advisories": {
+        "safety": [
+          "Be aware of strong currents when snorkeling or swimming.",
+          "Wear reef shoes to protect your feet from coral and rocks."
+        ],
+        "travel": "Don't forget sunscreen and UV protection, as it can get very hot."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_084",
+    "name": "Gabriel Island",
+    "attraction_type": "island",
+    "description": "An uninhabited islet located just off the northern coast of Mauritius, known for its stunning white sandy beaches and spectacularly clear, turquoise water. Accessible primarily by catamaran or boat tours, the island is a popular destination for a day trip focused on swimming and snorkeling in its vibrant marine environment.",
+    "tags": [
+      "island",
+      "snorkeling",
+      "catamaran trip",
+      "beach",
+      "scenic",
+      "marine life"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Gabriel Island, Mauritius",
+      "latitude": -19.88587018622785,
+      "longitude": 57.67256853353231,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Access is only available via a paid catamaran or boat tour, which typically includes food and drinks as part of the package."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/riGGXzVXofUbuTy4A",
+        "rating": 4.7,
+        "reviewCount": 524,
+        "summary": "Visitors describe Gabriel Island as 'stunning' and a 'beautiful' place for swimming and snorkeling. While it is noted that the island can get crowded with multiple tour boats, reviewers suggest that walking away from the main drop-off point can lead to quieter areas. The beach is praised for its calm waters and vibrant coral, though some spots are rocky."
+      }
+    ],
+    "additional_info": {
+      "notes": "The island is often part of a combined tour package with nearby Flat Island. It is a mass-tourist destination, but its beauty makes it a rewarding experience for many.",
+      "advisories": {
+        "safety": [
+          "Wear reef shoes for snorkeling and swimming as the seabed can be rocky in some areas."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_085",
+    "name": "Bain Boeuf Public Beach",
+    "attraction_type": "beach",
+    "description": "A tranquil and picturesque public beach located in the northern part of Mauritius. It is considered a hidden gem, providing a peaceful retreat away from the more crowded tourist areas. The beach features lush shade from trees, comfortable benches, and terraces, making it an ideal spot for relaxation and picnics. It offers a stunning, surreal view of the northern islands, particularly Gunner's Quoin.",
+    "tags": [
+      "beach",
+      "quiet",
+      "picnic",
+      "scenic_view",
+      "family-friendly",
+      "relaxation"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Bain Boeuf, Mauritius",
+      "latitude": -19.98591865008204,
+      "longitude": 57.60542770203596,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The beach is freely accessible to the public with a nearby car park."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/75HjnAu7bgyv6UKd7",
+        "rating": 4.4,
+        "reviewCount": 1348,
+        "summary": "Reviews highlight Bain Boeuf as a very pleasant and peaceful beach, perfect for a day out, a picnic, or simply relaxing. While visitors praise its great amenities like benches and public toilets, some note that it is not ideal for swimming due to the presence of corals and a rocky seabed. However, the shallow waters make it a great spot for kids and for wading."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach is well-equipped with public toilets and plenty of shaded areas for visitors to relax. It offers a great view of Gunner's Quoin island.",
+      "advisories": {
+        "safety": [
+          "Be cautious when swimming due to corals and rocks near the shoreline."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_086",
+    "name": "Pointe d'Azur",
+    "attraction_type": "beach",
+    "description": "A secluded and picturesque beach and headland known for its serene and tranquil atmosphere. Located near the popular Pereybere beach, Pointe d'Azur offers a peaceful retreat with a beautiful view of the bay and the northern islets, including Gunner's Quoin. It is a great spot for swimming, snorkeling, and simply relaxing away from the crowds.",
+    "tags": ["beach", "secluded", "bay", "viewpoint", "quiet", "snorkeling"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Pointe d'Azur, Mauritius",
+      "latitude": -19.98902639132352,
+      "longitude": 57.589932522026864,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Public access is limited and often difficult due to the surrounding private residences and a road that is not in good condition. Visitors may need to park and walk to find an entry point."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/LQfEBd7sS3t6QQV1A",
+        "rating": 4.4,
+        "reviewCount": 221,
+        "summary": "Visitors appreciate the nice view and the tranquil atmosphere of the bay. The primary challenge noted in reviews is the restricted access due to private residences and the poor condition of the road leading to the area. Despite this, those who find the way in praise its secluded and peaceful nature."
+      }
+    ],
+    "additional_info": {
+      "notes": "This spot is best for visitors seeking a quiet, off-the-beaten-path experience. It's a great choice for a peaceful walk or a relaxing afternoon.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Access to the beach is not straightforward; be prepared for a walk over uneven terrain.",
+          "The road is rough, making it difficult for some vehicles."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_087",
+    "name": "Pereybere Public Beach",
+    "attraction_type": "beach",
+    "description": "One of the most popular and vibrant public beaches in the northern part of Mauritius, known for its beautiful white sand and exceptionally calm, clear, and shallow waters. It is a bustling spot for both locals and tourists, offering a perfect environment for swimming and sunbathing. The beach is well-equipped with amenities and a lively atmosphere, with numerous food trucks and restaurants nearby.",
+    "tags": [
+      "beach",
+      "swimming",
+      "snorkeling",
+      "family-friendly",
+      "crowded",
+      "food"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Pereybere, Grand Baie, Mauritius",
+      "latitude": -19.99377275437491,
+      "longitude": 57.591327137574574,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access to the beach is free. Parking can be a challenge, particularly on weekends and public holidays."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/LFd3AmVzeafU92Ur8",
+        "rating": 4.5,
+        "reviewCount": 2839,
+        "summary": "Visitors describe Pereybere as a 'beautiful slice of paradise' with calm, still water and lovely white sand. Reviewers highlight its popularity, noting that it can get crowded, especially on weekends, and that parking can be difficult. The presence of food trucks and public showers is a plus. While the main beach is great for swimming, it is also recommended to walk towards Pointe d'Azur for a better snorkeling experience."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach has public showers and is a hub for food stalls and vendors. The calm and shallow water makes it particularly safe and pleasant for children.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Be prepared for crowds on weekends and during holidays.",
+          "Parking space is limited and may require a short walk."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_088",
+    "name": "Melville Beach",
+    "attraction_type": "beach",
+    "description": "A quiet and peaceful beach located in the Grand Gaube area, known for its serene ambiance and natural beauty. Unlike more crowded tourist spots, this beach is a tranquil escape where visitors can relax under the shade of trees and enjoy the gentle breeze. The beach is a mix of sand and rocks and is generally considered more suitable for quiet moments than for active water sports.",
+    "tags": [
+      "beach",
+      "quiet",
+      "secluded",
+      "local_spot",
+      "natural",
+      "relaxation"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Melville, Grand Gaube, Mauritius",
+      "latitude": -20.023459998065377,
+      "longitude": 57.682482295041524,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free and the beach has a more natural, undeveloped feel. Visitors are advised to bring their own essentials like food and water."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/5yd48WcZ1E6KsZkb8",
+        "rating": 4.3,
+        "reviewCount": 34,
+        "summary": "Visitors consistently praise Melville Beach as a 'very nice place to spend some quiet time' and a 'calm' escape. It is described as a beautiful spot that is frequented mainly by locals. However, several reviewers note an issue with littering and urge visitors to use the available garbage cans. Snorkeling is also mentioned as not being a highlight of the beach."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach is rocky in places and is not a well-known snorkeling spot. There is a small Ganga Mandir (temple) located near the beach.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Visitors are urged to be mindful of litter and to use the provided garbage cans to help keep the beach clean."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_089",
+    "name": "Grand Gaube Embarcation Point",
+    "attraction_type": "pier",
+    "description": "A functional and authentic pier located in the village of Grand Gaube. This spot serves as a hub for local fishermen and a departure point for various boat trips and excursions to the northern islets, including Île d'Ambre, Coin de Mire, Flat Island, and Gabriel Island. It offers a glimpse into the local maritime culture and provides a peaceful setting for scenic views and photography.",
+    "tags": [
+      "pier",
+      "local life",
+      "fishing",
+      "boat trip",
+      "scenic view",
+      "authentic"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Grand Gaube, Mauritius",
+      "latitude": -20.01597608138218,
+      "longitude": 57.68176319504123,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free and the area is a working pier, not a designated swimming or sunbathing beach."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/NGCqrXtjdFCLvk5QA",
+        "rating": 4.3,
+        "reviewCount": 22,
+        "summary": "Reviews describe the embarcation point as a peaceful and authentic spot to watch local fishermen and get on a boat tour. It is praised for its quiet atmosphere and lack of crowds. Visitors note that while the location itself is charming, it is a functional area with limited tourist amenities compared to more established beaches."
+      }
+    ],
+    "additional_info": {
+      "notes": "This is a popular starting point for kayaking trips to nearby Île d'Ambre and for boat tours to other northern islands. It's an ideal spot to experience the raw, local side of Grand Gaube.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Be aware that the area is a working port and may not have the same facilities as a tourist beach."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_090",
+    "name": "Grand Gaube Public Beach",
+    "attraction_type": "beach",
+    "description": "A public beach in the tranquil village of Grand Gaube, offering a peaceful and authentic local experience away from the busier tourist areas. Visitors can enjoy the calm atmosphere, clear waters, and scenic views. The beach is a mix of sand and exposed rocks, making it ideal for walking, fishing, and exploring the shoreline, particularly during low tide.",
+    "tags": ["beach", "calm", "fishing", "local_spot", "authentic", "peaceful"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Grand Gaube, Mauritius",
+      "latitude": -20.007303873879344,
+      "longitude": 57.66949667604987,
+      "region": "Rivière du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free and the beach has basic facilities. Be aware that parts of the coastline are occupied by private resorts and villas."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/q199L2A5ULfGAFwR7",
+        "rating": 4.1,
+        "reviewCount": 164,
+        "summary": "Reviews for this beach are mixed. Some visitors praise it as a 'calm, friendly' and 'inspiring place' with powder white sand, clear water, and opportunities for fishing. Others express frustration, calling it a 'dump' and an 'injustice' due to what they perceive as poor maintenance and limited public access as a result of private resorts fencing off the best parts of the shoreline."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach is a great spot to see and buy fresh seafood from local fishermen. The calm atmosphere makes it a great place for a relaxing stroll.",
+      "advisories": {
+        "safety": null,
+        "travel": [
+          "Be aware that the beach's condition can be inconsistent, and public access is limited in some areas due to adjacent private properties."
+        ]
+      }
+    },
+    "sub_attractions": []
+  }
+]

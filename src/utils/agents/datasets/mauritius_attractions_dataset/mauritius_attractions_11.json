@@ -1,0 +1,1530 @@
+[
+  {
+    "id": "attraction_133",
+    "name": "Swami Vivekananda International Convention Center (SVICC)",
+    "attraction_type": "destination",
+    "description": "Mauritius’s major convention venue on the Port Louis–Pailles corridor, hosting expos, concerts, and conferences with large halls and parking.",
+    "tags": ["convention", "events", "concerts", "expo", "indoor"],
+    "audience_popularity": { "locals": "high", "tourists": "moderate" },
+    "location": {
+      "address": "Pailles, Port Louis District, Mauritius",
+      "latitude": -20.196,
+      "longitude": 57.493,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Main Entrance & Parking",
+          "latitude": -20.192,
+          "longitude": 57.495,
+          "access_notes": "Event days can be crowded; arrive early."
+        }
+      ],
+      "notes": "Check event calendars for access."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/5HwNfGC5K3sazaQV8",
+        "rating": 4.1,
+        "reviewCount": 1884,
+        "summary": "Spacious venue with good acoustics; traffic at peak events."
+      }
+    ],
+    "additional_info": {
+      "notes": "Cafés/food trucks during big events.",
+      "advisories": {
+        "safety": "Follow venue directions; keep valuables secure.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_134",
+    "name": "Rajiv Gandhi Science Center",
+    "attraction_type": "destination",
+    "description": "Interactive science museum with hands-on exhibits, planetarium-style shows, and student workshops.",
+    "tags": [
+      "museum",
+      "science",
+      "education",
+      "interactive",
+      "family-friendly"
+    ],
+    "audience_popularity": { "locals": "high", "tourists": "moderate" },
+    "location": {
+      "address": "Bell Village, Port Louis, Mauritius",
+      "latitude": -20.173,
+      "longitude": 57.485,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Museum Gate",
+          "latitude": -20.176,
+          "longitude": 57.501,
+          "access_notes": "School groups common on weekdays."
+        }
+      ],
+      "notes": "Check showtimes for demos."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Rajiv+Gandhi+Science+Centre+Mauritius",
+        "rating": 4.2,
+        "reviewCount": 320,
+        "summary": "Great for kids and science enthusiasts; friendly staff."
+      }
+    ],
+    "additional_info": {
+      "notes": "Allow 1–2 hours.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_135",
+    "name": "Bain des Dames Beach",
+    "attraction_type": "destination",
+    "description": "Urban seaside spot west of Port Louis harbor with local vibe and sunset views.",
+    "tags": ["beach", "urban", "sunset", "local"],
+    "audience_popularity": { "locals": "high", "tourists": "low" },
+    "location": {
+      "address": "Bain des Dames, Port Louis, Mauritius",
+      "latitude": -20.159,
+      "longitude": 57.48,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Waterfront Access",
+          "latitude": -20.168,
+          "longitude": 57.474,
+          "access_notes": "Street parking; busiest late afternoons."
+        }
+      ],
+      "notes": "Basic facilities nearby."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bain+des+Dames+Beach+Mauritius",
+        "rating": 4.3,
+        "reviewCount": 134,
+        "summary": "Relaxed, authentic feel; not a resort beach."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good for a short stop.",
+      "advisories": {
+        "safety": "Mind currents and boat traffic.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_136",
+    "name": "Les Salines Garden",
+    "attraction_type": "destination",
+    "description": "Green space between Caudan/Les Salines with lawns, paths, and occasional community events.",
+    "tags": ["park", "green space", "walks", "family-friendly"],
+    "audience_popularity": { "locals": "high", "tourists": "moderate" },
+    "location": {
+      "address": "Les Salines, Port Louis, Mauritius",
+      "latitude": -20.16,
+      "longitude": 57.49,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Gate",
+          "latitude": -20.162,
+          "longitude": 57.498,
+          "access_notes": "Pedestrian-friendly; limited shade at midday."
+        }
+      ],
+      "notes": "Vendors appear on weekends."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Les+Salines+Garden+Port+Louis",
+        "rating": 4.1,
+        "reviewCount": 275,
+        "summary": "Pleasant lawns near waterfront; handy for picnics."
+      }
+    ],
+    "additional_info": {
+      "notes": "Bring water and hats on hot days.",
+      "advisories": {
+        "safety": "Watch children near water edges.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_137", "relation_type": "contains" }
+    ]
+  },
+  {
+    "id": "attraction_137",
+    "name": "Tortoise Park (Les Salines Garden)",
+    "attraction_type": "point_of_interest",
+    "description": "Small enclosure with giant tortoises within the Les Salines green area—popular with families.",
+    "tags": ["tortoises", "family-friendly", "animals"],
+    "audience_popularity": { "locals": "high", "tourists": "moderate" },
+    "location": {
+      "address": "Les Salines, Port Louis, Mauritius",
+      "latitude": -20.159,
+      "longitude": 57.488,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Feeding rules may apply—follow on-site notices."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Tortoise+Park+Les+Salines+Port+Louis",
+        "rating": 4.3,
+        "reviewCount": 3,
+        "summary": "Kids love it; quick, cute stop."
+      }
+    ],
+    "additional_info": {
+      "notes": "Short visit pairs well with the park.",
+      "advisories": {
+        "safety": "Supervise children around animals.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_136", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_138",
+    "name": "Kwan Tee Pagoda",
+    "attraction_type": "point_of_interest",
+    "description": "Historic Chinese temple near the waterfront, with colorful altars and incense—a cultural anchor of Port Louis.",
+    "tags": ["temple", "heritage", "Chinese culture", "spiritual"],
+    "audience_popularity": { "locals": "moderate", "tourists": "moderate" },
+    "location": {
+      "address": "Les Salines, Port Louis, Mauritius",
+      "latitude": -20.161,
+      "longitude": 57.492,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Temple Gate",
+          "latitude": -20.163,
+          "longitude": 57.494,
+          "access_notes": "Remove shoes; be respectful."
+        }
+      ],
+      "notes": "Festive days can be busy."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/EmrGK8L21szPezay6",
+        "rating": 4.4,
+        "reviewCount": 90,
+        "summary": "Serene and historic; photogenic interiors."
+      }
+    ],
+    "additional_info": {
+      "notes": "Donations appreciated.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_139",
+    "name": "Odysseo – Oceanarium",
+    "attraction_type": "destination",
+    "description": "Modern oceanarium with Indian Ocean species, walkthrough tunnels, and educational exhibits beside the harbor.",
+    "tags": [
+      "oceanarium",
+      "aquarium",
+      "family-friendly",
+      "education",
+      "marine"
+    ],
+    "audience_popularity": { "locals": "high", "tourists": "high" },
+    "location": {
+      "address": "Les Salines, Port Louis, Mauritius",
+      "latitude": -20.159,
+      "longitude": 57.495,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Main Entrance",
+          "latitude": -20.16,
+          "longitude": 57.5,
+          "access_notes": "Timed entries on busy days."
+        }
+      ],
+      "notes": "Book weekends/holidays in advance."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Odysseo+Oceanarium+Mauritius",
+        "rating": 4.2,
+        "reviewCount": 1042,
+        "summary": "Excellent displays and layout; family favorite."
+      }
+    ],
+    "additional_info": {
+      "notes": "Allow 1.5–2 hours.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_140",
+    "name": "Marie Reine de la Paix",
+    "attraction_type": "destination",
+    "description": "Open-air terraced chapel on a hillside with sweeping views of Port Louis—popular for sunsets and ceremonies.",
+    "tags": ["chapel", "viewpoint", "religious", "sunset"],
+    "audience_popularity": { "locals": "high", "tourists": "high" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.17,
+      "longitude": 57.496,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Stair Access",
+          "latitude": -20.17,
+          "longitude": 57.511,
+          "access_notes": "Steep steps; bring water on hot days."
+        }
+      ],
+      "notes": "Modest dress appreciated."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Marie+Reine+de+la+Paix+Port+Louis",
+        "rating": 4.5,
+        "reviewCount": 851,
+        "summary": "Iconic city overlook; peaceful atmosphere."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great at golden hour.",
+      "advisories": {
+        "safety": "Mind steps when descending after dark.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_141",
+    "name": "Victoria Urban Terminal",
+    "attraction_type": "destination",
+    "description": "Modern transit and retail hub adjoining Port Louis’s main bus interchange with shops, eateries, and pedestrian links.",
+    "tags": ["transit", "shopping", "food", "hub"],
+    "audience_popularity": { "locals": "very_high", "tourists": "moderate" },
+    "location": {
+      "address": "Victoria Station area, Port Louis, Mauritius",
+      "latitude": -20.161,
+      "longitude": 57.501,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Concourse",
+          "latitude": -20.163,
+          "longitude": 57.502,
+          "access_notes": "Busy at commute peaks."
+        }
+      ],
+      "notes": "Good link to waterfront on foot."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/9bVqpRSFm7UDKMLu8",
+        "rating": 5,
+        "reviewCount": 1,
+        "summary": "Clean, convenient, and central; crowded at rush hour."
+      }
+    ],
+    "additional_info": {
+      "notes": "Useful waypoint to Caudan.",
+      "advisories": {
+        "safety": "Keep belongings close in crowds.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_142", "relation_type": "adjacent_to" }
+    ]
+  },
+  {
+    "id": "attraction_142",
+    "name": "Caudan Waterfront",
+    "attraction_type": "destination",
+    "description": "Port Louis’s waterfront district with shopping, dining, marina views, and museums—home to the city’s famous Umbrella Square.",
+    "tags": ["waterfront", "shopping", "dining", "museums", "marina"],
+    "audience_popularity": { "locals": "very_high", "tourists": "very_high" },
+    "location": {
+      "address": "Caudan, Port Louis, Mauritius",
+      "latitude": -20.161,
+      "longitude": 57.498,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Mall Entrance",
+          "latitude": -20.16,
+          "longitude": 57.496,
+          "access_notes": "Underground and outdoor parking available."
+        }
+      ],
+      "notes": "Weekend evenings are lively."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Caudan+Waterfront+Mauritius",
+        "rating": 4.3,
+        "reviewCount": 7990,
+        "summary": "Must-see waterfront with food, shops, and photo spots."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great base for exploring central Port Louis.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_143", "relation_type": "contains" },
+      { "id_ref": "attraction_144", "relation_type": "contains" },
+      { "id_ref": "attraction_145", "relation_type": "nearby" },
+      { "id_ref": "attraction_146", "relation_type": "contains" },
+      { "id_ref": "attraction_147", "relation_type": "nearby" },
+      { "id_ref": "attraction_148", "relation_type": "nearby" }
+    ]
+  },
+  {
+    "id": "attraction_143",
+    "name": "Umbrella Square",
+    "attraction_type": "point_of_interest",
+    "description": "Colorful canopy of suspended umbrellas at Caudan Waterfront—popular Instagram spot.",
+    "tags": ["art installation", "photo spot", "waterfront"],
+    "audience_popularity": { "locals": "very_high", "tourists": "very_high" },
+    "location": {
+      "address": "Caudan Waterfront, Port Louis, Mauritius",
+      "latitude": -20.161,
+      "longitude": 57.498,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Best light mid-morning or late afternoon."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Umbrella+Square+Caudan",
+        "rating": 4.3,
+        "reviewCount": 1530,
+        "summary": "Vibrant and fun; always busy."
+      }
+    ],
+    "additional_info": {
+      "notes": "Seasonal color themes occasionally change.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_142", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_144",
+    "name": "Blue Penny Museum",
+    "attraction_type": "point_of_interest",
+    "description": "Museum famous for the rare 1847 Mauritius ‘Post Office’ stamps and island history exhibits.",
+    "tags": ["museum", "stamps", "history", "heritage"],
+    "audience_popularity": { "locals": "moderate", "tourists": "high" },
+    "location": {
+      "address": "Caudan Waterfront, Port Louis, Mauritius",
+      "latitude": -20.161,
+      "longitude": 57.497,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Stamps lit for limited minutes each hour."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Blue+Penny+Museum+Mauritius",
+        "rating": 4.2,
+        "reviewCount": 981,
+        "summary": "Compact, high-quality exhibits; a philatelic gem."
+      }
+    ],
+    "additional_info": {
+      "notes": "Allow ~45–60 minutes.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_142", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_145",
+    "name": "Mauritius Postal Museum",
+    "attraction_type": "point_of_interest",
+    "description": "Historic postal building and museum near the waterfront showcasing mail heritage and stamp history.",
+    "tags": ["museum", "postal", "heritage"],
+    "audience_popularity": { "locals": "moderate", "tourists": "moderate" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.16,
+      "longitude": 57.502,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Opening hours can vary."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Mauritius+Postal+Museum",
+        "rating": 4.2,
+        "reviewCount": 302,
+        "summary": "Charming heritage stop; niche but interesting."
+      }
+    ],
+    "additional_info": {
+      "notes": "Combine with Blue Penny for a theme trail.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_142", "relation_type": "nearby" }
+    ]
+  },
+  {
+    "id": "attraction_146",
+    "name": "Windmill Museum (Caudan)",
+    "attraction_type": "point_of_interest",
+    "description": "A small exhibit recalling early wind-powered industry on the waterfront precinct.",
+    "tags": ["museum", "industrial heritage", "small exhibit"],
+    "audience_popularity": { "locals": "low", "tourists": "moderate" },
+    "location": {
+      "address": "Caudan Waterfront, Port Louis, Mauritius",
+      "latitude": -20.159,
+      "longitude": 57.501,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Check signage; limited hours."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Windmill+Museum+Port+Louis",
+        "rating": 4.4,
+        "reviewCount": 22,
+        "summary": "Tiny but quirky stop near the mall."
+      }
+    ],
+    "additional_info": {
+      "notes": "Quick add-on while at Caudan.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_142", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_147",
+    "name": "Intercontinental Slavery Museum (ICSM)",
+    "attraction_type": "point_of_interest",
+    "description": "Museum dedicated to the memory and history of slavery in Mauritius and the region, with rotating exhibits and education programs.",
+    "tags": ["museum", "history", "slavery", "education"],
+    "audience_popularity": { "locals": "moderate", "tourists": "moderate" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.159,
+      "longitude": 57.502,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Check current venue and hours; evolving institution."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Intercontinental+Slavery+Museum+Mauritius",
+        "rating": 4.1,
+        "reviewCount": 51,
+        "summary": "Powerful storytelling; reflective experience."
+      }
+    ],
+    "additional_info": {
+      "notes": "Combine with Aapravasi Ghat for context.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_142", "relation_type": "nearby" }
+    ]
+  },
+  {
+    "id": "attraction_148",
+    "name": "Aapravasi Ghat World Heritage Site",
+    "attraction_type": "destination",
+    "description": "UNESCO site marking the landing point of indentured laborers; museum exhibits and preserved structures on the harbor edge.",
+    "tags": ["UNESCO", "heritage", "history", "museum"],
+    "audience_popularity": { "locals": "high", "tourists": "high" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.158,
+      "longitude": 57.502,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Visitor Entrance",
+          "latitude": -20.158,
+          "longitude": 57.505,
+          "access_notes": "Guided tours at set times."
+        }
+      ],
+      "notes": "Closed on some public holidays."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/GmWqXx3A8v8UUq4c6",
+        "rating": 4.4,
+        "reviewCount": 867,
+        "summary": "Essential site for Mauritius’s identity and migration history."
+      }
+    ],
+    "additional_info": {
+      "notes": "Allocate 60–90 minutes.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_142", "relation_type": "nearby" }
+    ]
+  },
+  {
+    "id": "attraction_149",
+    "name": "Signal Mountain (Montagne des Signaux)",
+    "attraction_type": "destination",
+    "description": "Popular city hike with a paved road to a viewpoint overlooking Port Louis and the harbor.",
+    "tags": ["hike", "viewpoint", "city views", "sunset"],
+    "audience_popularity": { "locals": "very_high", "tourists": "high" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.176,
+      "longitude": 57.498,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Trail Start (road gate)",
+          "latitude": -20.165,
+          "longitude": 57.521,
+          "access_notes": "Steady incline; bring water and cap."
+        }
+      ],
+      "notes": "Early morning and late afternoon are best."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Signal+Mountain+Mauritius",
+        "rating": 4.7,
+        "reviewCount": 63,
+        "summary": "Iconic, accessible city hike with big views."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good for joggers too.",
+      "advisories": { "safety": "Traffic on bends—keep left.", "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_150",
+    "name": "Natural History Museum (Mauritius Institute)",
+    "attraction_type": "point_of_interest",
+    "description": "Classic museum with exhibits on island fauna, flora, geology, and dodo reconstructions.",
+    "tags": ["museum", "natural history", "education", "dodo"],
+    "audience_popularity": { "locals": "high", "tourists": "high" },
+    "location": {
+      "address": "Jardin de la Compagnie area, Port Louis",
+      "latitude": -20.163,
+      "longitude": 57.502,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Check hours and temporary closures."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Natural+History+Museum+Port+Louis",
+        "rating": 4.3,
+        "reviewCount": 356,
+        "summary": "Charming and informative; good for families."
+      }
+    ],
+    "additional_info": {
+      "notes": "Allow ~45–60 mins.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_151",
+    "name": "Les Jardins de la Compagnie (Company Gardens)",
+    "attraction_type": "destination",
+    "description": "Historic central park shaded by giant banyans and statues; a classic Port Louis respite.",
+    "tags": ["park", "heritage", "shade", "statues"],
+    "audience_popularity": { "locals": "very_high", "tourists": "high" },
+    "location": {
+      "address": "Central Port Louis, Mauritius",
+      "latitude": -20.164,
+      "longitude": 57.502,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Gate (J. de la Compagnie)",
+          "latitude": -20.164,
+          "longitude": 57.504,
+          "access_notes": "Benches and pathways; shaded."
+        }
+      ],
+      "notes": "Street food nearby at lunch."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Les+Jardins+de+la+Compagnie",
+        "rating": 3.6,
+        "reviewCount": 1368,
+        "summary": "Green oasis in the city; great banyan trees."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good photo spot under banyans.",
+      "advisories": {
+        "safety": "Beware falling twigs after strong wind.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_152",
+    "name": "Photographic Museum of Mauritius",
+    "attraction_type": "point_of_interest",
+    "description": "Specialist museum preserving early photography of Mauritius, equipment, and rare prints.",
+    "tags": ["museum", "photography", "heritage", "archives"],
+    "audience_popularity": { "locals": "moderate", "tourists": "moderate" },
+    "location": {
+      "address": "Port Louis (Caudan/central area)",
+      "latitude": -20.164,
+      "longitude": 57.504,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Check current location/hours."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Photographic+Museum+of+Mauritius",
+        "rating": 4.6,
+        "reviewCount": 74,
+        "summary": "Run by passionate curators; rich historic images."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great for history buffs.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_142", "relation_type": "nearby" }
+    ]
+  },
+  {
+    "id": "attraction_153",
+    "name": "St James Cathedral",
+    "attraction_type": "point_of_interest",
+    "description": "Anglican cathedral with colonial-era architecture and a peaceful garden setting.",
+    "tags": ["cathedral", "religious", "heritage", "architecture"],
+    "audience_popularity": { "locals": "moderate", "tourists": "moderate" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.167,
+      "longitude": 57.506,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Respect services in progress."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=St+James+Cathedral+Port+Louis",
+        "rating": 4.4,
+        "reviewCount": 120,
+        "summary": "Calm and historic; short, reflective visit."
+      }
+    ],
+    "additional_info": {
+      "notes": "Combine with Company Gardens.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_154",
+    "name": "St Louis Cathedral",
+    "attraction_type": "point_of_interest",
+    "description": "The Roman Catholic cathedral of Port Louis with significant religious and architectural heritage.",
+    "tags": ["cathedral", "religious", "heritage"],
+    "audience_popularity": { "locals": "high", "tourists": "moderate" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.164,
+      "longitude": 57.507,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Dress modestly; silence during mass."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=St+Louis+Cathedral+Port+Louis",
+        "rating": 4.5,
+        "reviewCount": 587,
+        "summary": "Impressive interior and history."
+      }
+    ],
+    "additional_info": {
+      "notes": "Active parish with regular services.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_155",
+    "name": "Champ de Mars Racecourse",
+    "attraction_type": "destination",
+    "description": "Historic racecourse (since 1812) ringed by mountains—Saturday races draw big crowds and vibrant atmosphere.",
+    "tags": ["racecourse", "heritage", "events", "sport"],
+    "audience_popularity": { "locals": "very_high", "tourists": "high" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.169,
+      "longitude": 57.51,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Grandstand Gates",
+          "latitude": -20.169,
+          "longitude": 57.512,
+          "access_notes": "Race days only; queues expected."
+        }
+      ],
+      "notes": "Race calendar runs in season."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Champ+de+Mars+Racecourse+Mauritius",
+        "rating": 4.2,
+        "reviewCount": 3022,
+        "summary": "Electric atmosphere; bring sun protection."
+      }
+    ],
+    "additional_info": {
+      "notes": "Vendors and food stalls on race days.",
+      "advisories": {
+        "safety": "Keep distance from rails and running horses.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_156", "relation_type": "contains" }
+    ]
+  },
+  {
+    "id": "attraction_156",
+    "name": "Tombeau Malartic",
+    "attraction_type": "point_of_interest",
+    "description": "Memorial tomb of French Governor Anne Joseph Hippolyte de Maures de Malartic near the racecourse grounds.",
+    "tags": ["memorial", "heritage", "history"],
+    "audience_popularity": { "locals": "low", "tourists": "low" },
+    "location": {
+      "address": "Near Champ de Mars, Port Louis",
+      "latitude": -20.17,
+      "longitude": 57.511,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Quiet, quick stop."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Tombeau+Malartic+Port+Louis",
+        "rating": 4.3,
+        "reviewCount": 11,
+        "summary": "Historic point of interest; brief visit."
+      }
+    ],
+    "additional_info": {
+      "notes": "Pairs with a racecourse stroll.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_155", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_157",
+    "name": "Le Dauguet (Green Corridor)",
+    "attraction_type": "destination",
+    "description": "Forest corridor and recreation area on the northern flank of Port Louis, with tracks leading to small cascades.",
+    "tags": ["forest", "hiking", "nature", "cascades"],
+    "audience_popularity": { "locals": "high", "tourists": "moderate" },
+    "location": {
+      "address": "Le Dauguet, Port Louis, Mauritius",
+      "latitude": -20.182,
+      "longitude": 57.518,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Trail Entrance",
+          "latitude": -20.145,
+          "longitude": 57.523,
+          "access_notes": "Uneven paths; wear proper shoes."
+        }
+      ],
+      "notes": "Bring repellent."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Le+Dauguet+Port+Louis",
+        "rating": 4.3,
+        "reviewCount": 50,
+        "summary": "Shady walks close to town; peaceful."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good for morning walks.",
+      "advisories": { "safety": "Slippery rocks after rain.", "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_158", "relation_type": "contains" }
+    ]
+  },
+  {
+    "id": "attraction_158",
+    "name": "Cascade Dauguet",
+    "attraction_type": "point_of_interest",
+    "description": "Small waterfall reachable via short tracks from the Le Dauguet green corridor.",
+    "tags": ["waterfall", "short hike", "nature"],
+    "audience_popularity": { "locals": "moderate", "tourists": "low" },
+    "location": {
+      "address": "Le Dauguet, Port Louis, Mauritius",
+      "latitude": -20.187,
+      "longitude": 57.52,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Water flow varies by season."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Cascade+Dauguet+Mauritius",
+        "rating": 3.3,
+        "reviewCount": 3,
+        "summary": "Quiet, refreshing stop; slippery stones."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best after light rains.",
+      "advisories": {
+        "safety": "Avoid swimming after heavy rain.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_157", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_159",
+    "name": "Nam Shun Fooy Koon Pagoda",
+    "attraction_type": "point_of_interest",
+    "description": "Historic Chinese pagoda in Port Louis’s Chinatown with ornate woodwork and ancestral altars.",
+    "tags": ["pagoda", "Chinese culture", "heritage", "spiritual"],
+    "audience_popularity": { "locals": "moderate", "tourists": "moderate" },
+    "location": {
+      "address": "China Town, Port Louis, Mauritius",
+      "latitude": -20.168,
+      "longitude": 57.512,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Remove shoes where indicated."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Nam+Shun+Fooy+Koon+Pagoda+Port+Louis",
+        "rating": 4.6,
+        "reviewCount": 8,
+        "summary": "Peaceful temple; cultural insight."
+      }
+    ],
+    "additional_info": {
+      "notes": "Donations welcome.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_161", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_160",
+    "name": "Citadelle (Fort Adelaide)",
+    "attraction_type": "destination",
+    "description": "19th-century hilltop fort overlooking Port Louis with panoramic views and historic ramparts.",
+    "tags": ["fort", "heritage", "viewpoint", "history"],
+    "audience_popularity": { "locals": "high", "tourists": "very_high" },
+    "location": {
+      "address": "Fort Adelaide, Port Louis, Mauritius",
+      "latitude": -20.164,
+      "longitude": 57.51,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Fort Gate",
+          "latitude": -20.163,
+          "longitude": 57.516,
+          "access_notes": "Short uphill road; limited shade."
+        }
+      ],
+      "notes": "Great for city panoramas."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Fort+Adelaide+Port+Louis",
+        "rating": 4.2,
+        "reviewCount": 2761,
+        "summary": "Top city view; breezy and photogenic."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best at golden hour.",
+      "advisories": {
+        "safety": "Keep to marked areas on ramparts.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_161",
+    "name": "China Town (Port Louis)",
+    "attraction_type": "destination",
+    "description": "Historic quarter with Chinese groceries, eateries, temples, and annual street art festival.",
+    "tags": ["district", "food", "culture", "street art"],
+    "audience_popularity": { "locals": "very_high", "tourists": "high" },
+    "location": {
+      "address": "Royal Road area, Port Louis, Mauritius",
+      "latitude": -20.159,
+      "longitude": 57.507,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "China Town Gate",
+          "latitude": -20.164,
+          "longitude": 57.503,
+          "access_notes": "Pedestrian-friendly zone."
+        }
+      ],
+      "notes": "Street art and festivals seasonally."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/5JFzUTH9UaL3rwah8",
+        "rating": 4.0,
+        "reviewCount": 62,
+        "summary": "Tasty, vibrant, and photogenic."
+      }
+    ],
+    "additional_info": {
+      "notes": "Try local snacks and buns.",
+      "advisories": { "safety": "Busy streets—watch traffic.", "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_162", "relation_type": "contains" },
+      { "id_ref": "attraction_163", "relation_type": "contains" }
+    ]
+  },
+  {
+    "id": "attraction_162",
+    "name": "China Town Gate",
+    "attraction_type": "point_of_interest",
+    "description": "Decorative gateway marking the entrance to Port Louis’s Chinatown.",
+    "tags": ["gate", "landmark", "photo spot"],
+    "audience_popularity": { "locals": "high", "tourists": "high" },
+    "location": {
+      "address": "China Town, Port Louis, Mauritius",
+      "latitude": -20.159,
+      "longitude": 57.506,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Busy road—take care when photographing."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=China+Town+Gate+Port+Louis",
+        "rating": 3.7,
+        "reviewCount": 18,
+        "summary": "Iconic photo landmark."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great start for a food crawl.",
+      "advisories": { "safety": "Mind vehicles.", "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_161", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_163",
+    "name": "Street & Art Murals (China Town)",
+    "attraction_type": "point_of_interest",
+    "description": "Colorful murals across alleyways and façades, expanding yearly with festivals.",
+    "tags": ["street art", "murals", "culture", "photography"],
+    "audience_popularity": { "locals": "very_high", "tourists": "high" },
+    "location": {
+      "address": "China Town, Port Louis, Mauritius",
+      "latitude": -20.16,
+      "longitude": 57.508,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Wander side streets to discover more."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/YvvjqQzurewbfrG5A",
+        "rating": 4.8,
+        "reviewCount": 4,
+        "summary": "Vibrant and evolving; great for photos."
+      }
+    ],
+    "additional_info": {
+      "notes": "Morning light works best.",
+      "advisories": { "safety": "Stay aware in narrow lanes.", "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_161", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_164",
+    "name": "Sir Abdul Razack Mohamed Garden",
+    "attraction_type": "point_of_interest",
+    "description": "Named section within the Plaine Verte area honoring a key Mauritian statesman.",
+    "tags": ["memorial", "garden", "heritage"],
+    "audience_popularity": { "locals": "moderate", "tourists": "low" },
+    "location": {
+      "address": "Plaine Verte, Port Louis",
+      "latitude": -20.164,
+      "longitude": 57.517,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Benches and shaded paths."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Sir+Abdul+Razack+Mohamed+Garden",
+        "rating": 4.1,
+        "reviewCount": 51,
+        "summary": "Quiet corner to sit and reflect."
+      }
+    ],
+    "additional_info": {
+      "notes": "Pair with a stroll across Plaine Verte.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_165", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_165",
+    "name": "Sunnirazvi Garden",
+    "attraction_type": "point_of_interest",
+    "description": "Small green pocket associated with the surrounding community, used for casual meetups and kids' play.",
+    "tags": ["garden", "community", "green pocket"],
+    "audience_popularity": { "locals": "moderate", "tourists": "low" },
+    "location": {
+      "address": "Plaine Verte, Port Louis",
+      "latitude": -20.157,
+      "longitude": 57.51,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Local spot; very low-key."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Sunnirazvi+Garden+Port+Louis",
+        "rating": 4.3,
+        "reviewCount": 3,
+        "summary": "Simple neighborhood green."
+      }
+    ],
+    "additional_info": {
+      "notes": "Short stop only.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": [
+      { "id_ref": "attraction_165", "relation_type": "located_within" }
+    ]
+  },
+  {
+    "id": "attraction_166",
+    "name": "Priest's Peak (Montagne du Prêtre)",
+    "attraction_type": "destination",
+    "description": "One of the lesser-known peaks on the Port Louis mountain rim, offering rugged trails and wide views.",
+    "tags": ["mountain", "hike", "viewpoint", "nature"],
+    "audience_popularity": { "locals": "moderate", "tourists": "low" },
+    "location": {
+      "address": "Port Louis Range, Mauritius",
+      "latitude": -20.159,
+      "longitude": 57.518,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Trail Spur",
+          "latitude": -20.182,
+          "longitude": 57.548,
+          "access_notes": "Unmarked sections; go with experienced hikers."
+        }
+      ],
+      "notes": "Weather changes quickly at elevation."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/HPFxMoZZ2EQLZLGD6",
+        "rating": 4.5,
+        "reviewCount": 24,
+        "summary": "Rewarding views; rough paths."
+      }
+    ],
+    "additional_info": {
+      "notes": "Carry plenty of water.",
+      "advisories": {
+        "safety": "Avoid in heavy rain or strong wind.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_167",
+    "name": "Sockalingum Meenatchee Ammen Kovil",
+    "attraction_type": "point_of_interest",
+    "description": "Prominent Tamil kovil (temple) in Port Louis known for colorful gopuram and annual religious festivals.",
+    "tags": ["temple", "Tamil", "religious", "heritage"],
+    "audience_popularity": { "locals": "high", "tourists": "moderate" },
+    "location": {
+      "address": "Port Louis, Mauritius",
+      "latitude": -20.15,
+      "longitude": 57.519,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Temple Gate",
+          "latitude": -20.166,
+          "longitude": 57.509,
+          "access_notes": "Dress modestly; remove shoes."
+        }
+      ],
+      "notes": "Festivals can draw large crowds."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Sockalingum+Meenatchee+Ammen+Kovil",
+        "rating": 4.6,
+        "reviewCount": 543,
+        "summary": "Vibrant and welcoming; ornate carvings."
+      }
+    ],
+    "additional_info": {
+      "notes": "Photography rules may apply.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_168",
+    "name": "Piton Jacob's Peak (Piton Jacob)",
+    "attraction_type": "destination",
+    "description": "A lesser-visited summit in the Port Louis chain, offering quiet trails and city-to-sea views.",
+    "tags": ["mountain", "hike", "viewpoint", "quiet"],
+    "audience_popularity": { "locals": "low", "tourists": "low" },
+    "location": {
+      "address": "Port Louis Range, Mauritius",
+      "latitude": -20.18,
+      "longitude": 57.556,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Trail Spur",
+          "latitude": -20.173,
+          "longitude": 57.54,
+          "access_notes": "Unmarked sections; navigation skills recommended."
+        }
+      ],
+      "notes": "Bring GPS/offline map."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Piton+Jacob+Mauritius",
+        "rating": 4.8,
+        "reviewCount": 6,
+        "summary": "Quiet alternative to Signal; raw trails."
+      }
+    ],
+    "additional_info": {
+      "notes": "Early start recommended.",
+      "advisories": { "safety": "Do not hike solo.", "travel": null }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_169",
+    "name": "Jumbo Riche Terre",
+    "attraction_type": "point_of_interest",
+    "description": "Large hypermarket and retail complex just north of Port Louis—useful for supplies, ATMs, and quick meals.",
+    "tags": ["shopping", "hypermarket", "amenities", "food court"],
+    "audience_popularity": { "locals": "very_high", "tourists": "moderate" },
+    "location": {
+      "address": "Riche Terre, Port Louis Region, Mauritius",
+      "latitude": -20.129,
+      "longitude": 57.521,
+      "region": "Port Louis"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Mall Entrance",
+          "latitude": -20.128,
+          "longitude": 57.524,
+          "access_notes": "Ample parking; busiest weekends."
+        }
+      ],
+      "notes": "Multiple banks/ATMs on site."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Jumbo+Riche+Terre",
+        "rating": 4.1,
+        "reviewCount": 4643,
+        "summary": "Convenient and comprehensive; peak-hour queues."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good pit stop before road trips north.",
+      "advisories": { "safety": null, "travel": null }
+    },
+    "sub_attractions": []
+  }
+]

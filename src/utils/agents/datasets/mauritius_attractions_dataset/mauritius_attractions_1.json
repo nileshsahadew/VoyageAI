@@ -1,0 +1,405 @@
+[
+  {
+    "id": "attraction_001",
+    "name": "Permaculture Mauritius The Organic Perimeter",
+    "attraction_type": "point_of_interest",
+    "description": "An off-the-beaten-path experience featuring a peaceful garden farm that practices permaculture. Visitors can take a guided tour of the farm, which includes indigenous, endemic, and exotic plants. The experience is centered on sustainability and often includes a fresh, farm-to-table lunch, a local hike, and unique food creations.",
+    "tags": [
+      "farm tour",
+      "permaculture",
+      "food experience",
+      "waterfall",
+      "garden",
+      "hike",
+      "eco-tourism"
+    ],
+    "audience_popularity": {
+      "locals": null,
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Deux Bras",
+      "latitude": -20.405809551537526,
+      "longitude": 57.643812456078564,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Bookings are required for the guided tour and meals, which are a key part of the experience. The owner, Gael, is a knowledgeable guide."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/4ttzRHBkaDrAMbJq9",
+        "rating": 5,
+        "reviewCount": 4,
+        "summary": "Gael first gave us a tour of his amazingly peaceful garden farm with indigenous, endemic and exotic plants. Then we did lunch. It was fantastic, especially the ceviche and papaya-ogg plum salad. We also did a waterfall hike/swim followed by delicious avocado ice cream with honey by candlelight and an early-evening moon. Gael was very knowledgeable and passionate about plants and the permaculture way of life. Highly recommended experience off the beaten path."
+      }
+    ],
+    "additional_info": {
+      "notes": "The experience is highly personalized and focuses on the journey from farm to table. Visitors can expect unique, fresh, and organic food.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_002",
+    "name": "Chateau de Riche-en-eau",
+    "attraction_type": "destination",
+    "description": "A historic colonial chateau located on the private Riche en Eau estate in the southeast of Mauritius. It is a national heritage site but is not open to the public. It is a stunning example of historic Mauritian architecture that can only be viewed from a distance.",
+    "tags": ["historical", "chateau", "heritage", "private property"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Saint Hubert Road, Mare Chicose",
+      "latitude": -20.383260186723184,
+      "longitude": 57.65744398222962,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The chateau is accessible to the public from 09 00 to 17 00 every day except Monday"
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/6J1djmERA1ga4g8h9",
+        "rating": 4.5,
+        "reviewCount": 18,
+        "summary": "Some areas are private but the chateau is a very nice place to visit when going hiking"
+      }
+    ],
+    "additional_info": {
+      "notes": "The chateau was acquired by the De Rochecouste family in 1890 and has a rich history.",
+      "advisories": {
+        "safety": ["Respect private property boundaries."],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_003",
+    "name": "Bermuda Waterfall",
+    "attraction_type": "viewpoint",
+    "description": "A waterfall located on the course of the Rivière de Créole river. It is a natural cascade that is part of the river's flow and is popular with locals.",
+    "tags": ["waterfall", "river", "nature", "scenic"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": null
+    },
+    "location": {
+      "address": "Rivière de Créole, Mauritius",
+      "latitude": -20.385152336835414,
+      "longitude": 57.663300717331076,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Access may require a hike or a local guide as it is not a major, signposted attraction."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "This is a natural geological feature, not a real waterfall.",
+      "advisories": {
+        "safety": [
+          "Be cautious near river currents, especially after rain.",
+          "Avoid visiting during dry season"
+        ],
+        "travel": ["Having a local guide is highly advisable."]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_004",
+    "name": "Cascade Eau Bleu",
+    "attraction_type": "destination",
+    "description": "A series of stunning waterfalls and crystal-clear pools located in the southeast of Mauritius. Known for its distinct turquoise water, it is a popular spot for swimming and a relatively short but sometimes challenging hike.",
+    "tags": [
+      "waterfall",
+      "hiking",
+      "swimming",
+      "nature",
+      "off the beaten path"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Cluny, Southeast, Mauritius",
+      "latitude": -20.370475339797892,
+      "longitude": 57.62413528022822,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Access Point",
+          "latitude": -20.372507311221927,
+          "longitude": 57.623431300124594,
+          "access_notes": "A short walk from the parking spot. The trail can be slippery, especially after rain. "
+        }
+      ],
+      "notes": "The site has multiple cascades and basins. Some require scrambling over rocks and tree roots to access."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/mAG37G4PairrZ4YR7",
+        "rating": 4.1,
+        "reviewCount": 243,
+        "summary": "Cascade Eau Bleue is a highly-rated, tranquil natural attraction praised for its stunning turquoise water and serene atmosphere, but it is challenging to find, has a difficult trail, and poses safety risks due to strong currents, with some visitors also noting a problem with litter."
+      }
+    ],
+    "additional_info": {
+      "notes": "The water flow and color are best after rainfall. The site can be very crowded on weekends.",
+      "advisories": {
+        "safety": [
+          "Be extremely cautious, as rocks can be very slippery.",
+          "Do not swim in the water as there are strong water currents which have led to people drowning.",
+          "Avoid visiting during dry season"
+        ],
+        "travel": [
+          "Having a local guide is highly advisable to navigate the slippery terrain."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_005",
+    "name": "Le Val Nature Park",
+    "attraction_type": "destination",
+    "description": "A nature park in the southeast of Mauritius that provides large expanses of indigenous forests and a variety of shallow pools. It is a tranquil setting for nature walks and observing freshwater fish.",
+    "tags": ["nature park", "forest", "walks", "biodiversity", "eco-tourism"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Le Val, Mauritius",
+      "latitude": -20.36433427063526,
+      "longitude": 57.63092136057914,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "This park is distinct from other nearby attractions and offers a peaceful, educational walk."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/s36qPCx2Ec4kZ1bbA",
+        "rating": 3.4,
+        "reviewCount": 45,
+        "summary": "Le Val Nature Park is praised for its tranquil, serene, and picturesque natural environment, making it a good destination for a peaceful stroll and viewing wildlife. However, a consistent theme across reviews is a significant lack of maintenance and updates, with some visitors reporting the park is either closed or in need of extensive repairs to its infrastructure."
+      }
+    ],
+    "additional_info": {
+      "notes": "The park is known for its quiet, preserved environment.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_006",
+    "name": "Vallee d'Osterlog",
+    "attraction_type": "destination",
+    "description": "A botanical garden and rehabilitated indigenous forest in the southeast of Mauritius. It is dedicated to preserving and showcasing endemic Mauritian species and is located in the Creole Mountain range, between Mount Lagrave and Mount Laselle.",
+    "tags": [
+      "botanical garden",
+      "forest",
+      "biodiversity",
+      "conservation",
+      "nature"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Le Val, Mauritius",
+      "latitude": -20.348172533925688,
+      "longitude": 57.6167371503978,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The 275-hectare area is a dedicated conservation project and offers a peaceful place to learn about the island's native flora."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/a6zYMa6mz1KYbHyZ7",
+        "rating": 4.3,
+        "reviewCount": 159,
+        "summary": "Reviews for this attraction are consistently positive about its natural beauty, lush greenery, and the presence of native plants, making it an ideal spot for adventurous hikers who appreciate nature. However, a major and recurring complaint is the park's unreliable and frustrating accessibility; multiple visitors report finding the gates closed without any prior notice, with some having traveled a significant distance, leading to strong criticism of the park's communication and management. Visitors also provide practical advice, such as calling ahead to check hours, using a sturdy vehicle for the unpaved roads, and bringing mosquito repellent."
+      }
+    ],
+    "additional_info": {
+      "notes": "The site was established on June 11, 2014, as a formal conservation effort.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_007",
+    "name": "Le Selle Mountain",
+    "attraction_type": "destination",
+    "description": "A mountain known for its hiking trails and scenic views. It is part of the Creole Mountain range and provides a challenging trekking experience for those looking to explore the natural landscape of Mauritius. It is often mentioned in connection with nearby peaks.",
+    "tags": [
+      "mountain",
+      "hiking",
+      "trekking",
+      "scenic view",
+      "physical activity"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Midlands",
+      "latitude": -20.335598948400776,
+      "longitude": 57.61810060220585,
+      "region": "Moka"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Access Point",
+          "latitude": -20.326998632064758,
+          "longitude": 57.61752101798768,
+          "access_notes": "Trail starts from a road leaving Midlands Dam."
+        }
+      ],
+      "notes": "Hiking the mountain may require a local guide due to the nature of the trails. It is a less-trafficked route compared to more popular peaks."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "The mountain is part of the same range as Vallée d'Osterlog, making it a good destination for those interested in combining a nature walk with a more strenuous hike.",
+      "advisories": {
+        "safety": [
+          "Trails can be steep and require caution.",
+          "It's best to hike with a guide who knows the area well."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_008",
+    "name": "Eau Bleue Reservoir",
+    "attraction_type": "destination",
+    "description": "A serene reservoir in the southeast of Mauritius, known for its tranquil environment and stunning blue water. It is a popular spot for fishing, relaxation, and exploring the surrounding waterfalls and pools.",
+    "tags": ["reservoir", "nature", "fishing", "swimming", "scenic view"],
+    "audience_popularity": {
+      "locals": null,
+      "tourists": null
+    },
+    "location": {
+      "address": "Eau Bleue, Mauritius",
+      "latitude": -20.35326233748123,
+      "longitude": 57.602450331194056,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access to the reservoir is generally free. The best time to visit is during the rainy season (May-July) when the water levels are high."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "The reservoir is a great starting point for those looking to explore Cascade Eau Bleue and its surrounding pools.",
+      "advisories": {
+        "safety": ["Be prepared for slippery rocks near the waterfalls."],
+        "travel": ["Avoid visiting during the dry season."]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_009",
+    "name": "Domain De La Grave",
+    "attraction_type": "destination",
+    "description": "A nature park and adventure center located in the Midlands of Mauritius. It offers a variety of outdoor activities, including a 'warrior course,' mountain biking, and bamboo raft building. The domain is known for its lush, wild vegetation and authentic Mauritian experience.",
+    "tags": [
+      "nature park",
+      "adventure",
+      "mountain biking",
+      "outdoor activities",
+      "eco-tourism"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Village Bananes, Eau Bleue, Southeast, Mauritius",
+      "latitude": -20.344131479197095,
+      "longitude": 57.59642306716538,
+      "region": "Southeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "Some activities may require a fee. Check the official website for opening hours and booking information."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/Ekjaiju4G18F579V7",
+        "rating": 4.0,
+        "reviewCount": 553,
+        "summary": "This destination is widely praised as an ideal, peaceful escape for those looking to disconnect and immerse themselves in nature. Reviewers consistently highlight the beautiful scenery, fresh air, and tranquility, with many recommending it for a relaxing staycation. While the natural surroundings and available activities like trekking and kayaking are highly rated, the quality of the accommodations and dining is inconsistent. Some visitors found the food to be delicious and plentiful, while others described it as average or below standard. Similarly, the lodging is noted as rustic and basic, with some finding it adequate while others called the beds uncomfortable and the rooms unclean. A crucial point for an optimal experience is to be well-prepared and bring your own supplies, such as food, kitchenware, and extra bedding, which many reviewers recommend."
+      }
+    ],
+    "additional_info": {
+      "notes": "The domain is known for its central location, making it accessible from all parts of the island. It also offers a table d'hôte with traditional Mauritian dishes.",
+      "advisories": {
+        "safety": ["Follow all safety instructions for adventure activities."],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  }
+]

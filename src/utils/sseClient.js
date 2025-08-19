@@ -29,12 +29,11 @@ class SSEClient {
     const parser = createParser({
       onEvent: (event) => {
         try {
-          const parsed = JSON.parse(event.data);
-          this.emit(parsed.type, parsed);
-        } catch (err) {
-          if (event.data !== "[DONE]") {
-            console.error("Failed to parse SSE JSON:", err);
+          if (event.event === "text" || event.event === "json") {
+            this.emit(event.event, JSON.parse(event.data).kwargs.content);
           }
+        } catch (err) {
+          console.error("Failed to handle SSE event:", err);
         }
       },
     });

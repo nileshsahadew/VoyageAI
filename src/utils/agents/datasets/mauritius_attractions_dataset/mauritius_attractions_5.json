@@ -1,0 +1,811 @@
+[
+  {
+    "id": "attraction_059",
+    "name": "Bambous Public Park",
+    "attraction_type": "destination",
+    "description": "A simple neighborhood park in Bambous with benches, shade, and a small play area—handy rest stop when moving between Cascavelle and the coast.",
+    "tags": ["park", "shade", "family-friendly", "rest stop"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Bambous, Black River District, Mauritius",
+      "latitude": -20.2616,
+      "longitude": 57.4082,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Basic public space; limited facilities."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bambous+Public+Park+Mauritius",
+        "rating": 4.5,
+        "reviewCount": 13,
+        "summary": "Shady and quiet; best for quick breaks with kids."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good pit stop before driving to the coast.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_060",
+    "name": "Around Médine Sugar Estate",
+    "attraction_type": "destination",
+    "description": "Historic cane lands turned mixed-use area (Uniciti/Cascavelle surroundings): old chimneys, alleys of trees, and modern retail/education zones.",
+    "tags": ["heritage", "sugar estate", "scenic drive", "photography"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Médine Estate, Cascavelle, Mauritius",
+      "latitude": -20.26,
+      "longitude": 57.394,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Estate Road (Cascavelle Mall side)",
+          "latitude": -20.2904,
+          "longitude": 57.3943,
+          "access_notes": "Drive slowly; estate traffic and speed bumps."
+        }
+      ],
+      "notes": "Some areas private—respect signage."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Medine+Sugar+Estate+Mauritius",
+        "rating": 4,
+        "reviewCount": 2,
+        "summary": "Leafy drives, industrial heritage, and new amenities."
+      }
+    ],
+    "additional_info": {
+      "notes": "Golden-hour photos look great along cane lanes.",
+      "advisories": {
+        "safety": "Watch for slow farm machinery.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_061",
+        "relation_type": "contains"
+      },
+      {
+        "id_ref": "attraction_066",
+        "relation_type": "hosts"
+      },
+      {
+        "id_ref": "attraction_067",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_061",
+    "name": "The Soul Tree at La Mecque",
+    "attraction_type": "point_of_interest",
+    "description": "A locally known art/spiritual landmark tree on the Médine side—used as a small gathering/reflection point.",
+    "tags": ["landmark", "art", "spiritual", "local culture"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "La Mecque area, Médine/Cascavelle, Mauritius",
+      "latitude": -20.2568,
+      "longitude": 57.3798,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Estate Lane",
+          "latitude": -20.293,
+          "longitude": 57.423,
+          "access_notes": "Small lay-by; be respectful if a ceremony is on."
+        }
+      ],
+      "notes": "Treat as a quiet site; no loud music."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Soul+Tree+La+Mecque+Mauritius",
+        "rating": "4.0/5 stars",
+        "reviewCount": 3,
+        "summary": "Simple, symbolic, and serene."
+      }
+    ],
+    "additional_info": {
+      "notes": "Occasional candles/incense around.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_060",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_062",
+    "name": "Dolphin Spotting (West Coast Departures)",
+    "attraction_type": "destination",
+    "description": "Classic west-coast boat outing to see spinner/bottlenose dolphins near Tamarin/Black River in the early morning.",
+    "tags": ["boat tour", "wildlife", "dolphins", "morning activity"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "very_high"
+    },
+    "location": {
+      "address": "Typical departure: Tamarin Bay Jetty",
+      "latitude": -20.347,
+      "longitude": 57.363,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Tamarin Bay Jetty",
+          "latitude": -20.324,
+          "longitude": 57.369,
+          "access_notes": "Check operator and meet time (often 6–7 AM)."
+        }
+      ],
+      "notes": "Ethical operators avoid chasing/boxing-in pods."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/tQyEcFcdLgGK43SD9",
+        "rating": "5/5 stars",
+        "reviewCount": 1,
+        "summary": "Memorable mornings; sea can be choppy—bring a windbreaker."
+      }
+    ],
+    "additional_info": {
+      "notes": "Better on calm seas; weekends busier.",
+      "advisories": {
+        "safety": "Follow crew instructions; wear life vests.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_063",
+    "name": "La Ferme Reservoir",
+    "attraction_type": "destination",
+    "description": "Inland reservoir above Bambous with quiet roads and open views; popular with cyclists and sunset chasers.",
+    "tags": ["reservoir", "viewpoint", "cycling", "sunset"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "La Ferme, near Bambous, Mauritius",
+      "latitude": -20.2554,
+      "longitude": 57.4213,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Dam Access Road",
+          "latitude": -20.255,
+          "longitude": 57.4189,
+          "access_notes": "Narrow road; give way to service vehicles."
+        }
+      ],
+      "notes": "No shops; bring water."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=La+Ferme+Reservoir+Mauritius",
+        "rating": 4.3,
+        "reviewCount": 63,
+        "summary": "Wide skies and quiet; low-key local favorite."
+      }
+    ],
+    "additional_info": {
+      "notes": "Nice golden-hour light.",
+      "advisories": {
+        "safety": "Edges can be steep—keep kids close.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_064",
+        "relation_type": "contains"
+      }
+    ]
+  },
+  {
+    "id": "attraction_064",
+    "name": "La Ferme Dam View Point",
+    "attraction_type": "point_of_interest",
+    "description": "Roadside overlook facing the dam wall and reservoir basin—best light late afternoon.",
+    "tags": ["viewpoint", "roadside", "photography"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "La Ferme, Mauritius",
+      "latitude": -20.2554,
+      "longitude": 57.4213,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Short stop; no seating."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/JTH7xGqUyPhHBMR88",
+        "rating": "3.0/5 stars",
+        "reviewCount": 7,
+        "summary": "Simple pull-off with solid views."
+      }
+    ],
+    "additional_info": {
+      "notes": "Watch wind gusts on the ridge.",
+      "advisories": {
+        "safety": "Keep off barriers and embankments.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_063",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_065",
+    "name": "Lakaz Flamblayan",
+    "attraction_type": "cultural_center",
+    "description": "An enchanting and unique cultural space that serves as a platform for local artists to exhibit their work. Visitors describe the venue as a 'magical' and 'fantasy' place, offering a peaceful and awe-inspiring experience to learn about Mauritian arts and culture.",
+    "tags": [
+      "art",
+      "cultural",
+      "local artists",
+      "exhibition",
+      "arts and culture"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Mauritius",
+      "latitude": -20.259,
+      "longitude": 57.3964,
+      "region": "Plaines Wilhems"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is generally easy. However, visitors have noted that the opening times can be unreliable, so it is advisable to confirm hours before visiting."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/TJn7CJPAHZoUdvXP8",
+        "rating": 4.5,
+        "reviewCount": 26,
+        "summary": "Visitors highly praise the venue's unique, peaceful, and inspiring atmosphere. It is seen as a valuable place to support local artists and engage with Mauritian culture. The main point of frustration noted is the inconsistent opening hours, which can be a source of disappointment for visitors."
+      }
+    ],
+    "additional_info": {
+      "notes": "The center frequently hosts temporary art exhibitions, so each visit offers a new experience. The focus is on promoting local talent and providing a positive cultural experience.",
+      "advisories": {
+        "safety": null,
+        "travel": "Verify opening hours in advance to avoid disappointment."
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_066",
+    "name": "Pyjon Baobab",
+    "attraction_type": "point_of_interest",
+    "description": "Locally referenced baobab-style landmark tree in the Cascavelle/Medine belt—photogenic trunk and shade.",
+    "tags": ["tree", "landmark", "photography", "nature"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Near Cascavelle/Medine, Mauritius",
+      "latitude": -20.2668,
+      "longitude": 57.3813,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Estate Verge",
+          "latitude": -20.2678,
+          "longitude": 57.3877,
+          "access_notes": "Roadside stop; park safely off the lane."
+        }
+      ],
+      "notes": "Treat as a quick photo stop."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/kjEGJi8xSyqk3K4Y9",
+        "rating": 4.7,
+        "reviewCount": 20,
+        "summary": "Striking trunk; easy roadside snap."
+      }
+    ],
+    "additional_info": {
+      "notes": "Respect private land boundaries.",
+      "advisories": {
+        "safety": "Beware traffic when stopping.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_060",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_067",
+    "name": "Albion Beach",
+    "attraction_type": "destination",
+    "description": "Local favorite west-coast beach with calm lagoon corners and sunset views. Low-key, family vibe.",
+    "tags": ["beach", "swimming", "sunset", "family-friendly"],
+    "audience_popularity": {
+      "locals": "very_high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Albion, Mauritius",
+      "latitude": -20.2082,
+      "longitude": 57.404,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Public Beach Parking",
+          "latitude": -20.215,
+          "longitude": 57.394,
+          "access_notes": "Can fill up on weekends."
+        }
+      ],
+      "notes": "Vendors present seasonally."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Albion+Public+Beach",
+        "rating": 4.2,
+        "reviewCount": 852,
+        "summary": "Chilled lagoon and sunsets; basic facilities."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great picnic spot.",
+      "advisories": {
+        "safety": "Reef cuts possible at low tide.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_068",
+        "relation_type": "adjacent_to"
+      }
+    ]
+  },
+  {
+    "id": "attraction_068",
+    "name": "Mon Plaisir Public Beach (Albion)",
+    "attraction_type": "destination",
+    "description": "Small public beach pocket in the Albion area—quiet corners and easy lagoon entry.",
+    "tags": ["beach", "quiet", "swimming"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Mon Plaisir, Albion, Mauritius",
+      "latitude": -20.198,
+      "longitude": 57.405,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Lane Access",
+          "latitude": -20.19882,
+          "longitude": 57.40465,
+          "access_notes": "Limited parking on lanes."
+        }
+      ],
+      "notes": "No rentals; bring your own gear."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Mon+Plaisir+Public+Beach+Albion",
+        "rating": 5,
+        "reviewCount": 2,
+        "summary": "Peaceful and local; minimal services."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good for a quick dip.",
+      "advisories": {
+        "safety": "Rocky patches near shore.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_067",
+        "relation_type": "adjacent_to"
+      }
+    ]
+  },
+  {
+    "id": "attraction_069",
+    "name": "Phare d’Albion (Albion Lighthouse)",
+    "attraction_type": "point_of_interest",
+    "description": "Historic lighthouse guarding the west coast—iconic red-and-white tower above the cliffs.",
+    "tags": ["lighthouse", "heritage", "viewpoint", "photography"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Albion, Mauritius",
+      "latitude": -20.1912,
+      "longitude": 57.4117,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Lighthouse Access Road",
+          "latitude": -20.225,
+          "longitude": 57.405,
+          "access_notes": "Short walk from the parking area."
+        }
+      ],
+      "notes": "Tower access varies; exterior always visible."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/okw1wGaoDsSmhH8Z6",
+        "rating": 4.2,
+        "reviewCount": 65,
+        "summary": "Postcard spot; windy but beautiful."
+      }
+    ],
+    "additional_info": {
+      "notes": "Sunset magnet; bring layers if breezy.",
+      "advisories": {
+        "safety": "Cliff edges nearby—be careful.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_070",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_070",
+    "name": "Arche Naturelle (Albion Natural Arch)",
+    "attraction_type": "point_of_interest",
+    "description": "Sea-carved natural arch in the lava cliffs south of the lighthouse—short scramble to viewpoints.",
+    "tags": ["natural arch", "geology", "photography"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Near Albion Cliffs, Mauritius",
+      "latitude": -20.188,
+      "longitude": 57.412,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Cliff Path Spur",
+          "latitude": -20.231,
+          "longitude": 57.398,
+          "access_notes": "Uneven ground; closed shoes recommended."
+        }
+      ],
+      "notes": "No barriers—mind your footing."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/bCcjQB3ymYp2ryG47",
+        "rating": 4.6,
+        "reviewCount": 36,
+        "summary": "Striking rock feature; dramatic swells below."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best in calm seas for closer photos.",
+      "advisories": {
+        "safety": "Stay clear of edges and rogue waves.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_069",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_071",
+    "name": "Gros Cailloux Cave",
+    "attraction_type": "point_of_interest",
+    "description": "Small lava tube/cave feature near Gros Cailloux estate area—short walk-in and quick explore.",
+    "tags": ["cave", "lava", "geology", "short walk"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Gros Cailloux area, Mauritius",
+      "latitude": -20.2061,
+      "longitude": 57.451,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Track Pull-off",
+          "latitude": -20.219,
+          "longitude": 57.455,
+          "access_notes": "Short uneven path; bring a torch."
+        }
+      ],
+      "notes": "No facilities; brief stop."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Gros+Cailloux+Cave+Mauritius",
+        "rating": 4.1,
+        "reviewCount": 7,
+        "summary": "Neat little lava tube; quick and easy."
+      }
+    ],
+    "additional_info": {
+      "notes": "Combine with Albion/Lighthouse loop.",
+      "advisories": {
+        "safety": "Watch your head and footing.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_072",
+    "name": "Pointe aux Sables Public Beach",
+    "attraction_type": "destination",
+    "description": "Urban west-coast beach close to Port Louis with a lively local scene and sunset views across the harbor approaches.",
+    "tags": ["beach", "urban", "sunset", "local vibe"],
+    "audience_popularity": {
+      "locals": "very_high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Pointe aux Sables, Port Louis Region, Mauritius",
+      "latitude": -20.17,
+      "longitude": 57.448,
+      "region": "Northwest"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Beachfront Parking",
+          "latitude": -20.182,
+          "longitude": 57.462,
+          "access_notes": "Busy after work hours."
+        }
+      ],
+      "notes": "Food stalls at peak times."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Pointe+aux+Sables+Public+Beach",
+        "rating": 4.3,
+        "reviewCount": 3,
+        "summary": "Local atmosphere and sunsets; basic amenities."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great for people-watching.",
+      "advisories": {
+        "safety": "Keep valuables out of sight when parked.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_073",
+        "relation_type": "adjacent_to"
+      }
+    ]
+  },
+  {
+    "id": "attraction_073",
+    "name": "La Jetée (Pointe aux Sables Jetty)",
+    "attraction_type": "point_of_interest",
+    "description": "Concrete jetty used by locals for fishing and evening strolls—good harbor views.",
+    "tags": ["jetty", "fishing", "viewpoint"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Pointe aux Sables, Mauritius",
+      "latitude": -20.163,
+      "longitude": 57.466,
+      "region": "Northwest"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Surface can be wet/slippery."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/j6SNz5RdEi2TzoVo8",
+        "rating": 4.1,
+        "reviewCount": 119,
+        "summary": "Relaxed sunset spot; anglers about."
+      }
+    ],
+    "additional_info": {
+      "notes": "Nice long-exposure shots for photographers.",
+      "advisories": {
+        "safety": "Mind waves and wet concrete.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_072",
+        "relation_type": "adjacent_to"
+      }
+    ]
+  },
+  {
+    "id": "attraction_074",
+    "name": "Martello Tower (La Preneuse)",
+    "attraction_type": "point_of_interest",
+    "description": "Restored 19th-century coastal defense tower and small museum at La Preneuse—shows the island’s colonial military history.",
+    "tags": ["museum", "history", "coastal defense", "heritage"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "La Preneuse, Black River, Mauritius",
+      "latitude": -20.355,
+      "longitude": 57.362,
+      "region": "West"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Museum Gate",
+          "latitude": -20.363,
+          "longitude": 57.363,
+          "access_notes": "Paid entry; check opening hours."
+        }
+      ],
+      "notes": "Guided tours available at set times."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Martello+Tower+La+Preneuse+Mauritius",
+        "rating": 4.4,
+        "reviewCount": 320,
+        "summary": "Compact but well-presented; scenic beachfront nearby."
+      }
+    ],
+    "additional_info": {
+      "notes": "Combine with Tamarin or Flic-en-Flac plans.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  }
+]

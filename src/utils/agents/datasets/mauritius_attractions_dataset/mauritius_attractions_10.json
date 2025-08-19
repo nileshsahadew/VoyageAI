@@ -1,0 +1,595 @@
+[
+  {
+    "id": "attraction_121",
+    "name": "Powder Mills Nature Walk",
+    "attraction_type": "nature_walk",
+    "description": "A nature walk on the grounds of a historical site, the Powder Mills, which operated as a gunpowder factory in the 18th century. While the site suffers from a lack of maintenance and cleanliness, it remains a tranquil spot for a walk, offering an escape into nature and a glimpse into a rich but neglected part of Mauritian history.",
+    "tags": [
+      "nature_walk",
+      "historical_site",
+      "abandoned_site",
+      "recreational",
+      "local_spot"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "very_low"
+    },
+    "location": {
+      "address": "SSR National Hospital, Pamplemousses, Mauritius",
+      "latitude": -20.09674415452997,
+      "longitude": 57.55590432572864,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The walk is located within the grounds of the SSR National Hospital. Parking is available across the road."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/uFGxNTnXtc1X6u1z8",
+        "rating": 3.6,
+        "reviewCount": 19,
+        "summary": "The rating reflects a mix of experiences. Some reviewers praise the peaceful, natural atmosphere and the opportunity to reconnect with nature. However, many lament the lack of maintenance, citing the site as a 'dumping ground for medical waste and litter,' which significantly lowers the overall rating."
+      }
+    ],
+    "additional_info": {
+      "notes": "The site's history is extensive, having served as a gunpowder factory, prison, orphanage, and leper hospital. The trails are unmaintained and can be difficult to navigate. The area is prone to mosquitoes.",
+      "advisories": {
+        "safety": [
+          "Be aware of mosquitoes and bring insect repellent.",
+          "Exercise caution due to poor maintenance and potential litter."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_122",
+        "relationship": "contains"
+      }
+    ]
+  },
+  {
+    "id": "attraction_122",
+    "name": "Indigenous Plant Garden",
+    "attraction_type": "botanical_garden",
+    "description": "A well-maintained and tranquil botanical garden dedicated to the conservation and display of Mauritius's native and endemic flora. The garden serves as a research and educational center, offering a stark contrast to the rest of the historical site by providing a pristine and informative experience for visitors.",
+    "tags": [
+      "botanical_garden",
+      "conservation",
+      "educational",
+      "nature",
+      "peaceful"
+    ],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Powder Mills, Pamplemousses, Mauritius",
+      "latitude": -20.096686672990764,
+      "longitude": 57.554205190834445,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free, as it is located on the grounds of the Powder Mills historical site."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/UZvz1e9arrn2nSfr7",
+        "rating": 4.3,
+        "reviewCount": 27,
+        "summary": "The good rating and number of reviews reflect a positive visitor experience. Reviewers praise the garden for being well-kept and a beautiful place to learn about Mauritius's unique plant life, a clear distinction from the issues of the wider area."
+      }
+    ],
+    "additional_info": {
+      "notes": "The garden is a key location for the conservation of rare and threatened species of Mauritian flora, and it often hosts researchers and students.",
+      "advisories": {
+        "safety": ["Be aware of mosquitoes and bring insect repellent."],
+        "travel": null
+      }
+    },
+    "parent_attraction": {
+      "id_ref": "attraction_121",
+      "relationship": "part_of"
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_123",
+    "name": "Historical Ruins of Balaclava",
+    "attraction_type": "historical_site",
+    "description": "The Historical Ruins of Balaclava are the well-preserved remains of an 18th-century French arsenal, located on the grounds of a private resort. The site, which features stone ruins and a historic cannon, is a place of rich colonial history and offers a beautiful view of the nearby river. The experience is often defined by the challenges of gaining access to the private property.",
+    "tags": [
+      "historical_site",
+      "ruins",
+      "landmark",
+      "cultural_site",
+      "history",
+      "resort_attraction"
+    ],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Balaclava, Mauritius",
+      "latitude": -20.085660957834488,
+      "longitude": 57.520636016305936,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free but can be inconsistent. While some visitors are granted easy entry by a friendly security guard, others report being denied access or being required to book in advance via email or phone."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/e2Xw53nYrakmTq1W7",
+        "rating": 4.0,
+        "reviewCount": 112,
+        "summary": "With a significant number of reviews, the 4.0 rating reflects a consistent, but mixed, experience. Reviews are polarized: some praise the historical and scenic value, while a large number of frustrated visitors lower the rating due to the difficult and unpredictable access."
+      }
+    ],
+    "additional_info": {
+      "notes": "The ruins are sometimes closed for private events, such as festivals or corporate functions, which may unexpectedly restrict access. The ruins are small, but the site's historical significance and location next to the river make it worth a visit for history enthusiasts.",
+      "advisories": {
+        "safety": [],
+        "travel": [
+          "Contact the resort beforehand to confirm access if you are not a guest."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_124",
+    "name": "Balaclava Public Beach",
+    "attraction_type": "beach",
+    "description": "Balaclava Public Beach is a scenic and tranquil stretch of coastline, offering a valuable public access point in an area primarily occupied by luxury resorts. The beach is known for its calm and clear waters, making it an excellent spot for swimming and a peaceful alternative for locals and tourists alike who are looking to enjoy the sun and sea without the resort crowds.",
+    "tags": [
+      "beach",
+      "public_beach",
+      "swimming",
+      "scenic_view",
+      "recreational",
+      "family_friendly"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Balaclava, Mauritius",
+      "latitude": -20.079639114388403,
+      "longitude": 57.51154682203024,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access to the beach is free and open to the public. There is a small parking area nearby."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/rLZrYRPL2JYshQek9",
+        "rating": 4.2,
+        "reviewCount": 375,
+        "summary": "With a high rating from a large number of reviews, the beach is consistently praised for its calm waters and family-friendly atmosphere. Visitors appreciate it as a quiet, clean, and accessible public option in a resort-heavy area."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach is a mix of sand and rocks, but the main swimming area has a sandy bottom. The water is typically very calm as it is protected by a reef. The beach is popular for picnics and relaxation rather than water sports.",
+      "advisories": {
+        "safety": [],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_125",
+    "name": "Pointe aux Piments Public Beach",
+    "attraction_type": "beach",
+    "description": "Pointe aux Piments Public Beach is a narrow, scenic beach known for its quiet and tranquil atmosphere. Less crowded than other public beaches on the island, it offers a peaceful escape with a distinctly local feel. The beach is a great spot to relax, swim in its calm waters, and enjoy a beautiful view of the sunset.",
+    "tags": [
+      "beach",
+      "public_beach",
+      "swimming",
+      "scenic_view",
+      "recreational",
+      "family_friendly"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Pointe aux Piments, Mauritius",
+      "latitude": -20.051396249321083,
+      "longitude": 57.52239306652081,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free and open to the public. There is a small parking area available."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/eF9vBmFAyT8EC8pB9",
+        "rating": 4.0,
+        "reviewCount": 168,
+        "summary": "The good rating from a significant number of reviews highlights the beach's appeal as a quiet, clean, and family-friendly location. Visitors appreciate its peaceful environment and local atmosphere."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach has a mix of sand and some rocky sections, especially on the south side. The water is generally calm, making it suitable for swimming and snorkeling. It is also a popular spot for local fishermen.",
+      "advisories": {
+        "safety": [],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_126",
+    "name": "Pointe Aux Biches Public Beach",
+    "attraction_type": "beach",
+    "description": "Pointe Aux Biches is a small and peaceful public beach that has a distinctly local feel. While it offers a great atmosphere for relaxing and picnicking, the beach's terrain is a mix of sand and rocks, and the water contains submerged coral, which can be challenging for swimming. It is a well-equipped spot with benches and restrooms, making it a comfortable place to spend a quiet afternoon.",
+    "tags": [
+      "beach",
+      "public_beach",
+      "recreational",
+      "local_spot",
+      "sunset_view"
+    ],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Pointe Aux Biches, Mauritius",
+      "latitude": -20.04353101283657,
+      "longitude": 57.53698521054996,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free and open to the public. The beach is well-equipped with public amenities like benches and a bathroom."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/XmVT2rCK5r1PrPSe8",
+        "rating": 4.3,
+        "reviewCount": 29,
+        "summary": "The high rating is based on the beach's quiet, relaxing atmosphere and available amenities. However, reviews are mixed regarding swimming, with some praising the water and others warning of sharp, submerged rocks."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach offers beautiful sunset views. It is a popular spot for locals, and visitors can find local snacks and food for sale from vendors on weekends.",
+      "advisories": {
+        "safety": [
+          "Exercise caution while swimming due to the presence of sharp rocks and coral in the water."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_127",
+    "name": "Trou aux Biches Beach",
+    "attraction_type": "beach",
+    "description": "Widely considered one of the most beautiful beaches in Mauritius, Trou aux Biches is a pristine stretch of powdery white sand and calm, crystal-clear turquoise waters. Its gentle slope into the sea makes it ideal for swimming and is a perfect spot for families. The beach is lined with restaurants and shops, and it offers a range of water activities, catering to all types of visitors.",
+    "tags": [
+      "beach",
+      "public_beach",
+      "tourist_destination",
+      "swimming",
+      "scenic_view",
+      "family_friendly"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Trou aux Biches, Mauritius",
+      "latitude": -20.03501360965114,
+      "longitude": 57.54448423767069,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access to the beach is free and public. There are ample parking spaces and a wide array of amenities available, including restrooms and changing facilities."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/n4fEQZkCQxeujyWz6",
+        "rating": 4.5,
+        "reviewCount": 1825,
+        "summary": "With a very high rating from a large number of reviews, Trou aux Biches is consistently praised for its beauty, cleanliness, and the high quality of its sand and water. Visitors describe it as a perfect beach for swimming, relaxing, and enjoying water sports."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach is famous for its breathtaking sunsets and its calm, protected lagoon. The area is a hub for various water activities, including snorkeling, kayaking, and glass-bottom boat tours to the nearby reef.",
+      "advisories": {
+        "safety": [
+          "Be aware of boat traffic and water sports activities, as the beach can be busy."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_128",
+    "name": "Mon Choisy Public Beach",
+    "attraction_type": "beach",
+    "description": "Widely regarded as one of Mauritius's finest beaches, Mon Choisy is a long, crescent-shaped bay known for its pristine white sand and very calm, clear turquoise waters. The beach is bordered by a lush line of casuarina trees, providing natural shade, and its shallow, protected lagoon makes it exceptionally safe and perfect for families with children. It is a very popular spot for both locals and tourists.",
+    "tags": [
+      "beach",
+      "public_beach",
+      "tourist_destination",
+      "swimming",
+      "scenic_view",
+      "family_friendly"
+    ],
+    "audience_popularity": {
+      "locals": "very_high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Mon Choisy, Mauritius",
+      "latitude": -20.015885276288287,
+      "longitude": 57.557163176698005,
+      "region": "Pamplemousses"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Parking",
+          "latitude": -20.012077059332302,
+          "longitude": 57.55724111860067
+        }
+      ],
+      "notes": "Access to the beach is free and open to the public. There is a large, dedicated parking area available."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/UdLJeyqyYKhvnakL6",
+        "rating": 4.6,
+        "reviewCount": 3349,
+        "summary": "With an exceptionally high rating from a very large number of reviews, Mon Choisy is consistently praised for its breathtaking beauty, soft sand, and ideal swimming conditions. Visitors describe it as a perfect beach for relaxation, picnics, and family outings."
+      }
+    ],
+    "additional_info": {
+      "notes": "The beach is very long, making it suitable for long walks. The area is also a hub for various activities, including picnics under the shade of the trees and beach volleyball.",
+      "advisories": {
+        "safety": [],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_129",
+    "name": "Château de Labourdonnais",
+    "attraction_type": "historical_site",
+    "description": "A beautifully restored 19th-century colonial mansion and former agricultural estate, the Château de Labourdonnais offers visitors a journey back in time. The attraction encompasses a museum within the elegant home, extensive fruit orchards and gardens, a rum distillery, and a fine dining restaurant, making it a comprehensive cultural, historical, and gastronomic experience.",
+    "tags": [
+      "historical_site",
+      "mansion",
+      "museum",
+      "botanical_garden",
+      "restaurant",
+      "tourist_destination"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "very_high"
+    },
+    "location": {
+      "address": "Mapou, Mauritius",
+      "latitude": -20.073097768854698,
+      "longitude": 57.61664779780927,
+      "region": "Riviere du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "There is a compulsory entrance fee to access the estate. It is highly recommended to book in advance for the on-site restaurant, La Table du Château."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/9oboEeqzJ1RUshJd6",
+        "rating": 4.5,
+        "reviewCount": 2261,
+        "summary": "With a very high rating from a large number of reviews, visitors consistently praise the quality of the restoration, the beauty of the gardens, and the overall experience. The attraction is regarded as a must-visit for its unique combination of history, nature, and dining."
+      }
+    ],
+    "additional_info": {
+      "notes": "The experience includes a self-guided audio tour of the château, walks through the fruit orchards and gardens, and a visit to a rum-tasting room. The estate also features a gift shop and a restaurant.",
+      "advisories": {
+        "safety": [],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_130",
+    "name": "Daruty Forest",
+    "attraction_type": "forest",
+    "description": "Daruty Forest is a small, protected nature reserve and a key conservation site for native and endemic Mauritian plants. It is not a traditional tourist destination but rather a rustic, off-the-beaten-path location that offers a quiet and peaceful experience for nature enthusiasts. The trails are unmaintained, providing a rugged and authentic encounter with Mauritius's natural flora.",
+    "tags": [
+      "forest",
+      "natural_area",
+      "conservation",
+      "local_spot",
+      "off_the_beaten_path"
+    ],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Mapou, Mauritius",
+      "latitude": -20.03558058556535,
+      "longitude": 57.617444983053325,
+      "region": "Riviere du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free, but as it is a conservation area, visitors should be respectful of the environment and are advised to check with local authorities for any access restrictions."
+    },
+    "reviews": [],
+    "additional_info": {
+      "notes": "Daruty Forest is primarily a conservation site and is not developed for tourism. There are no facilities such as restrooms, food stalls, or designated parking areas. The trails are not marked and can be overgrown.",
+      "advisories": {
+        "safety": [
+          "Wear appropriate footwear for muddy and uneven terrain.",
+          "Bring insect repellent, as mosquitoes are common in forested areas."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_131",
+    "name": "Super U Grand Bay",
+    "attraction_type": "shopping_center",
+    "description": "Super U Grand Bay is a major hypermarket and shopping center located in the heart of Grand Baie. It serves as a one-stop-shop for a vast range of products, from fresh groceries and local goods to electronics and household items. The center also features a food court, a kids' playground, and other retail outlets, making it a convenient and popular destination for both locals and tourists.",
+    "tags": [
+      "shopping_center",
+      "supermarket",
+      "retail",
+      "amenity",
+      "local_spot",
+      "tourist_destination"
+    ],
+    "audience_popularity": {
+      "locals": "very_high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Route de la Salette, Grand Baie, Mauritius",
+      "latitude": -20.012034476208708,
+      "longitude": 57.587510379698955,
+      "region": "Riviere du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free and open to the public. There is a large, free, and partially covered parking area. Payments can be made with cash or credit/debit cards."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/zu5AeoQLe1S22am38",
+        "rating": 4.4,
+        "reviewCount": 4627,
+        "summary": "With a very high rating from a massive number of reviews, Super U Grand Bay is praised for its extensive selection of products, cleanliness, and convenience. The primary complaint from visitors is the long waiting time at checkout counters."
+      }
+    ],
+    "additional_info": {
+      "notes": "The complex houses the main hypermarket as well as a food court, various retail shops, and a children's playground. The hypermarket offers a variety of products, including a section with local souvenirs and a fresh food counter. Home delivery is available for purchases over a certain amount.",
+      "advisories": {
+        "safety": [],
+        "travel": [
+          "Be prepared for long queues at the checkout, especially during peak hours."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_132",
+    "name": "La Croisette",
+    "attraction_type": "shopping_mall",
+    "description": "La Croisette is a modern and stylish shopping and lifestyle center located in the vibrant town of Grand Baie. It offers a premium experience with a wide selection of local and international retail shops, a diverse range of restaurants and cafes, and the only cinema in the north of the island. Its open-air design and lively atmosphere make it a popular destination for shopping, dining, and entertainment.",
+    "tags": [
+      "shopping_mall",
+      "lifestyle_center",
+      "entertainment",
+      "restaurant",
+      "tourist_destination",
+      "family_friendly"
+    ],
+    "audience_popularity": {
+      "locals": "very_high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Grand Baie, Mauritius",
+      "latitude": -20.02184283612514,
+      "longitude": 57.578777566205886,
+      "region": "Riviere du Rempart"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access to the mall is free. Individual shops, restaurants, and the cinema have their own fees. There is ample free parking available for visitors."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/MKwsjoTa56NcXo3GA,location",
+        "rating": 4.4,
+        "reviewCount": 5458,
+        "summary": "With a very high rating from a massive number of reviews, La Croisette is consistently praised for its modern facilities, clean environment, and its wide variety of shopping and dining options. Visitors highlight it as a central and convenient hub for all needs."
+      }
+    ],
+    "additional_info": {
+      "notes": "The complex hosts various events and markets throughout the year. Its offerings cater to a wide range of budgets, from quick bites at cafes to fine dining experiences. The cinema is a major draw for both locals and tourists.",
+      "advisories": {
+        "safety": [],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  }
+]

@@ -1,0 +1,1251 @@
+[
+  {
+    "id": "attraction_010",
+    "name": "Roche Noires Beach",
+    "attraction_type": "destination",
+    "description": "A serene beach known for its black rocks and clear waters, offering a unique contrast to the typical white-sand beaches of Mauritius. Ideal for photography, picnics, and enjoying tranquil sunsets.",
+    "tags": ["beach", "scenic", "photography", "sunset", "family-friendly"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Roche Noires, Flacq",
+      "latitude": -20.164,
+      "longitude": 57.738,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Public Access Path",
+          "latitude": -20.165,
+          "longitude": 57.74,
+          "access_notes": "Leads directly to the beach; watch for uneven terrain."
+        }
+      ],
+      "notes": "Limited facilities; best to bring your own supplies."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Roche+Noires+Beach",
+        "rating": 4.6,
+        "reviewCount": 234,
+        "summary": "Beautiful and peaceful; great for a quiet day out."
+      }
+    ],
+    "additional_info": {
+      "notes": "Stunning rock formations at either end of the beach.",
+      "advisories": {
+        "safety": "Beware of strong currents; not ideal for swimming.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_011",
+        "relation_type": "contains"
+      }
+    ]
+  },
+  {
+    "id": "attraction_011",
+    "name": "Roches Noires Waterfront",
+    "attraction_type": "point_of_interest",
+    "description": "Scenic coastal area with rocky outcrops and clear waters, popular for photography and enjoying the natural beauty of the East Coast.",
+    "tags": ["coast", "scenic", "photography", "nature"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Roches Noires, Flacq",
+      "latitude": -20.162,
+      "longitude": 57.736,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Coastal Path Access",
+          "latitude": -20.163,
+          "longitude": 57.738,
+          "access_notes": "Path leads to rocky areas; suitable footwear recommended."
+        }
+      ],
+      "notes": "No facilities; carry water and snacks."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Roches+Noires+Waterfront",
+        "rating": 4.5,
+        "reviewCount": 120,
+        "summary": "Picturesque and tranquil; a hidden gem."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best visited in the late afternoon for sunset views.",
+      "advisories": {
+        "safety": "Slippery rocks; caution advised.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_012",
+    "name": "Bassin Tower",
+    "attraction_type": "point_of_interest",
+    "description": "A historic tower offering panoramic views of the surrounding area, including the coastal lagoons and lush vegetation of the east.",
+    "tags": ["history", "viewpoint", "photography", "landmark"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Near Bras D'Eau, Flacq",
+      "latitude": -20.173,
+      "longitude": 57.754,
+      "region": "Northeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Tower Trailhead",
+          "latitude": -20.175,
+          "longitude": 57.756,
+          "access_notes": "Short hike from the road; moderate difficulty."
+        }
+      ],
+      "notes": "Bring water and wear sturdy shoes."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bassin+Tower+Mauritius",
+        "rating": 4.7,
+        "reviewCount": 89,
+        "summary": "Stunning views; worth the hike."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best visited early morning or late afternoon.",
+      "advisories": {
+        "safety": "Trail can be steep and uneven.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_013",
+    "name": "Gily's Barking Rock",
+    "attraction_type": "point_of_interest",
+    "description": "A unique rock formation along the coast, known for its distinctive shape and the sound of waves echoing through it.",
+    "tags": ["nature", "rock formation", "photography", "coastal"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Near Belle Mare, Flacq",
+      "latitude": -20.194,
+      "longitude": 57.765,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Coastal Track Access",
+          "latitude": -20.195,
+          "longitude": 57.767,
+          "access_notes": "Follow the coastal track; some scrambling over rocks."
+        }
+      ],
+      "notes": "Best visited at low tide for easier access."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Gily%27s+Barking+Rock",
+        "rating": 4.4,
+        "reviewCount": 56,
+        "summary": "Interesting rock formation; nice coastal walk."
+      }
+    ],
+    "additional_info": {
+      "notes": "Check tide times; not accessible at high tide.",
+      "advisories": {
+        "safety": "Watch for slippery rocks and strong waves.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_014",
+    "name": "Mare Sacrelle Trail",
+    "attraction_type": "destination",
+    "description": "Scenic trail leading to Mare Sacrelle, a beautiful lake known for its birdwatching and tranquil surroundings.",
+    "tags": ["hiking", "nature", "birdwatching", "scenic"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Near Belle Mare, Flacq",
+      "latitude": -20.203,
+      "longitude": 57.764,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Trailhead Parking",
+          "latitude": -20.205,
+          "longitude": 57.766,
+          "access_notes": "Parking available; trail starts here."
+        }
+      ],
+      "notes": "Bring water and snacks; no facilities on the trail."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Mare+Sacrelle+Trail",
+        "rating": 4.8,
+        "reviewCount": 34,
+        "summary": "Peaceful and scenic; great for nature walks."
+      }
+    ],
+    "additional_info": {
+      "notes": "Early morning is best for birdwatching.",
+      "advisories": {
+        "safety": "Trail can be muddy after rain.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_015",
+    "name": "Post Lafayette Public Beach",
+    "attraction_type": "destination",
+    "description": "A quiet public beach with soft sand and clear water, ideal for swimming and relaxing away from the crowds.",
+    "tags": ["beach", "swimming", "relaxation", "family-friendly"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Post Lafayette, Flacq",
+      "latitude": -20.223,
+      "longitude": 57.749,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Public Access",
+          "latitude": -20.225,
+          "longitude": 57.751,
+          "access_notes": "Direct access from the road; parking available."
+        }
+      ],
+      "notes": "Bring your own supplies; limited shade."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Post+Lafayette+Public+Beach",
+        "rating": 4.6,
+        "reviewCount": 150,
+        "summary": "Lovely beach; not too crowded."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good snorkeling spots nearby.",
+      "advisories": {
+        "safety": "Watch for strong currents; swim with caution.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_016",
+    "name": "Bras D'Eau National Park",
+    "attraction_type": "destination",
+    "description": "A protected national park featuring diverse ecosystems, including coastal mangroves, coral reefs, and woodland. Offers walking trails, birdwatching, and a glimpse of Mauritius's natural heritage.",
+    "tags": ["national park", "nature", "hiking", "birdwatching", "scenic"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Bras D'Eau, Flacq",
+      "latitude": -20.142,
+      "longitude": 57.734,
+      "region": "Northeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Park Entrance",
+          "latitude": -20.14,
+          "longitude": 57.735,
+          "access_notes": "Main entrance with parking and information."
+        }
+      ],
+      "notes": "Wear comfortable shoes; trails can be uneven."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bras+D%27Eau+National+Park",
+        "rating": 4.7,
+        "reviewCount": 512,
+        "summary": "Beautiful park with diverse wildlife; well-maintained trails."
+      }
+    ],
+    "additional_info": {
+      "notes": "Guided tours available; check at the visitor center.",
+      "advisories": {
+        "safety": "Stay on marked trails; watch for falling branches.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_017",
+        "relation_type": "located_within"
+      },
+      {
+        "id_ref": "attraction_018",
+        "relation_type": "located_within"
+      },
+      {
+        "id_ref": "attraction_019",
+        "relation_type": "located_within"
+      },
+      {
+        "id_ref": "attraction_020",
+        "relation_type": "located_within"
+      },
+      {
+        "id_ref": "attraction_021",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_017",
+    "name": "Bras D'Eau Visitor's Center",
+    "attraction_type": "information",
+    "description": "The main information center for Bras D'Eau National Park, offering exhibits on the park's ecology, history, and conservation. A starting point for trails and tours.",
+    "tags": ["information", "visitor center", "education", "nature"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Bras D'Eau, Flacq",
+      "latitude": -20.14,
+      "longitude": 57.736,
+      "region": "Northeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Visitor Center Entrance",
+          "latitude": -20.139,
+          "longitude": 57.737,
+          "access_notes": "Main entrance to the visitor center."
+        }
+      ],
+      "notes": "Restrooms and refreshments available."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bras+D%27Eau+Visitor%27s+Center",
+        "rating": 4.3,
+        "reviewCount": 78,
+        "summary": "Informative exhibits; helpful staff."
+      }
+    ],
+    "additional_info": {
+      "notes": "Check for guided tour availability.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_016",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_018",
+    "name": "Mare Mahogany",
+    "attraction_type": "destination",
+    "description": "A scenic lake in Bras D'Eau National Park, popular for birdwatching, especially for spotting the rare Mauritius Kestrel. The area around the lake features picnic spots and walking trails.",
+    "tags": ["nature", "lake", "birdwatching", "picnic", "hiking"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Bras D'Eau, Flacq",
+      "latitude": -20.138,
+      "longitude": 57.74,
+      "region": "Northeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Lake Access Path",
+          "latitude": -20.139,
+          "longitude": 57.741,
+          "access_notes": "Path leads to the lake; some areas may be muddy."
+        }
+      ],
+      "notes": "Best visited in the early morning for birdwatching."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Mare+Mahogany",
+        "rating": 4.6,
+        "reviewCount": 45,
+        "summary": "Tranquil and scenic; great for nature lovers."
+      }
+    ],
+    "additional_info": {
+      "notes": "Bring binoculars for birdwatching.",
+      "advisories": {
+        "safety": "Watch for slippery paths; stay on marked trails.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_016",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_019",
+    "name": "Puit Français (French Well)",
+    "attraction_type": "point_of_interest",
+    "description": "Historic stone-lined well from the colonial era, tucked inside Bras D’Eau’s woodland. Illustrates historic water sourcing.",
+    "tags": ["history", "heritage", "well", "colonial"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Bras D'Eau NP, Flacq",
+      "latitude": -20.142,
+      "longitude": 57.734,
+      "region": "Northeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Forest Spur",
+          "latitude": -20.155,
+          "longitude": 57.734,
+          "access_notes": "Short spur off main walking track."
+        }
+      ],
+      "notes": "Unmanned heritage point; respect barriers."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Puit+Francais+Bras+D%27Eau",
+        "rating": 2.8,
+        "reviewCount": 5,
+        "summary": "Small but interesting; combine with a loop walk."
+      }
+    ],
+    "additional_info": {
+      "notes": "Good stop on a family loop.",
+      "advisories": {
+        "safety": "Do not lean over the well lip.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_016",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_020",
+    "name": "Bras D'Eau Public Beach",
+    "attraction_type": "destination",
+    "description": "A small, shaded beach cove on the park’s edge. Calm waters and casuarina shade make it a relaxed local favorite.",
+    "tags": ["beach", "picnic", "shade", "family-friendly"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Bras D'Eau, Flacq",
+      "latitude": -20.141,
+      "longitude": 57.744,
+      "region": "Northeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Beach Carpark",
+          "latitude": -20.162,
+          "longitude": 57.745,
+          "access_notes": "Small lot; fills on weekends."
+        }
+      ],
+      "notes": "Basic facilities; bring supplies."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bras+D%27Eau+Public+Beach",
+        "rating": 4.4,
+        "reviewCount": 766,
+        "summary": "Quiet, shady, family-friendly; limited vendors."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great for picnics.",
+      "advisories": {
+        "safety": "Watch for reef cuts at low tide.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_016",
+        "relation_type": "adjacent_to"
+      }
+    ]
+  },
+  {
+    "id": "attraction_021",
+    "name": "Bassin Requins",
+    "attraction_type": "point_of_interest",
+    "description": "A historical site known locally as the ‘shark pool’—a rocky coastal basin with folklore around currents and marine life.",
+    "tags": ["coastal", "rock pool", "folklore", "heritage"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Near Bras D'Eau Coast, Flacq",
+      "latitude": -20.172,
+      "longitude": 57.759,
+      "region": "Northeast"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Coastal Track Pull-off",
+          "latitude": -20.165,
+          "longitude": 57.752,
+          "access_notes": "Short scramble over lava rock."
+        }
+      ],
+      "notes": "No facilities; wild coast feel."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Bassin+Requins+Mauritius",
+        "rating": 4.5,
+        "reviewCount": 4,
+        "summary": "Atmospheric and rugged; not for swimming."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great for photos on calm days.",
+      "advisories": {
+        "safety": "Beware of waves and sharp lava.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_016",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_022",
+    "name": "Constance Belle Mare Plage",
+    "attraction_type": "destination",
+    "description": "Upscale beachfront resort precinct with golf, dining, and a long swimming beach. A base for watersports along the East Coast.",
+    "tags": ["resort", "golf", "beach", "watersports", "dining"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Belle Mare, Flacq",
+      "latitude": -20.167,
+      "longitude": 57.766,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Resort Entrance",
+          "latitude": -20.189,
+          "longitude": 57.762,
+          "access_notes": "Guest/booking check required."
+        }
+      ],
+      "notes": "Beachfront is public by law; facilities are for guests."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Constance+Belle+Mare+Plage",
+        "rating": 4.6,
+        "reviewCount": 2483,
+        "summary": "Highly rated service, beachfront, and golf; premium pricing."
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g298342-d14008590-Reviews-Belle_Mare_Beach-Belle_Mare.html",
+        "rating": 4.7,
+        "reviewCount": 304,
+        "summary": "Highly praised for its beauty, long sandy stretch, and sunrise views; can be busy on weekends."
+      }
+    ],
+    "additional_info": {
+      "notes": "Two championship courses nearby.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_023",
+    "name": "Belle Mare Public Beach",
+    "attraction_type": "destination",
+    "description": "One of Mauritius’s longest white-sand beaches with a clear lagoon and casuarina shade. Popular for sunrise walks and family days.",
+    "tags": ["beach", "swimming", "family-friendly", "sunrise", "long beach"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Belle Mare, Flacq",
+      "latitude": -20.194,
+      "longitude": 57.777,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Public Parking",
+          "latitude": -20.188,
+          "longitude": 57.756,
+          "access_notes": "Large public area; busy on weekends."
+        }
+      ],
+      "notes": "Vendors for snacks and gear rentals (seasonal)."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Belle+Mare+Public+Beach",
+        "rating": 4.5,
+        "reviewCount": 1158,
+        "summary": "Gorgeous lagoon and long shoreline; arrive early for shade spots."
+      }
+    ],
+    "additional_info": {
+      "notes": "Excellent for morning runs.",
+      "advisories": {
+        "safety": "Watch currents outside the reef channel.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_024",
+    "name": "Quatres Cocos Beach Hiking Trail",
+    "attraction_type": "destination",
+    "description": "Coastal path skirting lagoons and rustling casuarinas between Belle Mare and Palmar. Easy, scenic walking with sea breezes.",
+    "tags": ["hiking", "coastal walk", "scenic", "family-friendly"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Quatre Cocos, Flacq",
+      "latitude": -20.199,
+      "longitude": 57.784,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "North Access (Belle Mare side)",
+          "latitude": -20.193,
+          "longitude": 57.762,
+          "access_notes": "Beach path; sandy sections."
+        },
+        {
+          "name": "South Access (Palmar side)",
+          "latitude": -20.209,
+          "longitude": 57.77,
+          "access_notes": "Join from Palmar Public Beach."
+        }
+      ],
+      "notes": "No formal wayfinding; follow the shoreline."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Quatre+Cocos+Beach+Trail",
+        "rating": 4.7,
+        "reviewCount": 14,
+        "summary": "Easy coastal stroll; breezy and photogenic."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best in mornings for cooler temps.",
+      "advisories": {
+        "safety": "Sun exposure; bring water/hat.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_025",
+    "name": "Palmar Public Beach",
+    "attraction_type": "destination",
+    "description": "Sheltered lagoon with gentle waves and laid-back vibe south of Belle Mare. Good swimming and picnic spots.",
+    "tags": ["beach", "swimming", "picnic", "family-friendly"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Palmar, Flacq",
+      "latitude": -20.216,
+      "longitude": 57.795,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Public Car Park",
+          "latitude": -20.209,
+          "longitude": 57.771,
+          "access_notes": "Beach access via short path."
+        }
+      ],
+      "notes": "Vendors on weekends; quiet weekdays."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Palmar+Public+Beach",
+        "rating": 4.5,
+        "reviewCount": 144,
+        "summary": "Calm waters and family vibe; shaded areas under casuarinas."
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g1182872-d16665031-Reviews-Palmar_Beach-Palmar.html",
+        "rating": 4.6,
+        "reviewCount": 16,
+        "summary": "Praised for its calm waters and relaxing environment, though not as lively as Belle Mare."
+      }
+    ],
+    "additional_info": {
+      "notes": "Nice for sunrise swims.",
+      "advisories": {
+        "safety": "Beware of sea urchins near rocks.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_026",
+    "name": "Pointe Quatres Cocos",
+    "attraction_type": "point_of_interest",
+    "description": "A picturesque headland and viewpoint between Belle Mare and Palmar with sweeping lagoon views and steady trade winds.",
+    "tags": ["viewpoint", "coast", "photography", "breezy"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Quatre Cocos, Flacq",
+      "latitude": -20.231,
+      "longitude": 57.808,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Track from Beach Path",
+          "latitude": -20.202,
+          "longitude": 57.769,
+          "access_notes": "Short sandy track from shoreline."
+        }
+      ],
+      "notes": "No facilities; exposed to wind."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/44pRnRoD7ZdGeDfVA",
+        "rating": 4.4,
+        "reviewCount": 11,
+        "summary": "Wide views and great photo angles; very windy at times."
+      }
+    ],
+    "additional_info": {
+      "notes": "Golden light near sunrise.",
+      "advisories": {
+        "safety": "Stay clear of slippery rock edges.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_027",
+    "name": "Camila Plage Publique",
+    "attraction_type": "destination",
+    "description": "Small community beach cove used mainly by locals. Calm shallows, simple vibe, and a few shaded spots.",
+    "tags": ["beach", "local", "calm", "cove"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Quatre Cocos/Palmar area, Flacq",
+      "latitude": -20.233,
+      "longitude": 57.806,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Beach Lane",
+          "latitude": -20.206,
+          "longitude": 57.774,
+          "access_notes": "Narrow lane; limited parking."
+        }
+      ],
+      "notes": "No formal facilities."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Camila+Plage+Publique",
+        "rating": 4.7,
+        "reviewCount": 3,
+        "summary": "Quiet local spot; bring your own gear and water."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best for a short, quiet stop.",
+      "advisories": {
+        "safety": "Check footing on rocky patches.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_028",
+    "name": "Public Boat Pier (Trou d'Eau Douce)",
+    "attraction_type": "point_of_interest",
+    "description": "Main departure point for public boats and shuttles to Île aux Cerfs. Bustling in the mornings; simple ticket kiosks.",
+    "tags": ["pier", "transport", "boat shuttle", "gateway"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Trou d'Eau Douce, Flacq",
+      "latitude": -20.254,
+      "longitude": 57.798,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Pier Entrance",
+          "latitude": -20.239,
+          "longitude": 57.801,
+          "access_notes": "Street parking nearby; peak-time queues."
+        }
+      ],
+      "notes": "Boat fares vary; cash/card depending on operator."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/Z52TZg3LULKBdMzS8",
+        "rating": 4.6,
+        "reviewCount": 36,
+        "summary": "Efficient gateway to Île aux Cerfs; expect crowds at peak hours."
+      }
+    ],
+    "additional_info": {
+      "notes": "First boats often around 9–10am (operator dependent).",
+      "advisories": {
+        "safety": "Mind wet, slippery pier surfaces.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_030",
+        "relation_type": "gateway_to"
+      }
+    ]
+  },
+  {
+    "id": "attraction_029",
+    "name": "Beau Rivage Hunting Preserve",
+    "attraction_type": "destination",
+    "description": "Private inland estate area historically associated with game and countryside activities. Access and activities vary by operator and season.",
+    "tags": ["countryside", "private estate", "outdoors"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Beau Rivage area, East Mauritius",
+      "latitude": -20.259,
+      "longitude": 57.793,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Estate Gate (by booking)",
+          "latitude": -20.22,
+          "longitude": 57.78,
+          "access_notes": "Advance confirmation required."
+        }
+      ],
+      "notes": "Activities, access, and ethics vary—verify before booking."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Beau+Rivage+Hunting+Mauritius",
+        "rating": 4.0,
+        "reviewCount": 4,
+        "summary": "Specialized, limited-access countryside venue."
+      }
+    ],
+    "additional_info": {
+      "notes": "Not a standard public attraction.",
+      "advisories": {
+        "safety": "Follow operator instructions strictly.",
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_030",
+    "name": "Île aux Cerfs",
+    "attraction_type": "destination",
+    "description": "Famed islet with turquoise lagoons, sandbars, and watersports. Day-trippers come for beaches, parasailing, and seaside grills.",
+    "tags": ["island", "beach", "watersports", "snorkeling", "day trip"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "very_high"
+    },
+    "location": {
+      "address": "Île aux Cerfs, Flacq",
+      "latitude": -20.272,
+      "longitude": 57.804,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Jetty (island side)",
+          "latitude": -20.272,
+          "longitude": 57.8,
+          "access_notes": "Arrivals from Trou d’Eau Douce boats."
+        }
+      ],
+      "notes": "Food/beverage outlets on islet; prices tourist-oriented."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=%C3%8Ele+aux+Cerfs",
+        "rating": 4.4,
+        "reviewCount": 1186,
+        "summary": "Iconic turquoise waters and soft sands; can feel busy midday."
+      }
+    ],
+    "additional_info": {
+      "notes": "Best early or late to avoid crowds.",
+      "advisories": {
+        "safety": "Strong sun; hydrate and use reef-safe sunscreen.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_031",
+        "relation_type": "contains"
+      },
+      {
+        "id_ref": "attraction_032",
+        "relation_type": "contains"
+      },
+      {
+        "id_ref": "attraction_033",
+        "relation_type": "nearby"
+      }
+    ]
+  },
+  {
+    "id": "attraction_031",
+    "name": "Cervi Beach (Île aux Cerfs)",
+    "attraction_type": "point_of_interest",
+    "description": "Powder-sand strip on the northern side of Île aux Cerfs with postcard-perfect lagoon hues.",
+    "tags": ["beach", "swimming", "photography"],
+    "audience_popularity": {
+      "locals": "moderate",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Île aux Cerfs, Flacq",
+      "latitude": -20.264,
+      "longitude": 57.805,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Boat from Trou d'Eau Douce",
+          "latitude": -20.267,
+          "longitude": 57.735,
+          "access_notes": "Boat launches from the eastern shore; public pickup boats available."
+        }
+      ],
+      "notes": "Reach on foot from main jetty."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Cervi+Beach+Ile+aux+Cerfs",
+        "rating": 4.1,
+        "reviewCount": 44,
+        "summary": "Shallow turquoise waters; busy in high season."
+      },
+      {
+        "source": "TripAdvisor",
+        "url": "https://www.tripadvisor.com/Attraction_Review-g293816-d477276-Reviews-Ile_aux_Cerfs-Mauritius.html",
+        "rating": 4.1,
+        "reviewCount": 7304,
+        "summary": "A picturesque paradise with clear waters and fun water activities, but can be crowded during peak hours."
+      }
+    ],
+    "additional_info": {
+      "notes": "Great for photos before 10am.",
+      "advisories": {
+        "safety": "Mind boats in the lagoon corridors.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_030",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_032",
+    "name": "Four Seasons Beach (Anahita/Île aux Cerfs)",
+    "attraction_type": "destination",
+    "description": "A managed beach area linked to Four Seasons at Anahita, offering calm lagoon waters and serviced loungers for resort guests.",
+    "tags": ["resort beach", "calm", "managed"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Île aux Cerfs / Anahita, Flacq",
+      "latitude": -20.284,
+      "longitude": 57.79,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Primarily for hotel/partner guests; confirm access."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.google.com/?q=Four+Seasons+Anahita+Beach",
+        "rating": 4.6,
+        "reviewCount": 1172,
+        "summary": "Immaculate setup and tranquil waters; access restrictions apply."
+      }
+    ],
+    "additional_info": {
+      "notes": "Check shuttle timings from main resort.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_030",
+        "relation_type": "located_within"
+      }
+    ]
+  },
+  {
+    "id": "attraction_033",
+    "name": "Îlot Valérie",
+    "attraction_type": "point_of_interest",
+    "description": "Tiny sand-and-rock islet near Île aux Cerfs used for short photo stops on lagoon cruises.",
+    "tags": ["islet", "photo stop", "boat trip"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "moderate"
+    },
+    "location": {
+      "address": "Lagoon near Île aux Cerfs, Flacq",
+      "latitude": -20.274,
+      "longitude": 57.808,
+      "region": "East"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access by boat only."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/nN9Aey4BrXKCQsgU8",
+        "rating": 4.8,
+        "reviewCount": 8,
+        "summary": "Quick scenic stop; no facilities—pure lagoon vibes."
+      }
+    ],
+    "additional_info": {
+      "notes": "Tide and wind can affect sand exposure.",
+      "advisories": {
+        "safety": "Beware sharp coral underfoot.",
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "id_ref": "attraction_030",
+        "relation_type": "nearby"
+      }
+    ]
+  }
+]

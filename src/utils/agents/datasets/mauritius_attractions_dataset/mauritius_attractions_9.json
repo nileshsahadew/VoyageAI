@@ -1,0 +1,620 @@
+[
+  {
+    "id": "attraction_110",
+    "name": "Vuillemin Forest",
+    "attraction_type": "forest",
+    "description": "A secluded and lesser-known forest area in the central region of Mauritius, which serves as a hiking spot for those seeking a tranquil and off-the-beaten-path nature experience. With a network of informal trails, it offers a rustic environment for a quiet stroll or a more challenging hike away from the typical tourist crowds.",
+    "tags": [
+      "forest",
+      "hiking",
+      "nature",
+      "local_spot",
+      "off-the-beaten-path",
+      "peaceful"
+    ],
+    "audience_popularity": {
+      "locals": "very_low",
+      "tourists": "very_low"
+    },
+    "location": {
+      "address": "Vuillemin, Mauritius",
+      "latitude": -20.255682123885872,
+      "longitude": 57.58715995272081,
+      "region": "Plaines Wilhems"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free and informal. There are no on-site amenities, and visitors should be prepared for a rustic hiking experience."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/zWgPEYzwm2zadoY58",
+        "rating": 4.0,
+        "reviewCount": 1,
+        "summary": "Based on a single review, the forest is rated positively. Due to the limited number of reviews, this may suggest it is a very niche or little-known location, appreciated by those who have visited."
+      }
+    ],
+    "additional_info": {
+      "notes": "As an informal hiking area, trails are not officially maintained or marked.",
+      "advisories": {
+        "safety": [
+          "Visitors should be self-sufficient, equipped with appropriate hiking gear, and aware of their surroundings."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_111",
+    "name": "Alphonse Ravaton Green Space",
+    "attraction_type": "park",
+    "description": "A public park dedicated to the memory of Alphonse Ravaton, popularly known as 'Ti-Frère,' the revered 'King of Sega.' As a pioneer of Mauritian Sega music, his cultural legacy is a significant part of the island's heritage. The green space serves as a tranquil, local recreational area and a tribute to one of Mauritius's most influential musicians.",
+    "tags": [
+      "park",
+      "public_space",
+      "local_spot",
+      "peaceful",
+      "history",
+      "music"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "very_low"
+    },
+    "location": {
+      "address": "Quartier Militaire, Mauritius",
+      "latitude": -20.247385983596118,
+      "longitude": 57.595981781556105,
+      "region": "Moka"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access is free, as it is a public park."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/EaB3jZFXRDRHLrm97",
+        "rating": null,
+        "reviewCount": null,
+        "summary": "There are no available reviews for this location, suggesting it is a very obscure and little-known spot, likely serving as a quiet, local green space rather than a major attraction."
+      }
+    ],
+    "additional_info": {
+      "notes": "Alphonse Ravaton (1900-1992) was a legendary Mauritian artist, famous for popularizing Sega music. The park's existence honors his memory and contribution to the island's folklore.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_112",
+    "name": "Cote d'Or National Sports Complex",
+    "attraction_type": "sports_facility",
+    "description": "A world-class, multi-purpose sports facility and a major national landmark in Mauritius. Built for the 2019 Indian Ocean Island Games, the complex features a variety of modern amenities, including an Olympic-sized swimming pool, a velodrome, a large stadium, and an indoor arena. It serves as both a training ground for national athletes and a recreational hub for the public.",
+    "tags": [
+      "sports_facility",
+      "stadium",
+      "swimming",
+      "gym",
+      "entertainment",
+      "recreational"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Moka, Mauritius",
+      "latitude": -20.242160313263053,
+      "longitude": 57.541063515844776,
+      "region": "Moka"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": true,
+      "entry_points": [
+        {
+          "name": "Main Parking Entrance 1",
+          "latitude": -20.240427410350037,
+          "longitude": 57.54325574648987
+        },
+        {
+          "name": "Main Parking Entrance 2",
+          "latitude": -20.24435954473338,
+          "longitude": 57.543089936935075
+        }
+      ],
+      "notes": "Public access to many facilities is available, but fees may apply for use of specific amenities like the swimming pool or gym."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/GcxsDGttT4q8cpv37",
+        "rating": 4.4,
+        "reviewCount": 1055,
+        "summary": "This complex is highly rated by visitors who praise its modern, well-maintained facilities and clean environment. The complex is known for being a key venue for national and regional sporting events."
+      }
+    ],
+    "additional_info": {
+      "notes": "The complex includes an athletics stadium, a velodrome, an aquatic center, and an indoor arena. It is a major venue for national and international competitions.",
+      "advisories": {
+        "safety": null,
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_113",
+    "name": "Pieter Both",
+    "attraction_type": "mountain_peak",
+    "description": "The second-highest mountain in Mauritius and one of its most iconic landmarks, known for its distinctive spherical rock at the summit. The ascent is considered a difficult and technical climb, offering a challenging adventure for experienced hikers. The trail provides breathtaking panoramic views of the island's central region and coastline.",
+    "tags": [
+      "mountain_peak",
+      "hiking",
+      "climbing",
+      "landmark",
+      "adventure",
+      "scenic_view"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Moka, Mauritius",
+      "latitude": -20.189121521801003,
+      "longitude": 57.54880299149523,
+      "region": "Moka"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Main Hiking Trailhead",
+          "latitude": -20.200987452384375,
+          "longitude": 57.55489987704098
+        }
+      ],
+      "notes": "The ascent requires a professional guide and specialized equipment for the final section. This is not a hike for casual visitors."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/LBbBT2KkcmpsPgqk6",
+        "rating": 4.4,
+        "reviewCount": 8,
+        "summary": "Despite its fame, the mountain has a very low number of reviews, which reflects the challenging nature of the climb that only a limited number of people attempt. The high rating is likely from adventurers and professional hikers who successfully completed the difficult ascent."
+      }
+    ],
+    "additional_info": {
+      "notes": "The climb is divided into two sections: a challenging hike to Abhyas Point and a final, vertical climb to the summit that requires ropes.",
+      "advisories": {
+        "safety": [
+          "The climb is considered highly dangerous and should only be undertaken with a professional, certified guide.",
+          "Proper climbing gear and physical fitness are mandatory."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": [
+      {
+        "ref_id": "attraction_114",
+        "relationship": "viewpoint_on_trail"
+      }
+    ]
+  },
+  {
+    "id": "attraction_114",
+    "name": "Abhyas Point",
+    "attraction_type": "viewpoint",
+    "description": "A scenic viewpoint and key resting spot located along the main climbing trail to Pieter Both's summit. The name, meaning 'practice' or 'training' in Hindi, signifies its role as a final preparation point before the most challenging and technical vertical climb to the top. It offers spectacular views of the surrounding landscape and is the turnaround point for many hikers who do not wish to attempt the final ascent.",
+    "tags": ["viewpoint", "hiking", "scenic_view"],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Pieter Both Trail, Moka, Mauritius",
+      "latitude": -20.196444534311368,
+      "longitude": 57.557139787516135,
+      "region": "Moka"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "Access to Abhyas Point is part of the Pieter Both trail and is a popular destination for hikers who do not want to attempt the final, dangerous climb to the peak."
+    },
+    "reviews": [],
+    "additional_info": {},
+    "parent_attraction": {
+      "id_ref": "attraction_113",
+      "relationship": "part_of_main_trail"
+    }
+  },
+  {
+    "id": "attraction_115",
+    "name": "Deux Mamelles",
+    "attraction_type": "mountain_peak",
+    "description": "A pair of distinctive twin peaks located in the central part of Mauritius. This hike is a rewarding, moderately challenging trek that offers a less-trafficked and more authentic nature experience compared to more famous peaks. The summit provides breathtaking 360-degree panoramic views of the island's landscape, including the surrounding sugarcane fields, mountains, and distant coastal areas.",
+    "tags": [
+      "mountain_peak",
+      "hiking",
+      "scenic_view",
+      "adventure",
+      "local_spot",
+      "off-the-beaten-path"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Moka, Mauritius",
+      "latitude": -20.19715304251819,
+      "longitude": 57.568305393209734,
+      "region": "Moka"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Hiking Trailhead",
+          "latitude": -20.202085551265597,
+          "longitude": 57.57023141802317
+        }
+      ],
+      "notes": "While a guide is not required, the trail can be challenging. Hikers should be prepared for a rustic environment."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/F2EqctJr7SuAQZm49",
+        "rating": 4.5,
+        "reviewCount": 15,
+        "summary": "The high rating from a small number of reviewers indicates that those who have found and hiked this trail were highly satisfied with the experience. The low review count points to it being a lesser-known and less-crowded alternative to more popular hikes."
+      }
+    ],
+    "additional_info": {
+      "notes": "The hike typically takes a few hours to complete, depending on fitness level. The trail can be steep and slippery, especially after rain.",
+      "advisories": {
+        "safety": [
+          "Wear appropriate hiking shoes and bring an ample supply of water.",
+          "Exercise caution on steep and rocky sections of the trail."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_116",
+    "name": "La Nicolière Reservoir to Pont Jamblon Bridge",
+    "attraction_type": "hiking_trail",
+    "description": "A scenic and tranquil hiking trail that follows a feeder canal along the La Nicolière Reservoir, a major water source for Mauritius. Considered a 'hidden gem,' this route offers an adventurous journey through lush green hillsides, concluding at an old bridge with picturesque views of the river. It's a peaceful escape from the city, ideal for nature lovers.",
+    "tags": [
+      "hiking_trail",
+      "nature",
+      "scenic_view",
+      "reservoir",
+      "local_spot",
+      "off-the-beaten-path"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "La Nicolière, Mauritius",
+      "latitude": -20.16251053725582,
+      "longitude": 57.62322542874494,
+      "region": "Moka"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Entry Point",
+          "latitude": -20.16251053725582,
+          "longitude": 57.62322542874494
+        },
+        {
+          "name": "End Point",
+          "latitude": -20.171959537643154,
+          "longitude": 57.625419850130776
+        }
+      ],
+      "notes": "The trail is not formally maintained or marked. Hikers should be prepared for rustic conditions."
+    },
+    "reviews": [
+      {
+        "source": "AllTrails",
+        "url": "https://www.alltrails.com/trail/mauritius/moka/la-nicoliere-reservoir-to-pont-jamblon-bridge",
+        "rating": 4.2,
+        "reviewCount": 22,
+        "summary": "Reviewers describe the trail as a pleasant and adventurous hike. They praise the peaceful atmosphere and scenic views of the reservoir and surrounding landscape. Some reviews mention the old bridge and recommend caution while crossing it."
+      }
+    ],
+    "additional_info": {
+      "notes": "The trail is known for its serene picnic spots and for the monkeys that can be spotted along the route. Pont Jamblon Bridge is an old structure with some broken railings, offering unique views of the river below.",
+      "advisories": {
+        "safety": [
+          "Wear sturdy hiking shoes and bring plenty of mosquito repellent.",
+          "Exercise caution on the old bridge as some railings are broken."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_117",
+    "name": "Bois clair dam",
+    "attraction_type": "dam",
+    "description": "A tranquil and scenic dam located in a rural area, known to locals for its peaceful atmosphere and rustic charm. The site is a popular spot for fishing and offers informal trails for hiking or leisurely walks around the perimeter, providing a quiet escape for nature enthusiasts and a simple retreat from the hustle and bustle of city life.",
+    "tags": [
+      "dam",
+      "reservoir",
+      "hiking",
+      "fishing",
+      "nature",
+      "local_spot",
+      "peaceful"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "very_low"
+    },
+    "location": {
+      "address": "Bois Clair, Mauritius",
+      "latitude": -20.294038889927517,
+      "longitude": 57.624580468064394,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Trail Entry Point 1",
+          "latitude": -20.28828998959509,
+          "longitude": 57.620737415362
+        },
+        {
+          "name": "Trail Entry Point 2",
+          "latitude": -20.298651068017936,
+          "longitude": 57.60918320650356
+        }
+      ],
+      "notes": "Access is free and informal. There are no on-site amenities or formal facilities."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/ESnY9y1FVJdyH3tY6",
+        "rating": 4.5,
+        "reviewCount": 6,
+        "summary": "This site is highly rated by the few who have visited it, suggesting it's a 'hidden gem.' Reviews praise the peaceful environment and the opportunity for fishing and a quiet walk, away from the crowds."
+      },
+      {
+        "source": "Wikiloc",
+        "url": "https://fr.wikiloc.com/itineraires-vol/dubreuil-bois-clair-99510006",
+        "rating": null,
+        "reviewCount": null,
+        "summary": "Part of a hiking trail from Dubreuil"
+      }
+    ],
+    "additional_info": {
+      "notes": "The dam is a popular spot for fishing, particularly for species like tilapia. The trails are unmaintained and provide a more rustic hiking experience.",
+      "advisories": {
+        "safety": [
+          "Visitors should be self-sufficient, as there are no services on site.",
+          "Wear appropriate footwear and use caution on uneven terrain."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_118",
+    "name": "Montagne blanche",
+    "attraction_type": "mountain_peak",
+    "description": "A lesser-known but iconic mountain in Mauritius, Montagne Blanche offers a moderately challenging hike with rewarding panoramic views of the island's central and southeastern regions. The trail is rustic and can be muddy, but it provides a more authentic and less crowded experience than more popular peaks.",
+    "tags": [
+      "mountain_peak",
+      "hiking",
+      "scenic_view",
+      "local_spot",
+      "off-the-beaten-path"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Montagne Blanche, Mauritius",
+      "latitude": -20.26989971325204,
+      "longitude": 57.6673407960162,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "The trail is not formally maintained and can be difficult to find. Hikers should be prepared for a rustic, off-the-beaten-path experience."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/GQnkaeLfdLh5NtA97",
+        "rating": 3.0,
+        "reviewCount": 5,
+        "summary": "The low rating is a result of conflicting reviews. While some visitors rate it highly, praising the iconic status and rewarding views, others have had less positive experiences. One review mentions 'unfriendly people' in the area, which may affect the overall perception of the experience."
+      }
+    ],
+    "additional_info": {
+      "notes": "The trail is considered moderately difficult, with steep and potentially muddy sections, particularly at the beginning. The hike is typically completed as a point-to-point trail. Proper hiking shoes are highly recommended.",
+      "advisories": {
+        "safety": [
+          "Be prepared for slippery and muddy conditions, especially after rainfall.",
+          "Bring water and exercise caution as the trail is not formally marked or maintained."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_119",
+    "name": "Mount Bambou",
+    "attraction_type": "mountain_peak",
+    "description": "Mount Bambou is a very challenging and strenuous hike, located in the Bambous Range. This hike is known for its steep, rocky sections and requires confident climbing and scrambling abilities. The effort is rewarded with breathtaking panoramic views of the island's coastline and surrounding mountains, making it a favorite for experienced thrill-seekers.",
+    "tags": [
+      "mountain_peak",
+      "hiking",
+      "adventure",
+      "off-the-beaten-path",
+      "scenic_view",
+      "challenging"
+    ],
+    "audience_popularity": {
+      "locals": "low",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Bambous, Mauritius",
+      "latitude": -20.318847043559785,
+      "longitude": 57.750023071480186,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Belle Rive Entry Point",
+          "latitude": -20.311084524940938,
+          "longitude": 57.73515153790903
+        }
+      ],
+      "notes": "The trail is not formally marked, and a local guide is highly recommended. It is considered dangerous to attempt the ascent if there is a possibility of rain."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/yDvTGct1d6FrZAmY6",
+        "rating": 4.5,
+        "reviewCount": 4,
+        "summary": "Despite a very small number of reviews, the high rating reflects the rewarding experience for those who successfully complete the difficult climb. Reviews highlight the challenging nature of the trail, which includes sections with no clear path and thick undergrowth."
+      },
+      {
+        "source": "Explore Mauritius",
+        "url": "https://www.exploremauritius.org/",
+        "rating": null,
+        "reviewCount": null,
+        "summary": "This site describes the hike as 'Difficult' and recommends it for confident climbers with experience, noting that the trail is not marked and can be dangerous when wet. It also mentions a rocky summit and the need for scrambling abilities."
+      }
+    ],
+    "additional_info": {
+      "notes": "The hike is a physically demanding journey that can take 3-5 hours round trip. Hikers must be prepared for a rustic, off-trail experience. Sections of the climb may involve using hands to scramble up steep rocks.",
+      "advisories": {
+        "safety": [
+          "Wear sturdy hiking shoes with good grip and long trousers to protect from tall plants.",
+          "Carry an ample supply of water and be prepared for strenuous exertion.",
+          "Do not attempt to hike alone or if rain is forecasted."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  },
+  {
+    "id": "attraction_120",
+    "name": "Le Chat y La Souris Trail",
+    "attraction_type": "mountain_peak_trail",
+    "description": "Le Chat y La Souris is a very difficult hike named after the rock formations at the summit that resemble a cat and a mouse. The trail is known for its steep and dangerous climbs and is considered one of the riskiest hikes in Mauritius. It offers breathtaking views of the lagoon and surrounding mountains and is highly unadvised for inexperienced hikers or those with vertigo.",
+    "tags": [
+      "mountain_peak",
+      "hiking",
+      "adventure",
+      "scenic_view",
+      "challenging",
+      "dangerous_trail"
+    ],
+    "audience_popularity": {
+      "locals": "medium",
+      "tourists": "low"
+    },
+    "location": {
+      "address": "Grand Sable, Mauritius",
+      "latitude": -20.313240638633037,
+      "longitude": 57.7555317596966,
+      "region": "Grand Port"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        {
+          "name": "Trailhead",
+          "latitude": -20.31437235295999,
+          "longitude": 57.773143296130336
+        }
+      ],
+      "notes": "The trail is not marked and the ascent is extremely dangerous. It is highly recommended to go with a professional guide, especially during rainy periods, as the rocks can be very slippery."
+    },
+    "reviews": [
+      {
+        "source": "Explore Mauritius",
+        "url": "https://www.exploremauritius.org/",
+        "rating": null,
+        "reviewCount": null,
+        "summary": "This website describes the trail as a 3.6-mile (about 5.8 km) 'out-and-back' hike, taking 2-3 hours for the full route. It mentions that the first part is the most difficult to follow and that the trail is not well-marked, requiring confident climbing."
+      },
+      {
+        "source": "Defimedia.info",
+        "url": "https://defimedia.info/montagne-le-chat-et-la-souris-une-ascension-grisante-mais-tres-dangereuse",
+        "rating": null,
+        "reviewCount": null,
+        "summary": "This news article describes the trail as 'exhilarating but very dangerous' and states that a mistake can be fatal. It specifies that the climb is not recommended for people with vertigo or inexperienced hikers."
+      }
+    ],
+    "additional_info": {
+      "notes": "The trail, which takes about 2 to 5 hours depending on pace, is an off-the-beaten-path experience that requires a good level of physical fitness and climbing experience.",
+      "advisories": {
+        "safety": [
+          "Avoid going alone. An experienced guide is essential.",
+          "Do not attempt this hike if there is any chance of rain or if the rocks are wet, as they become very slippery and the descent is steep.",
+          "Wear sturdy hiking shoes and bring enough water."
+        ],
+        "travel": null
+      }
+    },
+    "sub_attractions": []
+  }
+]

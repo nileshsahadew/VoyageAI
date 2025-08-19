@@ -1,0 +1,553 @@
+[
+  {
+    "id": "attraction_170",
+    "name": "Le Morne Brabant",
+    "attraction_type": "mountain",
+    "description": "Le Morne Brabant is a UNESCO World Heritage site and a prominent basaltic monolith located on a peninsula at the southwestern tip of Mauritius. It holds profound historical significance as a sanctuary for runaway slaves (maroons) during the 18th and early 19th centuries. The mountain's rugged, isolated cliffs and caves provided a natural fortress where they could live in hidden settlements. Today, it stands as a powerful symbol of the slaves' struggle for freedom, suffering, and sacrifice.",
+    "tags": [
+      "historical",
+      "cultural_landscape",
+      "UNESCO_World_Heritage",
+      "hiking",
+      "nature",
+      "landmark",
+      "scenic_view"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Le Morne, Mauritius",
+      "latitude": -20.4492,
+      "longitude": 57.3176,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        "Entrance to the hiking trail near the base of the mountain."
+      ],
+      "notes": "While the mountain is a public site, a guide is highly recommended for the hike, and for the most part, required, especially for the final, more difficult climb to the summit. The hike has a moderate to difficult difficulty level."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/3VTop1mgkFcotSWTA",
+        "rating": 4.8,
+        "reviewCount": 578,
+        "summary": "Reviews are overwhelmingly positive, with visitors praising the breathtaking panoramic views from the summit. The historical and cultural significance is often highlighted as a key reason for visiting. Many reviewers stress the challenge of the hike, particularly the final scramble to the top, and strongly recommend hiring an experienced guide."
+      }
+    ],
+    "additional_info": {
+      "notes": "The site is not just a natural landmark but a cultural one, inscribed on the UNESCO World Heritage List in 2008. It is home to unique and endemic flora, including the rare Trochetia Boutoniana.",
+      "advisories": {
+        "safety": [
+          "The hike is challenging and includes a difficult rocky scramble near the summit.",
+          "Go with an experienced guide.",
+          "Bring sufficient water, appropriate hiking shoes, and sun protection."
+        ],
+        "travel": [
+          "The hike can be strenuous and takes several hours to complete (approximately 3-4 hours round trip)."
+        ]
+      }
+    },
+    "sub_attractions": [
+      {
+        "name": "Le Morne Cultural Landscape",
+        "type": "UNESCO World Heritage Site",
+        "description": "The official designation for Le Morne, recognized for its exceptional testimony to the history of maroonage, a key aspect of slavery and resistance in the region. The cultural significance extends beyond the mountain itself to the surrounding area."
+      }
+    ]
+  },
+
+  {
+    "id": "attraction_171",
+    "name": "Le Morne Public Beach",
+    "attraction_type": "beach",
+    "description": "Le Morne Public Beach is a stunning stretch of coastline located at the foot of the iconic Le Morne Brabant mountain. Renowned for its pristine white sand and crystal-clear turquoise waters, the beach offers breathtaking views and a variety of activities. The unique geography of the peninsula creates both a calm, sheltered area ideal for swimming and a windy side that is a world-class destination for kitesurfing and windsurfing.",
+    "tags": [
+      "beach",
+      "swimming",
+      "kitesurfing",
+      "windsurfing",
+      "scenic_view",
+      "family-friendly",
+      "water_sports"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Le Morne, Mauritius",
+      "latitude": -20.4508,
+      "longitude": 57.3123,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": ["Coastal road access with public parking."],
+      "notes": "The beach is a public space with a designated public parking area. Be cautious of water sports enthusiasts in the windy sections of the beach. While swimming is popular in the sheltered areas, be mindful of coral fragments on the seabed."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps",
+        "url": "https://maps.app.goo.gl/aWRkC4FxPjMW6CJYA",
+        "rating": 4.6,
+        "reviewCount": 2324,
+        "summary": "Visitors consistently praise the beach for its spectacular scenery, particularly the backdrop of Le Morne Brabant. It's highly rated for its versatility, offering both calm swimming conditions and excellent opportunities for kitesurfing and windsurfing. Reviewers note that it can be crowded on weekends and recommend visiting on weekdays for a quieter experience. Amenities like parking, public restrooms, and food vendors are mentioned, although the cleanliness of the restrooms can be inconsistent."
+      }
+    ],
+    "additional_info": {
+      "notes": "Le Morne Public Beach is a major hub for water sports, with many schools and rental shops nearby. The stunning sunset views are also a significant draw.",
+      "advisories": {
+        "safety": [
+          "Be cautious of strong winds and kitesurfers in the designated water sports area.",
+          "Wear water shoes to protect against coral fragments on the seabed.",
+          "Be aware of strong currents in channels and passes near the reef."
+        ],
+        "travel": [
+          "It can get very busy, especially on weekends and public holidays.",
+          "While public transportation is available, having a car is the most convenient way to access the beach."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+
+  {
+    "id": "attraction_172",
+    "name": "Le Morne Brabant Hiking",
+    "attraction_type": "hiking_trail",
+    "description": "The hike up Le Morne Brabant is a challenging but highly rewarding trek to the summit of the iconic UNESCO World Heritage site. The trail combines a scenic walk through lush vegetation with a demanding rock scramble to reach the peak. The hike offers a unique perspective on the mountain's history as a refuge for runaway slaves and provides unparalleled panoramic views of the turquoise lagoon, surrounding islands, and the famous 'underwater waterfall' optical illusion.",
+    "tags": ["hiking", "trekking", "adventure", "scenic_view", "challenging"],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Le Morne, Mauritius",
+      "latitude": -20.4587,
+      "longitude": 57.3269,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [
+        "Official trailhead near the base of the mountain, often accessed via a meeting point with a guide near Le Morne Public Beach."
+      ],
+      "notes": "A certified guide is highly recommended and, for the final, more difficult section, often required. The hike is not suitable for individuals with a fear of heights, or those with significant mobility or health issues. Minimum age for participants is typically 10 years old."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps & Tour Provider Websites",
+        "url": "https://maps.app.goo.gl/76jJKqnDHZe4T1ex8",
+        "rating": 4.6,
+        "reviewCount": 83,
+        "summary": "Reviews consistently rate the hike as a must-do activity for its breathtaking views. Visitors emphasize the challenge of the final rock climb and the necessity of wearing proper hiking shoes. The knowledge and guidance of professional guides are frequently praised, with many feeling the guide was essential for safety and for understanding the mountain's history."
+      }
+    ],
+    "additional_info": {
+      "notes": "The hike is typically a 3- to 4-hour round trip, with the first half being a moderate trail and the second half a steep, rocky scramble. It is highly recommended to start early in the morning to avoid the heat.",
+      "advisories": {
+        "safety": [
+          "The final section is a vertical rock climb and can be dangerous without proper footwear and guidance.",
+          "Bring at least 1.5 to 2 liters of water per person.",
+          "Sun protection (hat, sunscreen, sunglasses) is essential as parts of the trail are unshaded.",
+          "Weather can change quickly; be prepared for rain and slippery rocks."
+        ],
+        "travel": [
+          "Access to the trailhead is often via a private road, so a guide's transport or a rental car is usually needed.",
+          "The site is a major attraction, and the trail can get very busy, especially during peak season."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+
+  {
+    "id": "attraction_173",
+    "name": "One Eye Surfing Spot",
+    "attraction_type": "surfing_spot",
+    "description": "One Eye is one of the most famous and challenging kitesurfing and windsurfing spots in the world, located off the coast of Le Morne. It's a world-class left-hand reef break known for its incredibly fast, powerful, and hollow waves that break over a shallow coral reef. The spot's name comes from the perfectly round, 'eye-like' barrel that the wave forms, attracting highly skilled riders from around the globe.",
+    "tags": [
+      "surfing",
+      "kitesurfing",
+      "windsurfing",
+      "extreme_sports",
+      "adventure",
+      "reef_break"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Off the coast of Le Morne, Mauritius",
+      "latitude": -20.4637,
+      "longitude": 57.3175,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [],
+      "notes": "This spot is for advanced and expert riders only. It is not suitable for beginners or even intermediates. The wind is cross-offshore, the reef is shallow and sharp, and the currents can be strong. It is highly recommended to seek local advice from a surf or kite center before attempting to ride this wave."
+    },
+    "reviews": [
+      {
+        "source": "Specialized Sports Guides & Forums",
+        "url": "https://maps.app.goo.gl/M39CRjdNZdJZtR9u6",
+        "rating": 4.6,
+        "reviewCount": 193,
+        "summary": "Reviews from the kitesurfing and windsurfing community consistently rate One Eye as a top-tier spot. It is revered for its perfect barrels and high-speed rides. However, every review comes with a strong warning about the dangers of the shallow reef, the powerful current, and the need for a high skill level. The proximity of other, more accessible breaks like Manawa and Little Reef is often highlighted as a good way for riders to progress before attempting One Eye."
+      }
+    ],
+    "additional_info": {
+      "notes": "The wave is most consistent during the Mauritian winter (May to November) when the trade winds are at their strongest. The best conditions are at high tide. One Eye is part of a complex of breaks in the area, including Manawa and Chameaux, which offer a range of difficulty levels.",
+      "advisories": {
+        "safety": [
+          "This spot is for experts only. Do not attempt if you are not a highly skilled rider.",
+          "The reef is very shallow and sharp; a fall can result in serious injury.",
+          "A strong, narrow current can pull riders away from the reef, making it difficult to get back to shore without sufficient wind.",
+          "Always check tide and wind conditions and get advice from a local center before going out."
+        ],
+        "travel": [
+          "The spot is located offshore and is best accessed via boat or by kiting from one of the nearby public beaches or resorts.",
+          "The wind is cross-offshore, which makes a self-rescue difficult if the wind dies."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+
+  {
+    "id": "attraction_174",
+    "name": "Underwater Waterfall Mauritius - 5 Island tour",
+    "attraction_type": "natural_phenomenon",
+    "description": "The 'Underwater Waterfall' is a breathtaking optical illusion located off the southwestern coast of Mauritius, near Le Morne. It is not an actual waterfall but a stunning visual effect created by the flow of sand and silt sediments from the shallow coastal shelf into the deep oceanic abyss. The different shades of blue and white, caused by the contrast between the shallow, sandy seabed and the dark, deep ocean, create the mesmerizing impression of a cascading waterfall when viewed from above.",
+    "tags": [
+      "natural_phenomenon",
+      "optical_illusion",
+      "scenic_view",
+      "helicopter_tour",
+      "seaplane_tour",
+      "unique"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Off the coast of Le Morne, Mauritius",
+      "latitude": -20.434,
+      "longitude": 57.3201,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "The 'Underwater Waterfall' can only be seen from an aerial perspective. This requires booking a helicopter or seaplane tour, which are offered by various tour operators and some hotels. Tours are subject to weather conditions."
+    },
+    "reviews": [
+      {
+        "source": "Tour Operator Websites & Travel Forums",
+        "url": "https://maps.app.goo.gl/X3mFsTSrDjTEEwak6",
+        "rating": 4.6,
+        "reviewCount": 14,
+        "summary": "Reviews consistently describe the experience as 'unforgettable,' 'breathtaking,' and 'a must-do.' Visitors are amazed by the illusion and the panoramic views of the island from the air. The high cost is often mentioned but is deemed worth it for the once-in-a-lifetime experience. Reviewers stress that the phenomenon is best seen on a clear day and recommend booking in advance."
+      }
+    ],
+    "additional_info": {
+      "notes": "The illusion is most visible during the Mauritian winter months, particularly from September to December, when the weather is clearer. While the phenomenon is technically offshore, it is closely associated with the Le Morne peninsula and the hiking trail up Le Morne Brabant, from which a limited view may be possible.",
+      "advisories": {
+        "safety": [
+          "This is a flight-based experience, so all safety instructions from the operator must be followed.",
+          "The phenomenon is not visible from the ground or from the water level. Do not attempt to swim or snorkel in the area of the drop-off."
+        ],
+        "travel": [
+          "Visibility can be poor on cloudy or rainy days, so it is best to check the weather forecast before booking a tour.",
+          "Prices vary depending on the duration of the flight and the type of aircraft."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+
+  {
+    "id": "attraction_175",
+    "name": "Le Morne Cultural Landscape",
+    "attraction_type": "cultural_heritage_site",
+    "description": "Le Morne Cultural Landscape is a UNESCO World Heritage site and a poignant memorial to the history of slavery in Mauritius. The site is centered around the Le Morne Brabant mountain, a rugged basaltic monolith that served as a refuge for runaway slaves, known as maroons, during the 18th and early 19th centuries. The oral traditions associated with the maroons, who are said to have formed settlements in the mountain's caves and on its summit, have made Le Morne a powerful symbol of their struggle for freedom, their suffering, and their ultimate sacrifice. The site includes the mountain itself and its associated oral histories, and it has become a focal point for national and international commemoration.",
+    "tags": [
+      "historical",
+      "cultural_landscape",
+      "UNESCO_World_Heritage",
+      "memorial",
+      "slavery",
+      "landmark",
+      "symbolic"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Le Morne, Mauritius",
+      "latitude": -20.45128,
+      "longitude": 57.31423,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        "The site is a large landscape, with public access to the base and the nearby public beach."
+      ],
+      "notes": "While the overall site is accessible to the public, certain activities within it, such as hiking the mountain, may require a guide and have specific access requirements. It is a place of profound significance, and visitors are encouraged to approach it with respect for its history."
+    },
+    "reviews": [
+      {
+        "source": "UNESCO & Official Site Pages",
+        "url": "https://maps.app.goo.gl/HmL3wyBFhYzTEnAX9",
+        "rating": 4.8,
+        "reviewCount": 617,
+        "summary": "The site is universally recognized for its outstanding universal value as a testament to resistance to slavery. It is highly regarded for its powerful symbolism and the successful efforts to preserve and manage its historical and ecological integrity. The establishment of the Le Morne Heritage Trust Fund and its efforts to promote the site and conduct research are often cited as exemplary."
+      }
+    ],
+    "additional_info": {
+      "notes": "The UNESCO inscription in 2008 recognizes Le Morne as 'an exceptional testimony to maroonage or resistance to slavery.' It is managed by the Le Morne Heritage Trust Fund, which is dedicated to its preservation, research, and public education. The site is a living memorial, with an annual commemoration of the abolition of slavery held there.",
+      "advisories": {
+        "safety": [
+          "Visitors should be aware of the natural environment, including cliffs and rugged terrain."
+        ],
+        "travel": [
+          "The site is not a single point of interest but a larger landscape that can be explored in different ways, including visiting the beach, the nearby village, and undertaking the guided hike up the mountain.",
+          "Check for official announcements from the Le Morne Heritage Trust Fund for any temporary closures or special events."
+        ]
+      }
+    },
+    "sub_attractions": [
+      {
+        "name": "Le Morne Brabant Mountain",
+        "type": "natural_monument",
+        "description": "The physical centerpiece of the heritage site, recognized for its role as a fortress and refuge for runaway slaves."
+      },
+      {
+        "name": "International Slave Route Monument",
+        "type": "memorial_sculpture",
+        "description": "Located at the base of the mountain, this monument is a tangible symbol of the history of slavery and an official part of UNESCO's 'Slave Route Project.'"
+      }
+    ]
+  },
+
+  {
+    "id": "attraction_176",
+    "name": "Le Morne Kitesurfing Beach",
+    "attraction_type": "beach_and_water_sports_spot",
+    "description": "Le Morne Kitesurfing Beach is a world-renowned kitesurfing and windsurfing destination located at the foot of Le Morne Brabant mountain. The spot is famous for its ideal and diverse conditions, which cater to all levels, from beginners to world-class professionals. The main area is a massive, shallow, and flat-water lagoon, perfect for learning and freestyle riding. Just beyond the lagoon, the coral reef creates several famous wave breaks, including the legendary 'One Eye' and the more accessible 'Manawa,' making it a top spot for wave riders as well.",
+    "tags": [
+      "kitesurfing",
+      "windsurfing",
+      "water_sports",
+      "beach",
+      "adventure",
+      "extreme_sports",
+      "freestyle",
+      "waves"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Le Morne, Mauritius",
+      "latitude": -20.4623,
+      "longitude": 57.31939,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        "The main public access point near the Le Morne Public Beach."
+      ],
+      "notes": "There are many kitesurfing schools and rental shops located here. While access is public, lessons and equipment rental are highly recommended for beginners. The spot is known to be very crowded during peak season and is not suitable at very low tide due to exposed coral and rocks."
+    },
+    "reviews": [
+      {
+        "source": "Specialized Sports Guides & Forums",
+        "url": "https://maps.app.goo.gl/7GeGwoxzFFkfx4nh9",
+        "rating": 4.5,
+        "reviewCount": 19,
+        "summary": "The kitesurfing community rates Le Morne as one of the best spots in the world. Reviewers rave about the consistent wind, the warm water, and the variety of conditions available in one location. Beginners appreciate the safe, shallow lagoon, while advanced riders are drawn to the world-class waves. Many reviews highlight the professionalism of local schools and the welcoming atmosphere. Warnings about the crowds and the dangers of the outer reef for non-experts are common."
+      }
+    ],
+    "additional_info": {
+      "notes": "The best time for kitesurfing is during the Mauritian winter (May to November), when the southeast trade winds are most consistent and strong. Several schools offer lessons, rentals, and supervision, often with IKO (International Kiteboarding Organization) certified instructors.",
+      "advisories": {
+        "safety": [
+          "Beginners should stay in the designated 'Kite Lagoon' area and take lessons.",
+          "The outer reef waves (especially 'One Eye') are for expert riders only due to shallow reef and powerful currents.",
+          "Wearing booties is highly recommended to protect feet from coral.",
+          "Be aware of the tide, as kiting can be difficult or impossible at low tide due to exposed rocks."
+        ],
+        "travel": [
+          "The area is a major hub for water sports and can be very busy.",
+          "Most accommodations are in the nearby village of La Gaulette, a short drive away.",
+          "A rental car is the most convenient way to get to the beach and explore the area."
+        ]
+      }
+    },
+    "sub_attractions": [
+      {
+        "name": "Le Morne Kite Lagoon",
+        "type": "freeride_and_learning_spot",
+        "description": "A large, shallow, and flat-water lagoon perfect for beginners learning to kite and for freestyle riders practicing tricks. It is the main area for most kitesurfing schools."
+      },
+      {
+        "name": "One Eye",
+        "type": "expert_wave_spot",
+        "description": "A legendary, fast, and powerful left-hand barrel wave breaking over a shallow reef. Strictly for expert riders."
+      },
+      {
+        "name": "Manawa",
+        "type": "intermediate_wave_spot",
+        "description": "A large, powerful wave located farther offshore, known for being a great spot for intermediate and advanced riders to progress to bigger waves before tackling One Eye."
+      }
+    ]
+  },
+
+  {
+    "id": "attraction_177",
+    "name": "Paradis Snorkelling Spot",
+    "attraction_type": "snorkeling_spot",
+    "description": "The 'Paradis' snorkelling spot is a renowned and tranquil underwater haven located off the coast of the Le Morne peninsula, in front of the Paradis Beachcomber Golf Resort & Spa. This site is celebrated for its clear, calm waters and a vibrant marine ecosystem that is easily accessible from the shore. Snorkelers can discover a variety of colorful coral reefs and marine life, with frequent sightings of sea turtles and rays. Its sheltered position makes it suitable for all levels, including families and beginners.",
+    "tags": [
+      "snorkeling",
+      "marine_life",
+      "beach",
+      "family-friendly",
+      "coral_reef",
+      "scenic_view",
+      "sea_turtles"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "In front of Paradis Beachcomber Golf Resort & Spa, Le Morne, Mauritius",
+      "latitude": -20.43499,
+      "longitude": 57.31821,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": false,
+      "booking_required": false,
+      "fee_required": false,
+      "entry_points": [
+        "Access is typically via a long beach walk from Le Morne Public Beach or by boat.",
+        "Access via the resort may be restricted to hotel guests."
+      ],
+      "notes": "While the beach is public, accessing this specific spot may require a significant walk around the private property of the hotel. Some visitors opt for a boat or stand-up paddleboard to get there from the public beach. Snorkeling gear is required."
+    },
+    "reviews": [
+      {
+        "source": "Google Maps & Travel Forums",
+        "url": "https://maps.app.goo.gl/LqDH41x2rx1KiP398",
+        "rating": 4.5,
+        "reviewCount": 25,
+        "summary": "Reviews are highly positive, with visitors praising the abundance of marine life, especially the chance to see turtles and rays. The spot is noted as a safe and calm place for children and novice snorkelers. The main critique is the challenging access, as it is located in front of a private resort, requiring a long walk or a boat trip to reach. Some reviewers mention the reef is in good condition with many fish, while others note signs of coral bleaching."
+      }
+    ],
+    "additional_info": {
+      "notes": "This spot is often a key stop for boat tours departing from Le Morne and the surrounding areas. The area is also home to a PADI dive center, Le Paradis Diving, which offers scuba diving courses and other water activities.",
+      "advisories": {
+        "safety": [
+          "While generally calm, be aware of boat traffic, especially glass-bottom boats and speedboats.",
+          "Wearing reef shoes is recommended to protect your feet from coral fragments and sea urchins.",
+          "Be respectful of the marine environment and avoid touching or standing on the coral."
+        ],
+        "travel": [
+          "Direct car access is not available unless you are a guest of the resort, so be prepared for a long walk if you are not arriving by boat."
+        ]
+      }
+    },
+    "sub_attractions": []
+  },
+
+  {
+    "id": "attraction_178",
+    "name": "Île aux Bénitiers",
+    "attraction_type": "islet",
+    "description": "Île aux Bénitiers is a large, coral-sand islet situated off the southwestern coast of Mauritius, near the villages of La Gaulette and Le Morne. The islet is a popular destination for day trips, known for its pristine beaches, coconut plantations, and breathtaking views of the iconic Le Morne Brabant mountain. Historically a quiet islet, it has become a major tourist hub, offering a variety of activities including dolphin watching, snorkeling, and beach barbecues. The islet’s name is a source of confusion, possibly derived from the giant clamshells ('bénitiers') or the nearby 'Crystal Rock' which resembles one. However, recent government action in March 2025 has led to the indefinite closure of the island to address years of environmental degradation and a lack of proper permits for commercial activities, with a plan for rehabilitation.",
+    "tags": [
+      "beach",
+      "islet",
+      "day_trip",
+      "boating",
+      "scenic_view",
+      "nature",
+      "history",
+      "environmental_conservation"
+    ],
+    "audience_popularity": {
+      "locals": "high",
+      "tourists": "high"
+    },
+    "location": {
+      "address": "Off the coast of La Gaulette, Mauritius",
+      "latitude": -20.41522,
+      "longitude": 57.34191,
+      "region": "Black River"
+    },
+    "prerequisites": {
+      "tour_guide_required": true,
+      "booking_required": true,
+      "fee_required": true,
+      "entry_points": [],
+      "notes": "As of March 20, 2025, the island is closed to the public for environmental rehabilitation. Day trips and commercial activities are currently suspended. Historically, access was via organized boat tours (catamaran or speedboat) from coastal villages like La Gaulette, Case Noyale, and Black River. It is not possible to get to the islet by swimming."
+    },
+    "reviews": [
+      {
+        "source": "Travel Forums & Tour Operator Websites (Historical)",
+        "url": "https://maps.app.goo.gl/Zxie6WFUrDMApgny6",
+        "rating": 4.6,
+        "reviewCount": 841,
+        "summary": "Historical reviews praise the islet as a quintessential tropical paradise with its white sand and turquoise water. Visitors highlight the experience of combining dolphin watching with a relaxing beach day and a BBQ lunch. However, many reviews also noted significant litter and environmental degradation, with a number of unpermitted vendors operating on the island. Due to the recent closure, there are no current reviews, but a wealth of historical feedback exists."
+      }
+    ],
+    "additional_info": {
+      "notes": "The island's closure is a result of a government-mandated environmental rehabilitation plan aimed at preserving its delicate ecosystem and removing unauthorized structures and commercial operations. Its historical status as a leased property for coconut plantations is noted, and a past hotel development project was abandoned in 2002 due to public opposition.",
+      "advisories": {
+        "safety": [
+          "The island is currently closed to the public and all commercial activities have been suspended as of March 20, 2025."
+        ],
+        "travel": [
+          "Do not attempt to visit the island by land or sea until its official reopening is announced by the government.",
+          "The islet's future status and any new regulations will be determined by the Ministry of Housing and Lands."
+        ]
+      }
+    },
+    "sub_attractions": [
+      {
+        "name": "Crystal Rock",
+        "type": "natural_formation",
+        "description": "A unique coral rock formation that appears to float on the water's surface. Located in the lagoon off Île aux Bénitiers, it is a very popular stop for boat tours and a famous photo opportunity."
+      }
+    ]
+  }
+]
