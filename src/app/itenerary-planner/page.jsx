@@ -18,11 +18,13 @@ import MicOffIcon from "@mui/icons-material/MicOff";
 import ChatContainer from "../components/chatContainer";
 import { useEffect, useRef, useState } from "react";
 import SSEClient from "@/utils/sseClient";
+import AttractionsList from "../components/attractionsList";
 
 function IteneraryPlannerPage() {
   const [UXMode, setUXMode] = useUIStateContext();
   const [chatMessages, setChatMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
+  const [attractions, setAttractions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [sttSupported, setSttSupported] = useState(false);
@@ -138,20 +140,26 @@ function IteneraryPlannerPage() {
         });
       };
 
-      const onNewJSONArrival = (json) => {
-        assistantMessage.message += json;
+      const onItineraryJSONArrival = (attractions) => {
+        setAttractions(attractions);
+        setUXMode((prev) => ({
+          ...prev,
+          iteneraryAgentInterface: "normal",
+        }));
+        assistantMessage.message = "List of attractions generated!";
         setChatMessages((prev) => {
           const newMessages = [...prev];
           newMessages[newMessages.length - 1] = { ...assistantMessage };
           return newMessages;
         });
+        console.log("Attractions: ", attractions);
       };
 
       // SSEClient listens to response stream and will parse each valid arriving chunk
       // before executing the callback
       const sseClient = new SSEClient();
       sseClient.on("text", onNewTextArrival);
-      sseClient.on("json", onNewJSONArrival);
+      sseClient.on("json-itinerary", onItineraryJSONArrival);
       sseClient.connect(streamingResponse);
     } catch (error) {
       console.error("Failed to fetch from chat API:", error);
@@ -165,131 +173,150 @@ function IteneraryPlannerPage() {
   };
 
   // The rest of the component will only render if the session is ready
-  return UXMode.iteneraryAgentInterface !== "messaging" ? (
-    <>
+  if (UXMode.iteneraryAgentInterface !== "messaging" && attractions.length == 0)
+    return (
+      <>
+        <Box
+          sx={{
+            maxWidth: 900,
+            mx: "auto",
+            px: 3,
+            py: 1,
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h4" fontWeight="bold" gutterBottom>
+            Plan Your Perfect Itinerary
+          </Typography>
+          <Typography variant="body1" color="text.secondary" gutterBottom>
+            Select the types of places you'd love to explore in Mauritius. Based
+            on your preferences, our VoyageAI will suggest ideal destinations
+            tailored just for you.
+          </Typography>
+          <Divider sx={{ my: 4 }} />
+        </Box>
+        <ChipList />
+        <Box sx={{ marginLeft: "46%", marginTop: "10%" }}>
+          <Button variant="contained" color="primary" size="large">
+            Generate
+          </Button>
+        </Box>
+      </>
+    );
+  else if (UXMode.iteneraryAgentInterface === "messaging")
+    return (
       <Box
         sx={{
-          maxWidth: 900,
-          mx: "auto",
-          px: 3,
-          py: 1,
-          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          marginLeft: "18%",
+          marginRight: "17%",
+          marginTop: "1%",
+          width: "auto",
+          height: "83vh",
         }}
       >
-        <Typography variant="h4" fontWeight="bold" gutterBottom>
-          Plan Your Perfect Itinerary
-        </Typography>
-        <Typography variant="body1" color="text.secondary" gutterBottom>
-          Select the types of places you'd love to explore in Mauritius. Based
-          on your preferences, our VoyageAI will suggest ideal destinations
-          tailored just for you.
-        </Typography>
-        <Divider sx={{ my: 4 }} />
-      </Box>
-      <ChipList />
-      <Box sx={{ marginLeft: "46%", marginTop: "10%" }}>
-        <Button variant="contained" color="primary" size="large">
-          Generate
-        </Button>
-      </Box>
-    </>
-  ) : (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        marginLeft: "18%",
-        marginRight: "17%",
-        marginTop: "1%",
-        width: "auto",
-        height: "83vh",
-        
-      }}
-    >
-      <ChatContainer chatMessages={chatMessages} />
-      <div style={{ display: "flex", gap: "8px" }}>
-        <TextField
-          id="chat-input"
-          placeholder="Enter your message here"
-          variant="outlined"
-          sx={{
-            width: "auto",
-            flexGrow: 1,
-            "& .MuiOutlinedInput-root": {
-              backgroundColor: "#1f1f1f",
-              color: "#f0f0f0",
-            },
-            "& .MuiOutlinedInput-notchedOutline": {
-              borderColor: "#666666",
-            },
-            "&:hover .MuiOutlinedInput-notchedOutline": {
-              borderColor: "#888888",
-            },
-            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-              borderColor: "#1976d2",
-            },
-            "& .MuiInputBase-input::placeholder": {
-              color: "#c8c8c8",
-              opacity: 1,
-            },
-          }}
-          multiline
-          maxRows={3}
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          disabled={isLoading}
-          onKeyPress={(e) => {
-            if (e.key === "Enter" && !e.shiftKey) {
-              e.preventDefault();
-              handleSendMessage();
+        <ChatContainer chatMessages={chatMessages} />
+        <div style={{ display: "flex", gap: "8px" }}>
+          <TextField
+            id="chat-input"
+            placeholder="Enter your message here"
+            variant="outlined"
+            sx={{
+              width: "auto",
+              flexGrow: 1,
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: "#1f1f1f",
+                color: "#f0f0f0",
+              },
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#666666",
+              },
+              "&:hover .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#888888",
+              },
+              "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#1976d2",
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "#c8c8c8",
+                opacity: 1,
+              },
+            }}
+            multiline
+            maxRows={3}
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            disabled={isLoading}
+            onKeyPress={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+              }
+            }}
+          ></TextField>
+          <IconButton
+            sx={{
+              backgroundColor: isListening ? "#d32f2f" : "primary.main",
+              color: "white",
+              padding: "12px",
+              borderRadius: "25%",
+              "&:hover": {
+                backgroundColor: isListening ? "#b71c1c" : "primary.dark",
+              },
+            }}
+            onClick={isListening ? stopListening : startListening}
+            disabled={!sttSupported || isLoading}
+            aria-label={isListening ? "Stop voice input" : "Start voice input"}
+            title={
+              !sttSupported
+                ? "Speech-to-Text not supported in this browser"
+                : isListening
+                ? "Stop voice input"
+                : "Start voice input"
             }
-          }}
-        ></TextField>
-        <IconButton
-          sx={{
-            backgroundColor: isListening ? "#d32f2f" : "primary.main",
-            color: "white",
-            padding: "12px",
-            borderRadius: "25%",
-            "&:hover": {
-              backgroundColor: isListening ? "#b71c1c" : "primary.dark",
-            },
-          }}
-          onClick={isListening ? stopListening : startListening}
-          disabled={!sttSupported || isLoading}
-          aria-label={isListening ? "Stop voice input" : "Start voice input"}
-          title={
-            !sttSupported
-              ? "Speech-to-Text not supported in this browser"
-              : isListening
-              ? "Stop voice input"
-              : "Start voice input"
-          }
-        >
-          {isListening ? <MicOffIcon fontSize="large" /> : <MicIcon fontSize="large" />}
-        </IconButton>
-        <IconButton
-          sx={{
-            backgroundColor: "primary.main",
-            color: "white",
-            padding: "12px",
-            borderRadius: "25%",
-            "&:hover": {
-              backgroundColor: "primary.dark",
-            },
-          }}
-          onClick={handleSendMessage}
-          disabled={isLoading}
-        >
-          {isLoading ? (
-            <CircularProgress size={24} color="inherit" />
-          ) : (
-            <KeyboardReturn fontSize="large" />
-          )}
-        </IconButton>
-      </div>
-    </Box>
-  );
+          >
+            {isListening ? (
+              <MicOffIcon fontSize="large" />
+            ) : (
+              <MicIcon fontSize="large" />
+            )}
+          </IconButton>
+          <IconButton
+            sx={{
+              backgroundColor: "primary.main",
+              color: "white",
+              padding: "12px",
+              borderRadius: "25%",
+              "&:hover": {
+                backgroundColor: "primary.dark",
+              },
+            }}
+            onClick={handleSendMessage}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <CircularProgress size={24} color="inherit" />
+            ) : (
+              <KeyboardReturn fontSize="large" />
+            )}
+          </IconButton>
+        </div>
+      </Box>
+    );
+  else if (
+    UXMode.iteneraryAgentInterface !== "messaging" &&
+    attractions.length > 0
+  ) {
+    return (
+      <AttractionsList
+        attractions={attractions}
+        setAttractions={setAttractions}
+        setInputMessage={setInputMessage}
+        handleSendMessage={handleSendMessage}
+      />
+    );
+  }
 }
 
 export default IteneraryPlannerPage;
