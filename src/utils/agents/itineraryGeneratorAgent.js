@@ -12,7 +12,7 @@ const AgentState = Annotation.Root({
   userInput: Annotation,
   queries: Annotation,
   attractions: Annotation,
-  itenerary: Annotation,
+  itinerary: Annotation,
 });
 
 const queryFormulatorNode = async (state) => {
@@ -26,7 +26,11 @@ const queryFormulatorNode = async (state) => {
   const augmentedModel = geminiModel.withStructuredOutput(queriesSchema);
   const queries = await augmentedModel.invoke([
     new SystemMessage(
-      "Formulate queries on the preferences of the attractions the user wants based on the user input: "
+      `Formulate queries on the preferences of the attractions the user wants
+       based on the user input: 
+       Note: If the user has not provided any preferences, 
+             assume they want to explore popular attractions.
+             (High reviews, good ratings, etc.) `
     ),
     new HumanMessage(state.userInput),
   ]);
@@ -52,8 +56,8 @@ const attractionsFinderNode = async (state) => {
   return { attractions: attractions };
 };
 
-const iteneraryGeneratorNode = async (state) => {
-  const itenerarySchema = {
+const itineraryGeneratorNode = async (state) => {
+  const itinerarySchema = {
     type: "object",
     properties: {
       itinerary: {
@@ -121,26 +125,26 @@ const iteneraryGeneratorNode = async (state) => {
     The current date is {date} and the current day is {day}.
     Generate an itinerary based on the following attractions:
     {attractions}`);
-  const augementedModel = geminiModel.withStructuredOutput(itenerarySchema);
-  const itenerary = await augementedModel.invoke(
+  const augementedModel = geminiModel.withStructuredOutput(itinerarySchema);
+  const itinerary = await augementedModel.invoke(
     await promptTemplate.invoke({
       attractions: state.attractions,
       date: new Date().toISOString().split("T")[0],
       day: new Date().toLocaleString("en-US", { weekday: "long" }),
     })
   );
-  console.log("Generated Itinerary:", itenerary);
-  return { itenerary: itenerary.itinerary || [] };
+  console.log("Generated Itinerary:", itinerary);
+  return { itinerary: itinerary.itinerary || [] };
 };
 
-const iteneraryGeneratorAgent = new StateGraph(AgentState)
+const itineraryGeneratorAgent = new StateGraph(AgentState)
   .addNode("queryFormulator", queryFormulatorNode)
   .addNode("attractionsFinder", attractionsFinderNode)
-  .addNode("iteneraryGenerator", iteneraryGeneratorNode)
+  .addNode("itineraryGenerator", itineraryGeneratorNode)
   .addEdge(START, "queryFormulator")
   .addEdge("queryFormulator", "attractionsFinder")
-  .addEdge("attractionsFinder", "iteneraryGenerator")
+  .addEdge("attractionsFinder", "itineraryGenerator")
   .addEdge("attractionsFinder", END)
   .compile();
 
-export default iteneraryGeneratorAgent;
+export default itineraryGeneratorAgent;
