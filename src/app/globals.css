@@ -40,3 +40,80 @@ a {
     color-scheme: dark;
   }
 }
+
+/* --- MUI TextField readable colors (light & dark) --- */
+/* Light mode defaults */
+.MuiOutlinedInput-root {
+  background-color: #ffffff;
+  color: #171717;
+}
+
+.MuiOutlinedInput-input,
+.MuiInputBase-input {
+  color: #171717;
+  caret-color: #171717;
+}
+
+.MuiInputBase-input::placeholder {
+  color: #8a8a8a;
+  opacity: 1;
+}
+
+.MuiInputLabel-root {
+  color: #6b6b6b;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: #1976d2;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: #cfcfcf;
+}
+
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: #9e9e9e;
+}
+
+.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #1976d2;
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  .MuiOutlinedInput-root {
+    background-color: #1f1f1f; /* higher contrast vs page background */
+    color: #f0f0f0;
+  }
+
+  .MuiOutlinedInput-input,
+  .MuiInputBase-input {
+    color: #f0f0f0;
+    caret-color: #f0f0f0;
+  }
+
+  .MuiInputBase-input::placeholder {
+    color: #c8c8c8;
+    opacity: 1;
+  }
+
+  .MuiInputLabel-root {
+    color: #bfbfbf;
+  }
+
+  .MuiInputLabel-root.Mui-focused {
+    color: #1976d2;
+  }
+
+  .MuiOutlinedInput-notchedOutline {
+    border-color: #666666; /* more visible on dark background */
+  }
+
+  .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #888888;
+  }
+
+  .Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: #1976d2;
+  }
+}

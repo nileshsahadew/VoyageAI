@@ -61,6 +61,48 @@ const theme = createTheme({
       contrastText: "#ffffff",
     },
   },
+  components: {
+    MuiTextField: {
+      defaultProps: {
+        variant: "outlined",
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#ffffff",
+          color: "#171717",
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#cfcfcf",
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#9e9e9e",
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: "#1976d2",
+          },
+          "& input::placeholder": {
+            color: "#8a8a8a",
+            opacity: 1,
+          },
+        },
+        input: {
+          color: "#171717",
+          caretColor: "#171717",
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: "#6b6b6b",
+          "&.Mui-focused": {
+            color: "#1976d2",
+          },
+        },
+      },
+    },
+  },
 });
 
 export default theme;

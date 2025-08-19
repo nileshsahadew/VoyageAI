@@ -13,8 +13,10 @@ import {
 import ChipList from "../components/chipList";
 import { useUIStateContext } from "../providers/UIStateContext";
 import { KeyboardReturn } from "@mui/icons-material";
+import MicIcon from "@mui/icons-material/Mic";
+import MicOffIcon from "@mui/icons-material/MicOff";
 import ChatContainer from "../components/chatContainer";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SSEClient from "@/utils/sseClient";
 
 function IteneraryPlannerPage() {
@@ -22,6 +24,72 @@ function IteneraryPlannerPage() {
   const [chatMessages, setChatMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [sttSupported, setSttSupported] = useState(false);
+  const recognitionRef = useRef(null);
+  const baseTextRef = useRef("");
+
+  // Initialize SpeechRecognition when available
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) return;
+
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+
+    recognition.onresult = (event) => {
+      let interimText = "";
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const transcript = event.results[i][0].transcript;
+        if (event.results[i].isFinal) {
+          baseTextRef.current += transcript + " ";
+        } else {
+          interimText += transcript;
+        }
+      }
+      setInputMessage(baseTextRef.current + interimText);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+
+    recognition.onerror = () => {
+      setIsListening(false);
+    };
+
+    recognitionRef.current = recognition;
+    setSttSupported(true);
+
+    return () => {
+      try {
+        recognition.stop();
+      } catch (_) {}
+    };
+  }, []);
+
+  const startListening = () => {
+    if (!recognitionRef.current || isLoading) return;
+    baseTextRef.current = inputMessage || "";
+    try {
+      recognitionRef.current.start();
+      setIsListening(true);
+    } catch (_) {
+      // start can throw if called too quickly; ignore
+    }
+  };
+
+  const stopListening = () => {
+    if (!recognitionRef.current) return;
+    try {
+      recognitionRef.current.stop();
+    } catch (_) {}
+    setIsListening(false);
+  };
 
   const sendMessageToAgent = async (chatMessages, userMessage) => {
     const response = await fetch("/api/agent", {
@@ -125,16 +193,35 @@ function IteneraryPlannerPage() {
         marginTop: "1%",
         width: "auto",
         height: "83vh",
+        
       }}
     >
       <ChatContainer chatMessages={chatMessages} />
       <div style={{ display: "flex", gap: "8px" }}>
         <TextField
-          id="outlined-basic"
-          label="Enter your message here"
+          id="chat-input"
+          placeholder="Enter your message here"
+          variant="outlined"
           sx={{
             width: "auto",
             flexGrow: 1,
+            "& .MuiOutlinedInput-root": {
+              backgroundColor: "#1f1f1f",
+              color: "#f0f0f0",
+            },
+            "& .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#666666",
+            },
+            "&:hover .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#888888",
+            },
+            "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+              borderColor: "#1976d2",
+            },
+            "& .MuiInputBase-input::placeholder": {
+              color: "#c8c8c8",
+              opacity: 1,
+            },
           }}
           multiline
           maxRows={3}
@@ -148,6 +235,29 @@ function IteneraryPlannerPage() {
             }
           }}
         ></TextField>
+        <IconButton
+          sx={{
+            backgroundColor: isListening ? "#d32f2f" : "primary.main",
+            color: "white",
+            padding: "12px",
+            borderRadius: "25%",
+            "&:hover": {
+              backgroundColor: isListening ? "#b71c1c" : "primary.dark",
+            },
+          }}
+          onClick={isListening ? stopListening : startListening}
+          disabled={!sttSupported || isLoading}
+          aria-label={isListening ? "Stop voice input" : "Start voice input"}
+          title={
+            !sttSupported
+              ? "Speech-to-Text not supported in this browser"
+              : isListening
+              ? "Stop voice input"
+              : "Start voice input"
+          }
+        >
+          {isListening ? <MicOffIcon fontSize="large" /> : <MicIcon fontSize="large" />}
+        </IconButton>
         <IconButton
           sx={{
             backgroundColor: "primary.main",
