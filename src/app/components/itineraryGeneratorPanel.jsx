@@ -83,7 +83,8 @@ function ItineraryGeneratorPanel({
         parsed = null;
       }
       if (!response.ok) {
-        const message = (parsed && parsed.error) || raw || "Failed to generate itinerary";
+        const message =
+          (parsed && parsed.error) || raw || "Failed to generate itinerary";
         throw new Error(message);
       }
       if (!parsed || !Array.isArray(parsed.itinerary)) {
@@ -208,5 +209,6 @@ function ItineraryGeneratorPanel({
     </>
   );
 }
+//
 
 export default ItineraryGeneratorPanel;

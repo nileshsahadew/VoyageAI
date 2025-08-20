@@ -149,53 +149,52 @@ export default function ItineraryFormModal({
           />
         )}
 
-      <FormControlLabel
-  control={
-    <Checkbox
-      checked={formData.bookTickets}
-      onChange={handleChange}
-      name="bookTickets"
-    />
-  }
-  label="Book flight tickets"
-  sx={{ color: "text.primary" }} // forces label to use theme text color
-/>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={formData.bookTickets}
+              onChange={handleChange}
+              name="bookTickets"
+            />
+          }
+          label="Book flight tickets"
+          sx={{ color: "text.primary" }} // forces label to use theme text color
+        />
 
-       <FormControl component="fieldset">
-  <FormLabel
-    component="legend"
-    sx={{ color: "text.primary", backgroundColor: "transparent" }}
-  >
-    Transport
-  </FormLabel>
-  <RadioGroup
-    row
-    aria-label="transport"
-    name="transport"
-    value={formData.transport}
-    onChange={handleChange}
-  >
-    <FormControlLabel
-      value="Taxi"
-      control={<Radio />}
-      label="Taxi"
-      sx={{ color: "text.primary", backgroundColor: "transparent" }}
-    />
-    <FormControlLabel
-      value="Bus"
-      control={<Radio />}
-      label="Bus"
-      sx={{ color: "text.primary", backgroundColor: "transparent" }}
-    />
-    <FormControlLabel
-      value="Other"
-      control={<Radio />}
-      label="Other"
-      sx={{ color: "text.primary", backgroundColor: "transparent" }}
-    />
-  </RadioGroup>
-</FormControl>
-
+        <FormControl component="fieldset">
+          <FormLabel
+            component="legend"
+            sx={{ color: "text.primary", backgroundColor: "transparent" }}
+          >
+            Transport
+          </FormLabel>
+          <RadioGroup
+            row
+            aria-label="transport"
+            name="transport"
+            value={formData.transport}
+            onChange={handleChange}
+          >
+            <FormControlLabel
+              value="Taxi"
+              control={<Radio />}
+              label="Taxi"
+              sx={{ color: "text.primary", backgroundColor: "transparent" }}
+            />
+            <FormControlLabel
+              value="Bus"
+              control={<Radio />}
+              label="Bus"
+              sx={{ color: "text.primary", backgroundColor: "transparent" }}
+            />
+            <FormControlLabel
+              value="Other"
+              control={<Radio />}
+              label="Other"
+              sx={{ color: "text.primary", backgroundColor: "transparent" }}
+            />
+          </RadioGroup>
+        </FormControl>
 
         {/* Buttons for form actions */}
         <Stack direction="row" spacing={2} justifyContent="flex-end">
@@ -210,3 +209,4 @@ export default function ItineraryFormModal({
     </Modal>
   );
 }
+//

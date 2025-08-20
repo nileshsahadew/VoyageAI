@@ -28,7 +28,7 @@ function ChipList({ onPreviewOpen }) {
       selected: false,
     },
   ]);
-  
+
   // Generation state is handled by ItineraryGeneratorPanel
 
   const handleClick = (currentChip) => {
@@ -43,11 +43,16 @@ function ChipList({ onPreviewOpen }) {
 
   const getSelectedPreferences = () => {
     return chipData
-      .filter(chip => chip.selected)
-      .map(chip => chip.label.replace(/[🏖️🌊🏞️🏛️💎🎧🛍️🦜🚤🌅🛕🎭]/g, '').trim());
+      .filter((chip) => chip.selected)
+      .map((chip) =>
+        chip.label.replace(/[🏖️🌊🏞️🏛️💎🎧🛍️🦜🚤🌅🛕🎭]/g, "").trim()
+      );
   };
 
-  const selectedPreferences = useMemo(() => getSelectedPreferences(), [chipData]);
+  const selectedPreferences = useMemo(
+    () => getSelectedPreferences(),
+    [chipData]
+  );
 
   return (
     <Box
@@ -133,7 +138,9 @@ function ChipList({ onPreviewOpen }) {
       {/* Generator Panel */}
       <ItineraryGeneratorPanel
         selectedPreferences={selectedPreferences}
-        onResetSelection={() => setChipData(chipData.map(chip => ({ ...chip, selected: false })))}
+        onResetSelection={() =>
+          setChipData(chipData.map((chip) => ({ ...chip, selected: false })))
+        }
         onPreviewOpen={onPreviewOpen}
       />
     </Box>

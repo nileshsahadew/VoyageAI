@@ -22,6 +22,7 @@ import IconButton from "@mui/material/IconButton";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
+//
 export default function AttractionsList({ attractions, ...props }) {
   const [currentDateIndex, setCurrentDateIndex] = React.useState(0);
   const [expanded, setExpanded] = React.useState(false);
