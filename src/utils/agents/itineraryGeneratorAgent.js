@@ -50,7 +50,8 @@ const attractionsFinderNode = async (state) => {
   }
 
   const rawDuration = Number(state?.itineraryDuration);
-  const safeDuration = Number.isFinite(rawDuration) && rawDuration > 0 ? rawDuration : 3;
+  const safeDuration =
+    Number.isFinite(rawDuration) && rawDuration > 0 ? rawDuration : 3;
 
   let attractions = [];
   for (const query of state.queries) {
@@ -139,13 +140,21 @@ const itineraryGeneratorNode = async (state) => {
       },
       vehicleDetails: {
         type: "object",
-        description: "Recommended vehicle and extras based on group size and accessibility.",
+        description:
+          "Recommended vehicle and extras based on group size and accessibility.",
         properties: {
-          type: { type: "string", description:"The recommended vehicle type (e.g., Sedan, 7-seater, Minivan)" },
-          note: { type: "string", description: "Any extra notes, like wheelchair availability" }
+          type: {
+            type: "string",
+            description:
+              "The recommended vehicle type (e.g., Sedan, 7-seater, Minivan)",
+          },
+          note: {
+            type: "string",
+            description: "Any extra notes, like wheelchair availability",
+          },
         },
-        required: ["type", "note"]
-      }
+        required: ["type", "note"],
+      },
     },
     required: ["itinerary", "vehicleDetails"],
   };
@@ -165,7 +174,7 @@ const itineraryGeneratorNode = async (state) => {
       date: new Date().toISOString().split("T")[0],
       day: new Date().toLocaleString("en-US", { weekday: "long" }),
       minAttractions,
-      days: safeDays,
+      days: state.itineraryDuration,
     })
   );
   if (itinerary?.itinerary == null) {
@@ -173,7 +182,10 @@ const itineraryGeneratorNode = async (state) => {
     return { itinerary: [], vehicleDetails: itinerary?.vehicleDetails || {} };
   }
   console.log("Generated Itinerary:", itinerary);
-  return { itinerary: itinerary.itinerary, vehicleDetails: itinerary.vehicleDetails };
+  return {
+    itinerary: itinerary.itinerary,
+    vehicleDetails: itinerary.vehicleDetails,
+  };
 };
 
 const itineraryGeneratorAgent = new StateGraph(AgentState)

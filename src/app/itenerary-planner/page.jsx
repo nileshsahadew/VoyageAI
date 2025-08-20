@@ -272,7 +272,8 @@ function IteneraryPlannerPage() {
           ...prev,
           iteneraryAgentInterface: "normal",
         }));
-        assistantMessage.message = "List of attractions generated! Redirecting to itinerary...";
+        assistantMessage.message =
+          "List of attractions generated! Redirecting to itinerary...";
         setChatMessages((prev) => {
           const newMessages = [...prev];
           newMessages[newMessages.length - 1] = { ...assistantMessage };
@@ -300,27 +301,43 @@ function IteneraryPlannerPage() {
       const sseClient = new SSEClient();
       sseClient.on("text", onNewTextArrival);
       sseClient.on("json-itinerary", onItineraryJSONArrival);
-             sseClient.on("request-itinerary", (data) => {
-         console.log("🎯 REQUEST-ITINERARY EVENT RECEIVED:", data);
-         try {
-           const parsed = typeof data === "string" ? JSON.parse(data) : data;
-           console.log("🎯 Parsed data:", parsed);
-           setDetailsDraft({
-             itineraryDuration: Number(parsed?.itineraryDuration) || 1,
-             numberOfPeople: Number(parsed?.numberOfPeople) || 1,
-             transport: parsed?.transport && parsed.transport !== "null" ? String(parsed.transport) : "Taxi",
-             hasDisabledPerson: !!parsed?.hasDisabledPerson,
-             bookTickets: !!parsed?.bookTickets,
-           });
-         } catch (error) {
-           console.log("🎯 Error parsing data:", error);
-           setDetailsDraft({ itineraryDuration: 1, numberOfPeople: 1, transport: "Taxi", hasDisabledPerson: false, bookTickets: false });
-         }
-         // stop spinner and open the details dialog
-         console.log("🎯 Setting showDetailsDialog to true");
-         setIsGeneratingItinerary(false);
-         setShowDetailsDialog(true);
-       });
+      sseClient.on("request-itinerary", (data) => {
+        console.log("🎯 REQUEST-ITINERARY EVENT RECEIVED:", data);
+        assistantMessage.message =
+          "Please input the required details to generate the itinerary.";
+        setChatMessages((prev) => {
+          const newMessages = [...prev];
+          newMessages[newMessages.length - 1] = { ...assistantMessage };
+          return newMessages;
+        });
+        try {
+          const parsed = typeof data === "string" ? JSON.parse(data) : data;
+          console.log("🎯 Parsed data:", parsed);
+          setDetailsDraft({
+            itineraryDuration: Number(parsed?.itineraryDuration) || 1,
+            numberOfPeople: Number(parsed?.numberOfPeople) || 1,
+            transport:
+              parsed?.transport && parsed.transport !== "null"
+                ? String(parsed.transport)
+                : "Taxi",
+            hasDisabledPerson: !!parsed?.hasDisabledPerson,
+            bookTickets: !!parsed?.bookTickets,
+          });
+        } catch (error) {
+          console.log("🎯 Error parsing data:", error);
+          setDetailsDraft({
+            itineraryDuration: 1,
+            numberOfPeople: 1,
+            transport: "Taxi",
+            hasDisabledPerson: false,
+            bookTickets: false,
+          });
+        }
+        // stop spinner and open the details dialog
+        console.log("🎯 Setting showDetailsDialog to true");
+        setIsGeneratingItinerary(false);
+        setShowDetailsDialog(true);
+      });
       sseClient.on("start", () => setIsGeneratingItinerary(true));
       sseClient.on("end", () => setIsGeneratingItinerary(false));
       sseClient.on("end", () => {
@@ -360,7 +377,9 @@ function IteneraryPlannerPage() {
     // Clear current itinerary view and switch to messaging UI
     setAttractions([]);
     setUXMode((prev) => ({ ...prev, iteneraryAgentInterface: "messaging" }));
-    setInputMessage("Regenerate the itinerary with the same preferences and days.");
+    setInputMessage(
+      "Regenerate the itinerary with the same preferences and days."
+    );
     // ensure state applied before sending
     setTimeout(() => handleSendMessage(), 0);
   };
@@ -401,7 +420,6 @@ function IteneraryPlannerPage() {
       alert("Something went wrong while sending itinerary");
     }
   };
-  
 
   // The rest of the component will only render if the session is ready
   if (UXMode.iteneraryAgentInterface !== "messaging" && attractions.length == 0)
@@ -435,8 +453,19 @@ function IteneraryPlannerPage() {
           />
         </Box>
 
-        <Dialog open={previewOpen} onClose={() => setPreviewOpen(false)} fullWidth maxWidth="md">
-          <DialogTitle sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <Dialog
+          open={previewOpen}
+          onClose={() => setPreviewOpen(false)}
+          fullWidth
+          maxWidth="md"
+        >
+          <DialogTitle
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
             🗺️ Your Generated Itinerary
             <IconButton onClick={() => setPreviewOpen(false)}>
               <CloseIcon />
@@ -447,15 +476,29 @@ function IteneraryPlannerPage() {
               Here's a preview of your personalized Mauritius adventure plan:
             </Typography>
             {previewItinerary.map((item, index) => (
-              <Box key={index} sx={{ mb: 2, p: 2, border: "1px solid #e0e0e0", borderRadius: 2 }}>
+              <Box
+                key={index}
+                sx={{
+                  mb: 2,
+                  p: 2,
+                  border: "1px solid #e0e0e0",
+                  borderRadius: 2,
+                }}
+              >
                 <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
-                  {item.hour ? `${item.hour} — ` : ""}{item.attraction_name}
+                  {item.hour ? `${item.hour} — ` : ""}
+                  {item.attraction_name}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
                   {item.date} • {item.day}
                 </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                  📍 {item.location}{item.region ? `, ${item.region}` : ""}
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{ mt: 1 }}
+                >
+                  📍 {item.location}
+                  {item.region ? `, ${item.region}` : ""}
                 </Typography>
                 {item.rating && (
                   <Typography variant="body2" color="text.secondary">
@@ -468,7 +511,13 @@ function IteneraryPlannerPage() {
                   </Typography>
                 )}
                 {item.url && (
-                  <Button variant="outlined" size="small" href={item.url} target="_blank" sx={{ mt: 1 }}>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    href={item.url}
+                    target="_blank"
+                    sx={{ mt: 1 }}
+                  >
                     📍 View on Google Maps
                   </Button>
                 )}
@@ -476,10 +525,14 @@ function IteneraryPlannerPage() {
             ))}
           </DialogContent>
           <DialogActions>
-            <Button color="success" variant="outlined" onClick={() => {
-              setPreviewOpen(false);
-              setPreviewItinerary([]);
-            }}>
+            <Button
+              color="success"
+              variant="outlined"
+              onClick={() => {
+                setPreviewOpen(false);
+                setPreviewItinerary([]);
+              }}
+            >
               Regenerate
             </Button>
             <Button color="primary" variant="contained" onClick={handleConfirm}>
@@ -590,44 +643,55 @@ function IteneraryPlannerPage() {
         </div>
 
         {/* Details dialog when agent requests more info */}
-        <Dialog 
-          open={showDetailsDialog} 
-          onClose={() => setShowDetailsDialog(false)} 
-          fullWidth 
+        <Dialog
+          open={showDetailsDialog}
+          onClose={() => setShowDetailsDialog(false)}
+          fullWidth
           maxWidth="sm"
           PaperProps={{
             sx: {
               borderRadius: 3,
-              boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
-            }
+              boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+            },
           }}
         >
-          <DialogTitle sx={{ 
-            textAlign: 'center', 
-            pb: 1,
-            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            color: 'white',
-            borderRadius: '12px 12px 0 0',
-            fontWeight: 'bold',
-            fontSize: '1.25rem'
-          }}>
+          <DialogTitle
+            sx={{
+              textAlign: "center",
+              pb: 1,
+              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              color: "white",
+              borderRadius: "12px 12px 0 0",
+              fontWeight: "bold",
+              fontSize: "1.25rem",
+            }}
+          >
             🗺️ Plan Your Itinerary
             <Typography variant="body2" sx={{ mt: 1, opacity: 0.9 }}>
               Help us create your perfect Mauritius adventure
             </Typography>
           </DialogTitle>
           <DialogContent sx={{ pt: 3, pb: 2 }}>
-            <Box sx={{ display: 'grid', gap: 3 }}>
+            <Box sx={{ display: "grid", gap: 3 }}>
               {/* Trip Duration */}
               <Box>
-                <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1, color: 'text.primary' }}>
+                <Typography
+                  variant="subtitle2"
+                  fontWeight="bold"
+                  sx={{ mb: 1, color: "text.primary" }}
+                >
                   📅 Trip Duration
                 </Typography>
                 <TextField
                   type="number"
                   label="Number of days"
                   value={detailsDraft.itineraryDuration}
-                  onChange={(e) => setDetailsDraft((d) => ({ ...d, itineraryDuration: Number(e.target.value) }))}
+                  onChange={(e) =>
+                    setDetailsDraft((d) => ({
+                      ...d,
+                      itineraryDuration: Number(e.target.value),
+                    }))
+                  }
                   inputProps={{ min: 1, max: 30 }}
                   fullWidth
                   variant="outlined"
@@ -637,7 +701,12 @@ function IteneraryPlannerPage() {
                   type="number"
                   label="Number of people"
                   value={detailsDraft.numberOfPeople}
-                  onChange={(e) => setDetailsDraft((d) => ({ ...d, numberOfPeople: Number(e.target.value) }))}
+                  onChange={(e) =>
+                    setDetailsDraft((d) => ({
+                      ...d,
+                      numberOfPeople: Number(e.target.value),
+                    }))
+                  }
                   inputProps={{ min: 1, max: 50 }}
                   fullWidth
                   variant="outlined"
@@ -646,30 +715,39 @@ function IteneraryPlannerPage() {
 
               {/* Transport Options */}
               <Box>
-                <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1, color: 'text.primary' }}>
+                <Typography
+                  variant="subtitle2"
+                  fontWeight="bold"
+                  sx={{ mb: 1, color: "text.primary" }}
+                >
                   🚗 Transportation
                 </Typography>
                 <FormControl fullWidth>
                   <RadioGroup
                     value={detailsDraft.transport}
-                    onChange={(e) => setDetailsDraft((d) => ({ ...d, transport: e.target.value }))}
+                    onChange={(e) =>
+                      setDetailsDraft((d) => ({
+                        ...d,
+                        transport: e.target.value,
+                      }))
+                    }
                   >
-                    <FormControlLabel 
-                      value="Taxi" 
-                      control={<Radio />} 
-                      label="Taxi (Recommended for convenience)" 
+                    <FormControlLabel
+                      value="Taxi"
+                      control={<Radio />}
+                      label="Taxi (Recommended for convenience)"
                       sx={{ mb: 1 }}
                     />
-                    <FormControlLabel 
-                      value="Bus" 
-                      control={<Radio />} 
-                      label="Bus (Budget-friendly option)" 
+                    <FormControlLabel
+                      value="Bus"
+                      control={<Radio />}
+                      label="Bus (Budget-friendly option)"
                       sx={{ mb: 1 }}
                     />
-                    <FormControlLabel 
-                      value="Other" 
-                      control={<Radio />} 
-                      label="Other (Rental car, etc.)" 
+                    <FormControlLabel
+                      value="Other"
+                      control={<Radio />}
+                      label="Other (Rental car, etc.)"
                     />
                   </RadioGroup>
                 </FormControl>
@@ -677,15 +755,24 @@ function IteneraryPlannerPage() {
 
               {/* Additional Options */}
               <Box>
-                <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1, color: 'text.primary' }}>
+                <Typography
+                  variant="subtitle2"
+                  fontWeight="bold"
+                  sx={{ mb: 1, color: "text.primary" }}
+                >
                   ⚙️ Additional Services
                 </Typography>
                 <FormControlLabel
                   control={
-                    <Checkbox 
-                      checked={detailsDraft.bookTickets} 
-                      onChange={(e) => setDetailsDraft((d) => ({ ...d, bookTickets: e.target.checked }))}
-                      sx={{ '&.Mui-checked': { color: '#667eea' } }}
+                    <Checkbox
+                      checked={detailsDraft.bookTickets}
+                      onChange={(e) =>
+                        setDetailsDraft((d) => ({
+                          ...d,
+                          bookTickets: e.target.checked,
+                        }))
+                      }
+                      sx={{ "&.Mui-checked": { color: "#667eea" } }}
                     />
                   }
                   label="Book flight tickets"
@@ -695,8 +782,13 @@ function IteneraryPlannerPage() {
                   control={
                     <Checkbox
                       checked={detailsDraft.hasDisabledPerson}
-                      onChange={(e) => setDetailsDraft((d) => ({ ...d, hasDisabledPerson: e.target.checked }))}
-                      sx={{ '&.Mui-checked': { color: '#667eea' } }}
+                      onChange={(e) =>
+                        setDetailsDraft((d) => ({
+                          ...d,
+                          hasDisabledPerson: e.target.checked,
+                        }))
+                      }
+                      sx={{ "&.Mui-checked": { color: "#667eea" } }}
                     />
                   }
                   label="Travelling with a disabled person"
@@ -705,13 +797,13 @@ function IteneraryPlannerPage() {
             </Box>
           </DialogContent>
           <DialogActions sx={{ px: 3, pb: 3, gap: 2 }}>
-            <Button 
+            <Button
               onClick={() => setShowDetailsDialog(false)}
               variant="outlined"
-              sx={{ 
+              sx={{
                 borderRadius: 2,
-                textTransform: 'none',
-                px: 3
+                textTransform: "none",
+                px: 3,
               }}
             >
               Cancel
@@ -724,22 +816,33 @@ function IteneraryPlannerPage() {
                 setIsGeneratingItinerary(true);
                 handleSendMessage(msg);
               }}
-              sx={{ 
+              sx={{
                 borderRadius: 2,
-                textTransform: 'none',
+                textTransform: "none",
                 px: 3,
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                '&:hover': {
-                  background: 'linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)',
-                }
+                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                "&:hover": {
+                  background:
+                    "linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)",
+                },
               }}
             >
               Generate Itinerary
             </Button>
           </DialogActions>
         </Dialog>
-        <Backdrop open={isGeneratingItinerary} sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+        <Backdrop
+          open={isGeneratingItinerary}
+          sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        >
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 2,
+            }}
+          >
             <CircularProgress color="inherit" />
             <Typography variant="body1">Generating itinerary...</Typography>
           </Box>
@@ -751,7 +854,6 @@ function IteneraryPlannerPage() {
     attractions.length > 0
   ) {
     return (
-
       <>
         <AttractionsList attractions={attractions}>
           <Button
@@ -776,7 +878,9 @@ function IteneraryPlannerPage() {
             onClick={handleConfirm}
             fullWidth
             disabled={isLoading} // prevent multiple clicks
-           startIcon={isLoading ? <CircularProgress size={20} color="inherit" /> : null}
+            startIcon={
+              isLoading ? <CircularProgress size={20} color="inherit" /> : null
+            }
           >
             {isLoading ? "Processing..." : "Confirm"}
           </Button>
@@ -789,7 +893,6 @@ function IteneraryPlannerPage() {
           }}
         />
       </>
-     
     );
   }
   // Default (selection) UI with chip list and generator panel + overlay preview
@@ -815,31 +918,41 @@ function IteneraryPlannerPage() {
         <Divider sx={{ my: 4 }} />
       </Box>
       <Box sx={{ display: previewOpen ? "none" : "block" }}>
-        <ChipList onPreviewOpen={({ itinerary }) => {
-          setPreviewItinerary(Array.isArray(itinerary) ? itinerary : []);
-          setPreviewOpen(true);
-        }} />
+        <ChipList
+          onPreviewOpen={({ itinerary }) => {
+            setPreviewItinerary(Array.isArray(itinerary) ? itinerary : []);
+            setPreviewOpen(true);
+          }}
+        />
       </Box>
       {/* Generation controls are inside ChipList; no separate panel here */}
 
-      <Dialog open={previewOpen} onClose={() => setPreviewOpen(false)} fullWidth maxWidth="md">
-        <DialogTitle>
-          🗺️ Your Generated Itinerary
-        </DialogTitle>
+      <Dialog
+        open={previewOpen}
+        onClose={() => setPreviewOpen(false)}
+        fullWidth
+        maxWidth="md"
+      >
+        <DialogTitle>🗺️ Your Generated Itinerary</DialogTitle>
         <DialogContent dividers>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             Here's a preview of your personalized Mauritius adventure plan:
           </Typography>
           {previewItinerary.map((item, index) => (
-            <Box key={`${item.attraction_name}-${item.date}-${item.hour}-${index}`} sx={{ mb: 2, p: 2, border: "1px solid #e0e0e0", borderRadius: 2 }}>
+            <Box
+              key={`${item.attraction_name}-${item.date}-${item.hour}-${index}`}
+              sx={{ mb: 2, p: 2, border: "1px solid #e0e0e0", borderRadius: 2 }}
+            >
               <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
-                {item.hour ? `${item.hour} — ` : ""}{item.attraction_name}
+                {item.hour ? `${item.hour} — ` : ""}
+                {item.attraction_name}
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 {item.date} • {item.day}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                📍 {item.location}{item.region ? `, ${item.region}` : ""}
+                📍 {item.location}
+                {item.region ? `, ${item.region}` : ""}
               </Typography>
               {item.rating && (
                 <Typography variant="body2" color="text.secondary">
@@ -852,7 +965,13 @@ function IteneraryPlannerPage() {
                 </Typography>
               )}
               {item.url && (
-                <Button variant="outlined" size="small" href={item.url} target="_blank" sx={{ mt: 1 }}>
+                <Button
+                  variant="outlined"
+                  size="small"
+                  href={item.url}
+                  target="_blank"
+                  sx={{ mt: 1 }}
+                >
                   📍 View on Google Maps
                 </Button>
               )}
@@ -860,13 +979,22 @@ function IteneraryPlannerPage() {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button color="success" variant="outlined" onClick={() => {
-            setPreviewOpen(false);
-            setPreviewItinerary([]);
-            setUXMode((prev) => ({ ...prev, iteneraryAgentInterface: "messaging" }));
-            setInputMessage("Regenerate the itinerary with the same preferences and days.");
-            setTimeout(() => handleSendMessage(), 0);
-          }}>
+          <Button
+            color="success"
+            variant="outlined"
+            onClick={() => {
+              setPreviewOpen(false);
+              setPreviewItinerary([]);
+              setUXMode((prev) => ({
+                ...prev,
+                iteneraryAgentInterface: "messaging",
+              }));
+              setInputMessage(
+                "Regenerate the itinerary with the same preferences and days."
+              );
+              setTimeout(() => handleSendMessage(), 0);
+            }}
+          >
             Regenerate
           </Button>
           <Button color="primary" variant="contained" onClick={handleConfirm}>
