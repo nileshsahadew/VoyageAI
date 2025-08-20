@@ -490,27 +490,27 @@ function IteneraryPlannerPage() {
               id="chat-input"
               placeholder="Enter your message here"
               variant="outlined"
-              sx={{
-                width: "auto",
-                flexGrow: 1,
-                "& .MuiOutlinedInput-root": {
-                  backgroundColor: "#1f1f1f",
-                  color: "#f0f0f0",
-                },
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#666666",
-                },
-                "&:hover .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#888888",
-                },
-                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#1976d2",
-                },
-                "& .MuiInputBase-input::placeholder": {
-                  color: "#c8c8c8",
-                  opacity: 1,
-                },
-              }}
+             sx={{
+  width: "auto",
+  flexGrow: 1,
+  "& .MuiOutlinedInput-root": {
+    backgroundColor: "#ffffff",
+    color: "#111827",
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#cbd5e1", // slate-300
+  },
+  "&:hover .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#94a3b8", // slate-400
+  },
+  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#1976d2", // MUI primary
+  },
+  "& .MuiInputBase-input::placeholder": {
+    color: "#64748b", // slate-500
+    opacity: 1,
+  },
+}}
               multiline
               maxRows={3}
               value={inputMessage}
