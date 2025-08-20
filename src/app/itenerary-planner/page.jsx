@@ -365,10 +365,41 @@ function IteneraryPlannerPage() {
     setTimeout(() => handleSendMessage(), 0);
   };
 
-  const handleConfirm = () => {
+  const handleConfirm = async() => {
     console.log("Confirm button clicked!");
-    // Add logic for confirming here
+
+    try {
+      // Step 1: Generate itinerary (get pdf + ics)
+      const genRes = await fetch("/api/generate-itinerary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ itinerary: attractions }), // send itinerary array
+      });
+      const genData = await genRes.json();
+      console.log("GenData: ", genData);
+
+      // Step 2: Send email
+      const res = await fetch("/api/send-itinerary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          pdfBase64: genData.pdfBase64,
+          icsBase64: genData.icsBase64,
+        }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        alert("Itinerary sent successfully!");
+      } else {
+        alert("Failed to send itinerary: " + data.error);
+      }
+    } catch (err) {
+      console.error("Confirm error:", err);
+      alert("Something went wrong while sending itinerary");
+    }
   };
+  
 
   // The rest of the component will only render if the session is ready
   if (UXMode.iteneraryAgentInterface !== "messaging" && attractions.length == 0)
@@ -449,7 +480,7 @@ function IteneraryPlannerPage() {
             }}>
               Regenerate
             </Button>
-            <Button color="primary" variant="contained" onClick={() => setPreviewOpen(false)}>
+            <Button color="primary" variant="contained" onClick={handleConfirm}>
               Confirm
             </Button>
           </DialogActions>
@@ -823,7 +854,7 @@ function IteneraryPlannerPage() {
           }}>
             Regenerate
           </Button>
-          <Button color="primary" variant="contained" onClick={() => setPreviewOpen(false)}>
+          <Button color="primary" variant="contained" onClick={handleConfirm}>
             Confirm
           </Button>
         </DialogActions>
