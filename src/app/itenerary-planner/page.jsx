@@ -11,6 +11,14 @@ import {
   CircularProgress,
 } from "@mui/material";
 import ChipList from "../components/chipList";
+import ItineraryGeneratorPanel from "../components/itineraryGeneratorPanel";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 import { useUIStateContext } from "../providers/UIStateContext";
 import { KeyboardReturn } from "@mui/icons-material";
 import MicIcon from "@mui/icons-material/Mic";
@@ -25,6 +33,8 @@ function IteneraryPlannerPage() {
   const [chatMessages, setChatMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [attractions, setAttractions] = useState([]);
+  const [previewOpen, setPreviewOpen] = useState(false);
+  const [previewItinerary, setPreviewItinerary] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [sttSupported, setSttSupported] = useState(false);
@@ -311,7 +321,70 @@ function IteneraryPlannerPage() {
           </Typography>
           <Divider sx={{ my: 4 }} />
         </Box>
-        <ChipList />
+        <Box sx={{ display: previewOpen ? "none" : "block" }}>
+          <ChipList
+            onPreviewOpen={({ itinerary }) => {
+              setPreviewItinerary(Array.isArray(itinerary) ? itinerary : []);
+              setPreviewOpen(true);
+            }}
+          />
+        </Box>
+
+        <Dialog open={previewOpen} onClose={() => setPreviewOpen(false)} fullWidth maxWidth="md">
+          <DialogTitle sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+            🗺️ Your Generated Itinerary
+            <IconButton onClick={() => setPreviewOpen(false)}>
+              <CloseIcon />
+            </IconButton>
+          </DialogTitle>
+          <DialogContent dividers>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              Here's a preview of your personalized Mauritius adventure plan:
+            </Typography>
+            {previewItinerary.map((item, index) => (
+              <Box key={index} sx={{ mb: 2, p: 2, border: "1px solid #e0e0e0", borderRadius: 2 }}>
+                <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
+                  {item.hour ? `${item.hour} — ` : ""}{item.attraction_name}
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  {item.date} • {item.day}
+                </Typography>
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                  📍 {item.location}{item.region ? `, ${item.region}` : ""}
+                </Typography>
+                {item.rating && (
+                  <Typography variant="body2" color="text.secondary">
+                    ⭐ Rating: {item.rating}/5
+                  </Typography>
+                )}
+                {item.description && (
+                  <Typography variant="body2" sx={{ mt: 1 }}>
+                    {item.description}
+                  </Typography>
+                )}
+                {item.url && (
+                  <Button variant="outlined" size="small" href={item.url} target="_blank" sx={{ mt: 1 }}>
+                    📍 View on Google Maps
+                  </Button>
+                )}
+              </Box>
+            ))}
+          </DialogContent>
+          <DialogActions>
+            <Button color="error" variant="outlined" onClick={() => setPreviewOpen(false)}>
+              Cancel
+            </Button>
+            <Button color="success" variant="outlined" onClick={() => {
+              setPreviewOpen(false);
+              setPreviewItinerary([]);
+            }}>
+              Regenerate
+            </Button>
+            <Button color="primary" variant="contained" onClick={() => setPreviewOpen(false)}>
+              Close
+            </Button>
+          </DialogActions>
+        </Dialog>
       </>
     );
   else if (UXMode.iteneraryAgentInterface === "messaging")
@@ -448,6 +521,93 @@ function IteneraryPlannerPage() {
       </AttractionsList>
     );
   }
+  // Default (selection) UI with chip list and generator panel + overlay preview
+  return (
+    <>
+      <Box
+        sx={{
+          maxWidth: 900,
+          mx: "auto",
+          px: 3,
+          py: 1,
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h4" fontWeight="bold" gutterBottom>
+          Plan Your Perfect Itinerary
+        </Typography>
+        <Typography variant="body1" color="text.secondary" gutterBottom>
+          Select the types of places you'd love to explore in Mauritius. Based
+          on your preferences, our VoyageAI will suggest ideal destinations
+          tailored just for you.
+        </Typography>
+        <Divider sx={{ my: 4 }} />
+      </Box>
+      <Box sx={{ display: previewOpen ? "none" : "block" }}>
+        <ChipList onPreviewOpen={({ itinerary }) => {
+          setPreviewItinerary(Array.isArray(itinerary) ? itinerary : []);
+          setPreviewOpen(true);
+        }} />
+      </Box>
+      {/* Generation controls are inside ChipList; no separate panel here */}
+
+      <Dialog open={previewOpen} onClose={() => setPreviewOpen(false)} fullWidth maxWidth="md">
+        <DialogTitle sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          🗺️ Your Generated Itinerary
+          <IconButton onClick={() => setPreviewOpen(false)}>
+            <CloseIcon />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent dividers>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            Here's a preview of your personalized Mauritius adventure plan:
+          </Typography>
+          {previewItinerary.map((item, index) => (
+            <Box key={index} sx={{ mb: 2, p: 2, border: "1px solid #e0e0e0", borderRadius: 2 }}>
+              <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
+                {item.hour ? `${item.hour} — ` : ""}{item.attraction_name}
+              </Typography>
+              <Typography variant="caption" color="text.secondary">
+                {item.date} • {item.day}
+              </Typography>
+              <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                📍 {item.location}{item.region ? `, ${item.region}` : ""}
+              </Typography>
+              {item.rating && (
+                <Typography variant="body2" color="text.secondary">
+                  ⭐ Rating: {item.rating}/5
+                </Typography>
+              )}
+              {item.description && (
+                <Typography variant="body2" sx={{ mt: 1 }}>
+                  {item.description}
+                </Typography>
+              )}
+              {item.url && (
+                <Button variant="outlined" size="small" href={item.url} target="_blank" sx={{ mt: 1 }}>
+                  📍 View on Google Maps
+                </Button>
+              )}
+            </Box>
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button color="error" variant="outlined" onClick={() => setPreviewOpen(false)}>
+            Cancel
+          </Button>
+          <Button color="success" variant="outlined" onClick={() => {
+            setPreviewOpen(false);
+            setPreviewItinerary([]);
+          }}>
+            Regenerate
+          </Button>
+          <Button color="primary" variant="contained" onClick={() => setPreviewOpen(false)}>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
 }
 
 export default IteneraryPlannerPage;
