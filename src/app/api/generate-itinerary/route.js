@@ -159,7 +159,7 @@ const ItineraryPDF = ({ itinerary, recipientName }) => {
             ))}
           </View>
         ))}
-        <Text style={styles.footer}>Generated on {new Date().toLocaleDateString()} · VoyageAI</Text>
+        <Text style={styles.footer}>Generated on {new Date().toLocaleDateString()} · AuraDrive Resort</Text>
       </Page>
     </Document>
   );
@@ -227,27 +227,27 @@ export async function POST(req) {
     const { error, value: icsContent } = ics.createEvents(events);
     if (error) throw error;
 
-        // const nodemailer = await import("nodemailer");
-        // const transporter = nodemailer.default.createTransport({
-        //     host: process.env.SMTP_HOST,
-        //     port: Number(process.env.SMTP_PORT || 587),
-        //     secure: false,
-        //     auth: {
-        //         user: process.env.SMTP_USER,
-        //         pass: process.env.SMTP_PASS,
-        //     },
-        // });
+        const nodemailer = await import("nodemailer");
+        const transporter = nodemailer.default.createTransport({
+            host: process.env.SMTP_HOST,
+            port: Number(process.env.SMTP_PORT || 587),
+            secure: false,
+            auth: {
+                user: process.env.SMTP_USER,
+                pass: process.env.SMTP_PASS,
+            },
+        });
 
-        //     await transporter.sendMail({
-        //     from: process.env.SMTP_FROM || `"AuraDrive Resort" <${process.env.SMTP_USER}>`,
-        //     to: recipientEmail,
-        //     subject: "Your VoyageAI Itinerary",
-        //     text: `Hi ${recipientName || "there"},\n\nPlease find attached your itinerary PDF and calendar (.ics).\n\nEnjoy your trip!\nAuraDrive Resort` ,
-        //     attachments: [
-        //         { filename: "itinerary.pdf", content: pdfBuffer, contentType: "application/pdf" },
-        //         { filename: "itinerary.ics", content: icsContent, contentType: "text/calendar" },
-        //     ],
-        // });
+            await transporter.sendMail({
+            from: process.env.SMTP_FROM || `"AuraDrive Resort" <${process.env.SMTP_USER}>`,
+            to: recipientEmail,
+            subject: "Your VoyageAI Itinerary",
+            text: `Hi ${recipientName || "there"},\n\nPlease find attached your itinerary PDF and calendar (.ics).\n\nEnjoy your trip!\nAuraDrive Resort` ,
+            attachments: [
+                { filename: "itinerary.pdf", content: pdfBuffer, contentType: "application/pdf" },
+                { filename: "itinerary.ics", content: icsContent, contentType: "text/calendar" },
+            ],
+        });
 
         return NextResponse.json({
             success: true,

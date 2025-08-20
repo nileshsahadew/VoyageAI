@@ -290,14 +290,23 @@ function IteneraryPlannerPage() {
     console.log("Confirm button clicked!");
   
     try {
-      const res = await fetch("/api/send-itinerary", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          pdfBase64,
-          icsBase64,
-        }),
-      });
+     // Step 1: Generate itinerary (get pdf + ics)
+    const genRes = await fetch("/api/generate-itinerary", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ itinerary: attractions }), // send itinerary array
+    });
+    const genData = await genRes.json();
+
+    // Step 2: Send email
+    const res = await fetch("/api/send-itinerary", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        pdfBase64: genData.pdfBase64,
+        icsBase64: genData.icsBase64,
+      }),
+    });;
   
       const data = await res.json();
       if (data.success) {
