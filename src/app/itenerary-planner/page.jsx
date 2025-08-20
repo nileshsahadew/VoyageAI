@@ -283,11 +283,31 @@ function IteneraryPlannerPage() {
     handleSendMessage();
   };
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     console.log("Confirm button clicked!");
-    // Add logic for confirming here
+  
+    try {
+      const res = await fetch("/api/send-itinerary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          pdfBase64,
+          icsBase64,
+        }),
+      });
+  
+      const data = await res.json();
+      if (data.success) {
+        alert("Itinerary sent successfully!");
+      } else {
+        alert("Failed to send itinerary: " + data.error);
+      }
+    } catch (err) {
+      console.error("Confirm error:", err);
+      alert("Something went wrong while sending itinerary");
+    }
   };
-
+  
   // The rest of the component will only render if the session is ready
   if (UXMode.iteneraryAgentInterface !== "messaging" && attractions.length == 0)
     return (
