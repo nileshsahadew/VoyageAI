@@ -365,7 +365,9 @@ function IteneraryPlannerPage() {
     setTimeout(() => handleSendMessage(), 0);
   };
 
-  const handleConfirm = async() => {
+  const handleConfirm = async () => {
+    setIsLoading(true);
+
     console.log("Confirm button clicked!");
 
     try {
@@ -749,32 +751,45 @@ function IteneraryPlannerPage() {
     attractions.length > 0
   ) {
     return (
-      <AttractionsList attractions={attractions}>
-        <Button
-          variant="outlined"
-          color="error"
-          onClick={handleCancel}
-          fullWidth
-        >
-          Cancel
-        </Button>
-        <Button
-          variant="outlined"
-          color="success"
-          onClick={handleRegenerate}
-          fullWidth
-        >
-          Regenerate
-        </Button>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleConfirm}
-          fullWidth
-        >
-          Confirm
-        </Button>
-      </AttractionsList>
+
+      <>
+        <AttractionsList attractions={attractions}>
+          <Button
+            variant="outlined"
+            color="error"
+            onClick={handleCancel}
+            fullWidth
+          >
+            Cancel
+          </Button>
+          <Button
+            variant="outlined"
+            color="success"
+            onClick={handleRegenerate}
+            fullWidth
+          >
+            Regenerate
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleConfirm}
+            fullWidth
+            disabled={isLoading} // prevent multiple clicks
+           startIcon={isLoading ? <CircularProgress size={20} color="inherit" /> : null}
+          >
+            {isLoading ? "Processing..." : "Confirm"}
+          </Button>
+        </AttractionsList>
+        <ItineraryFormModal
+          open={itineraryFormModalVisible}
+          handleSubmit={onItineraryFormModalSubmit}
+          handleClose={() => {
+            setItineraryFormModalVisible(false);
+          }}
+        />
+      </>
+     
     );
   }
   // Default (selection) UI with chip list and generator panel + overlay preview

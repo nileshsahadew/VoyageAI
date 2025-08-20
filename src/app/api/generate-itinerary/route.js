@@ -105,7 +105,7 @@ function parseToDate(dateStr, timeStr) {
   return new Date(`${dateStr}T${String(hours).padStart(2, "0")}:${String(mins).padStart(2, "0")}:00`);
 }
 
-const ItineraryPDF = ({ itinerary, recipientName }) => {
+const ItineraryPDF = ({ itinerary, vehicleDetails,  recipientName }) => {
   const grouped = groupItineraryByDate(itinerary);
   const dates = Object.keys(grouped).sort();
   const startDate = dates[0];
@@ -159,6 +159,18 @@ const ItineraryPDF = ({ itinerary, recipientName }) => {
             ))}
           </View>
         ))}
+
+        {vehicleDetails ? (
+          <>
+            <Text style={styles.sectionHeader}>Transport Details</Text>
+            <View style={styles.activityCard}>
+              <Text style={styles.attractionTitle}>
+                Vehicle Assigned: {vehicleDetails.type}
+              </Text>
+              <Text style={styles.description}>{vehicleDetails.note}</Text>
+            </View>
+          </>
+        ) : null}
         <Text style={styles.footer}>Generated on {new Date().toLocaleDateString()} · AuraDrive Resort</Text>
       </Page>
     </Document>
@@ -171,6 +183,13 @@ export async function POST(req) {
     const userInput = body.userInput;
     const providedItinerary = Array.isArray(body.itinerary) ? body.itinerary : [];
     const previewOnly = !!body.previewOnly;
+    // Hardcode transport to Sedan with price; still allow explicit body override
+    const vehicleDetails = body.vehicleDetails || { 
+        type: "Sedan (Suitable for up to 5 people). Price: 80$", 
+        note: "Wheelchair Assigned." 
+      };
+
+      console.log("Vehicle details from request:", vehicleDetails);
 
     // Prefer body-provided recipient, else fall back to authenticated session (when not preview-only)
     const session = previewOnly ? null : await getServerSession(authOptions);
@@ -205,9 +224,17 @@ export async function POST(req) {
       }
     }
 
-    if (previewOnly) {
-      return NextResponse.json({ success: true, itinerary, previewOnly: true });
-    }
+
+    if (!previewOnly) {
+      const { renderToBuffer } = await import("@react-pdf/renderer");
+      const pdfBuffer = await renderToBuffer(
+        <ItineraryPDF 
+          itinerary={itinerary} 
+          vehicleDetails={vehicleDetails}
+          recipientName={recipientName} 
+        />
+      );
+
 
     const { renderToBuffer } = await import("@react-pdf/renderer");
     const pdfBuffer = await renderToBuffer(

@@ -170,10 +170,10 @@ const itineraryGeneratorNode = async (state) => {
   );
   if (itinerary?.itinerary == null) {
     // Fallback to empty itinerary to keep downstream logic consistent
-    return { itinerary: [] };
+    return { itinerary: [], vehicleDetails: itinerary?.vehicleDetails || {} };
   }
   console.log("Generated Itinerary:", itinerary);
-  return { itinerary: itinerary.itinerary };
+  return { itinerary: itinerary.itinerary, vehicleDetails: itinerary.vehicleDetails };
 };
 
 const itineraryGeneratorAgent = new StateGraph(AgentState)
