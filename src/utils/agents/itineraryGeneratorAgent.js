@@ -17,7 +17,6 @@ const AgentState = Annotation.Root({
 });
 
 const queryFormulatorNode = async (state) => {
-  console.log("ItineraryGenerator state: ", state);
   const queriesSchema = {
     type: "array",
     items: {
@@ -54,10 +53,25 @@ const attractionsFinderNode = async (state) => {
   for (const query of state.queries) {
     attractions = [
       ...attractions,
-      ...(await vectorStore.similaritySearch(query, 5)),
+      ...(await vectorStore.similaritySearch(
+        query,
+        state.itineraryDuration * 3
+      )),
     ];
   }
-  return { attractions: attractions };
+
+  const shuffleArray = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
+  attractions = shuffleArray(attractions);
+  const finalAttractions = attractions.slice(0, state.itineraryDuration * 3);
+
+  return { attractions: finalAttractions };
 };
 
 const itineraryGeneratorNode = async (state) => {
@@ -130,7 +144,7 @@ const itineraryGeneratorNode = async (state) => {
     Generate an itinerary based on the following attractions:
     {attractions}
     
-    There must be at least {minAttractions} attractions.`);
+    There must be at least {minAttractions} attractions for {days} days.`);
   const augementedModel = geminiModel.withStructuredOutput(itinerarySchema);
   const itinerary = await augementedModel.invoke(
     await promptTemplate.invoke({
@@ -138,6 +152,7 @@ const itineraryGeneratorNode = async (state) => {
       date: new Date().toISOString().split("T")[0],
       day: new Date().toLocaleString("en-US", { weekday: "long" }),
       minAttractions: state.numberOfDays * 3,
+      days: state.itineraryDuration,
     })
   );
   if (itinerary?.itinerary == null) {
