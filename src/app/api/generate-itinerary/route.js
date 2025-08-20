@@ -205,63 +205,59 @@ export async function POST(req) {
       }
     }
 
-    if (!previewOnly) {
-      const { renderToBuffer } = await import("@react-pdf/renderer");
-      const pdfBuffer = await renderToBuffer(
-        <ItineraryPDF itinerary={itinerary} recipientName={recipientName} />
-      );
+    if (previewOnly) {
+      return NextResponse.json({ success: true, itinerary, previewOnly: true });
+    }
 
-      const ics = await import("ics");
-      const events = itinerary.map((item) => {
-        const startDate = parseToDate(item.date, item.hour);
-        return {
-          title: item.attraction_name,
-          description: item.description || "",
-          location: `${item.location}${item.region ? ", " + item.region : ""}`,
-          start: [
-            startDate.getFullYear(),
-            startDate.getMonth() + 1,
-            startDate.getDate(),
-            startDate.getHours(),
-            startDate.getMinutes(),
-          ],
-          duration: { hours: 1 },
-          url: item.url || undefined,
-        };
-      });
-      const { error, value: icsContent } = ics.createEvents(events);
-      if (error) throw error;
+    const { renderToBuffer } = await import("@react-pdf/renderer");
+    const pdfBuffer = await renderToBuffer(
+      <ItineraryPDF itinerary={itinerary} recipientName={recipientName} />
+    );
 
-        const nodemailer = await import("nodemailer");
-        const transporter = nodemailer.default.createTransport({
-            host: process.env.SMTP_HOST,
-            port: Number(process.env.SMTP_PORT || 587),
-            secure: false,
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
-        });
+    const ics = await import("ics");
+    const events = itinerary.map((item) => {
+      const startDate = parseToDate(item.date, item.hour);
+      return {
+        title: item.attraction_name,
+        description: item.description || "",
+        location: `${item.location}${item.region ? ", " + item.region : ""}`,
+        start: [
+          startDate.getFullYear(),
+          startDate.getMonth() + 1,
+          startDate.getDate(),
+          startDate.getHours(),
+          startDate.getMinutes(),
+        ],
+        duration: { hours: 1 },
+        url: item.url || undefined,
+      };
+    });
+    const { error, value: icsContent } = ics.createEvents(events);
+    if (error) throw error;
 
-            await transporter.sendMail({
-            from: process.env.SMTP_FROM || `"AuraDrive Resort" <${process.env.SMTP_USER}>`,
-            to: recipientEmail,
-            subject: "Your VoyageAI Itinerary",
-            text: `Hi ${recipientName || "there"},\n\nPlease find attached your itinerary PDF and calendar (.ics).\n\nEnjoy your trip!\nAuraDrive Resort` ,
-            attachments: [
-                { filename: "itinerary.pdf", content: pdfBuffer, contentType: "application/pdf" },
-                { filename: "itinerary.ics", content: icsContent, contentType: "text/calendar" },
-            ],
-        });
+    const nodemailer = await import("nodemailer");
+    const transporter = nodemailer.default.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 587),
+      secure: false,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
 
-        return NextResponse.json({
-            success: true,
-            itinerary,
-            pdfBase64: pdfBuffer.toString("base64"),
-            icsBase64: Buffer.from(icsContent).toString("base64"),
-        });
+    await transporter.sendMail({
+      from: process.env.SMTP_FROM || `"AuraDrive Resort" <${process.env.SMTP_USER}>`,
+      to: recipientEmail,
+      subject: "Your VoyageAI Itinerary",
+      text: `Hi ${recipientName || "there"},\n\nPlease find attached your itinerary PDF and calendar (.ics).\n\nEnjoy your trip!\nAuraDrive Resort` ,
+      attachments: [
+        { filename: "itinerary.pdf", content: pdfBuffer, contentType: "application/pdf" },
+        { filename: "itinerary.ics", content: icsContent, contentType: "text/calendar" },
+      ],
+    });
 
-      }
+    return NextResponse.json({ success: true, itinerary });
     } catch (error) {
     console.error("Itinerary generation/email error:", error);
     return NextResponse.json(

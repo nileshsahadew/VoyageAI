@@ -75,13 +75,21 @@ function ItineraryGeneratorPanel({
           numberOfDays,
         }),
       });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to generate itinerary");
+      const raw = await response.text();
+      let parsed = null;
+      try {
+        parsed = raw ? JSON.parse(raw) : null;
+      } catch (_) {
+        parsed = null;
       }
-
-      const result = await response.json();
+      if (!response.ok) {
+        const message = (parsed && parsed.error) || raw || "Failed to generate itinerary";
+        throw new Error(message);
+      }
+      if (!parsed || !Array.isArray(parsed.itinerary)) {
+        throw new Error("No itinerary returned. Please try again.");
+      }
+      const result = parsed;
       if (typeof onPreviewOpen === "function") {
         onPreviewOpen({ itinerary: result.itinerary, numberOfDays });
       }
