@@ -26,7 +26,7 @@ const AgentState = Annotation.Root({
 
 const summarizerNode = async (state) => {
   const summary = await geminiModel.invoke(`
-    Make a summary of the following conversation.
+    Make ONLY a SUMMARY of the following conversation.
     It MUST be in text format, NOT JSON!!
     Capture all the important details:
     ${state.userMessages}`);

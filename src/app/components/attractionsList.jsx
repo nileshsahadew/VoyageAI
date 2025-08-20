@@ -171,8 +171,8 @@ export default function AttractionsList({ attractions, ...props }) {
       sx={{
         minHeight: "100vh",
         bgcolor: "background.default",
-        py: 4,
-        px: 2,
+        // py: 4,
+        // px: 2,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
