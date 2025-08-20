@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Modal,
   Box,
@@ -31,12 +31,21 @@ export default function ItineraryFormModal({
 }) {
   // State to manage the form data
   const [formData, setFormData] = useState({
-    itineraryDuration: itineraryDetails?.itineraryDuration || 1,
-    numberOfPeople: itineraryDetails?.numberOfPeople || 1,
-    itineraryPreferences: itineraryDetails?.itineraryPreferences || "",
-    bookTickets: itineraryDetails?.bookTickets || false,
-    transport: itineraryDetails?.transport || "Taxi",
+    itineraryDuration: 1,
+    numberOfPeople: 1,
+    itineraryPreferences: "",
+    bookTickets: false,
+    transport: "Taxi",
   });
+  useEffect(() => {
+    setFormData({
+      itineraryDuration: itineraryDetails?.itineraryDuration || 1,
+      numberOfPeople: itineraryDetails?.numberOfPeople || 1,
+      itineraryPreferences: itineraryDetails?.itineraryPreferences || "",
+      bookTickets: itineraryDetails?.bookTickets || false,
+      transport: itineraryDetails?.transport || "Taxi",
+    });
+  }, [itineraryDetails]);
 
   // Handle changes to form inputs
   const handleChange = (e) => {

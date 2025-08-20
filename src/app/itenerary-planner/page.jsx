@@ -187,7 +187,6 @@ function IteneraryPlannerPage() {
   };
 
   const sendMessageToAgent = async (chatMessages, userMessage) => {
-    console.log("Messages to agent ", [...chatMessages, userMessage]);
     const response = await fetch("/api/agent", {
       method: "POST",
       headers: {
@@ -205,13 +204,13 @@ function IteneraryPlannerPage() {
 
   const onItineraryFormModalSubmit = async (data) => {
     console.log(data);
-    let message = `I want to generate an itinerary for ${
+    let message = `I would like to generate an itinerary for ${
       data.numberOfPeople
-    } for ${data.itineraryDuration} days.  My preferences are ${
+    } person(s) for over ${data.itineraryDuration} days.  My preferences are ${
       data?.itineraryPreferences || "popular sites"
-    } and transport is ${data.transport}`;
+    } and I plan on using a ${data.transport} to travel around.`;
     message += data.bookTickets
-      ? "I am also booking flight tickets to Mauritius"
+      ? "I am also in the process booking flight tickets to Mauritius"
       : "";
 
     handleSendMessage(message);
@@ -230,8 +229,6 @@ function IteneraryPlannerPage() {
 
     // Add the user's message to the chat history & update UI
     setChatMessages((prevMessages) => [...prevMessages, userMessage]);
-    console.log(userMessage);
-    console.log(chatMessages);
     setInputMessage("");
     setIsLoading(true);
 
@@ -254,7 +251,7 @@ function IteneraryPlannerPage() {
       };
 
       const onItineraryJSONArrival = (itinerary) => {
-        setAttractions(itinerary.attractions);
+        setAttractions(itinerary);
         setUXMode((prev) => ({
           ...prev,
           iteneraryAgentInterface: "normal",
@@ -272,7 +269,7 @@ function IteneraryPlannerPage() {
 
       const onRequestItineraryDetails = async (itineraryDetails) => {
         console.log(itineraryDetails);
-        setItineraryRequestDetails(itineraryDetails);
+        setItineraryRequestDetails(JSON.parse(itineraryDetails));
         assistantMessage.message = "Please enter the required input.";
         setChatMessages((prev) => {
           const newMessages = [...prev];
@@ -582,6 +579,7 @@ function IteneraryPlannerPage() {
           handleClose={() => {
             setItineraryFormModalVisible(false);
           }}
+          itineraryDetails={itineraryRequestDetails}
         />
       </>
     );

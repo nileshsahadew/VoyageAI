@@ -26,9 +26,10 @@ const AgentState = Annotation.Root({
 
 const summarizerNode = async (state) => {
   const summary = await geminiModel.invoke(`
-    Make ONLY a SUMMARY of the following conversation.
-    It MUST be in text format, NOT JSON!!
-    Capture all the important details:
+    DO NOT PROVIDE ANY ADVICE OR ASK THE USER QUESTIONS!!!
+    Make a summary of the following conversation. Your summary should be in text format
+    and NOT in JSON format! DO NOT reply to my message AND do NOT ask about further
+    details from me, only summarize what is given below as needed:
     ${state.userMessages}`);
   console.log("Summary: ", summary.content);
   return { inputSummary: summary.content?.text || summary.content };
@@ -157,7 +158,7 @@ const generateItineraryNode = async (state, config) => {
       console.log("Result: ", result);
       config.writer({
         event: "json-itinerary",
-        data: JSON.stringify(result),
+        data: result,
       });
     }
 
