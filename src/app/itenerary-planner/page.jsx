@@ -36,6 +36,7 @@ import ChatContainer from "../components/chatContainer";
 import { useEffect, useRef, useState } from "react";
 import SSEClient from "@/utils/sseClient";
 import AttractionsList from "../components/attractionsList";
+import ItineraryFormModal from "../components/itineraryFormModal";
 
 function IteneraryPlannerPage() {
   const [UXMode, setUXMode] = useUIStateContext();
@@ -47,6 +48,7 @@ function IteneraryPlannerPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [sttSupported, setSttSupported] = useState(false);
+  const [itineraryFormModalVisible, setItineraryFormModalVisible] = useState(false);
   const [showDetailsDialog, setShowDetailsDialog] = useState(false);
   const [detailsDraft, setDetailsDraft] = useState({
     itineraryDuration: 1,
@@ -382,6 +384,20 @@ function IteneraryPlannerPage() {
     );
     // ensure state applied before sending
     setTimeout(() => handleSendMessage(), 0);
+  };
+
+  const onItineraryFormModalSubmit = async (data) => {
+    console.log(data);
+    let message = `I would like to generate an itinerary for ${
+      data.numberOfPeople
+    } person(s) for over ${data.itineraryDuration} days.  My preferences are ${
+      data?.itineraryPreferences || "popular sites"
+    } and I plan on using a ${data.transport} to travel around.`;
+    message += data.bookTickets
+      ? "I am also in the process booking flight tickets to Mauritius"
+      : "";
+
+    handleSendMessage(message);
   };
 
   const handleConfirm = async () => {

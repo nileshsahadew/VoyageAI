@@ -288,6 +288,8 @@ export async function POST(req) {
     }
 
     let pdfBuffer = null;
+    let icsContent = null;
+    
     if (!previewOnly) {
       pdfBuffer = await renderToBuffer(
         <ItineraryPDF
@@ -295,11 +297,6 @@ export async function POST(req) {
           vehicleDetails={vehicleDetails}
           recipientName={recipientName}
         />
-      );
-
-      const { renderToBuffer } = await import("@react-pdf/renderer");
-      pdfBuffer = await renderToBuffer(
-        <ItineraryPDF itinerary={itinerary} recipientName={recipientName} />
       );
 
       const ics = await import("ics");
@@ -320,8 +317,9 @@ export async function POST(req) {
           url: item.url || undefined,
         };
       });
-      const { error, value: icsContent } = ics.createEvents(events);
+      const { error, value: icsContentValue } = ics.createEvents(events);
       if (error) throw error;
+      icsContent = icsContentValue;
 
       const nodemailer = await import("nodemailer");
       const transporter = nodemailer.default.createTransport({
@@ -357,8 +355,20 @@ export async function POST(req) {
         ],
       });
 
-      return NextResponse.json({ success: true, itinerary });
+      return NextResponse.json({ 
+        success: true, 
+        itinerary,
+        pdfBase64: pdfBuffer.toString("base64"),
+        icsBase64: Buffer.from(icsContent).toString("base64"),
+      });
     }
+    
+    // Return preview data if previewOnly is true
+    return NextResponse.json({
+      success: true,
+      itinerary,
+      preview: true
+    });
   } catch (error) {
     console.error("Itinerary generation/email error:", error);
     return NextResponse.json(
