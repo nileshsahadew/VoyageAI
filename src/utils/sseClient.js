@@ -30,15 +30,12 @@ class SSEClient {
       onEvent: (event) => {
         try {
           if (event.event === "text") {
-            let payload = event.data?.kwargs?.content;
-            if (payload === undefined) {
-              // Fallback: server may have sent a plain string or a JSON-stringified string
-              try {
-                payload = JSON.parse(event.data);
-              } catch {
-                payload = event.data;
-              }
-            }
+            let payload =
+              JSON.parse(event.data)?.kwargs?.content ||
+              JSON.parse(event.data)?.content ||
+              JSON.parse(event.data);
+
+            console.log("Payload", payload);
             this.emit(event.event, payload);
           } else if (event.event === "json-itinerary") {
             this.emit(event.event, JSON.parse(JSON.parse(event.data)));

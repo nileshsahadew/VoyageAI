@@ -5,9 +5,7 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 export async function POST(req) {
   try {
     const { messages } = await req.json();
-    const last = messages[messages.length - 1];
-    const conversationHistory = messages
-      .slice(0, -1)
+    const conversation = messages
       .map((m) => `${m.type || m.role}: ${m.message}`)
       .join("\n");
 
@@ -15,8 +13,7 @@ export async function POST(req) {
 
     const stream = await orchestratorAgent.stream(
       {
-        userInput: last.message,
-        conversationHistory: conversationHistory,
+        userMessages: conversation,
         userEmail: session?.user?.email,
         userName: session?.user?.name,
       },

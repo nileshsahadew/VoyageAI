@@ -9,13 +9,15 @@ const datasetDir = path.resolve("datasets/mauritius_attractions_dataset");
 const vectorStorePath = path.resolve("datasets/vector_store.json");
 
 const AgentState = Annotation.Root({
-  userInput: Annotation,
+  itineraryPreferences: Annotation,
+  itineraryDuration: Annotation,
   queries: Annotation,
   attractions: Annotation,
   itinerary: Annotation,
 });
 
 const queryFormulatorNode = async (state) => {
+  console.log("ItineraryGenerator state: ", state);
   const queriesSchema = {
     type: "array",
     items: {
@@ -23,17 +25,19 @@ const queryFormulatorNode = async (state) => {
       description: "A query based on the user's input to find attractions.",
     },
   };
+  const systemPrompt = new SystemMessage(
+    `Formulate queries on the preferences of the attractions the user wants
+     based on the context provided.`
+  );
+  const userPrompt = new HumanMessage(
+    ` Itinerary Preferences: ${
+      state?.itineraryPreferences ||
+      "High Popularity (Good ratings, High Audience Popularity, etc)"
+    } `
+  );
+
   const augmentedModel = geminiModel.withStructuredOutput(queriesSchema);
-  const queries = await augmentedModel.invoke([
-    new SystemMessage(
-      `Formulate queries on the preferences of the attractions the user wants
-       based on the user input: 
-       Note: If the user has not provided any preferences, 
-             assume they want to explore popular attractions.
-             (High reviews, good ratings, etc.) `
-    ),
-    new HumanMessage(state.userInput),
-  ]);
+  const queries = await augmentedModel.invoke([systemPrompt, userPrompt]);
   return { queries: queries };
 };
 
@@ -50,7 +54,7 @@ const attractionsFinderNode = async (state) => {
   for (const query of state.queries) {
     attractions = [
       ...attractions,
-      ...(await vectorStore.similaritySearch(query, 3)),
+      ...(await vectorStore.similaritySearch(query, 5)),
     ];
   }
   return { attractions: attractions };
@@ -124,13 +128,16 @@ const itineraryGeneratorNode = async (state) => {
   const promptTemplate = PromptTemplate.fromTemplate(`
     The current date is {date} and the current day is {day}.
     Generate an itinerary based on the following attractions:
-    {attractions}`);
+    {attractions}
+    
+    There must be at least {minAttractions} attractions.`);
   const augementedModel = geminiModel.withStructuredOutput(itinerarySchema);
   const itinerary = await augementedModel.invoke(
     await promptTemplate.invoke({
       attractions: state.attractions,
       date: new Date().toISOString().split("T")[0],
       day: new Date().toLocaleString("en-US", { weekday: "long" }),
+      minAttractions: state.numberOfDays * 3,
     })
   );
   if (itinerary?.itinerary == null) {

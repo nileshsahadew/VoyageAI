@@ -160,7 +160,7 @@ export default function AttractionsList({ attractions, ...props }) {
     },
   ];
   const [groupedAttractions, setGroupedAttractions] = useState(
-    groupAttractionsByDate(test)
+    groupAttractionsByDate(attractions)
   );
   const dates = Object.keys(groupedAttractions);
   const currentDate = dates[currentDateIndex];

@@ -4,28 +4,52 @@ import { Annotation, END, START, StateGraph } from "@langchain/langgraph";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import itineraryGeneratorAgent from "./itineraryGeneratorAgent";
 
+let previousAgentState = {
+  userMessages: [],
+  userEmail: "",
+  userName: "",
+  inputSummary: "",
+  outputResponse: undefined,
+  evaluatorConditions: [],
+  itineraryDraft: undefined,
+};
+
 const AgentState = Annotation.Root({
-  userInput: Annotation,
-  conversationHistory: Annotation,
+  userMessages: Annotation,
+  userEmail: Annotation,
+  userName: Annotation,
+  inputSummary: Annotation,
   outputResponse: Annotation,
   evaluatorConditions: Annotation,
   itineraryDraft: Annotation,
-  userEmail: Annotation,
-  userName: Annotation,
 });
+
+const summarizerNode = async (state) => {
+  const summary = await geminiModel.invoke(`
+    Make a summary of the following conversation.
+    It MUST be in text format, NOT JSON!!
+    Capture all the important details:
+    ${state.userMessages}`);
+  console.log("Summary: ", summary.content);
+  return { inputSummary: summary.content?.text || summary.content };
+};
 
 const evaluatorNode = async (state) => {
   const conditionsSchema = {
     type: "object",
     properties: {
-      numberOfDays: {
+      itineraryDuration: {
         type: "number",
         description:
-          "The number of days for the trip, if provided by the user in the conversation history.",
+          "The number of days for the itinerary, if provided by the user in the conversation history.",
       },
       generateItinerary: {
         type: "boolean",
         description: "Does the user want to generate an itinerary?",
+      },
+      itineraryPreferences: {
+        type: "string",
+        description: "The user's preferences for the itinerary, if any.",
       },
       finalizeItinerary: {
         type: "boolean",
@@ -33,92 +57,81 @@ const evaluatorNode = async (state) => {
           "If the user wants to finalize the itinerary from the draft.",
       },
     },
-    required: ["numberOfDays", "generateItinerary", "finalizeItinerary"],
+    required: [
+      "itineraryDuration",
+      "generateItinerary",
+      "itineraryPreferences",
+      "finalizeItinerary",
+    ],
   };
-  const promptTemplate = PromptTemplate.fromTemplate(`
-      Conversation history for context:
-      {conversationHistory}
 
-      Based on the conversation history, determine the following conditions:
+  const systemPrompt = new SystemMessage(`
+      Based on the conversation context, determine the following conditions:
       1. Does the user want to generate an itinerary? (generateItinerary)
-      2. What is the number of days the user has provided for the itinerary/trip? (numberOfDays)
-      3. Does the user want to finalize the itinerary from the draft? (finalizeItinerary)
+      2. What is the number of days the user has provided for the itinerary/trip? (itineraryDuration)
+      3. If the user wants to generate an itinerary, what are their preferences? (itineraryPreferences)
+      4. Does the user want to finalize the itinerary from the draft? (finalizeItinerary)
     `);
-
-  const systemPrompt = await promptTemplate.invoke({
-    conversationHistory: state.conversationHistory,
-    evaluatorConditions: state.evaluatorConditions,
-  });
+  const userPrompt = new HumanMessage(
+    `Do not generate an itinerary/attractions if my message is not clear/lacks context.
+     Number of days is 0 unless specified.
+     Message: ${state.inputSummary}`
+  );
 
   const evaluatorLLM = geminiModel.withStructuredOutput(conditionsSchema);
+  let conditions = await evaluatorLLM.invoke([systemPrompt, userPrompt]);
 
-  const conditions = await evaluatorLLM.invoke([
-    new SystemMessage(systemPrompt),
-    new HumanMessage(
-      `Do not reply! If my message is not clear/lacks context, 
-       do not try to generate attractions/itinerary. 
-       Number of days is 0 unless specified.
-       Message: ${state.userInput}`
-    ),
-  ]);
-  if (!conditions) {
-    throw new Error("evaluatorNode: LLM returned undefined conditions");
+  if (
+    !(
+      "itineraryDuration" in conditions &&
+      "generateItinerary" in conditions &&
+      "itineraryPreferences" in conditions &&
+      "finalizeItinerary" in conditions
+    )
+  ) {
+    return "evaluatorNode";
   }
-  console.log("Conditions evaluated:", conditions);
+  conditions = { ...previousAgentState.evaluatorConditions, ...conditions };
 
-  return {
-    evaluatorConditions: {
-      ...conditions,
-      generateItinerary:
-        state.evaluatorConditions?.generateItinerary &&
-        conditions.numberOfDays != 0
-          ? state.evaluatorConditions.generateItinerary
-          : conditions.generateItinerary,
-    },
-  };
+  console.log("Conditions evaluated:", conditions);
+  return { evaluatorConditions: conditions };
 };
 
 const generalQANode = async (state, config) => {
-  const promptTemplate = PromptTemplate.fromTemplate(`
+  const systemPrompt = `
       You should not generate a plan or itinerary here.
       Instead, you should only answer the user's question based on the conversation history.
       If the user asks for an itinerary, you should return a message indicating that they     
       need to generate a plan first.
 
-      The current conversation history is:
-      {conversationHistory}
-
       Ask for clarification if the question is not clear.
-    `);
-  const promptValue = await promptTemplate.invoke({
-    conversationHistory: state.conversationHistory,
-  });
-
-  const stream = await geminiModel.stream([
-    new SystemMessage(promptValue),
-    new HumanMessage(
-      `REPLY IN 1-2 SENTENCES ONLY. If what I am saying
+    `;
+  const userPrompt = new HumanMessage(
+    `REPLY IN 1-2 SENTENCES ONLY. If what I am saying
        is not clear/lacks context, ask for clarification.
-       Message: ${state.userInput} `
-    ),
-  ]);
+       Message: ${state.inputSummary} `
+  );
+  console.log("General QA Node input summary: ", state.inputSummary);
+
+  const stream = await geminiModel.stream([systemPrompt, userPrompt]);
 
   let outputResponse = "";
   for await (const chunk of stream) {
     outputResponse += chunk;
-    // Assign a custom event name for SSE
     if (config.writer) {
-      console.log("Chunk received:", chunk);
       config.writer({ event: "text", data: chunk });
     }
   }
+  console.log("GeneralQANode: ", outputResponse?.content);
   return { outputResponse: outputResponse };
 };
 
 const generateItineraryNode = async (state, config) => {
   try {
+    console.log("Generating itinerary..");
     const result = await itineraryGeneratorAgent.invoke({
-      userInput: state.userInput,
+      itineraryDuration: state.evaluatorConditions.itineraryDuration,
+      itineraryPreferences: state.evaluatorConditions.itineraryPreferences,
     });
     if (config.writer) {
       console.log("Result: ", result);
@@ -128,38 +141,59 @@ const generateItineraryNode = async (state, config) => {
       });
     }
 
-    return { outputResponse: result?.itinerary || [], itineraryDraft: result?.itinerary || [] };
+    return {
+      outputResponse: result?.itinerary || [],
+      itineraryDraft: result?.itinerary || [],
+    };
   } catch (err) {
     console.error("Error in generateItineraryNode:", err);
     throw err;
   }
 };
 
-function extractItineraryFromHistory(conversationHistory) {
-  if (!conversationHistory || typeof conversationHistory !== "string") return [];
-  // Heuristic: find the last JSON array in the text
-  const matches = conversationHistory.match(/\[[\s\S]*\]$/m) || conversationHistory.match(/\[[\s\S]*\]/m);
-  if (!matches) return [];
-  try {
-    const parsed = JSON.parse(matches[matches.length - 1]);
-    return Array.isArray(parsed) ? parsed : [];
-  } catch (_) {
+function extractItineraryFromHistory(messages) {
+  if (!Array.isArray(messages)) {
     return [];
   }
+
+  for (let i = messages.length - 1; i >= 0; i--) {
+    const message = messages[i];
+    if (
+      message.role === "assistant" &&
+      message.message &&
+      message.message.itinerary
+    ) {
+      return message.message.itinerary;
+    }
+  }
+
+  return [];
 }
 
 const finalizeAndEmailNode = async (state, config) => {
   try {
     if (config.writer) {
-      config.writer({ event: "text", data: "Preparing your calendar and sending via email..." });
+      config.writer({
+        event: "text",
+        data: "Preparing your calendar and sending via email...",
+      });
     }
 
-    const baseUrl = process.env.NEXT_PUBLIC_APP_URL
-      || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
+    const baseUrl =
+      process.env.NEXT_PUBLIC_APP_URL ||
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000");
 
-    const itineraryFromState = Array.isArray(state.itineraryDraft) ? state.itineraryDraft : [];
-    const itineraryFromHistory = extractItineraryFromHistory(state.conversationHistory);
-    const itinerary = itineraryFromState.length ? itineraryFromState : itineraryFromHistory;
+    const itineraryFromState = Array.isArray(state.itineraryDraft)
+      ? state.itineraryDraft
+      : [];
+    const itineraryFromHistory = extractItineraryFromHistory(
+      state.userMessages
+    );
+    const itinerary = itineraryFromState.length
+      ? itineraryFromState
+      : itineraryFromHistory;
 
     const response = await fetch(`${baseUrl}/api/generate-itinerary`, {
       method: "POST",
@@ -182,40 +216,51 @@ const finalizeAndEmailNode = async (state, config) => {
     }
 
     if (config.writer) {
-      config.writer({ event: "text", data: "Email sent! Check your inbox for the itinerary PDF and calendar." });
+      config.writer({
+        event: "text",
+        data: "Email sent! Check your inbox for the itinerary PDF and calendar.",
+      });
     }
     return { outputResponse: "Email sent" };
   } catch (err) {
     console.error("Error in finalizeAndEmailNode:", err);
     if (config.writer) {
-      config.writer({ event: "text", data: "An error occurred while sending the email." });
+      config.writer({
+        event: "text",
+        data: "An error occurred while sending the email.",
+      });
     }
     return { outputResponse: "Failed to send" };
   }
 };
 
 const orchestratorAgent = new StateGraph(AgentState)
+  .addNode("summarizerNode", summarizerNode)
   .addNode("generalQANode", generalQANode)
   .addNode("evaluatorNode", evaluatorNode)
   .addNode("generateItineraryNode", generateItineraryNode)
   .addNode("finalizeAndEmailNode", finalizeAndEmailNode)
-  .addEdge("__start__", "evaluatorNode")
+  .addEdge("__start__", "summarizerNode")
+  .addEdge("summarizerNode", "evaluatorNode")
   .addConditionalEdges("evaluatorNode", (state, config) => {
     if (state.evaluatorConditions.finalizeItinerary) {
       return "finalizeAndEmailNode";
     }
     if (state.evaluatorConditions.generateItinerary) {
-      if (state.evaluatorConditions.numberOfDays >= 1) {
+      if (state.evaluatorConditions.itineraryDuration >= 1) {
         console.log("Conditions met for generateItineraryNode");
         return "generateItineraryNode"; // Routes to generateItineraryNode
       } else {
+        console.log(
+          "Conditions not met for generateItineraryNode, asking for itinerary duration."
+        );
         if (config.writer) {
           config.writer({
             event: "text",
             data: `Please provide a valid number of days for the trip.`,
           });
         }
-        return START; // Routes back to START for clarification
+        return START;
       }
     }
     console.log("Conditions not met, returning to generalQANode");

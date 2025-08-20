@@ -24,7 +24,7 @@ function IteneraryPlannerPage() {
   const [UXMode, setUXMode] = useUIStateContext();
   const [chatMessages, setChatMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
-  const [attractions, setAttractions] = useState([1]);
+  const [attractions, setAttractions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [sttSupported, setSttSupported] = useState(false);
@@ -100,7 +100,9 @@ function IteneraryPlannerPage() {
     recognition.onend = () => {
       setIsListening(false);
       const finalText = (
-        inputMessageRef.current || baseTextRef.current || ""
+        inputMessageRef.current ||
+        baseTextRef.current ||
+        ""
       ).trim();
       if (finalText && !isLoadingRef.current && autoSendRef.current) {
         handleSendMessage(finalText);
@@ -115,7 +117,9 @@ function IteneraryPlannerPage() {
     recognition.onerror = () => {
       setIsListening(false);
       const finalText = (
-        inputMessageRef.current || baseTextRef.current || ""
+        inputMessageRef.current ||
+        baseTextRef.current ||
+        ""
       ).trim();
       if (finalText && !isLoadingRef.current && autoSendRef.current) {
         handleSendMessage(finalText);
