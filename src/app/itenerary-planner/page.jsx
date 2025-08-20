@@ -312,11 +312,6 @@ function IteneraryPlannerPage() {
           <Divider sx={{ my: 4 }} />
         </Box>
         <ChipList />
-        <Box sx={{ marginLeft: "46%", marginTop: "10%" }}>
-          <Button variant="contained" color="primary" size="large">
-            Generate
-          </Button>
-        </Box>
       </>
     );
   else if (UXMode.iteneraryAgentInterface === "messaging")

@@ -49,14 +49,14 @@ const attractionsFinderNode = async (state) => {
     vectorStore = await loadVectorStore(vectorStorePath);
   }
 
+  const rawDuration = Number(state?.itineraryDuration);
+  const safeDuration = Number.isFinite(rawDuration) && rawDuration > 0 ? rawDuration : 3;
+
   let attractions = [];
   for (const query of state.queries) {
     attractions = [
       ...attractions,
-      ...(await vectorStore.similaritySearch(
-        query,
-        state.itineraryDuration * 3
-      )),
+      ...(await vectorStore.similaritySearch(query, safeDuration * 3)),
     ];
   }
 
@@ -69,7 +69,7 @@ const attractionsFinderNode = async (state) => {
   };
 
   attractions = shuffleArray(attractions);
-  const finalAttractions = attractions.slice(0, state.itineraryDuration * 3);
+  const finalAttractions = attractions.slice(0, safeDuration * 3);
 
   return { attractions: finalAttractions };
 };
@@ -146,13 +146,16 @@ const itineraryGeneratorNode = async (state) => {
     
     There must be at least {minAttractions} attractions for {days} days.`);
   const augementedModel = geminiModel.withStructuredOutput(itinerarySchema);
+  const rawDays = Number(state?.itineraryDuration ?? state?.numberOfDays);
+  const safeDays = Number.isFinite(rawDays) && rawDays > 0 ? rawDays : 3;
+  const minAttractions = safeDays * 3;
   const itinerary = await augementedModel.invoke(
     await promptTemplate.invoke({
       attractions: state.attractions,
       date: new Date().toISOString().split("T")[0],
       day: new Date().toLocaleString("en-US", { weekday: "long" }),
-      minAttractions: state.numberOfDays * 3,
-      days: state.itineraryDuration,
+      minAttractions,
+      days: safeDays,
     })
   );
   if (itinerary?.itinerary == null) {
