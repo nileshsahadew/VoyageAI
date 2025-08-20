@@ -56,12 +56,22 @@ const evaluatorNode = async (state) => {
         description:
           "If the user wants to finalize the itinerary from the draft.",
       },
+      numberOfPeople: {
+        type: "number",
+        description: "Number of people travelling, if specified by the user."
+      },
+      hasDisabledPerson: {
+        type: "boolean",
+        description: "whether there is a disabled person in the group"
+      }
     },
     required: [
       "itineraryDuration",
       "generateItinerary",
       "itineraryPreferences",
       "finalizeItinerary",
+      "numberOfPeople",
+      "hasDisabledPerson",
     ],
   };
 
@@ -135,6 +145,15 @@ const generateItineraryNode = async (state, config) => {
       itineraryDuration: state.evaluatorConditions.itineraryDuration,
       itineraryPreferences: state.evaluatorConditions.itineraryPreferences,
     });
+
+    const itineraryWithVehicle = {
+      itinerary: result.itinerary || [],
+      vehicleDetails: state.vehicleDetails || {
+        type: "Not specified",
+        note: "No vehicle details available"
+      }
+    };
+
     if (config.writer) {
       console.log("Result: ", result);
       config.writer({
@@ -236,15 +255,46 @@ const finalizeAndEmailNode = async (state, config) => {
   }
 };
 
+const vehicleAssignmentNode  = async (state, config) => {
+  const numPeople = state.evaluatorConditions.numberOfPeople || 0;
+  const hasDisabledPerson = state.evaluatorConditions.hasDisabledPerson || false;
+
+  let vehicle;
+  if (numPeople <=5) {
+    vehicle = "Sedan (Suitable for up to 5 people). Price: 80$";
+  } else if (numPeople <=7) {
+    vehicle = "7-seater car (suitable for groups of up to 7). Price: 85$";
+  } else {
+    vehicle = "Mini Van (suitable for larger groups). Price: 90$";
+  }
+
+  let extras = hasDisabled ? "We also provide a awheelchair free of charge for disabled travelers." : "";
+
+  const message = `Recommended Vehicle: ${vehicle}. ${extras}`;
+
+  if (config.writer) {
+    config.writer({event: "text", data: message});
+  }
+
+  return { 
+    outputResponse: message,
+    vehiclesDetails: { type: vehicle, note}
+  };
+};
+
 const orchestratorAgent = new StateGraph(AgentState)
   .addNode("summarizerNode", summarizerNode)
   .addNode("generalQANode", generalQANode)
   .addNode("evaluatorNode", evaluatorNode)
   .addNode("generateItineraryNode", generateItineraryNode)
   .addNode("finalizeAndEmailNode", finalizeAndEmailNode)
+  .addNode("vehicleAssignmentNode ", vehicleAssignmentNode )
   .addEdge("__start__", "summarizerNode")
   .addEdge("summarizerNode", "evaluatorNode")
   .addConditionalEdges("evaluatorNode", (state, config) => {
+    if (state.evaluatorConditions.numberOfPeople > 0) {
+      return "vehicleAssignmentNode "
+    }
     if (state.evaluatorConditions.finalizeItinerary) {
       return "finalizeAndEmailNode";
     }
