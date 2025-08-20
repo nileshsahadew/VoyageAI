@@ -27,6 +27,7 @@ export default function ItineraryFormModal({
   handleClose,
   handleSubmit,
   hideItineraryDurationOption,
+  hideItineraryPreferencesOption,
 }) {
   // State to manage the form data
   const [formData, setFormData] = useState({
@@ -125,17 +126,19 @@ export default function ItineraryFormModal({
         />
 
         {/* Itinerary preferences (textbox) */}
-        <TextField
-          id="preferences-textbox"
-          label="Itinerary preferences"
-          multiline
-          rows={1}
-          fullWidth
-          variant="outlined"
-          name="itineraryPreferences"
-          value={formData.itineraryPreferences}
-          onChange={handleChange}
-        />
+        {!hideItineraryPreferencesOption && (
+          <TextField
+            id="preferences-textbox"
+            label="Itinerary preferences"
+            multiline
+            rows={1}
+            fullWidth
+            variant="outlined"
+            name="itineraryPreferences"
+            value={formData.itineraryPreferences}
+            onChange={handleChange}
+          />
+        )}
 
         {/* Book flight tickets (checkbox) */}
         <FormControlLabel

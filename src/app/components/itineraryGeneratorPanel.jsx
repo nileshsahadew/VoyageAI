@@ -1,14 +1,31 @@
 "use client";
 import { useState, useMemo } from "react";
-import { Box, Button, Typography, Alert, CircularProgress, Slider } from "@mui/material";
+import {
+  Box,
+  Button,
+  Typography,
+  Alert,
+  CircularProgress,
+  Slider,
+} from "@mui/material";
+import ItineraryFormModal from "./itineraryFormModal";
 
-function ItineraryGeneratorPanel({ selectedPreferences = [], onResetSelection, onPreviewOpen }) {
+function ItineraryGeneratorPanel({
+  selectedPreferences = [],
+  onResetSelection,
+  onPreviewOpen,
+}) {
+  const [itineraryFormModalVisible, setItineraryFormModalVisible] =
+    useState(false);
   const [numberOfDays, setNumberOfDays] = useState(3);
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const selectedCount = useMemo(() => selectedPreferences.length, [selectedPreferences]);
+  const selectedCount = useMemo(
+    () => selectedPreferences.length,
+    [selectedPreferences]
+  );
 
   const formatTime = (timeStr) => {
     if (!timeStr) return "";
@@ -24,8 +41,14 @@ function ItineraryGeneratorPanel({ selectedPreferences = [], onResetSelection, o
   };
 
   const handleGenerate = async () => {
+    setItineraryFormModalVisible(true);
+  };
+
+  const handleSubmit = async (itineraryDetails) => {
     if (selectedCount === 0) {
-      setError("Please select at least one preference to generate an itinerary.");
+      setError(
+        "Please select at least one preference to generate an itinerary."
+      );
       return;
     }
 
@@ -34,7 +57,14 @@ function ItineraryGeneratorPanel({ selectedPreferences = [], onResetSelection, o
     setSuccess("");
 
     try {
-      const userInput = `I want to visit Mauritius and I'm interested in: ${selectedPreferences.join(", ")}. Please create a detailed itinerary with multiple days.`;
+      const userInput =
+        `I want to visit Mauritius and I'm interested in: ${selectedPreferences.join(
+          ", "
+        )}. Please create a detailed itinerary for ${numberOfDays} days.` +
+        (itineraryDetails.bookTickets
+          ? `Make sure to include arrival and departure from/to the airport since I will be booking tickets`
+          : "") +
+        `My transport of choice will be ${itineraryDetails.transport} and there will be ${itineraryDetails.numberOfPeople} people on the trip.`;
 
       const response = await fetch("/api/generate-itinerary", {
         method: "POST",
@@ -57,7 +87,9 @@ function ItineraryGeneratorPanel({ selectedPreferences = [], onResetSelection, o
       }
       setSuccess("");
     } catch (err) {
-      setError(err.message || "An error occurred while generating the itinerary");
+      setError(
+        err.message || "An error occurred while generating the itinerary"
+      );
     } finally {
       setIsGenerating(false);
     }
@@ -88,21 +120,6 @@ function ItineraryGeneratorPanel({ selectedPreferences = [], onResetSelection, o
         />
       </Box>
 
-      {/* Selection Summary */}
-      {selectedCount > 0 && (
-        <Box sx={{ mt: 2, textAlign: "center" }}>
-          <Typography variant="body2" color="text.secondary">
-            Selected: {selectedCount} preference{selectedCount !== 1 ? "s" : ""}
-          </Typography>
-          <Typography variant="body2" color="primary" sx={{ mt: 1 }}>
-            {selectedPreferences.join(", ")}
-          </Typography>
-          <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-            Days: {numberOfDays}
-          </Typography>
-        </Box>
-      )}
-
       {/* Error and Success Messages */}
       {error && (
         <Alert severity="error" sx={{ mt: 2, width: "100%", maxWidth: 400 }}>
@@ -117,13 +134,27 @@ function ItineraryGeneratorPanel({ selectedPreferences = [], onResetSelection, o
       )}
 
       {/* Buttons */}
-      <Box sx={{ mt: 3, textAlign: "center", display: "flex", gap: 2, justifyContent: "center" }}>
+      <Box
+        sx={{
+          mt: 3,
+          textAlign: "center",
+          display: "flex",
+          gap: 2,
+          justifyContent: "center",
+        }}
+      >
         <Button
           variant="outlined"
           color="secondary"
           onClick={handleReset}
           disabled={isGenerating}
-          sx={{ px: 3, py: 1.5, fontSize: "1rem", borderRadius: 2, transition: "all 0.2s ease-in-out" }}
+          sx={{
+            px: 3,
+            py: 1.5,
+            fontSize: "1rem",
+            borderRadius: 2,
+            transition: "all 0.2s ease-in-out",
+          }}
         >
           Reset Selection
         </Button>
@@ -151,22 +182,23 @@ function ItineraryGeneratorPanel({ selectedPreferences = [], onResetSelection, o
               Generating...
             </>
           ) : (
-            `Generate Itinerary ${selectedCount > 0 ? `(${selectedCount})` : ""}`
+            `Generate Itinerary ${
+              selectedCount > 0 ? `(${selectedCount})` : ""
+            }`
           )}
         </Button>
       </Box>
-
-      {selectedCount === 0 && (
-        <Typography variant="caption" color="text.secondary" sx={{ mt: 1, display: "block" }}>
-          Select at least one preference to continue
-        </Typography>
-      )}
-
-      {/* Preview is rendered by parent in an overlay */}
+      <ItineraryFormModal
+        open={itineraryFormModalVisible}
+        handleClose={() => {
+          setItineraryFormModalVisible(false);
+        }}
+        handleSubmit={handleSubmit}
+        hideItineraryDurationOption={true}
+        hideItineraryPreferencesOption={true}
+      />
     </>
   );
 }
 
 export default ItineraryGeneratorPanel;
-
-
