@@ -30,23 +30,37 @@ class SSEClient {
       onEvent: (event) => {
         try {
           if (event.event === "text") {
-            let payload =
-              JSON.parse(event.data)?.kwargs?.content ||
-              JSON.parse(event.data)?.content ||
-              JSON.parse(event.data);
-
-            console.log("Payload", payload);
-            this.emit(event.event, payload);
-          } else if (event.event === "json-itinerary") {
-            try {
-              this.emit(event.event, JSON.parse(JSON.parse(event.data)));
-            } catch (err) {
-              console.log(JSON.parse(event.data).itinerary);
-              this.emit(event.event, JSON.parse(event.data).itinerary);
+            // event.data may be plain text or a JSON string
+            let payload = event.data;
+            if (typeof payload === "string" && payload.trim().startsWith("{")) {
+              try {
+                const parsed = JSON.parse(payload);
+                payload = parsed?.kwargs?.content || parsed?.content || parsed;
+              } catch (_) {
+                // keep as raw string
+              }
             }
-          } else if (event.event === "start" || event.event === "end") {
-            this.emit(event.event, event.data);
+            this.emit("text", payload);
+          } else if (event.event === "json-itinerary") {
+            // encodeSSEEvent sends a single JSON.stringify, so parse once
+            let obj = null;
+            try {
+              obj = JSON.parse(event.data);
+            } catch (_) {
+              obj = null;
+            }
+            if (obj && Array.isArray(obj.itinerary)) {
+              this.emit("json-itinerary", obj.itinerary);
+            } else if (Array.isArray(obj)) {
+              this.emit("json-itinerary", obj);
+            } else {
+              this.emit("json-itinerary", obj);
+            }
           } else if (event.event === "request-itinerary") {
+            console.log("🔍 SSE Client received request-itinerary event:", event.data);
+            // Always forward raw string; caller will JSON.parse as needed
+            this.emit("request-itinerary", event.data);
+          } else if (event.event === "start" || event.event === "end") {
             this.emit(event.event, event.data);
           }
         } catch (err) {

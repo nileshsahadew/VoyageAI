@@ -4,15 +4,7 @@ import { Annotation, END, START, StateGraph } from "@langchain/langgraph";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import itineraryGeneratorAgent from "./itineraryGeneratorAgent";
 
-let previousAgentState = {
-  userMessages: [],
-  userEmail: "",
-  userName: "",
-  inputSummary: "",
-  outputResponse: undefined,
-  evaluatorConditions: [],
-  itineraryDraft: undefined,
-};
+// Remove the global variable and handle state properly
 
 const AgentState = Annotation.Root({
   userMessages: Annotation,
@@ -70,10 +62,6 @@ const evaluatorNode = async (state) => {
         description:
           "If the user wants to finalize the itinerary from the draft.",
       },
-      numberOfPeople: {
-        type: "number",
-        description: "Number of people travelling, if specified by the user."
-      },
       hasDisabledPerson: {
         type: "boolean",
         description: "whether there is a disabled person in the group"
@@ -87,7 +75,6 @@ const evaluatorNode = async (state) => {
       "numberOfPeople",
       "transport",
       "finalizeItinerary",
-      "numberOfPeople",
       "hasDisabledPerson",
     ],
   };
@@ -103,25 +90,48 @@ const evaluatorNode = async (state) => {
       4. Does the user want to finalize the itinerary from the draft? (finalizeItinerary)
     `);
   const userPrompt = new HumanMessage(
-    `Do not generate an itinerary/attractions if my message is not clear/lacks context.
-     Number of days is 0 unless specified.
+    `Analyze the user's message to extract details for an itinerary.
+     If the user expresses intent to plan a trip or generate an itinerary, set 'generateItinerary' to true.
+     If specific preferences are mentioned (e.g., "beaches", "nature"), capture them in 'itineraryPreferences'.
+     Extract 'itineraryDuration', 'numberOfPeople', 'transport', 'bookTickets', and 'hasDisabledPerson' if explicitly stated.
+     If the message contains structured data like "itineraryDuration=1; numberOfPeople=1; transport=Taxi", parse these values correctly.
+     If 'generateItinerary' is true but 'itineraryDuration' is not specified or is 0, indicate that more details are needed.
      Message: ${state.inputSummary}`
   );
 
   const evaluatorLLM = geminiModel.withStructuredOutput(conditionsSchema);
   let conditions = await evaluatorLLM.invoke([systemPrompt, userPrompt]);
 
-  if (
-    !(
-      "itineraryDuration" in conditions &&
-      "generateItinerary" in conditions &&
-      "itineraryPreferences" in conditions &&
-      "finalizeItinerary" in conditions
-    )
-  ) {
-    return "evaluatorNode";
-  }
-  conditions = { ...previousAgentState.evaluatorConditions, ...conditions };
+  // Normalize null/undefined and apply simple heuristics from the user's text
+  const summaryText = String(state?.inputSummary || state?.userMessages || "").toLowerCase();
+  
+  // Check for structured data format like "itineraryDuration=1; numberOfPeople=1; transport=Taxi"
+  const structuredDataMatch = summaryText.match(/itineraryduration=(\d+)/i);
+  const peopleMatch = summaryText.match(/numberofpeople=(\d+)/i);
+  const transportMatch = summaryText.match(/transport=([^;]+)/i);
+  const disabledMatch = summaryText.match(/hasdisabledperson=(true|false)/i);
+  const ticketsMatch = summaryText.match(/booktickets=(true|false)/i);
+  
+  const wantsItinerary =
+    conditions?.generateItinerary === true || 
+    /\b(itinerary|plan|trip|generate)\b/.test(summaryText) ||
+    structuredDataMatch; // If structured data is present, they want an itinerary
+    
+  const inferredPrefs = conditions?.itineraryPreferences ||
+    (summaryText.includes("beach") ? "beach" : undefined) ||
+    (summaryText.includes("nature") ? "nature" : undefined) ||
+    (summaryText.includes("culture") ? "culture" : undefined);
+
+  conditions = {
+    itineraryDuration: Number(conditions?.itineraryDuration) || Number(structuredDataMatch?.[1]) || 0,
+    generateItinerary: wantsItinerary,
+    itineraryPreferences: inferredPrefs || "",
+    bookTickets: !!conditions?.bookTickets || ticketsMatch?.[1] === "true",
+    numberOfPeople: Number(conditions?.numberOfPeople) || Number(peopleMatch?.[1]) || 0,
+    transport: typeof conditions?.transport === "string" ? conditions.transport : (transportMatch?.[1] || ""),
+    finalizeItinerary: !!conditions?.finalizeItinerary,
+    hasDisabledPerson: !!conditions?.hasDisabledPerson || disabledMatch?.[1] === "true",
+  };
 
   console.log("Conditions evaluated:", conditions);
   return { evaluatorConditions: conditions };
@@ -129,19 +139,16 @@ const evaluatorNode = async (state) => {
 
 const generalQANode = async (state, config) => {
   const systemPrompt = `
-      You should not generate a plan or itinerary here.
-      Instead, you should only answer the user's question based on the conversation history.
-      If the user asks for an itinerary, you should return a message indicating that they     
-      need to generate a plan first.
-
-      Ask for clarification if the question is not clear. Respond to user queries while trying
-      to pitch your itinerary planner services.
-      NOTE YOU SHOULD NOT GENERATE JSON!!
+      You are a concise, neutral assistant.
+      - Do NOT generate a plan or itinerary here.
+      - Keep replies to 1–2 sentences.
+      - Never output raw field labels like "generateItinerary: null"; instead, ask for the missing info in plain language.
+      - If the user wants an itinerary but details are missing, ask for the missing fields directly (days, people, transport, disability, tickets) in one sentence.
+      - If there is enough info, say: "Say 'generate itinerary' to proceed."
+      - Never output JSON.
     `;
   const userPrompt = new HumanMessage(
-    `REPLY IN 1-2 SENTENCES ONLY. If what I am saying
-       is not clear/lacks context, ask for clarification.
-       Message: ${state.inputSummary} `
+    `Message: ${state.inputSummary}`
   );
   console.log("General QA Node input summary: ", state.inputSummary);
 
@@ -149,12 +156,19 @@ const generalQANode = async (state, config) => {
 
   let outputResponse = "";
   for await (const chunk of stream) {
-    outputResponse += chunk;
+    let piece = "";
+    if (typeof chunk === "string") {
+      piece = chunk;
+    } else if (chunk && typeof chunk === "object") {
+      piece = chunk?.content?.[0]?.text || chunk?.content || chunk?.delta || chunk?.kwargs?.content || "";
+    }
+    if (!piece) continue;
+    outputResponse += piece;
     if (config.writer) {
-      config.writer({ event: "text", data: chunk });
+      config.writer({ event: "text", data: piece });
     }
   }
-  console.log("GeneralQANode: ", outputResponse?.content);
+  console.log("GeneralQANode output: ", outputResponse);
   return { outputResponse: outputResponse };
 };
 
@@ -251,7 +265,7 @@ const finalizeAndEmailNode = async (state, config) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        userInput: state.userInput,
+        userInput: state.inputSummary || "",
         itinerary: itinerary.length ? itinerary : undefined,
         recipientEmail: state.userEmail,
         recipientName: state.userName,
@@ -288,8 +302,8 @@ const finalizeAndEmailNode = async (state, config) => {
 };
 
 const vehicleAssignmentNode  = async (state, config) => {
-  const numPeople = state.evaluatorConditions.numberOfPeople || 0;
-  const hasDisabled = state.evaluatorConditions.hasDisabledPerson || false;
+  const numPeople = Number(state?.evaluatorConditions?.numberOfPeople) || 0;
+  const hasDisabled = !!state?.evaluatorConditions?.hasDisabledPerson;
   console.log("vehicleAssignmentNode", numPeople, hasDisabled);
   
   let vehicle;
@@ -315,8 +329,10 @@ const vehicleAssignmentNode  = async (state, config) => {
   }
 
   return { 
+
     vehicleDetails: vehicleDetails,
     outputResponse: message
+
   };
 };
 
@@ -331,10 +347,13 @@ const orchestratorAgent = new StateGraph(AgentState)
   .addEdge("summarizerNode", "evaluatorNode")
   .addEdge("vehicleAssignmentNode", "generateItineraryNode")
   .addConditionalEdges("evaluatorNode", (state, config) => {
+    const conditions = state.evaluatorConditions;
+    console.log("Evaluator conditions:", conditions);
     
-    if (state.evaluatorConditions.finalizeItinerary) {
+    if (conditions?.finalizeItinerary) {
       return "finalizeAndEmailNode";
     }
+
     if (state.evaluatorConditions.generateItinerary) {
       if (state.evaluatorConditions.itineraryDuration >= 1) {
         console.log("Conditions met for generateItineraryNode");
@@ -363,9 +382,11 @@ const orchestratorAgent = new StateGraph(AgentState)
         }
         return START;
       }
+
     }
-    console.log("Conditions not met, returning to generalQANode");
-    return "generalQANode"; // Routes to generalQANode
+    
+    console.log("No itinerary generation requested, going to general QA");
+    return "generalQANode";
   })
   .compile();
 

@@ -9,6 +9,15 @@ import {
   TextField,
   IconButton,
   CircularProgress,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormControlLabel,
+  Checkbox,
+  Radio,
+  RadioGroup,
+  Backdrop,
 } from "@mui/material";
 import ChipList from "../components/chipList";
 import ItineraryGeneratorPanel from "../components/itineraryGeneratorPanel";
@@ -27,23 +36,26 @@ import ChatContainer from "../components/chatContainer";
 import { useEffect, useRef, useState } from "react";
 import SSEClient from "@/utils/sseClient";
 import AttractionsList from "../components/attractionsList";
-import ItineraryFormModal from "../components/itineraryFormModal";
 
 function IteneraryPlannerPage() {
   const [UXMode, setUXMode] = useUIStateContext();
-  const [itineraryFormModalVisible, setItineraryFormModalVisible] =
-    useState(false);
   const [chatMessages, setChatMessages] = useState([]);
-  const [pdfBase64, setPdfBase64] = useState(null);
-  const [icsBase64, setIcsBase64] = useState(null);
   const [inputMessage, setInputMessage] = useState("");
-  const [itineraryRequestDetails, setItineraryRequestDetails] = useState();
   const [attractions, setAttractions] = useState([]);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewItinerary, setPreviewItinerary] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [sttSupported, setSttSupported] = useState(false);
+  const [showDetailsDialog, setShowDetailsDialog] = useState(false);
+  const [detailsDraft, setDetailsDraft] = useState({
+    itineraryDuration: 1,
+    numberOfPeople: 1,
+    transport: "Taxi",
+    hasDisabledPerson: false,
+    bookTickets: false,
+  });
+  const [isGeneratingItinerary, setIsGeneratingItinerary] = useState(false);
   const recognitionRef = useRef(null);
   const baseTextRef = useRef("");
   const isLoadingRef = useRef(false);
@@ -192,7 +204,7 @@ function IteneraryPlannerPage() {
     const response = await fetch("/api/agent", {
       method: "POST",
       headers: {
-        "message-Type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         messages: [...chatMessages, userMessage], // Send the full history for context
@@ -202,20 +214,6 @@ function IteneraryPlannerPage() {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     return response;
-  };
-
-  const onItineraryFormModalSubmit = async (data) => {
-    console.log(data);
-    let message = `I would like to generate an itinerary for ${
-      data.numberOfPeople
-    } person(s) for over ${data.itineraryDuration} days.  My preferences are ${
-      data?.itineraryPreferences || "popular sites"
-    } and I plan on using a ${data.transport} to travel around.`;
-    message += data.bookTickets
-      ? "I am also in the process booking flight tickets to Mauritius"
-      : "";
-
-    handleSendMessage(message);
   };
 
   // This function handles sending the user's message to the API
@@ -244,41 +242,57 @@ function IteneraryPlannerPage() {
 
       // UI Logic for when a new chunk arrives from streamingResponse
       const onNewTextArrival = (chunk) => {
+        const isFirstChunk = assistantMessage.message.length === 0;
         assistantMessage.message += chunk;
         setChatMessages((prev) => {
           const newMessages = [...prev];
           newMessages[newMessages.length - 1] = { ...assistantMessage };
           return newMessages;
         });
+        // Speak the initial assistant response (e.g., vehicle recommendation)
+        if (
+          isFirstChunk &&
+          UXMode.autoSpeakAssistant &&
+          typeof window !== "undefined" &&
+          "speechSynthesis" in window
+        ) {
+          try {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(chunk);
+            utterance.rate = 1;
+            window.speechSynthesis.speak(utterance);
+          } catch (_) {}
+        }
       };
 
-      const onItineraryJSONArrival = (itinerary) => {
-        setAttractions(itinerary);
+      const onItineraryJSONArrival = (attractions) => {
+        setAttractions(attractions);
+        setIsGeneratingItinerary(false);
         setUXMode((prev) => ({
           ...prev,
           iteneraryAgentInterface: "normal",
         }));
-        assistantMessage.message =
-          "Your itinerary has been generated successfully!";
+        assistantMessage.message = "List of attractions generated! Redirecting to itinerary...";
         setChatMessages((prev) => {
           const newMessages = [...prev];
           newMessages[newMessages.length - 1] = { ...assistantMessage };
           return newMessages;
         });
-        assistantMessage.message = "Please enter the required input.";
-        console.log("Attractions: ", itinerary.attractions);
-      };
-
-      const onRequestItineraryDetails = async (itineraryDetails) => {
-        console.log(itineraryDetails);
-        setItineraryRequestDetails(JSON.parse(itineraryDetails));
-        assistantMessage.message = "Please enter the required input.";
-        setChatMessages((prev) => {
-          const newMessages = [...prev];
-          newMessages[newMessages.length - 1] = { ...assistantMessage };
-          return newMessages;
-        });
-        setItineraryFormModalVisible(true);
+        if (
+          UXMode.autoSpeakAssistant &&
+          typeof window !== "undefined" &&
+          "speechSynthesis" in window
+        ) {
+          try {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(
+              "Itinerary ready. Redirecting to your plan."
+            );
+            utterance.rate = 1;
+            window.speechSynthesis.speak(utterance);
+          } catch (_) {}
+        }
+        console.log("Attractions: ", attractions);
       };
 
       // SSEClient listens to response stream and will parse each valid arriving chunk
@@ -286,8 +300,29 @@ function IteneraryPlannerPage() {
       const sseClient = new SSEClient();
       sseClient.on("text", onNewTextArrival);
       sseClient.on("json-itinerary", onItineraryJSONArrival);
-      sseClient.on("request-itinerary", onRequestItineraryDetails);
-      setInputMessage();
+             sseClient.on("request-itinerary", (data) => {
+         console.log("🎯 REQUEST-ITINERARY EVENT RECEIVED:", data);
+         try {
+           const parsed = typeof data === "string" ? JSON.parse(data) : data;
+           console.log("🎯 Parsed data:", parsed);
+           setDetailsDraft({
+             itineraryDuration: Number(parsed?.itineraryDuration) || 1,
+             numberOfPeople: Number(parsed?.numberOfPeople) || 1,
+             transport: parsed?.transport && parsed.transport !== "null" ? String(parsed.transport) : "Taxi",
+             hasDisabledPerson: !!parsed?.hasDisabledPerson,
+             bookTickets: !!parsed?.bookTickets,
+           });
+         } catch (error) {
+           console.log("🎯 Error parsing data:", error);
+           setDetailsDraft({ itineraryDuration: 1, numberOfPeople: 1, transport: "Taxi", hasDisabledPerson: false, bookTickets: false });
+         }
+         // stop spinner and open the details dialog
+         console.log("🎯 Setting showDetailsDialog to true");
+         setIsGeneratingItinerary(false);
+         setShowDetailsDialog(true);
+       });
+      sseClient.on("start", () => setIsGeneratingItinerary(true));
+      sseClient.on("end", () => setIsGeneratingItinerary(false));
       sseClient.on("end", () => {
         if (
           UXMode.autoSpeakAssistant &&
@@ -322,36 +357,39 @@ function IteneraryPlannerPage() {
   };
 
   const handleRegenerate = () => {
+    // Clear current itinerary view and switch to messaging UI
     setAttractions([]);
-    handleSendMessage(
-      "Generate a new itinerary with the same preferences and days."
-    );
+    setUXMode((prev) => ({ ...prev, iteneraryAgentInterface: "messaging" }));
+    setInputMessage("Regenerate the itinerary with the same preferences and days.");
+    // ensure state applied before sending
+    setTimeout(() => handleSendMessage(), 0);
   };
-  
 
   const handleConfirm = async () => {
     setIsLoading(true);
-    console.log("Confirm button clicked!");
-  
-    try {
-     // Step 1: Generate itinerary (get pdf + ics)
-    const genRes = await fetch("/api/generate-itinerary", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ itinerary: attractions }), // send itinerary array
-    });
-    const genData = await genRes.json();
 
-    // Step 2: Send email
-    const res = await fetch("/api/send-itinerary", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        pdfBase64: genData.pdfBase64,
-        icsBase64: genData.icsBase64,
-      }),
-    });;
-  
+    console.log("Confirm button clicked!");
+
+    try {
+      // Step 1: Generate itinerary (get pdf + ics)
+      const genRes = await fetch("/api/generate-itinerary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ itinerary: attractions }), // send itinerary array
+      });
+      const genData = await genRes.json();
+      console.log("GenData: ", genData);
+
+      // Step 2: Send email
+      const res = await fetch("/api/send-itinerary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          pdfBase64: genData.pdfBase64,
+          icsBase64: genData.icsBase64,
+        }),
+      });
+
       const data = await res.json();
       if (data.success) {
         alert("Itinerary sent successfully!");
@@ -364,6 +402,7 @@ function IteneraryPlannerPage() {
     }
   };
   
+
   // The rest of the component will only render if the session is ready
   if (UXMode.iteneraryAgentInterface !== "messaging" && attractions.length == 0)
     return (
@@ -395,19 +434,9 @@ function IteneraryPlannerPage() {
             }}
           />
         </Box>
-        <Dialog
-          open={previewOpen}
-          onClose={() => setPreviewOpen(false)}
-          fullWidth
-          maxWidth="md"
-        >
-          <DialogTitle
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-            }}
-          >
+
+        <Dialog open={previewOpen} onClose={() => setPreviewOpen(false)} fullWidth maxWidth="md">
+          <DialogTitle sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             🗺️ Your Generated Itinerary
             <IconButton onClick={() => setPreviewOpen(false)}>
               <CloseIcon />
@@ -418,29 +447,15 @@ function IteneraryPlannerPage() {
               Here's a preview of your personalized Mauritius adventure plan:
             </Typography>
             {previewItinerary.map((item, index) => (
-              <Box
-                key={index}
-                sx={{
-                  mb: 2,
-                  p: 2,
-                  border: "1px solid #e0e0e0",
-                  borderRadius: 2,
-                }}
-              >
+              <Box key={index} sx={{ mb: 2, p: 2, border: "1px solid #e0e0e0", borderRadius: 2 }}>
                 <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
-                  {item.hour ? `${item.hour} — ` : ""}
-                  {item.attraction_name}
+                  {item.hour ? `${item.hour} — ` : ""}{item.attraction_name}
                 </Typography>
                 <Typography variant="caption" color="text.secondary">
                   {item.date} • {item.day}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ mt: 1 }}
-                >
-                  📍 {item.location}
-                  {item.region ? `, ${item.region}` : ""}
+                <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                  📍 {item.location}{item.region ? `, ${item.region}` : ""}
                 </Typography>
                 {item.rating && (
                   <Typography variant="body2" color="text.secondary">
@@ -453,13 +468,7 @@ function IteneraryPlannerPage() {
                   </Typography>
                 )}
                 {item.url && (
-                  <Button
-                    variant="outlined"
-                    size="small"
-                    href={item.url}
-                    target="_blank"
-                    sx={{ mt: 1 }}
-                  >
+                  <Button variant="outlined" size="small" href={item.url} target="_blank" sx={{ mt: 1 }}>
                     📍 View on Google Maps
                   </Button>
                 )}
@@ -467,160 +476,282 @@ function IteneraryPlannerPage() {
             ))}
           </DialogContent>
           <DialogActions>
-            <Button
-              color="error"
-              variant="outlined"
-              onClick={() => setPreviewOpen(false)}
-            >
-              Cancel
-            </Button>
-            <Button
-              color="success"
-              variant="outlined"
-              onClick={() => {
-                setPreviewOpen(false);
-                setPreviewItinerary([]);
-              }}
-            >
+            <Button color="success" variant="outlined" onClick={() => {
+              setPreviewOpen(false);
+              setPreviewItinerary([]);
+            }}>
               Regenerate
             </Button>
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={() => setPreviewOpen(false)}
-            >
-              Close
+            <Button color="primary" variant="contained" onClick={handleConfirm}>
+              Confirm
             </Button>
           </DialogActions>
         </Dialog>
-        <ItineraryFormModal
-          open={itineraryFormModalVisible}
-          handleSubmit={onItineraryFormModalSubmit}
-          handleClose={() => {
-            setItineraryFormModalVisible(false);
-          }}
-          hideItineraryDurationOption={true}
-        />
       </>
     );
   else if (UXMode.iteneraryAgentInterface === "messaging")
     return (
-      <>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: "18%",
-            marginRight: "17%",
-            marginTop: "1%",
-            width: "auto",
-            height: "83vh",
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          marginLeft: "18%",
+          marginRight: "17%",
+          marginTop: "1%",
+          width: "auto",
+          height: "83vh",
+        }}
+      >
+        <ChatContainer chatMessages={chatMessages} />
+        <div style={{ display: "flex", gap: "8px" }}>
+          <TextField
+            id="chat-input"
+            placeholder="Enter your message here"
+            variant="outlined"
+            sx={{
+              width: "auto",
+              flexGrow: 1,
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: "#1f1f1f",
+                color: "#f0f0f0",
+              },
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#666666",
+              },
+              "&:hover .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#888888",
+              },
+              "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "#1976d2",
+              },
+              "& .MuiInputBase-input::placeholder": {
+                color: "#c8c8c8",
+                opacity: 1,
+              },
+            }}
+            multiline
+            maxRows={3}
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            disabled={isLoading}
+            onKeyPress={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleSendMessage();
+              }
+            }}
+          ></TextField>
+          <IconButton
+            sx={{
+              backgroundColor: isListening ? "#d32f2f" : "primary.main",
+              color: "white",
+              padding: "12px",
+              borderRadius: "25%",
+              "&:hover": {
+                backgroundColor: isListening ? "#b71c1c" : "primary.dark",
+              },
+            }}
+            onClick={isListening ? stopListening : startListening}
+            disabled={!sttSupported || isLoading}
+            aria-label={isListening ? "Stop voice input" : "Start voice input"}
+            title={
+              !sttSupported
+                ? "Speech-to-Text not supported in this browser"
+                : isListening
+                ? "Stop voice input"
+                : "Start voice input"
+            }
+          >
+            {isListening ? (
+              <MicOffIcon fontSize="large" />
+            ) : (
+              <MicIcon fontSize="large" />
+            )}
+          </IconButton>
+          <IconButton
+            sx={{
+              backgroundColor: "primary.main",
+              color: "white",
+              padding: "12px",
+              borderRadius: "25%",
+              "&:hover": {
+                backgroundColor: "primary.dark",
+              },
+            }}
+            onClick={() => handleSendMessage()}
+            disabled={isLoading}
+          >
+            {isLoading ? (
+              <CircularProgress size={24} color="inherit" />
+            ) : (
+              <KeyboardReturn fontSize="large" />
+            )}
+          </IconButton>
+        </div>
+
+        {/* Details dialog when agent requests more info */}
+        <Dialog 
+          open={showDetailsDialog} 
+          onClose={() => setShowDetailsDialog(false)} 
+          fullWidth 
+          maxWidth="sm"
+          PaperProps={{
+            sx: {
+              borderRadius: 3,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.12)',
+            }
           }}
         >
-          <ChatContainer chatMessages={chatMessages} />
-          <div style={{ display: "flex", gap: "8px" }}>
-            <TextField
-              id="chat-input"
-              placeholder="Enter your message here"
+          <DialogTitle sx={{ 
+            textAlign: 'center', 
+            pb: 1,
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            color: 'white',
+            borderRadius: '12px 12px 0 0',
+            fontWeight: 'bold',
+            fontSize: '1.25rem'
+          }}>
+            🗺️ Plan Your Itinerary
+            <Typography variant="body2" sx={{ mt: 1, opacity: 0.9 }}>
+              Help us create your perfect Mauritius adventure
+            </Typography>
+          </DialogTitle>
+          <DialogContent sx={{ pt: 3, pb: 2 }}>
+            <Box sx={{ display: 'grid', gap: 3 }}>
+              {/* Trip Duration */}
+              <Box>
+                <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1, color: 'text.primary' }}>
+                  📅 Trip Duration
+                </Typography>
+                <TextField
+                  type="number"
+                  label="Number of days"
+                  value={detailsDraft.itineraryDuration}
+                  onChange={(e) => setDetailsDraft((d) => ({ ...d, itineraryDuration: Number(e.target.value) }))}
+                  inputProps={{ min: 1, max: 30 }}
+                  fullWidth
+                  variant="outlined"
+                  sx={{ mb: 2 }}
+                />
+                <TextField
+                  type="number"
+                  label="Number of people"
+                  value={detailsDraft.numberOfPeople}
+                  onChange={(e) => setDetailsDraft((d) => ({ ...d, numberOfPeople: Number(e.target.value) }))}
+                  inputProps={{ min: 1, max: 50 }}
+                  fullWidth
+                  variant="outlined"
+                />
+              </Box>
+
+              {/* Transport Options */}
+              <Box>
+                <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1, color: 'text.primary' }}>
+                  🚗 Transportation
+                </Typography>
+                <FormControl fullWidth>
+                  <RadioGroup
+                    value={detailsDraft.transport}
+                    onChange={(e) => setDetailsDraft((d) => ({ ...d, transport: e.target.value }))}
+                  >
+                    <FormControlLabel 
+                      value="Taxi" 
+                      control={<Radio />} 
+                      label="Taxi (Recommended for convenience)" 
+                      sx={{ mb: 1 }}
+                    />
+                    <FormControlLabel 
+                      value="Bus" 
+                      control={<Radio />} 
+                      label="Bus (Budget-friendly option)" 
+                      sx={{ mb: 1 }}
+                    />
+                    <FormControlLabel 
+                      value="Other" 
+                      control={<Radio />} 
+                      label="Other (Rental car, etc.)" 
+                    />
+                  </RadioGroup>
+                </FormControl>
+              </Box>
+
+              {/* Additional Options */}
+              <Box>
+                <Typography variant="subtitle2" fontWeight="bold" sx={{ mb: 1, color: 'text.primary' }}>
+                  ⚙️ Additional Services
+                </Typography>
+                <FormControlLabel
+                  control={
+                    <Checkbox 
+                      checked={detailsDraft.bookTickets} 
+                      onChange={(e) => setDetailsDraft((d) => ({ ...d, bookTickets: e.target.checked }))}
+                      sx={{ '&.Mui-checked': { color: '#667eea' } }}
+                    />
+                  }
+                  label="Book flight tickets"
+                  sx={{ mb: 1 }}
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={detailsDraft.hasDisabledPerson}
+                      onChange={(e) => setDetailsDraft((d) => ({ ...d, hasDisabledPerson: e.target.checked }))}
+                      sx={{ '&.Mui-checked': { color: '#667eea' } }}
+                    />
+                  }
+                  label="Travelling with a disabled person"
+                />
+              </Box>
+            </Box>
+          </DialogContent>
+          <DialogActions sx={{ px: 3, pb: 3, gap: 2 }}>
+            <Button 
+              onClick={() => setShowDetailsDialog(false)}
               variant="outlined"
-             sx={{
-  width: "auto",
-  flexGrow: 1,
-  "& .MuiOutlinedInput-root": {
-    backgroundColor: "#ffffff",
-    color: "#111827",
-  },
-  "& .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#cbd5e1", // slate-300
-  },
-  "&:hover .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#94a3b8", // slate-400
-  },
-  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#1976d2", // MUI primary
-  },
-  "& .MuiInputBase-input::placeholder": {
-    color: "#64748b", // slate-500
-    opacity: 1,
-  },
-}}
-              multiline
-              maxRows={3}
-              value={inputMessage}
-              onChange={(e) => setInputMessage(e.target.value)}
-              disabled={isLoading}
-              onKeyPress={(e) => {
-                if (e.key === "Enter" && !e.shiftKey) {
-                  e.preventDefault();
-                  handleSendMessage();
+              sx={{ 
+                borderRadius: 2,
+                textTransform: 'none',
+                px: 3
+              }}
+            >
+              Cancel
+            </Button>
+            <Button
+              variant="contained"
+              onClick={() => {
+                setShowDetailsDialog(false);
+                const msg = `Here are the details: itineraryDuration=${detailsDraft.itineraryDuration}; numberOfPeople=${detailsDraft.numberOfPeople}; transport=${detailsDraft.transport}; hasDisabledPerson=${detailsDraft.hasDisabledPerson}; bookTickets=${detailsDraft.bookTickets}`;
+                setIsGeneratingItinerary(true);
+                handleSendMessage(msg);
+              }}
+              sx={{ 
+                borderRadius: 2,
+                textTransform: 'none',
+                px: 3,
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                '&:hover': {
+                  background: 'linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%)',
                 }
               }}
-            ></TextField>
-            <IconButton
-              sx={{
-                backgroundColor: isListening ? "#d32f2f" : "primary.main",
-                color: "white",
-                padding: "12px",
-                borderRadius: "25%",
-                "&:hover": {
-                  backgroundColor: isListening ? "#b71c1c" : "primary.dark",
-                },
-              }}
-              onClick={isListening ? stopListening : startListening}
-              disabled={!sttSupported || isLoading}
-              aria-label={
-                isListening ? "Stop voice input" : "Start voice input"
-              }
-              title={
-                !sttSupported
-                  ? "Speech-to-Text not supported in this browser"
-                  : isListening
-                  ? "Stop voice input"
-                  : "Start voice input"
-              }
             >
-              {isListening ? (
-                <MicOffIcon fontSize="large" />
-              ) : (
-                <MicIcon fontSize="large" />
-              )}
-            </IconButton>
-            <IconButton
-              sx={{
-                backgroundColor: "primary.main",
-                color: "white",
-                padding: "12px",
-                borderRadius: "25%",
-                "&:hover": {
-                  backgroundColor: "primary.dark",
-                },
-              }}
-              onClick={() => handleSendMessage()}
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <CircularProgress size={24} color="inherit" />
-              ) : (
-                <KeyboardReturn fontSize="large" />
-              )}
-            </IconButton>
-          </div>
-        </Box>
-        <ItineraryFormModal
-          open={itineraryFormModalVisible}
-          handleSubmit={onItineraryFormModalSubmit}
-          handleClose={() => {
-            setItineraryFormModalVisible(false);
-          }}
-          itineraryDetails={itineraryRequestDetails}
-        />
-      </>
+              Generate Itinerary
+            </Button>
+          </DialogActions>
+        </Dialog>
+        <Backdrop open={isGeneratingItinerary} sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+            <CircularProgress color="inherit" />
+            <Typography variant="body1">Generating itinerary...</Typography>
+          </Box>
+        </Backdrop>
+      </Box>
     );
   else if (
     UXMode.iteneraryAgentInterface !== "messaging" &&
     attractions.length > 0
   ) {
     return (
+
       <>
         <AttractionsList attractions={attractions}>
           <Button
@@ -658,6 +789,7 @@ function IteneraryPlannerPage() {
           }}
         />
       </>
+     
     );
   }
   // Default (selection) UI with chip list and generator panel + overlay preview
@@ -683,52 +815,31 @@ function IteneraryPlannerPage() {
         <Divider sx={{ my: 4 }} />
       </Box>
       <Box sx={{ display: previewOpen ? "none" : "block" }}>
-        <ChipList
-          onPreviewOpen={({ itinerary }) => {
-            setPreviewItinerary(Array.isArray(itinerary) ? itinerary : []);
-            setPreviewOpen(true);
-          }}
-        />
+        <ChipList onPreviewOpen={({ itinerary }) => {
+          setPreviewItinerary(Array.isArray(itinerary) ? itinerary : []);
+          setPreviewOpen(true);
+        }} />
       </Box>
       {/* Generation controls are inside ChipList; no separate panel here */}
 
-      <Dialog
-        open={previewOpen}
-        onClose={() => setPreviewOpen(false)}
-        fullWidth
-        maxWidth="md"
-      >
-        <DialogTitle
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
+      <Dialog open={previewOpen} onClose={() => setPreviewOpen(false)} fullWidth maxWidth="md">
+        <DialogTitle>
           🗺️ Your Generated Itinerary
-          <IconButton onClick={() => setPreviewOpen(false)}>
-            <CloseIcon />
-          </IconButton>
         </DialogTitle>
         <DialogContent dividers>
           <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
             Here's a preview of your personalized Mauritius adventure plan:
           </Typography>
           {previewItinerary.map((item, index) => (
-            <Box
-              key={index}
-              sx={{ mb: 2, p: 2, border: "1px solid #e0e0e0", borderRadius: 2 }}
-            >
+            <Box key={`${item.attraction_name}-${item.date}-${item.hour}-${index}`} sx={{ mb: 2, p: 2, border: "1px solid #e0e0e0", borderRadius: 2 }}>
               <Typography variant="subtitle2" sx={{ fontWeight: "bold" }}>
-                {item.hour ? `${item.hour} — ` : ""}
-                {item.attraction_name}
+                {item.hour ? `${item.hour} — ` : ""}{item.attraction_name}
               </Typography>
               <Typography variant="caption" color="text.secondary">
                 {item.date} • {item.day}
               </Typography>
               <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                📍 {item.location}
-                {item.region ? `, ${item.region}` : ""}
+                📍 {item.location}{item.region ? `, ${item.region}` : ""}
               </Typography>
               {item.rating && (
                 <Typography variant="body2" color="text.secondary">
@@ -741,13 +852,7 @@ function IteneraryPlannerPage() {
                 </Typography>
               )}
               {item.url && (
-                <Button
-                  variant="outlined"
-                  size="small"
-                  href={item.url}
-                  target="_blank"
-                  sx={{ mt: 1 }}
-                >
+                <Button variant="outlined" size="small" href={item.url} target="_blank" sx={{ mt: 1 }}>
                   📍 View on Google Maps
                 </Button>
               )}
@@ -755,29 +860,17 @@ function IteneraryPlannerPage() {
           ))}
         </DialogContent>
         <DialogActions>
-          <Button
-            color="error"
-            variant="outlined"
-            onClick={() => setPreviewOpen(false)}
-          >
-            Cancel
-          </Button>
-          <Button
-            color="success"
-            variant="outlined"
-            onClick={() => {
-              setPreviewOpen(false);
-              setPreviewItinerary([]);
-            }}
-          >
+          <Button color="success" variant="outlined" onClick={() => {
+            setPreviewOpen(false);
+            setPreviewItinerary([]);
+            setUXMode((prev) => ({ ...prev, iteneraryAgentInterface: "messaging" }));
+            setInputMessage("Regenerate the itinerary with the same preferences and days.");
+            setTimeout(() => handleSendMessage(), 0);
+          }}>
             Regenerate
           </Button>
-          <Button
-            color="primary"
-            variant="contained"
-            onClick={() => setPreviewOpen(false)}
-          >
-            Close
+          <Button color="primary" variant="contained" onClick={handleConfirm}>
+            Confirm
           </Button>
         </DialogActions>
       </Dialog>

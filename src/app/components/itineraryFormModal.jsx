@@ -149,33 +149,53 @@ export default function ItineraryFormModal({
           />
         )}
 
-        {/* Book flight tickets (checkbox) */}
-        <FormControlLabel
-          control={
-            <Checkbox
-              checked={formData.bookTickets}
-              onChange={handleChange}
-              name="bookTickets"
-            />
-          }
-          label="Book flight tickets"
-        />
+      <FormControlLabel
+  control={
+    <Checkbox
+      checked={formData.bookTickets}
+      onChange={handleChange}
+      name="bookTickets"
+    />
+  }
+  label="Book flight tickets"
+  sx={{ color: "text.primary" }} // forces label to use theme text color
+/>
 
-        {/* Transport (radio buttons) */}
-        <FormControl component="fieldset">
-          <FormLabel component="legend">Transport</FormLabel>
-          <RadioGroup
-            row
-            aria-label="transport"
-            name="transport"
-            value={formData.transport}
-            onChange={handleChange}
-          >
-            <FormControlLabel value="Taxi" control={<Radio />} label="Taxi" />
-            <FormControlLabel value="Bus" control={<Radio />} label="Bus" />
-            <FormControlLabel value="Other" control={<Radio />} label="Other" />
-          </RadioGroup>
-        </FormControl>
+       <FormControl component="fieldset">
+  <FormLabel
+    component="legend"
+    sx={{ color: "text.primary", backgroundColor: "transparent" }}
+  >
+    Transport
+  </FormLabel>
+  <RadioGroup
+    row
+    aria-label="transport"
+    name="transport"
+    value={formData.transport}
+    onChange={handleChange}
+  >
+    <FormControlLabel
+      value="Taxi"
+      control={<Radio />}
+      label="Taxi"
+      sx={{ color: "text.primary", backgroundColor: "transparent" }}
+    />
+    <FormControlLabel
+      value="Bus"
+      control={<Radio />}
+      label="Bus"
+      sx={{ color: "text.primary", backgroundColor: "transparent" }}
+    />
+    <FormControlLabel
+      value="Other"
+      control={<Radio />}
+      label="Other"
+      sx={{ color: "text.primary", backgroundColor: "transparent" }}
+    />
+  </RadioGroup>
+</FormControl>
+
 
         {/* Buttons for form actions */}
         <Stack direction="row" spacing={2} justifyContent="flex-end">
