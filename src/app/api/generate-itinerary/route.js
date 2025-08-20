@@ -261,13 +261,15 @@ export async function POST(req) {
             icsBase64: Buffer.from(icsContent).toString("base64"),
         });
 
-      } catch (error) {
+      }
+    } catch (error) {
     console.error("Itinerary generation/email error:", error);
     return NextResponse.json(
       { error: "Failed to generate or send itinerary", details: String(error?.message || error) },
       { status: 500 }
     );
   }
-}
+ }
+
 
 
