@@ -276,7 +276,8 @@ const finalizeAndEmailNode = async (state, config) => {
 
 const vehicleAssignmentNode  = async (state, config) => {
   const numPeople = state.evaluatorConditions.numberOfPeople || 0;
-  const hasDisabledPerson = state.evaluatorConditions.hasDisabledPerson || false;
+  const hasDisabled = state.evaluatorConditions.hasDisabledPerson || false;
+  console.log("vehicleAssignmentNode", numPeople, hasDisabled);
 
   let vehicle;
   if (numPeople <=5) {
@@ -287,7 +288,7 @@ const vehicleAssignmentNode  = async (state, config) => {
     vehicle = "Mini Van (suitable for larger groups). Price: 90$";
   }
 
-  let extras = hasDisabled ? "We also provide a awheelchair free of charge for disabled travelers." : "";
+  let extras = hasDisabled ? "We also provide a wheelchair free of charge for disabled travelers." : "";
 
   const message = `Recommended Vehicle: ${vehicle}. ${extras}`;
 
@@ -296,8 +297,7 @@ const vehicleAssignmentNode  = async (state, config) => {
   }
 
   return { 
-    outputResponse: message,
-    vehiclesDetails: { type: vehicle, note}
+    vehiclesDetails: { type: vehicle, note: extras }
   };
 };
 
@@ -307,20 +307,19 @@ const orchestratorAgent = new StateGraph(AgentState)
   .addNode("evaluatorNode", evaluatorNode)
   .addNode("generateItineraryNode", generateItineraryNode)
   .addNode("finalizeAndEmailNode", finalizeAndEmailNode)
-  .addNode("vehicleAssignmentNode ", vehicleAssignmentNode )
+  .addNode("vehicleAssignmentNode", vehicleAssignmentNode )
   .addEdge("__start__", "summarizerNode")
   .addEdge("summarizerNode", "evaluatorNode")
+  .addEdge("vehicleAssignmentNode", "generateItineraryNode")
   .addConditionalEdges("evaluatorNode", (state, config) => {
-    if (state.evaluatorConditions.numberOfPeople > 0) {
-      return "vehicleAssignmentNode "
-    }
+    
     if (state.evaluatorConditions.finalizeItinerary) {
       return "finalizeAndEmailNode";
     }
     if (state.evaluatorConditions.generateItinerary) {
       if (state.evaluatorConditions.itineraryDuration >= 1) {
         console.log("Conditions met for generateItineraryNode");
-        return "generateItineraryNode"; // Routes to generateItineraryNode
+        return "vehicleAssignmentNode"; // Routes to generateItineraryNode
       } else {
         console.log("Insufficient details. Sending request for more details");
         if (config.writer) {

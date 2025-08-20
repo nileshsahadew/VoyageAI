@@ -142,7 +142,7 @@ const itineraryGeneratorNode = async (state) => {
         description: "Recommended vehicle and extras based on group size and accessibility.",
         properties: {
           type: { type: "string", description:"The recommended vehicle type (e.g., Sedan, 7-seater, Minivan)" },
-          note: { type: "string", descripyion: "Any extra notes, like wheelchair availability" }
+          note: { type: "string", description: "Any extra notes, like wheelchair availability" }
         },
         required: ["type", "note"]
       }
