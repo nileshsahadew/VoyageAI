@@ -51,6 +51,18 @@ const evaluatorNode = async (state) => {
         type: "string",
         description: "The user's preferences for the itinerary, if any.",
       },
+      bookTickets: {
+        type: "boolean",
+        description: "Will the user book flight tickets to Mauritius?",
+      },
+      numberOfPeople: {
+        type: "number",
+        description: "The number of people this itinerary will cater to.",
+      },
+      transport: {
+        type: "string",
+        description: "The transport of choice for the itinerary.",
+      },
       finalizeItinerary: {
         type: "boolean",
         description:
@@ -61,6 +73,9 @@ const evaluatorNode = async (state) => {
       "itineraryDuration",
       "generateItinerary",
       "itineraryPreferences",
+      "bookTickets",
+      "numberOfPeople",
+      "transport",
       "finalizeItinerary",
     ],
   };
@@ -70,6 +85,9 @@ const evaluatorNode = async (state) => {
       1. Does the user want to generate an itinerary? (generateItinerary)
       2. What is the number of days the user has provided for the itinerary/trip? (itineraryDuration)
       3. If the user wants to generate an itinerary, what are their preferences? (itineraryPreferences)
+      4. Does the user want to book flight tickets to Mauritius? (bookTickets)
+      5. How many people will be on this trip? (numberOfPeople)
+      6. What will be the transport of choice for this trip? (transport)
       4. Does the user want to finalize the itinerary from the draft? (finalizeItinerary)
     `);
   const userPrompt = new HumanMessage(
@@ -139,7 +157,7 @@ const generateItineraryNode = async (state, config) => {
       console.log("Result: ", result);
       config.writer({
         event: "json-itinerary",
-        data: JSON.stringify(result.itinerary),
+        data: JSON.stringify(result),
       });
     }
 
@@ -253,13 +271,11 @@ const orchestratorAgent = new StateGraph(AgentState)
         console.log("Conditions met for generateItineraryNode");
         return "generateItineraryNode"; // Routes to generateItineraryNode
       } else {
-        console.log(
-          "Conditions not met for generateItineraryNode, asking for itinerary duration."
-        );
+        console.log("Insufficient details. Sending request for more details");
         if (config.writer) {
           config.writer({
-            event: "text",
-            data: `Please provide a valid number of days for the trip.`,
+            event: "request-itinerary",
+            data: state.evaluatorConditions,
           });
         }
         return START;

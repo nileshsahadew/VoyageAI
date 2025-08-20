@@ -80,6 +80,7 @@ const itineraryGeneratorNode = async (state) => {
     properties: {
       itinerary: {
         type: "array",
+        minItems: 1,
         description:
           "A list of attractions with their corresponding details for an itinerary.",
         items: {

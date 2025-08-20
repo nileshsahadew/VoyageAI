@@ -41,6 +41,8 @@ class SSEClient {
             this.emit(event.event, JSON.parse(JSON.parse(event.data)));
           } else if (event.event === "start" || event.event === "end") {
             this.emit(event.event, event.data);
+          } else if (event.event === "request-itinerary") {
+            this.emit(event.event, event.data);
           }
         } catch (err) {
           console.error("Failed to handle SSE event:", err);
