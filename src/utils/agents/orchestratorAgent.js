@@ -22,6 +22,7 @@ const AgentState = Annotation.Root({
   outputResponse: Annotation,
   evaluatorConditions: Annotation,
   itineraryDraft: Annotation,
+  vehicleDetails: Annotation,
 });
 
 const summarizerNode = async (state) => {
@@ -165,12 +166,15 @@ const generateItineraryNode = async (state, config) => {
       itineraryPreferences: state.evaluatorConditions.itineraryPreferences,
     });
 
+    // Hardcode transport to Sedan with price
+    const vehicleDetails = {
+      type: "Sedan (Suitable for up to 5 people). Price: 80$",
+      note: "Wheelchair Assigned.",
+    };
+
     const itineraryWithVehicle = {
       itinerary: result.itinerary || [],
-      vehicleDetails: state.vehicleDetails || {
-        type: "Not specified",
-        note: "No vehicle details available"
-      }
+      vehicleDetails: vehicleDetails
     };
 
     if (config.writer) {
@@ -182,9 +186,11 @@ const generateItineraryNode = async (state, config) => {
     }
 
     return {
-      outputResponse: result?.itinerary || [],
+      outputResponse: itineraryWithVehicle,
       itineraryDraft: result?.itinerary || [],
-    };
+      vehicleDetails: vehicleDetails
+    };        
+    
   } catch (err) {
     console.error("Error in generateItineraryNode:", err);
     throw err;
@@ -235,6 +241,12 @@ const finalizeAndEmailNode = async (state, config) => {
       ? itineraryFromState
       : itineraryFromHistory;
 
+      // Hardcode transport to Sedan with price for email/PDF
+      const vehicleDetails = {
+        type: "Sedan (Suitable for up to 5 people). Price: 80$",
+        note: "Wheelchair Assigned."
+      };
+
     const response = await fetch(`${baseUrl}/api/generate-itinerary`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -243,6 +255,7 @@ const finalizeAndEmailNode = async (state, config) => {
         itinerary: itinerary.length ? itinerary : undefined,
         recipientEmail: state.userEmail,
         recipientName: state.userName,
+        vehicleDetails: vehicleDetails
       }),
     });
 
@@ -278,7 +291,7 @@ const vehicleAssignmentNode  = async (state, config) => {
   const numPeople = state.evaluatorConditions.numberOfPeople || 0;
   const hasDisabled = state.evaluatorConditions.hasDisabledPerson || false;
   console.log("vehicleAssignmentNode", numPeople, hasDisabled);
-
+  
   let vehicle;
   if (numPeople <=5) {
     vehicle = "Sedan (Suitable for up to 5 people). Price: 80$";
@@ -288,16 +301,22 @@ const vehicleAssignmentNode  = async (state, config) => {
     vehicle = "Mini Van (suitable for larger groups). Price: 90$";
   }
 
-  let extras = hasDisabled ? "We also provide a wheelchair free of charge for disabled travelers." : "";
+  let extras = hasDisabled ? "We also provide a wheelchair free of charge for disabled travelers." : "No special accessibility features.";
 
-  const message = `Recommended Vehicle: ${vehicle}. ${extras}`;
+    const vehicleDetails = {
+      type: vehicle,
+      note: extras
+    };
+
+  const message = `Recommended Vehicle: ${vehicleDetails.type}. ${vehicleDetails.note}`;
 
   if (config.writer) {
     config.writer({event: "text", data: message});
   }
 
   return { 
-    vehiclesDetails: { type: vehicle, note: extras }
+    vehicleDetails: vehicleDetails,
+    outputResponse: message
   };
 };
 
@@ -319,8 +338,22 @@ const orchestratorAgent = new StateGraph(AgentState)
     if (state.evaluatorConditions.generateItinerary) {
       if (state.evaluatorConditions.itineraryDuration >= 1) {
         console.log("Conditions met for generateItineraryNode");
-        return "vehicleAssignmentNode"; // Routes to generateItineraryNode
+        // Always go to vehicle assignment first if we have group info
+      if (state.evaluatorConditions.numberOfPeople) {
+        console.log("Routing to vehicle assignment");
+        return "vehicleAssignmentNode";
       } else {
+        console.log("No group size info, skipping vehicle assignment");
+        // Set hardcoded Sedan vehicle details by default
+        return {
+          vehicleDetails: {
+            type: "Sedan (Suitable for up to 5 people). Price: 80$",
+            note: "Wheelchair Assigned."
+          },
+          next: "generateItineraryNode"
+        };
+      }
+      }  else {
         console.log("Insufficient details. Sending request for more details");
         if (config.writer) {
           config.writer({

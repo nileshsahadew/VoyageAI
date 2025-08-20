@@ -330,6 +330,7 @@ function IteneraryPlannerPage() {
   
 
   const handleConfirm = async () => {
+    setIsLoading(true);
     console.log("Confirm button clicked!");
   
     try {
@@ -643,8 +644,10 @@ function IteneraryPlannerPage() {
             color="primary"
             onClick={handleConfirm}
             fullWidth
+            disabled={isLoading} // prevent multiple clicks
+           startIcon={isLoading ? <CircularProgress size={20} color="inherit" /> : null}
           >
-            Confirm
+            {isLoading ? "Processing..." : "Confirm"}
           </Button>
         </AttractionsList>
         <ItineraryFormModal
