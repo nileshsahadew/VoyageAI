@@ -18,14 +18,16 @@ const AgentState = Annotation.Root({
 });
 
 const summarizerNode = async (state) => {
-  const summary = await geminiModel.invoke(`
+const systemPrompt = new SystemMessage(`
     DO NOT PROVIDE ANY ADVICE OR ASK THE USER QUESTIONS!!!
     Make a summary of the following conversation. Your summary should be in text format
     and NOT in JSON format! DO NOT reply to my message AND do NOT ask about further
-    details from me, only summarize what is given below as needed:
-    ${state.userMessages}`);
+    details from me, only summarize what is given below as needed:`)
+    const userPrompt = new HumanMessage(state.userMessages+"Do not reply to my message and do not ask about further details from me, only summarize what is given below as needed.");
+  const summary = await geminiModel.invoke([systemPrompt, userPrompt]);
   console.log("Summary: ", summary.content);
   return { inputSummary: summary.content?.text || summary.content };
+
 };
 
 const evaluatorNode = async (state) => {
