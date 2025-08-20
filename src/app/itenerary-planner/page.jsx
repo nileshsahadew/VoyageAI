@@ -23,6 +23,8 @@ import AttractionsList from "../components/attractionsList";
 function IteneraryPlannerPage() {
   const [UXMode, setUXMode] = useUIStateContext();
   const [chatMessages, setChatMessages] = useState([]);
+  const [pdfBase64, setPdfBase64] = useState(null);
+  const [icsBase64, setIcsBase64] = useState(null);
   const [inputMessage, setInputMessage] = useState("");
   const [attractions, setAttractions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -282,6 +284,7 @@ function IteneraryPlannerPage() {
     );
     handleSendMessage();
   };
+  
 
   const handleConfirm = async () => {
     console.log("Confirm button clicked!");
