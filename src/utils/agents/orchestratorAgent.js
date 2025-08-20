@@ -104,7 +104,9 @@ const generalQANode = async (state, config) => {
       If the user asks for an itinerary, you should return a message indicating that they     
       need to generate a plan first.
 
-      Ask for clarification if the question is not clear.
+      Ask for clarification if the question is not clear. Respond to user queries while trying
+      to pitch your itinerary planner services.
+      NOTE YOU SHOULD NOT GENERATE JSON!!
     `;
   const userPrompt = new HumanMessage(
     `REPLY IN 1-2 SENTENCES ONLY. If what I am saying
