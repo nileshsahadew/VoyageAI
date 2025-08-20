@@ -171,8 +171,8 @@ export default function AttractionsList({ attractions, ...props }) {
       sx={{
         minHeight: "100vh",
         bgcolor: "background.default",
-        // py: 4,
-        // px: 2,
+        py: 4,
+        px: 2,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -243,11 +243,25 @@ export default function AttractionsList({ attractions, ...props }) {
                   <Typography sx={{ flexGrow: 1, fontWeight: "medium" }}>
                     {attraction.attraction_name}
                   </Typography>
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <StarIcon
-                      sx={{ color: "#FFD700", fontSize: "1.2rem", mr: 0.5 }}
-                    />
-                    <Typography variant="body2">{attraction.rating}</Typography>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <AccessTimeIcon
+                        sx={{
+                          color: "text.secondary",
+                          fontSize: "1.2rem",
+                          mr: 0.5,
+                        }}
+                      />
+                      <Typography variant="body2">{attraction.hour}</Typography>
+                    </Box>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <StarIcon
+                        sx={{ color: "#FFD700", fontSize: "1.2rem", mr: 0.5 }}
+                      />
+                      <Typography variant="body2">
+                        {attraction.rating}
+                      </Typography>
+                    </Box>
                   </Box>
                 </Box>
               </AccordionSummary>
@@ -264,13 +278,6 @@ export default function AttractionsList({ attractions, ...props }) {
                       mb: 2,
                     }}
                   >
-                    <Chip
-                      icon={<AccessTimeIcon />}
-                      label={`Time: ${attraction.hour}`}
-                      color="info"
-                      variant="outlined"
-                      size="small"
-                    />
                     <Chip
                       icon={<PlaceIcon />}
                       label={`Location: ${attraction.location}`}

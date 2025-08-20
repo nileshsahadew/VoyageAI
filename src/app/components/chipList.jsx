@@ -1,8 +1,9 @@
 "use client";
 import { Chip, Box, Grid } from "@mui/material";
-import { useState } from "react";
+import { useMemo, useState } from "react";
+import ItineraryGeneratorPanel from "./itineraryGeneratorPanel";
 
-function ChipList() {
+function ChipList({ onPreviewOpen }) {
   const [chipData, setChipData] = useState([
     { key: 0, label: "🏖️ Beaches", color: "sand", selected: false },
     { key: 1, label: "🌊 Water Sports", color: "teal", selected: false },
@@ -27,6 +28,8 @@ function ChipList() {
       selected: false,
     },
   ]);
+  
+  // Generation state is handled by ItineraryGeneratorPanel
 
   const handleClick = (currentChip) => {
     setChipData(
@@ -38,6 +41,14 @@ function ChipList() {
     );
   };
 
+  const getSelectedPreferences = () => {
+    return chipData
+      .filter(chip => chip.selected)
+      .map(chip => chip.label.replace(/[🏖️🌊🏞️🏛️💎🎧🛍️🦜🚤🌅🛕🎭]/g, '').trim());
+  };
+
+  const selectedPreferences = useMemo(() => getSelectedPreferences(), [chipData]);
+
   return (
     <Box
       sx={{
@@ -48,7 +59,6 @@ function ChipList() {
         marginRight: "15%",
         marginTop: "0px",
         gap: "1rem",
-        //   border: "1px solid red",
       }}
     >
       {/* Row 1: 4 items */}
@@ -63,6 +73,11 @@ function ChipList() {
               sx={{
                 fontSize: "1rem",
                 padding: "0.2rem",
+                cursor: "pointer",
+                transition: "all 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             />
           </Grid>
@@ -81,6 +96,11 @@ function ChipList() {
               sx={{
                 fontSize: "1rem",
                 padding: "0.2rem",
+                cursor: "pointer",
+                transition: "all 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             />
           </Grid>
@@ -99,11 +119,23 @@ function ChipList() {
               sx={{
                 fontSize: "1rem",
                 padding: "0.2rem",
+                cursor: "pointer",
+                transition: "all 0.2s ease-in-out",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
               }}
             />
           </Grid>
         ))}
       </Grid>
+
+      {/* Generator Panel */}
+      <ItineraryGeneratorPanel
+        selectedPreferences={selectedPreferences}
+        onResetSelection={() => setChipData(chipData.map(chip => ({ ...chip, selected: false })))}
+        onPreviewOpen={onPreviewOpen}
+      />
     </Box>
   );
 }

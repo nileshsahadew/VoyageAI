@@ -38,8 +38,15 @@ class SSEClient {
             console.log("Payload", payload);
             this.emit(event.event, payload);
           } else if (event.event === "json-itinerary") {
-            this.emit(event.event, JSON.parse(JSON.parse(event.data)));
+            try {
+              this.emit(event.event, JSON.parse(JSON.parse(event.data)));
+            } catch (err) {
+              console.log(JSON.parse(event.data).itinerary);
+              this.emit(event.event, JSON.parse(event.data).itinerary);
+            }
           } else if (event.event === "start" || event.event === "end") {
+            this.emit(event.event, event.data);
+          } else if (event.event === "request-itinerary") {
             this.emit(event.event, event.data);
           }
         } catch (err) {

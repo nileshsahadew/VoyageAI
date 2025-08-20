@@ -170,13 +170,14 @@ export async function POST(req) {
     const body = await req.json();
     const userInput = body.userInput;
     const providedItinerary = Array.isArray(body.itinerary) ? body.itinerary : [];
+    const previewOnly = !!body.previewOnly;
 
-    // Prefer body-provided recipient, else fall back to authenticated session
-    const session = await getServerSession(authOptions);
-    const recipientEmail = body.recipientEmail || session?.user?.email;
-    const recipientName = body.recipientName || session?.user?.name || "";
+    // Prefer body-provided recipient, else fall back to authenticated session (when not preview-only)
+    const session = previewOnly ? null : await getServerSession(authOptions);
+    const recipientEmail = previewOnly ? undefined : (body.recipientEmail || session?.user?.email);
+    const recipientName = previewOnly ? "" : (body.recipientName || session?.user?.name || "");
 
-    if (!recipientEmail) {
+    if (!previewOnly && !recipientEmail) {
       return NextResponse.json(
         { error: "Missing required field: recipientEmail" },
         { status: 400 }
@@ -191,7 +192,10 @@ export async function POST(req) {
           { status: 400 }
         );
       }
-      const result = await itineraryGeneratorAgent.invoke({ userInput });
+      const result = await itineraryGeneratorAgent.invoke({
+        itineraryPreferences: userInput,
+        itineraryDuration: Number(body.numberOfDays) || 3,
+      });
       itinerary = Array.isArray(result.itinerary) ? result.itinerary : [];
       if (!itinerary.length) {
         return NextResponse.json(
@@ -201,31 +205,32 @@ export async function POST(req) {
       }
     }
 
-    const { renderToBuffer } = await import("@react-pdf/renderer");
-    const pdfBuffer = await renderToBuffer(
-      <ItineraryPDF itinerary={itinerary} recipientName={recipientName} />
-    );
+    if (!previewOnly) {
+      const { renderToBuffer } = await import("@react-pdf/renderer");
+      const pdfBuffer = await renderToBuffer(
+        <ItineraryPDF itinerary={itinerary} recipientName={recipientName} />
+      );
 
-    const ics = await import("ics");
-    const events = itinerary.map((item) => {
-      const startDate = parseToDate(item.date, item.hour);
-      return {
-        title: item.attraction_name,
-        description: item.description || "",
-        location: `${item.location}${item.region ? ", " + item.region : ""}`,
-        start: [
-          startDate.getFullYear(),
-          startDate.getMonth() + 1,
-          startDate.getDate(),
-          startDate.getHours(),
-          startDate.getMinutes(),
-        ],
-        duration: { hours: 1 },
-        url: item.url || undefined,
-      };
-    });
-    const { error, value: icsContent } = ics.createEvents(events);
-    if (error) throw error;
+      const ics = await import("ics");
+      const events = itinerary.map((item) => {
+        const startDate = parseToDate(item.date, item.hour);
+        return {
+          title: item.attraction_name,
+          description: item.description || "",
+          location: `${item.location}${item.region ? ", " + item.region : ""}`,
+          start: [
+            startDate.getFullYear(),
+            startDate.getMonth() + 1,
+            startDate.getDate(),
+            startDate.getHours(),
+            startDate.getMinutes(),
+          ],
+          duration: { hours: 1 },
+          url: item.url || undefined,
+        };
+      });
+      const { error, value: icsContent } = ics.createEvents(events);
+      if (error) throw error;
 
         const nodemailer = await import("nodemailer");
         const transporter = nodemailer.default.createTransport({
@@ -255,7 +260,8 @@ export async function POST(req) {
             pdfBase64: pdfBuffer.toString("base64"),
             icsBase64: Buffer.from(icsContent).toString("base64"),
         });
-  } catch (error) {
+
+      } catch (error) {
     console.error("Itinerary generation/email error:", error);
     return NextResponse.json(
       { error: "Failed to generate or send itinerary", details: String(error?.message || error) },
