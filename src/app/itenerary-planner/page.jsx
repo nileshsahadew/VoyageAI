@@ -1,3 +1,4 @@
+
 "use client";
 
 import {
@@ -23,6 +24,8 @@ import AttractionsList from "../components/attractionsList";
 function IteneraryPlannerPage() {
   const [UXMode, setUXMode] = useUIStateContext();
   const [chatMessages, setChatMessages] = useState([]);
+  const [pdfBase64, setPdfBase64] = useState(null);
+  const [icsBase64, setIcsBase64] = useState(null);
   const [inputMessage, setInputMessage] = useState("");
   const [attractions, setAttractions] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -283,11 +286,31 @@ function IteneraryPlannerPage() {
     handleSendMessage();
   };
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     console.log("Confirm button clicked!");
-    // Add logic for confirming here
+  
+    try {
+      const res = await fetch("/api/send-itinerary", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          pdfBase64,
+          icsBase64,
+        }),
+      });
+  
+      const data = await res.json();
+      if (data.success) {
+        alert("Itinerary sent successfully!");
+      } else {
+        alert("Failed to send itinerary: " + data.error);
+      }
+    } catch (err) {
+      console.error("Confirm error:", err);
+      alert("Something went wrong while sending itinerary");
+    }
   };
-
+  
   // The rest of the component will only render if the session is ready
   if (UXMode.iteneraryAgentInterface !== "messaging" && attractions.length == 0)
     return (
@@ -339,26 +362,27 @@ function IteneraryPlannerPage() {
             placeholder="Enter your message here"
             variant="outlined"
             sx={{
-              width: "auto",
-              flexGrow: 1,
-              "& .MuiOutlinedInput-root": {
-                backgroundColor: "#1f1f1f",
-                color: "#f0f0f0",
-              },
-              "& .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#666666",
-              },
-              "&:hover .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#888888",
-              },
-              "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                borderColor: "#1976d2",
-              },
-              "& .MuiInputBase-input::placeholder": {
-                color: "#c8c8c8",
-                opacity: 1,
-              },
-            }}
+  width: "auto",
+  flexGrow: 1,
+  "& .MuiOutlinedInput-root": {
+    backgroundColor: "#ffffff",
+    color: "#111827",
+  },
+  "& .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#cbd5e1", // slate-300
+  },
+  "&:hover .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#94a3b8", // slate-400
+  },
+  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#1976d2", // MUI primary
+  },
+  "& .MuiInputBase-input::placeholder": {
+    color: "#64748b", // slate-500
+    opacity: 1,
+  },
+}}
+
             multiline
             maxRows={3}
             value={inputMessage}
