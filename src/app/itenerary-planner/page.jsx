@@ -34,6 +34,8 @@ function IteneraryPlannerPage() {
   const [itineraryFormModalVisible, setItineraryFormModalVisible] =
     useState(false);
   const [chatMessages, setChatMessages] = useState([]);
+  const [pdfBase64, setPdfBase64] = useState(null);
+  const [icsBase64, setIcsBase64] = useState(null);
   const [inputMessage, setInputMessage] = useState("");
   const [itineraryRequestDetails, setItineraryRequestDetails] = useState();
   const [attractions, setAttractions] = useState([]);
@@ -325,12 +327,42 @@ function IteneraryPlannerPage() {
       "Generate a new itinerary with the same preferences and days."
     );
   };
+  
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     console.log("Confirm button clicked!");
-    // Add logic for confirming here
-  };
+  
+    try {
+     // Step 1: Generate itinerary (get pdf + ics)
+    const genRes = await fetch("/api/generate-itinerary", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ itinerary: attractions }), // send itinerary array
+    });
+    const genData = await genRes.json();
 
+    // Step 2: Send email
+    const res = await fetch("/api/send-itinerary", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        pdfBase64: genData.pdfBase64,
+        icsBase64: genData.icsBase64,
+      }),
+    });;
+  
+      const data = await res.json();
+      if (data.success) {
+        alert("Itinerary sent successfully!");
+      } else {
+        alert("Failed to send itinerary: " + data.error);
+      }
+    } catch (err) {
+      console.error("Confirm error:", err);
+      alert("Something went wrong while sending itinerary");
+    }
+  };
+  
   // The rest of the component will only render if the session is ready
   if (UXMode.iteneraryAgentInterface !== "messaging" && attractions.length == 0)
     return (

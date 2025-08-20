@@ -43,7 +43,7 @@ function NavigationBar() {
       >
         <div style={{ display: "flex", columnGap: "10px" }}>
           <Typography variant="h6" marginTop="10px">
-            Auradrive Resorts
+            AuraDrive Resort
           </Typography>
 
           {/* Home Page Navigation Button */}

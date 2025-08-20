@@ -137,8 +137,17 @@ const itineraryGeneratorNode = async (state) => {
           ],
         },
       },
+      vehicleDetails: {
+        type: "object",
+        description: "Recommended vehicle and extras based on group size and accessibility.",
+        properties: {
+          type: { type: "string", description:"The recommended vehicle type (e.g., Sedan, 7-seater, Minivan)" },
+          note: { type: "string", description: "Any extra notes, like wheelchair availability" }
+        },
+        required: ["type", "note"]
+      }
     },
-    required: ["itinerary"],
+    required: ["itinerary", "vehicleDetails"],
   };
   const promptTemplate = PromptTemplate.fromTemplate(`
     The current date is {date} and the current day is {day}.

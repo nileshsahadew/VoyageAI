@@ -69,6 +69,14 @@ const evaluatorNode = async (state) => {
         description:
           "If the user wants to finalize the itinerary from the draft.",
       },
+      numberOfPeople: {
+        type: "number",
+        description: "Number of people travelling, if specified by the user."
+      },
+      hasDisabledPerson: {
+        type: "boolean",
+        description: "whether there is a disabled person in the group"
+      }
     },
     required: [
       "itineraryDuration",
@@ -78,6 +86,8 @@ const evaluatorNode = async (state) => {
       "numberOfPeople",
       "transport",
       "finalizeItinerary",
+      "numberOfPeople",
+      "hasDisabledPerson",
     ],
   };
 
@@ -154,6 +164,15 @@ const generateItineraryNode = async (state, config) => {
       itineraryDuration: state.evaluatorConditions.itineraryDuration,
       itineraryPreferences: state.evaluatorConditions.itineraryPreferences,
     });
+
+    const itineraryWithVehicle = {
+      itinerary: result.itinerary || [],
+      vehicleDetails: state.vehicleDetails || {
+        type: "Not specified",
+        note: "No vehicle details available"
+      }
+    };
+
     if (config.writer) {
       console.log("Result: ", result);
       config.writer({
@@ -255,22 +274,52 @@ const finalizeAndEmailNode = async (state, config) => {
   }
 };
 
+const vehicleAssignmentNode  = async (state, config) => {
+  const numPeople = state.evaluatorConditions.numberOfPeople || 0;
+  const hasDisabled = state.evaluatorConditions.hasDisabledPerson || false;
+  console.log("vehicleAssignmentNode", numPeople, hasDisabled);
+
+  let vehicle;
+  if (numPeople <=5) {
+    vehicle = "Sedan (Suitable for up to 5 people). Price: 80$";
+  } else if (numPeople <=7) {
+    vehicle = "7-seater car (suitable for groups of up to 7). Price: 85$";
+  } else {
+    vehicle = "Mini Van (suitable for larger groups). Price: 90$";
+  }
+
+  let extras = hasDisabled ? "We also provide a wheelchair free of charge for disabled travelers." : "";
+
+  const message = `Recommended Vehicle: ${vehicle}. ${extras}`;
+
+  if (config.writer) {
+    config.writer({event: "text", data: message});
+  }
+
+  return { 
+    vehiclesDetails: { type: vehicle, note: extras }
+  };
+};
+
 const orchestratorAgent = new StateGraph(AgentState)
   .addNode("summarizerNode", summarizerNode)
   .addNode("generalQANode", generalQANode)
   .addNode("evaluatorNode", evaluatorNode)
   .addNode("generateItineraryNode", generateItineraryNode)
   .addNode("finalizeAndEmailNode", finalizeAndEmailNode)
+  .addNode("vehicleAssignmentNode", vehicleAssignmentNode )
   .addEdge("__start__", "summarizerNode")
   .addEdge("summarizerNode", "evaluatorNode")
+  .addEdge("vehicleAssignmentNode", "generateItineraryNode")
   .addConditionalEdges("evaluatorNode", (state, config) => {
+    
     if (state.evaluatorConditions.finalizeItinerary) {
       return "finalizeAndEmailNode";
     }
     if (state.evaluatorConditions.generateItinerary) {
       if (state.evaluatorConditions.itineraryDuration >= 1) {
         console.log("Conditions met for generateItineraryNode");
-        return "generateItineraryNode"; // Routes to generateItineraryNode
+        return "vehicleAssignmentNode"; // Routes to generateItineraryNode
       } else {
         console.log("Insufficient details. Sending request for more details");
         if (config.writer) {
