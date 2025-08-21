@@ -107,6 +107,15 @@ h2#itinerary-modal-title {
   color: #000;
 }
 
+h6.MuiTypography-root.MuiTypography-subtitle1.MuiTypography-gutterBottom.css-1jzokww-MuiTypography-root {
+  color: #000;
+}
+
+h4.MuiTypography-root.MuiTypography-h4.MuiTypography-gutterBottom.css-17lbc5v {
+  color: #000;
+}
+
+
 /* MUI number input styling */
 .MuiInputBase-input[type="number"]::-webkit-outer-spin-button,
 .MuiInputBase-input[type="number"]::-webkit-inner-spin-button {

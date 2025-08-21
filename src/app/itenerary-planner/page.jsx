@@ -414,6 +414,9 @@ function IteneraryPlannerPage() {
       });
       const genData = await genRes.json();
       console.log("GenData: ", genData);
+      if (!genRes.ok || !genData?.pdfBase64 || !genData?.icsBase64) {
+        throw new Error(genData?.error || "Failed to generate itinerary artifacts");
+      }
 
       // Step 2: Send email
       const res = await fetch("/api/send-itinerary", {
@@ -435,6 +438,7 @@ function IteneraryPlannerPage() {
       console.error("Confirm error:", err);
       alert("Something went wrong while sending itinerary");
     }
+    setIsLoading(false);
   };
 
   // The rest of the component will only render if the session is ready

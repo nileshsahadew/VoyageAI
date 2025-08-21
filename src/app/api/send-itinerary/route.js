@@ -11,12 +11,12 @@ export async function POST(req) {
     const recipientEmail = bodyEmail || session?.user?.email;
     const recipientName = bodyName || session?.user?.name || "there";
 
-    // if (!recipientEmail || !pdfBase64 || !icsBase64) {
-    //   return NextResponse.json(
-    //     { error: "Missing required fields (need recipientEmail, pdfBase64, icsBase64)" },
-    //     { status: 400 }
-    //   );
-    // }
+    if (!recipientEmail || !pdfBase64 || !icsBase64) {
+      return NextResponse.json(
+        { error: "Missing required fields (need recipientEmail, pdfBase64, icsBase64)" },
+        { status: 400 }
+      );
+    }
 
     const nodemailer = await import("nodemailer");
     const transporter = nodemailer.default.createTransport({

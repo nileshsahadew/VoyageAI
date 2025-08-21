@@ -7,8 +7,7 @@ import {
   StyleSheet,
   Link,
 } from "@react-pdf/renderer";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+// Email sending is handled by a separate API now; no session needed here
 import itineraryGeneratorAgent from "@/utils/agents/itineraryGeneratorAgent";
 import { renderToBuffer } from "@react-pdf/renderer";
 
@@ -240,6 +239,7 @@ export async function POST(req) {
       ? body.itinerary
       : [];
     const previewOnly = !!body.previewOnly;
+    const recipientName = body.recipientName || "";
     // Hardcode transport to Sedan with price; still allow explicit body override
     const vehicleDetails = body.vehicleDetails || {
       type: "Sedan (Suitable for up to 5 people). Price: 80$",
@@ -248,21 +248,7 @@ export async function POST(req) {
 
     console.log("Vehicle details from request:", vehicleDetails);
 
-    // Prefer body-provided recipient, else fall back to authenticated session (when not preview-only)
-    const session = previewOnly ? null : await getServerSession(authOptions);
-    const recipientEmail = previewOnly
-      ? undefined
-      : body.recipientEmail || session?.user?.email;
-    const recipientName = previewOnly
-      ? ""
-      : body.recipientName || session?.user?.name || "";
-
-    if (!previewOnly && !recipientEmail) {
-      return NextResponse.json(
-        { error: "Missing required field: recipientEmail" },
-        { status: 400 }
-      );
-    }
+    // This route only generates artifacts; it does not send emails anymore.
 
     let itinerary = providedItinerary;
     if (!itinerary.length) {
@@ -320,40 +306,6 @@ export async function POST(req) {
       const { error, value: icsContentValue } = ics.createEvents(events);
       if (error) throw error;
       icsContent = icsContentValue;
-
-      const nodemailer = await import("nodemailer");
-      const transporter = nodemailer.default.createTransport({
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT || 587),
-        secure: false,
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASS,
-        },
-      });
-
-      await transporter.sendMail({
-        from:
-          process.env.SMTP_FROM ||
-          `"AuraDrive Resort" <${process.env.SMTP_USER}>`,
-        to: recipientEmail,
-        subject: "Your VoyageAI Itinerary",
-        text: `Hi ${
-          recipientName || "there"
-        },\n\nPlease find attached your itinerary PDF and calendar (.ics).\n\nEnjoy your trip!\nAuraDrive Resort`,
-        attachments: [
-          {
-            filename: "itinerary.pdf",
-            content: pdfBuffer,
-            contentType: "application/pdf",
-          },
-          {
-            filename: "itinerary.ics",
-            content: icsContent,
-            contentType: "text/calendar",
-          },
-        ],
-      });
 
       return NextResponse.json({ 
         success: true, 
