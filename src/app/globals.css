@@ -44,8 +44,8 @@ a {
 /* --- MUI TextField readable colors (light & dark) --- */
 /* Light mode defaults */
 .MuiOutlinedInput-root {
-  background-color: #ffffff;
-  color: #171717;
+  background-color: #ffffff !important;
+  color: #171717 !important;
 }
 
 .MuiOutlinedInput-input,
@@ -55,12 +55,12 @@ a {
 }
 
 .MuiInputBase-input::placeholder {
-  color: #8a8a8a;
+  color: #000000 !important;
   opacity: 1;
 }
 
 .MuiInputLabel-root {
-  color: #6b6b6b;
+  color: #000000 !important;
 }
 
 .MuiInputLabel-root.Mui-focused {
@@ -79,17 +79,61 @@ a {
   border-color: #1976d2;
 }
 
+h4.MuiTypography-root.MuiTypography-h4.MuiTypography-gutterBottom.css-4dddof-MuiTypography-root {
+  color: #000;
+}
+
+h4.MuiTypography-root.MuiTypography-h4.MuiTypography-gutterBottom.css-lw0qmt-MuiTypography-root {
+  color: #000;
+}
+
+/* Number input spinner arrows styling */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  background: transparent !important;
+  color: #000000 !important;
+  opacity: 1;
+  border: none;
+  outline: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button:hover,
+input[type="number"]::-webkit-inner-spin-button:hover {
+  background: transparent !important;
+  color: #000000 !important;
+}
+
+h2#itinerary-modal-title {
+  color: #000;
+}
+
+/* MUI number input styling */
+.MuiInputBase-input[type="number"]::-webkit-outer-spin-button,
+.MuiInputBase-input[type="number"]::-webkit-inner-spin-button {
+  background: transparent !important;
+  color: #000000 !important;
+  opacity: 1;
+  border: none;
+  outline: none;
+}
+
+.MuiInputBase-input[type="number"]::-webkit-outer-spin-button:hover,
+.MuiInputBase-input[type="number"]::-webkit-inner-spin-button:hover {
+  background: transparent !important;
+  color: #000000 !important;
+}
+
 /* Dark mode overrides */
 @media (prefers-color-scheme: dark) {
   .MuiOutlinedInput-root {
-    background-color: #1f1f1f; /* higher contrast vs page background */
-    color: #f0f0f0;
+    background-color: #ffffff; /* higher contrast vs page background */
+    color: #000;
   }
 
   .MuiOutlinedInput-input,
   .MuiInputBase-input {
-    color: #f0f0f0;
-    caret-color: #f0f0f0;
+    color: #000000;
+    caret-color: #000000;
   }
 
   .MuiInputBase-input::placeholder {

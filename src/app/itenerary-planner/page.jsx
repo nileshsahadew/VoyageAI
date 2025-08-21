@@ -450,7 +450,7 @@ function IteneraryPlannerPage() {
             textAlign: "center",
           }}
         >
-          <Typography variant="h4" fontWeight="bold" gutterBottom>
+          <Typography variant="h4" fontWeight="bold" gutterBottom sx={{ color: "#0000" }}>
             Plan Your Perfect Itinerary
           </Typography>
           <Typography variant="body1" color="text.secondary" gutterBottom>
